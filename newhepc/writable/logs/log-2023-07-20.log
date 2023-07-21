@@ -1,0 +1,168 @@
+CRITICAL - 2023-07-20 02:06:21 --> Class "App\Model\videoModel" not found
+in APPPATH\Services\videoService.php on line 10.
+ 1 APPPATH\Controllers\HomeController.php(18): App\Services\videoService->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\HomeController->__construct()
+ 3 SYSTEMPATH\CodeIgniter.php(488): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-20 02:07:16 --> Class "App\Model\videoModel" not found
+in APPPATH\Services\videoService.php on line 10.
+ 1 APPPATH\Controllers\HomeController.php(18): App\Services\videoService->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\HomeController->__construct()
+ 3 SYSTEMPATH\CodeIgniter.php(488): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-20 02:07:54 --> Class "App\Model\videoModel" not found
+in APPPATH\Services\videoService.php on line 10.
+ 1 APPPATH\Controllers\HomeController.php(18): App\Services\videoService->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\HomeController->__construct()
+ 3 SYSTEMPATH\CodeIgniter.php(488): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-20 02:08:32 --> Class "App\Model\videoModel" not found
+in APPPATH\Services\videoService.php on line 10.
+ 1 APPPATH\Controllers\HomeController.php(18): App\Services\videoService->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\HomeController->__construct()
+ 3 SYSTEMPATH\CodeIgniter.php(488): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-20 02:09:43 --> Class "App\Model\videoModel" not found
+in APPPATH\Services\videoService.php on line 10.
+ 1 APPPATH\Controllers\HomeController.php(18): App\Services\videoService->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\HomeController->__construct()
+ 3 SYSTEMPATH\CodeIgniter.php(488): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-20 02:09:45 --> Class "App\Model\videoModel" not found
+in APPPATH\Services\videoService.php on line 10.
+ 1 APPPATH\Controllers\HomeController.php(18): App\Services\videoService->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\HomeController->__construct()
+ 3 SYSTEMPATH\CodeIgniter.php(488): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-20 04:04:55 --> Undefined variable $Banners
+in APPPATH\Views\pages\home.php on line 1.
+ 1 APPPATH\Views\pages\home.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $Banners', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\pages\\home.php', 1)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\pages\\home.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('pages/home', [], true)
+ 5 APPPATH\Controllers\BaseController.php(61): view('pages/home', [...])
+ 6 APPPATH\Controllers\NewPaperController.php(23): App\Controllers\BaseController->loadLayout([...], 'HEPC', 'pages/home', [...], [], [])
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\NewPaperController->showIntroduce('1')
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\NewPaperController))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-20 04:05:54 --> Undefined variable $introduces
+in APPPATH\Views\pages\introducePage.php on line 20.
+ 1 APPPATH\Views\pages\introducePage.php(20): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $introduces', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\pages\\introducePage.php', 20)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\pages\\introducePage.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('pages/introducePage', [], true)
+ 5 APPPATH\Controllers\BaseController.php(61): view('pages/introducePage', [...])
+ 6 APPPATH\Controllers\NewPaperController.php(23): App\Controllers\BaseController->loadLayout([...], 'HEPC', 'pages/introducePage', [...], [], [])
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\NewPaperController->showIntroduce('1')
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\NewPaperController))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-20 04:06:18 --> Undefined variable $introduces
+in APPPATH\Views\pages\introducePage.php on line 20.
+ 1 APPPATH\Views\pages\introducePage.php(20): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $introduces', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\pages\\introducePage.php', 20)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\pages\\introducePage.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('pages/introducePage', [], true)
+ 5 APPPATH\Controllers\BaseController.php(61): view('pages/introducePage', [...])
+ 6 APPPATH\Controllers\NewPaperController.php(23): App\Controllers\BaseController->loadLayout([...], 'HEPC', 'pages/introducePage', [...], [], [])
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\NewPaperController->showIntroduce('1')
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\NewPaperController))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-20 04:15:41 --> mysqli_sql_exception: Unknown column 'status!' in 'where clause' in C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\newhepc\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\newhepc\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\newhepc\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\newhepc\app\Services\baivietService.php(46): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\newhepc\app\Controllers\NewPaperController.php(23): App\Services\baivietService->getAllIntroduce()
+#8 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(932): App\Controllers\NewPaperController->showIntroduce('So-do-to-chuc')
+#9 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\NewPaperController))
+#10 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\newhepc\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-07-20 04:15:41 --> Unknown column 'status!' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `baiviet`
+WHERE `id_cmpb` = \'44\'
+AND `status!` = \'0\'
+AND `censor!` = \'0\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `baiviet`
+WHERE `id_cmpb` = \'44\'
+AND `status!` = \'0\'
+AND `censor!` = \'0\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `baiviet`
+WHERE `id_cmpb` = \'44\'
+AND `status!` = \'0\'
+AND `censor!` = \'0\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `baiviet`
+WHERE `id_cmpb` = :id_cmpb:
+AND `status!` = :status!:
+AND `censor!` = :censor!:', [...], false)
+ 5 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Services\baivietService.php(46): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\NewPaperController.php(23): App\Services\baivietService->getAllIntroduce()
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\NewPaperController->showIntroduce('So-do-to-chuc')
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\NewPaperController))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-20 08:31:36 --> Undefined array key "id_nc"
+in APPPATH\Views\pages\newsPage.php on line 9.
+ 1 APPPATH\Views\pages\newsPage.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_nc"', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\pages\\newsPage.php', 9)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\pages\\newsPage.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('pages/newsPage', [], true)
+ 5 APPPATH\Controllers\NewPaperController.php(20): view('pages/newsPage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\NewPaperController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\NewPaperController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-20 08:32:04 --> Undefined array key "id_bv"
+in APPPATH\Views\pages\newsPage.php on line 9.
+ 1 APPPATH\Views\pages\newsPage.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_bv"', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\pages\\newsPage.php', 9)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\pages\\newsPage.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('pages/newsPage', [], true)
+ 5 APPPATH\Controllers\NewPaperController.php(20): view('pages/newsPage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\NewPaperController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\NewPaperController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-20 08:32:09 --> Undefined array key "id_BV"
+in APPPATH\Views\pages\newsPage.php on line 9.
+ 1 APPPATH\Views\pages\newsPage.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_BV"', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\pages\\newsPage.php', 9)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\pages\\newsPage.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('pages/newsPage', [], true)
+ 5 APPPATH\Controllers\NewPaperController.php(20): view('pages/newsPage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\NewPaperController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\NewPaperController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-20 08:32:15 --> Undefined variable $rightBanner
+in APPPATH\Views\subMasterPage.php on line 16.
+ 1 APPPATH\Views\subMasterPage.php(16): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $rightBanner', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\subMasterPage.php', 16)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\subMasterPage.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('subMasterPage', [], true)
+ 5 APPPATH\Controllers\BaseController.php(61): view('subMasterPage', [...])
+ 6 APPPATH\Controllers\NewPaperController.php(22): App\Controllers\BaseController->loadLayout([...], 'Tin tức', 'subMasterPage', [...], [], [])
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\NewPaperController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\NewPaperController))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

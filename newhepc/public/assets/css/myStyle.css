@@ -1,0 +1,344 @@
+/* All website*********************************************************************************** */
+* {
+    border-spacing: border-box;
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+}
+/* *
+*
+-----------Home page---------------------------------------------------------------------------------------------
+* */
+/* section header*********************************************************************************** */
+.top-header {
+    width: 100%;
+    display: inline-block;
+}
+
+.top-header-element {
+    width: fit-content;
+    padding: 5px;
+    border-end-end-radius: 5px;
+    border-end-start-radius: 5px;
+    background-color: white;
+    float: right;
+
+}
+
+.top-header a {
+    margin-left: 5px;
+    margin-right: 5px;
+    color: rgb(33, 150, 243);
+    text-decoration: none;
+    
+}
+
+.logo {
+    text-align: center;
+}
+
+.logo img {
+    margin-left: 20px;
+    width: 120px;
+    max-width: 120px;
+    height: auto;
+}
+
+.name-text {
+    padding-top: 10px;
+    padding-left: 25px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.name-text p {
+    color: #ffffff;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: Avo;
+}
+
+.name-text p span {
+    color: #ff6600;
+    font-weight: 700;
+    font-size: 18px;
+    font-family: Avo;
+}
+
+#header {
+    background: url("../images/bg-image.png") no-repeat;
+    background-size: cover;
+}
+/* section menu-bar************************* ************************************************/
+#menu-bar {
+    background-color: rgb(33, 150, 243);
+}
+#menu-bar nav {
+    background-color: rgb(33, 150, 243) !important;
+}
+.nav-item{
+    border-top: 3px;
+    border-bottom: 3px;
+    border-color: transparent;
+}
+.navbar-nav>li {
+    border-right: 1px solid #fff;
+    border-right-style: dashed;
+}
+.navbar-nav{
+    width: 100%;
+    justify-content: center;
+}
+
+.navbar-nav>li>ul {
+    background-color: rgb(33, 150, 243);
+    border: none;
+}
+
+.dropdown:hover .dropdown-menu{
+    display: block;
+    padding-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.dropdown-item:hover{
+    background-color: rgb(33, 150, 243) !important;
+}
+#menu-bar li a {
+    color: #fff;
+    text-transform: uppercase;
+}
+.hvr-sweep-to-right:before{
+    background-color: rgb(33, 107, 243);
+}
+@media screen and (max-width:990px) {
+    .navbar-nav>li {
+        border-right: none;
+    }
+
+    .navbar-nav>li>a {
+        color: #fff;
+    }
+    .offcanvas {
+        background-color: rgb(33, 150, 243) !important;
+    }
+    .navbar-nav{
+        position: fixed !important;
+    }
+
+}
+/* section slide-bar********************************************************************** */
+#slide-bar img {
+    height: 400px;
+}
+/* section introduce******************************************************************************** */
+.intro-content {
+    border: 1px solid #000;
+    padding: 20px;
+}
+
+#introduce>div>span {
+    text-align: center;
+}
+
+.intro-content>div>p {
+    text-align: center;
+    font-size: 30px;
+}
+
+.intro-content img {
+    width: 100%;
+    align-content: center;
+    margin-top: 5px;
+}
+
+/* section activity************************************************************** */
+#activity img{
+    margin-top: 5px;
+    width: 100%;
+    height: 80px;
+}
+@media screen and (max-width:764px) {
+    #activity img{
+        width: 100%;
+        height: 100px;
+    }
+}
+#activity, #anouncements, #admissions {
+    text-align: center;
+    margin-top: 20px;
+}
+#activity a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+.banner{
+    background-color: rgb(33, 150, 243) ;
+    color: #fff;
+    text-align: center;
+    padding-top: 1px;
+}
+/* section news************************************************************************* */
+.card img{
+    width: 100%;
+    height: 200px;
+}
+.card-body{
+    max-height: 200px;
+    overflow: hidden;
+    text-align: justify;
+}
+.card-body a{
+    text-decoration: none;
+    color: #000;
+    
+}
+.card-body a h4,.card-body a h5{
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.card-body a p{
+    font-size: 14px;
+}
+#news .card{
+    margin-bottom: 10px;
+}
+
+.more{
+    text-align: center;
+}
+.more button{
+    color: #fff;
+}
+/* section anouncements************************* ***********************************************/
+#anouncements img{
+    width: auto;
+    height: 200px;
+}
+/* section admissions*********************************************************************** */
+#admissions{
+    text-align: center;
+}
+#admissions a{
+    text-decoration: none;
+    color: #000;
+}
+#admissions span{
+    font-weight: bolder;
+    color: #ff6600;
+    font-size: 35px;
+}
+
+#admissions .card-body h4{
+    font-size: 14px;
+    font-weight: 700;
+}
+#admissions .card-body i{
+    color: rgb(33, 150, 243);
+}
+/* section videos**************************************************************************** */
+#videos iframe{
+    margin-bottom: 20px;
+}
+/* section footer**************************************************************************** */
+#footer{
+    background: #3366FF;
+    color: #fff;
+    padding: 20px;
+}
+.footer-icon{
+    width: 30px;
+    height: 30px;
+    float: right;
+    border-radius: 50px;
+    padding: 5px;
+    margin-right: 10px;
+    text-align: center;
+}
+.footer-icon i{
+    font-size: 18px;
+    color: #fff;
+}
+@media screen and (max-width:990px){
+    #footer{
+        text-align: center !important;
+    }
+}
+/* *
+*
+****************News page***************************************************************************
+* */
+#banner-page{
+    background: url("../images/banner_page.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 15px 0;
+    text-align: center;
+}
+#banner-page p, #banner-page p a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+#category-list a{
+    text-decoration: none;
+}
+#category-list .card{
+    margin: 20px 20px 0 0 ;
+}
+.news-pagination{
+    padding: 10px;
+    width: 100%;
+}
+.news-pagination .pagination{
+    justify-content: center;
+}
+.hot-news-pagination{
+    padding: 10px;
+}
+.hot-news-pagination img{
+    height: 80px;
+}
+
+/* *
+*
+****************News Detail page***************************************************************************
+* */
+.new-detail{
+    padding: 10px;
+}
+
+.introduce-area{
+    margin: 10px 0;
+}
+/* *
+*
+****************Right menu***************************************************************************
+* */
+
+.the-current-date{
+    margin: 20px 0;
+}
+
+.newest-announcement{
+    margin: 20px 0;
+}
+/* *
+*
+****************Login ***************************************************************************
+* */
+
+.login-area{
+    padding: 0 10%;
+    align-items: center;
+}
+.login-area img{
+    width: 25%;
+    margin: 0 40%;
+}
+.login-area button{
+    margin: 0 40%;
+}

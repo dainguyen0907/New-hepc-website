@@ -1,0 +1,139 @@
+<section id="header">
+    <div class="container">
+      <div class="top-header">
+        <div class="top-header-element">
+          <a href="https://doffice.evnspc.vn/"><i class="fa-solid fa-person-chalkboard"></i> Giáo viên</a>
+          <a href="#"><i class="fa-solid fa-chalkboard-user"></i> Sinh viên</a>
+          <a href="#"><i class="fa-solid fa-lock"></i> Đăng nhập</a>
+          <a href="https://mail.evnspc.vn/"><i class="fa-solid fa-envelope"></i> Email</a>
+        </div>
+      </div>
+      <div class="company-name row">
+        <div class="col-md-1 col-sm-2 col-xs-12">
+          <div class="logo">
+            <a href="#"><img src="assets/images/logoEVNSPC.png" alt="HEPC"></a>
+          </div>
+        </div>
+        <div class="col-md-11 col-sm-10 col-xs-12">
+          <div class="name-text">
+            <p>TRƯỜNG CAO ĐẲNG ĐIỆN LỰC THÀNH PHỐ HỒ CHÍ MINH<br />
+              <span>HO CHI MINH ELECTRIC POWER COLLEGE</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="menu-bar">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid" style="margin: -7px;">
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav me-auto my-2 my-lg-0" style="--bs-scroll-height: 100px;">
+                <li class="nav-item hvr-sweep-to-right">
+                  <a class="nav-link" aria-current="page" href="./">Trang chủ</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a href="./gioi-thieu/So-do-to-chuc" class="nav-link dropdown-toggle hvr-sweep-to-right" >
+                    Giới thiệu
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item hvr-sweep-to-right" href="./gioi-thieu/So-do-to-chuc">Sơ đồ tổ chức</a></li>
+                    <li><a class="dropdown-item hvr-sweep-to-right" href="./gioi-thieu/Lich-su-hinh-thanh-Truong-Cao-dang-Dien-luc-Thanh-pho-Ho-Chi-Minh">Lịch sử hình thành</a></li>
+                    <li><a class="dropdown-item hvr-sweep-to-right" href="./gioi-thieu/Thanh-tich-giang-day-va-nghien-cuu-(P1)">Thành tích</a></li>
+                    <li><a class="dropdown-item hvr-sweep-to-right" href="./gioi-thieu/Tam-nhin-va-su-mang">Tầm nhìn và sứ mạng</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle hvr-sweep-to-right" href="./thoi-khoa-bieu">Chuyên trang</a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item hvr-sweep-to-right"
+                      href="./thoi-khoa-bieu">Thời khóa biểu</a></li>
+                    <li><a class="dropdown-item hvr-sweep-to-right"
+                      href="./lich-thi">Lịch thi</a></li>
+                    <li><a class="dropdown-item hvr-sweep-to-right"
+                      href="./bieu-mau">Biểu mẫu</a></li>
+                    <li><a class="dropdown-item hvr-sweep-to-right"
+                      href="./ba-cong-khai">3 công khai</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle hvr-sweep-to-right" href="#">
+                    Khoa chuyên ngành
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item hvr-sweep-to-right"
+                        href="https://www.hepc.edu.vn/khoa/ctkhoa/mk1.htm">Khoa hệ thống điện</a></li>
+                    <li><a class="dropdown-item hvr-sweep-to-right"
+                        href="https://www.hepc.edu.vn/khoa/ctkhoa/mk2.htm">Khoa kỹ thuật cơ sở</a></li>
+                    <li><a class="dropdown-item hvr-sweep-to-right"
+                        href="https://www.hepc.edu.vn/khoa/ctkhoa/mk3.htm">Khoa điện công nghiệp</a></li>
+                    <li><a class="dropdown-item hvr-sweep-to-right"
+                        href="https://www.hepc.edu.vn/khoa/ctkhoa/mk4.htm">Khoa KH Cơ bản - Kinh tế</a></li>
+                    <li><a class="dropdown-item hvr-sweep-to-right"
+                        href="https://www.hepc.edu.vn/khoa/ctkhoa/mk5.htm">Khoa CN Điện tử - Tự động hóa</a></li>
+                    <li><a class="dropdown-item hvr-sweep-to-right"
+                        href="https://www.hepc.edu.vn/khoa/ctkhoa/mk6.htm">Khoa đào tạo nâng cao</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle hvr-sweep-to-right" href="#">
+                    Phòng - Trung tâm
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item hvr-sweep-to-right"
+                      href="https://www.hepc.edu.vn/phong/ctphong/mp1.htm">Phòng đào tạo</a></li>
+                    <li><a class="dropdown-item hvr-sweep-to-right"
+                      href="https://www.hepc.edu.vn/phong/ctphong/mp2.htm">Phòng tổ chức</a></li>
+                    <li><a class="dropdown-item hvr-sweep-to-right"
+                      href="https://www.hepc.edu.vn/phong/ctphong/mp3.htm">Phòng kế hoạch - tài chánh</a></li>
+                    <li><a class="dropdown-item hvr-sweep-to-right"
+                      href="https://www.hepc.edu.vn/phong/ctphong/mp4.htm">Phòng QLKH - QHQT</a></li>
+                    <li><a class="dropdown-item hvr-sweep-to-right"
+                      href="https://www.hepc.edu.vn/phong/ctphong/mp5.htm">Phòng quản lý HSSV</a></li>
+                    <li><a class="dropdown-item hvr-sweep-to-right"
+                      href="https://www.hepc.edu.vn/phong/ctphong/mp6.htm">Phòng quản trị</a></li>
+                    <li><a class="dropdown-item hvr-sweep-to-right"
+                      href="https://www.hepc.edu.vn/phong/ctphong/mp7.htm">Trung tâm Công nghệ Năng lượng</a></li>
+                    <li><a class="dropdown-item hvr-sweep-to-right"
+                      href="https://www.hepc.edu.vn/phong/ctphong/mp8.htm">Trung tâm Ngoại ngữ Tin học</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle hvr-sweep-to-right" href="#">
+                    Đào tạo
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item hvr-sweep-to-right" href="https://www.hepc.edu.vn/dtcq.htm">Đào tạo dài
+                        hạn</a></li>
+                    <li><a class="dropdown-item hvr-sweep-to-right" href="https://www.hepc.edu.vn/dtnangcao.htm">ĐT Ngắn
+                        hạn, nâng cao</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item hvr-sweep-to-right">
+                  <a class="nav-link" href="https://tuyensinh.hepc.edu.vn/" target="_blank">Tuyển sinh</a>
+                </li>
+                
+                <li class="nav-item hvr-sweep-to-right">
+                  <a class="nav-link" href="https://vanbang.gdnn.gov.vn/" target="_blank">Tra cứu văn bằng</a>
+                </li>
+                <li class="nav-item hvr-sweep-to-right">
+                  <a class="nav-link" href="https://www.hepc.edu.vn/lienhe.htm" target="_blank">Liên hệ</a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </nav>
+    </div>
+  </section>
