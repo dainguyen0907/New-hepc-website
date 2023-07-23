@@ -8,5 +8,5 @@ class baivietModel extends Model
 {
     protected $table="baiviet";
 
-    protected $primaryKey="ID_BV";
+    protected $primaryKey="id_bv";
 }

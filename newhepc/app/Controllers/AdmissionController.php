@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Services\baivietService;
 
-class AnouncementController extends BaseController
+class AdmissionController extends BaseController
 {
     private $baivietService;
 
@@ -14,22 +14,22 @@ class AnouncementController extends BaseController
     public function index()
     {
         $masterPage=[];
-        $title="Thông báo";
+        $title="Tuyển sinh";
         $page='subMasterPage';
-        $dataLayout['Banner']="Thông báo";
-        $dataLayout['content']=view('pages/newsPage',['News'=>$this->baivietService->getAnouncementForAnouncementPage(),'link'=>'thong-bao']);
+        $dataLayout['Banner']="Tuyển sinh";
+        $dataLayout['content']=view('pages/newsPage',['News'=>$this->baivietService->getAdmissionForAdmissionPage(),'link'=>'tuyen-sinh']);
         $dataLayout['Pager']=$this->baivietService->getPager();
         $dataLayout['rightBanner']=view('layouts/rightMenuForNew',['Newest'=>$this->baivietService->getAnouncementForRightMenu()]);
-        $AnouncementPage=$this->loadLayout($masterPage,$title,$page,$dataLayout,[],[]);
-        return view('masterPage',$AnouncementPage);
+        $AdmissionPage=$this->loadLayout($masterPage,$title,$page,$dataLayout,[],[]);
+        return view('masterPage',$AdmissionPage);
     }
 
-    public function getAnouncementDetail($link)
+    public function getAdmissionDetail($link)
     {
-        $newdetail=$this->baivietService->getAnouncementDetail($link);
+        $newdetail=$this->baivietService->getAdmissionDetail($link);
         $page='subMasterPage';
-        $dataLayout['Banner']="Thông báo";
-        $dataLayout['content']=view('pages/newDetail',['New'=>$newdetail, 'More'=>$this->baivietService->getMoreAnouncement($link),'link'=>"thong-bao"]);
+        $dataLayout['Banner']="Tuyển sinh";
+        $dataLayout['content']=view('pages/newDetail',['New'=>$newdetail, 'More'=>$this->baivietService->getMoreAdmission($link),'link'=>"tuyen-sinh"]);
         $dataLayout['Pager']=null;
         $dataLayout['rightBanner']=view('layouts/rightMenuForNew',['Newest'=>$this->baivietService->getAnouncementForRightMenu()]);
         return $this->checkPageExits($newdetail,$page,$dataLayout);

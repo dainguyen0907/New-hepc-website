@@ -43,13 +43,13 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-2 hvr-overline-from-center">
-                <a href="https://www.hepc.edu.vn/tuyensinh/thongtints.htm"><img src="assets/images/hdd.gif" alt="Tuyển sinh">
+                <a href="./tuyen-sinh"><img src="assets/images/hdd.gif" alt="Tuyển sinh">
                     <span>Tuyển sinh</span>
                 </a>
             </div>
             <div class="col-12 col-md-2 hvr-overline-from-center">
-                <a href="https://www.hepc.edu.vn/doanthanhnien.htm"><img src="assets/images/hdd.png" alt="Hoạt động đoàn">
-                    <p>Hoạt động đoàn</p>
+                <a href="./tuyen-dung"><img src="assets/images/homthu.png" alt="Tuyển dụng">
+                    <p>Tuyển dụng</p>
                 </a>
             </div>
             <div class="col-12 col-md-2 hvr-overline-from-center">
@@ -63,12 +63,12 @@
                 </a>
             </div>
             <div class="col-12 col-md-2 hvr-overline-from-center">
-                <a href="https://www.hepc.edu.vn/gopy.htm"><img src="assets/images/homthu.png" alt="Góp ý">
-                    <p>Góp ý</p>
+                <a href="./hoat-dong-doan"><img src="assets/images/hdd.png" alt="Hoạt động đoàn">
+                    <p>Hoạt động đoàn</p>
                 </a>
             </div>
             <div class="col-12 col-md-2 hvr-overline-from-center">
-                <a href="https://www.hepc.edu.vn/congdoan.htm"><img src="assets/images/cd.png" alt="Công đoàn">
+                <a href="./cong-doan"><img src="assets/images/cd.png" alt="Công đoàn">
                     <p>Công đoàn</p>
                 </a>
             </div>
@@ -110,9 +110,9 @@
             <?php foreach($Anouncements as $anounce):?>
             <div class="col-12 col-md-3" style="margin-bottom: 10px;">
                 <div class="card text-center">
-                    <img class="object-fit-cover" src="assets/img/thongbao.png" class="card-img-top" alt="">
+                    <img class="object-fit-cover" src="assets/images/thongbao.png" class="card-img-top" alt="">
                     <div class="card-body">
-                        <a href="./anounce/detail/<?= $anounce['id_tb']?>">
+                        <a href="./thong-bao/<?= $anounce['link_description']?>">
                             <h5 class="card-title"><?= $anounce['heading']?></h5>
                         </a>
                         <span style='font-size: 12px;'>(<?= $anounce['d_poss']?>)</span>
@@ -124,7 +124,7 @@
         </div>
     </div>
     <div class="more">
-    <a type="button" class="btn btn-info fw-bold hvr-radial-out" href="./anounce" style="color:#fff;">Xem thêm</a>
+    <a type="button" class="btn btn-info fw-bold hvr-radial-out" href="./thong-bao" style="color:#fff;">Xem thêm</a>
     </div>
 </section>
 <section id="admissions">

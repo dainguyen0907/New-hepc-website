@@ -43,6 +43,12 @@ $routes->get('/bieu-mau','FormController::index');
 $routes->get('/bieu-mau/(:any)','FormController::getFormDetail/$1');
 $routes->get('/ba-cong-khai','CommitmentController::index');
 $routes->get('/ba-cong-khai/(:any)','CommitmentController::getCommitmentDetail/$1');
+$routes->get('/tuyen-sinh','AdmissionController::index');
+$routes->get('/tuyen-sinh/(:any)','AdmissionController::getAdmissiontDetail/$1');
+$routes->get('/tuyen-dung','RecruitmentController::index');
+$routes->get('/tuyen-dung/(:any)','RecruitmentController::getRecruitmentDetail/$1');
+$routes->get('/cong-doan','UnionController::index');
+$routes->get('/cong-doan/(:any)','UnionController::getUnionDetail/$1');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

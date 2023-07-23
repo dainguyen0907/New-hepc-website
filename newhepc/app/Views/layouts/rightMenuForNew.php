@@ -14,26 +14,22 @@
                         class="fa-solid fa-angles-right"></i> Giới thiệu</a>
         <a href="./tin-tuc" class="list-group-item list-group-item-border text-black"><i
                         class="fa-solid fa-angles-right"></i> Tin tức</a>
-        <a href="./anounce" class="list-group-item list-group-item-border text-black"><i
+        <a href="./thong-bao" class="list-group-item list-group-item-border text-black"><i
                         class="fa-solid fa-angles-right"></i> Thông báo</a>
-        <a href="#" class="list-group-item list-group-item-border text-black"><i
+        <a href="./tuyen-sinh" class="list-group-item list-group-item-border text-black"><i
                         class="fa-solid fa-angles-right"></i> Tuyển sinh</a>
-        <a href="#" class="list-group-item list-group-item-border text-black"><i
+        <a href="./tuyen-dung" class="list-group-item list-group-item-border text-black"><i
                         class="fa-solid fa-angles-right"></i> Tuyển dụng</a>
-        <a href="#" class="list-group-item list-group-item-border text-black"><i
+        <a href="./hoat-dong-doan" class="list-group-item list-group-item-border text-black"><i
                         class="fa-solid fa-angles-right"></i> Hoạt động đoàn</a>
-        <a href="#" class="list-group-item list-group-item-border text-black"><i
+        <a href="./cong-doan" class="list-group-item list-group-item-border text-black"><i
                         class="fa-solid fa-angles-right"></i> Công đoàn</a>
-        <a href="#" class="list-group-item list-group-item-border text-black"><i
-                        class="fa-solid fa-angles-right"></i> Khoa chuyên ngành</a>
-        <a href="#" class="list-group-item list-group-item-border text-black"><i
-                        class="fa-solid fa-angles-right"></i> Phòng ban - Trung tâm</a>
 </div>
 
 <div class=" list-group  list-group-flush newest-announcement">
         <span class="list-group-item list-group-item-border text-center fw-bold fs-4">THÔNG BÁO MỚI NHẤT</span>
         <?php foreach ($Newest as $n): ?>
-                <a href="./anounce/detail/<?= $n['id_tb'] ?>" class="list-group-item list-group-item-border text-black"><i
+                <a href="./thong-bao/<?= $n['link_description'] ?>" class="list-group-item list-group-item-border text-black"><i
                                 class="fa-brands fa-hotjar text-red"></i>
                         <?= $n['heading'] ?>
                 </a>
