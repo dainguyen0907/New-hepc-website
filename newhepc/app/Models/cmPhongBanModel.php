@@ -8,5 +8,5 @@ class cmPhongBanModel extends Model
 {
     protected $table="cmphongban";
 
-    protected $primaryKey="ID_CMPB";
+    protected $primaryKey="id_cmpb";
 }
