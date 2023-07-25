@@ -19,7 +19,31 @@ class baivietService extends BaseService
     {
         return $this->baivietModel->pager;
     }
+    //    ****
+//     **Public function
+//     ***
+    public function getNewForCatalogue($id_cmpb)
+    {
+        return $this->baivietModel->where(['id_cmpb' => $id_cmpb, 'status!=' => '0', 'censor!=' => '0'])->orderBy('id_bv', 'desc')->paginate(9);
+    }
+    public function getNewDetailByID_PB($id_pb, $link_description)
+    {
+        return $this->baivietModel->join('cmphongban', 'baiviet.id_cmpb=cmphongban.id_cmpb')->where(['id_pb' => $id_pb, 'link_description' => $link_description, 'baiviet.status!=' => '0', 'cmphongban.status!=' => '0', 'censor!=' => '0'])->first();
+    }
+    public function getNewForPage($id_cmpb)
+    {
+        return $this->baivietModel->where(['id_cmpb' => $id_cmpb, 'status!=' => '0', 'censor!=' => '0'])->orderBy('id_bv', 'desc')->paginate(9);
+    }
 
+    public function getNewDetail($id_cmpb, $link)
+    {
+        return $this->baivietModel->where(['id_cmpb' => $id_cmpb, 'link_description' => $link, 'status!=' => '0', 'censor!=' => '0'])->first();
+    }
+
+    public function getMoreNew($id_cmpb, $link)
+    {
+        return $this->baivietModel->where(['id_cmpb' => $id_cmpb, 'link_description!=' => $link, 'status!=' => '0', 'censor!=' => '0'])->orderBy('id_bv', 'desc')->findAll(5, 0);
+    }
     //    ****
 //     **Function for homePage
 //     ***
@@ -148,21 +172,6 @@ class baivietService extends BaseService
         return $this->baivietModel->where(['id_cmpb' => '136', 'link_description!=' => $link, 'status!=' => '0', 'censor!=' => '0'])->orderBy('id_bv', 'desc')->findAll(5, 0);
     }
     // *************
-    // ***Function for Admission Page
-    // *****
-    public function getAdmissionForAdmissionPage()
-    {
-        return $this->baivietModel->where(['id_cmpb' => '133', 'status!=' => '0', 'censor!=' => '0'])->orderBy('id_bv', 'desc')->paginate(9);
-    }
-    public function getAdmissionDetail($link)
-    {
-        return $this->baivietModel->where(['id_cmpb' => '133', 'link_description' => $link, 'status!=' => '0', 'censor!=' => '0'])->first();
-    }
-    public function getMoreAdmission($link)
-    {
-        return $this->baivietModel->where(['id_cmpb' => '133', 'link_description!=' => $link, 'status!=' => '0', 'censor!=' => '0'])->orderBy('id_bv', 'desc')->findAll(5, 0);
-    }
-    // *************
     // ***Function for Recruitment Page
     // *****
     public function getRecruitmentForRecruitmentPage()
@@ -180,18 +189,8 @@ class baivietService extends BaseService
     // *************
     // ***Function for Union Page
     // *****
-    public function getUnionForUnionPage()
-    {
-        return $this->baivietModel->where(['id_cmpb' => '128', 'status!=' => '0', 'censor!=' => '0'])->orderBy('id_bv', 'desc')->paginate(9);
-    }
-    public function getUnionDetail($link)
-    {
-        return $this->baivietModel->where(['id_cmpb' => '128', 'link_description' => $link, 'status!=' => '0', 'censor!=' => '0'])->first();
-    }
-    public function getMoreUnion($link)
-    {
-        return $this->baivietModel->where(['id_cmpb' => '128', 'link_description!=' => $link, 'status!=' => '0', 'censor!=' => '0'])->orderBy('id_bv', 'desc')->findAll(5, 0);
-    }
+
+
 
 
 

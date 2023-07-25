@@ -55,30 +55,35 @@ abstract class BaseController extends Controller
 
         // E.g.: $this->session = \Config\Services::session();
     }
-    public function loadLayout($masterPage, $title, $page,$dataLayout,$css,$js){
-        $masterPage['title']= $title;
-        $masterPage['header']= view('layouts/header');
-        $masterPage['page']=view($page,$dataLayout);
-        $masterPage['footer']=view('layouts/footer');
-        $masterPage['css']=$css;
-        $masterPage['js']=$js;
+    public function loadLayout($masterPage, $title, $page, $dataLayout, $css, $js)
+    {
+        $masterPage['title'] = $title;
+        $masterPage['header'] = view('layouts/header');
+        $masterPage['page'] = view($page, $dataLayout);
+        $masterPage['footer'] = view('layouts/footer');
+        $masterPage['css'] = $css;
+        $masterPage['js'] = $js;
         return $masterPage;
     }
 
-    public function checkPageExits($res,$page,$dataLayout)
+    public function checkPageExits($res, $page, $dataLayout)
     {
-        $masterPage=[];
-        if($res==null)
-        {
-            $title="HEPC";
-            $page='pages/404';
-            $dataPage=$this->loadLayout($masterPage,$title,$page,[],[],[]);
-            return view('masterPage',$dataPage);
+        $masterPage = [];
+        if ($res == null) {
+            return $this->load404page();
         }
-        $title=$res['heading'];
-        $dataPage=$this->loadLayout($masterPage,$title,$page,$dataLayout,[],[]);
-        return view('masterPage',$dataPage);
+        $title = $res['heading'];
+        $dataPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
+        return view('masterPage', $dataPage);
+    }
+    public function load404page()
+    {
+        $masterPage = [];
+        $title = "HEPC";
+        $page = 'pages/404';
+        $dataPage = $this->loadLayout($masterPage, $title, $page, [], [], []);
+        return view('masterPage', $dataPage);
     }
 
-    
+
 }

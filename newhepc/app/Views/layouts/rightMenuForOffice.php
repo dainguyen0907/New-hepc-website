@@ -9,11 +9,13 @@
         <?php endif; ?>
 </div>
 <div class="list-group">
-        <?php if($catalogues):
-            foreach($catalogues as $c):?>
-        <a href="#" class="list-group-item list-group-item-secondary text-black"><i
-                        class="fa-solid fa-angles-right"></i> <?= $c['name']?></a>
-            <?php endforeach;?>
+        <?php if ($catalogues):
+                foreach ($catalogues as $c): ?>
+                        <a href="./<?= $link . $c['link'] ?>" class="list-group-item list-group-item-secondary text-black"><i
+                                        class="fa-solid fa-angles-right"></i>
+                                <?= $c['name'] ?>
+                        </a>
+                <?php endforeach; ?>
         <?php endif; ?>
 </div>
 <div class="list-group list-group-flush">

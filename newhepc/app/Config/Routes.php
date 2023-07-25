@@ -30,25 +30,26 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'HomeController::index');
-$routes->get('/gioi-thieu/(:any)','IntroduceController::showIntroduce/$1');
-$routes->get('/tin-tuc','NewPaperController::index');
-$routes->get('/tin-tuc/(:any)','NewPaperController::getNewPaperDetail/$1');
-$routes->get('/thong-bao','AnouncementController::index');
-$routes->get('/thong-bao/(:any)','AnouncementController::getAnouncementDetail/$1');
-$routes->get('/thoi-khoa-bieu','TimeTableController::index');
-$routes->get('/thoi-khoa-bieu/(:any)','TimeTableController::getTimeTableDetail/$1');
-$routes->get('/lich-thi','ScheduleController::index');
-$routes->get('/lich-thi/(:any)','ScheduleController::getScheduleDetail/$1');
-$routes->get('/bieu-mau','FormController::index');
-$routes->get('/bieu-mau/(:any)','FormController::getFormDetail/$1');
-$routes->get('/ba-cong-khai','CommitmentController::index');
-$routes->get('/ba-cong-khai/(:any)','CommitmentController::getCommitmentDetail/$1');
-$routes->get('/tuyen-sinh','AdmissionController::index');
-$routes->get('/tuyen-sinh/(:any)','AdmissionController::getAdmissiontDetail/$1');
-$routes->get('/tuyen-dung','RecruitmentController::index');
-$routes->get('/tuyen-dung/(:any)','RecruitmentController::getRecruitmentDetail/$1');
-$routes->get('/cong-doan','UnionController::index');
-$routes->get('/cong-doan/(:any)','UnionController::getUnionDetail/$1');
+$routes->get('/gioi-thieu/(:any)', 'IntroduceController::showIntroduce/$1');
+$routes->get('/tin-tuc', 'NewPaperController::index');
+$routes->get('/tin-tuc/(:any)', 'NewPaperController::getNewPaperDetail/$1');
+$routes->get('/thong-bao', 'AnouncementController::index');
+$routes->get('/thong-bao/(:any)', 'AnouncementController::getAnouncementDetail/$1');
+$routes->get('/thoi-khoa-bieu', 'TimeTableController::index');
+$routes->get('/thoi-khoa-bieu/(:any)', 'TimeTableController::getTimeTableDetail/$1');
+$routes->get('/lich-thi', 'ScheduleController::index');
+$routes->get('/lich-thi/(:any)', 'ScheduleController::getScheduleDetail/$1');
+$routes->get('/bieu-mau', 'FormController::index');
+$routes->get('/bieu-mau/(:any)', 'FormController::getFormDetail/$1');
+$routes->get('/ba-cong-khai', 'CommitmentController::index');
+$routes->get('/ba-cong-khai/(:any)', 'CommitmentController::getCommitmentDetail/$1');
+$routes->get('/tuyen-sinh', 'AdmissionController::index');
+$routes->get('/tuyen-sinh/(:any)', 'AdmissionController::getAdmissiontDetail/$1');
+$routes->get('/tuyen-dung', 'RecruitmentController::index');
+$routes->get('/tuyen-dung/(:any)', 'RecruitmentController::getRecruitmentDetail/$1');
+$routes->get('/cong-doan', 'UnionController::index');
+$routes->get('/cong-doan/(:any)', 'UnionController::getNewsOfCatalogueUnion/$1');
+/*
 /*
  * --------------------------------------------------------------------
  * Additional Routing
