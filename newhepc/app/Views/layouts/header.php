@@ -3,7 +3,7 @@
       <div class="top-header">
         <div class="top-header-element">
           <a href="https://doffice.evnspc.vn/"><i class="fa-solid fa-person-chalkboard"></i> Giáo viên</a>
-          <a href="#"><i class="fa-solid fa-chalkboard-user"></i> Sinh viên</a>
+          <a href="https://daotao.hepc.edu.vn/"><i class="fa-solid fa-chalkboard-user"></i> Sinh viên</a>
           <a href="#"><i class="fa-solid fa-lock"></i> Đăng nhập</a>
           <a href="https://mail.evnspc.vn/"><i class="fa-solid fa-envelope"></i> Email</a>
         </div>
@@ -43,7 +43,7 @@
                   <a class="nav-link" aria-current="page" href="./">Trang chủ</a>
                 </li>
                 <li class="nav-item dropdown">
-                  <a href="./gioi-thieu/So-do-to-chuc" class="nav-link dropdown-toggle hvr-sweep-to-right" >
+                  <a href="javascript:window.location.reload(true)" class="nav-link dropdown-toggle hvr-sweep-to-right" >
                     Giới thiệu
                   </a>
                   <ul class="dropdown-menu">
@@ -54,7 +54,7 @@
                   </ul>
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle hvr-sweep-to-right" href="./thoi-khoa-bieu">Chuyên trang</a>
+                  <a class="nav-link dropdown-toggle hvr-sweep-to-right" href="javascript:window.location.reload(true)">Chuyên trang</a>
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item hvr-sweep-to-right"
                       href="./thoi-khoa-bieu">Thời khóa biểu</a></li>
@@ -67,7 +67,7 @@
                   </ul>
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle hvr-sweep-to-right" href="#">
+                  <a class="nav-link dropdown-toggle hvr-sweep-to-right" href="javascript:window.location.reload(true)">
                     Khoa chuyên ngành
                   </a>
                   <ul class="dropdown-menu">
@@ -86,7 +86,7 @@
                   </ul>
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle hvr-sweep-to-right" href="#">
+                  <a class="nav-link dropdown-toggle hvr-sweep-to-right" href="javascript:window.location.reload(true)">
                     Phòng - Trung tâm
                   </a>
                   <ul class="dropdown-menu">
@@ -108,16 +108,10 @@
                       href="https://www.hepc.edu.vn/phong/ctphong/mp8.htm">Trung tâm Ngoại ngữ Tin học</a></li>
                   </ul>
                 </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle hvr-sweep-to-right" href="#">
+                <li class="nav-item dropdown hvr-sweep-to-right">
+                  <a class="nav-link " href="https://daotao.hepc.edu.vn/">
                     Đào tạo
                   </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item hvr-sweep-to-right" href="https://www.hepc.edu.vn/dtcq.htm">Đào tạo dài
-                        hạn</a></li>
-                    <li><a class="dropdown-item hvr-sweep-to-right" href="https://www.hepc.edu.vn/dtnangcao.htm">ĐT Ngắn
-                        hạn, nâng cao</a></li>
-                  </ul>
                 </li>
                 <li class="nav-item hvr-sweep-to-right">
                   <a class="nav-link" href="https://tuyensinh.hepc.edu.vn/" target="_blank">Tuyển sinh</a>

@@ -22,7 +22,7 @@
                 </li>
             <?php endif; ?>
             <li class="page-item active" aria-current="page">
-                <a class="page-link" href="#"><?= $pager->getCurrentPageNumber() ?></a>
+                <a class="page-link" href="javascript:window.location.reload(true)"><?= $pager->getCurrentPageNumber() ?></a>
             </li>
             <?php if ($pager->getCurrentPageNumber() != $pager->getPageCount()): ?>
                 <li class="page-item">

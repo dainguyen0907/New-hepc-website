@@ -49,6 +49,8 @@ $routes->get('/tuyen-dung', 'RecruitmentController::index');
 $routes->get('/tuyen-dung/(:any)', 'RecruitmentController::getRecruitmentDetail/$1');
 $routes->get('/cong-doan', 'UnionController::index');
 $routes->get('/cong-doan/(:any)', 'UnionController::getNewsOfCatalogueUnion/$1');
+$routes->get('/hoat-dong-doan', 'GroupController::index');
+$routes->get('/hoat-dong-doan/(:any)', 'GroupController::getNewsOfCatalogueGroup/$1');
 /*
 /*
  * --------------------------------------------------------------------
