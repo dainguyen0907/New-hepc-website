@@ -44,6 +44,11 @@ class baivietService extends BaseService
     {
         return $this->baivietModel->where(['id_cmpb' => $id_cmpb, 'link_description!=' => $link, 'status!=' => '0', 'censor!=' => '0'])->orderBy('id_bv', 'desc')->findAll(5, 0);
     }
+
+    public function getNewsforOfficePage($id_cmpb)
+    {
+        return $this->baivietModel->where(['id_cmpb' => $id_cmpb, 'status!=' => '0', 'censor!=' => '0'])->orderBy('id_bv', 'desc')->findAll(4, 0);
+    }
     //    ****
 //     **Function for homePage
 //     ***

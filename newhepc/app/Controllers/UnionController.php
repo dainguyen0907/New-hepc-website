@@ -17,13 +17,20 @@ class UnionController extends BaseController
     }
     public function index()
     {
+        $tintuc=$this->cmpbService->getCatalogueByID('128');
+        $gioithieu=$this->cmpbService->getCatalogueByID('127');
         $masterPage = [];
         $title = "Công đoàn";
-        $page = 'subMasterPage';
+        $page = 'pages/officePage';
         $dataLayout['Banner'] = "Công đoàn";
-        $dataLayout['content'] = view('pages/newsPage', ['News' => $this->baivietService->getNewForPage('128'), 'link' => "cong-doan/"]);
-        $dataLayout['Pager'] = $this->baivietService->getPager();
-        $dataLayout['rightBanner'] = view('layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(16)]);
+        $dataLayout['f_name_catalogue'] = $gioithieu['name'];
+        $dataLayout['s_name_catalogue'] = $tintuc['name'];
+        $dataLayout['f_link'] = $gioithieu['link'];
+        $dataLayout['s_link'] = $tintuc['link'];
+        $dataLayout['f_news'] = $this->baivietService->getNewsforOfficePage('127');
+        $dataLayout['s_news'] = $this->baivietService->getNewsforOfficePage('128');
+        $dataLayout['image'] = null;
+        $dataLayout['link'] = "cong-doan/";
         $UnionPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
         return view('masterPage', $UnionPage);
     }

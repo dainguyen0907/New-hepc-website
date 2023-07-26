@@ -3,3 +3,27 @@ in SYSTEMPATH\CodeIgniter.php on line 226.
  1 SYSTEMPATH\CodeIgniter.php(226): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
  2 SYSTEMPATH\CodeIgniter.php(190): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
  3 FCPATH\index.php(55): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-07-26 11:55:20 --> Undefined variable $Pager
+in APPPATH\Views\subMasterPage.php on line 10.
+ 1 APPPATH\Views\subMasterPage.php(10): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $Pager', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\subMasterPage.php', 10)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\subMasterPage.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('subMasterPage', [], true)
+ 5 APPPATH\Controllers\BaseController.php(62): view('subMasterPage', [...])
+ 6 APPPATH\Controllers\UnionController.php(25): App\Controllers\BaseController->loadLayout([...], 'Công đoàn', 'subMasterPage', [...], [], [])
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\UnionController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UnionController))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-26 11:55:52 --> Undefined variable $title
+in APPPATH\Views\masterPage.php on line 10.
+ 1 APPPATH\Views\masterPage.php(10): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\masterPage.php', 10)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\masterPage.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('masterPage', [], true)
+ 5 APPPATH\Controllers\BaseController.php(62): view('masterPage', [...])
+ 6 APPPATH\Controllers\UnionController.php(25): App\Controllers\BaseController->loadLayout([...], 'Công đoàn', 'masterPage', [...], [], [])
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\UnionController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UnionController))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

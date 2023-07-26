@@ -210,9 +210,10 @@
 .more{
     text-align: center;
 }
-.more button{
-    color: #fff;
+.more a{
+    color: #fff !important;
 }
+
 /* section anouncements************************* ***********************************************/
 #anouncements img{
     width: auto;
