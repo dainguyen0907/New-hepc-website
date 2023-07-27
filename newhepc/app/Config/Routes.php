@@ -44,17 +44,48 @@ $routes->get('/bieu-mau/(:any)', 'FormController::getFormDetail/$1');
 $routes->get('/ba-cong-khai', 'CommitmentController::index');
 $routes->get('/ba-cong-khai/(:any)', 'CommitmentController::getCommitmentDetail/$1');
 $routes->get('/tuyen-sinh', 'AdmissionController::index');
-$routes->get('/tuyen-sinh/(:any)', 'AdmissionController::getAdmissionDetail/$1');
+$routes->get('/tuyen-sinh/(:any)', 'AdmissionController::getAdmissiontDetail/$1');
 $routes->get('/tuyen-dung', 'RecruitmentController::index');
 $routes->get('/tuyen-dung/(:any)', 'RecruitmentController::getRecruitmentDetail/$1');
 $routes->get('/cong-doan', 'UnionController::index');
 $routes->get('/cong-doan/(:any)', 'UnionController::getNewsOfCatalogueUnion/$1');
 $routes->get('/hoat-dong-doan', 'GroupController::index');
 $routes->get('/hoat-dong-doan/(:any)', 'GroupController::getNewsOfCatalogueGroup/$1');
+<<<<<<< Updated upstream
 //Login
 $routes->get('/dang-nhap', 'LoginController::index');
 $routes->get('/thoat', 'LoginController::logout');
 $routes->post('/dang-nhap', 'LoginController::login');
+=======
+$routes->get('/phong-to-chuc', 'TCHCController::index');
+$routes->get('/phong-to-chuc/(:any)', 'TCHCController::getNewsOfCatalogueTCHC/$1');
+$routes->get('/phong-tai-chinh', 'TCKTController::index');
+$routes->get('/phong-tai-chinh/(:any)', 'TCKTController::getNewsOfCatalogueTCKT/$1');
+$routes->get('/phong-dao-tao', 'DTController::index');
+$routes->get('/phong-dao-tao/(:any)', 'DTController::getNewsOfCatalogueDT/$1');
+$routes->get('/phong-qlkh', 'QLKHController::index');
+$routes->get('/phong-qlkh/(:any)', 'QLKHController::getNewsOfCatalogueQLKH/$1');
+$routes->get('/phong-qlhssv', 'QLHSSVController::index');
+$routes->get('/phong-qlhssv/(:any)', 'QLHSSVController::getNewsOfCatalogueQLHSSV/$1');
+$routes->get('/phong-quan-tri', 'QTController::index');
+$routes->get('/phong-quan-tri/(:any)', 'QTController::getNewsOfCataloguepQT/$1');
+$routes->get('/phong-tt-nangluong', 'TTCNNLController::index');
+$routes->get('/phong-tt-nangluong/(:any)', 'TTCNNLController::getNewsOfCatalogueTTCNNL/$1');
+$routes->get('/phong-nn-tt', 'NNTTController::index');
+$routes->get('/phong-nn-tt/(:any)', 'NNTTController::getNewsOfCatalogueNNTT/$1');
+$routes->get('/khoa-htd', 'HTDController::index');
+$routes->get('/khoa-htd/(:any)', 'HTDController::getNewsOfCatalogueHTD/$1');
+$routes->get('/khoa-ktcs', 'KTCSController::index');
+$routes->get('/khoa-ktcs/(:any)', 'KTCSController::getNewsOfCatalogueKTCS/$1');
+$routes->get('/khoa-dcn', 'DCNController::index');
+$routes->get('/khoa-dcn/(:any)', 'DCNController::getNewsOfCatalogueDCN/$1');
+$routes->get('/khoa-khcb-kt', 'KHCBKTController::index');
+$routes->get('/khoa-khcb-kt/(:any)', 'KHCBKTController::getNewsOfCatalogueKHCBKT/$1');
+$routes->get('/khoa-cndt-tdh', 'CNDTTDHController::index');
+$routes->get('/khoa-cndt-tdh/(:any)', 'CNDTTDHController::getNewsOfCatalogueCNDTTDH/$1');
+$routes->get('/khoa-dtnc', 'DTNCController::index');
+$routes->get('/khoa-dtnc/(:any)', 'DTNCController::getNewsOfCatalogueDTNC/$1');
+>>>>>>> Stashed changes
 /*
 /*
  * --------------------------------------------------------------------

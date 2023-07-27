@@ -77,17 +77,17 @@
                   </a>
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item hvr-sweep-to-right"
-                        href="https://www.hepc.edu.vn/khoa/ctkhoa/mk1.htm">Khoa hệ thống điện</a></li>
+                        href="./khoa-htd">Khoa hệ thống điện</a></li>
                     <li><a class="dropdown-item hvr-sweep-to-right"
-                        href="https://www.hepc.edu.vn/khoa/ctkhoa/mk2.htm">Khoa kỹ thuật cơ sở</a></li>
+                        href="./khoa-ktcs">Khoa kỹ thuật cơ sở</a></li>
                     <li><a class="dropdown-item hvr-sweep-to-right"
-                        href="https://www.hepc.edu.vn/khoa/ctkhoa/mk3.htm">Khoa điện công nghiệp</a></li>
+                        href="./khoa-dcn">Khoa điện công nghiệp</a></li>
                     <li><a class="dropdown-item hvr-sweep-to-right"
-                        href="https://www.hepc.edu.vn/khoa/ctkhoa/mk4.htm">Khoa KH Cơ bản - Kinh tế</a></li>
+                        href="./khoa-khcb-kt">Khoa KH Cơ bản - Kinh tế</a></li>
                     <li><a class="dropdown-item hvr-sweep-to-right"
-                        href="https://www.hepc.edu.vn/khoa/ctkhoa/mk5.htm">Khoa CN Điện tử - Tự động hóa</a></li>
+                        href="./khoa-cndt-tdh">Khoa CN Điện tử - Tự động hóa</a></li>
                     <li><a class="dropdown-item hvr-sweep-to-right"
-                        href="https://www.hepc.edu.vn/khoa/ctkhoa/mk6.htm">Khoa đào tạo nâng cao</a></li>
+                        href="./khoa-dtnc">Khoa đào tạo nâng cao</a></li>
                   </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -96,21 +96,21 @@
                   </a>
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item hvr-sweep-to-right"
-                      href="https://www.hepc.edu.vn/phong/ctphong/mp1.htm">Phòng đào tạo</a></li>
+                      href="./phong-dao-tao">Phòng đào tạo</a></li>
                     <li><a class="dropdown-item hvr-sweep-to-right"
-                      href="https://www.hepc.edu.vn/phong/ctphong/mp2.htm">Phòng tổ chức</a></li>
+                      href="./phong-to-chuc">Phòng tổ chức</a></li>
                     <li><a class="dropdown-item hvr-sweep-to-right"
-                      href="https://www.hepc.edu.vn/phong/ctphong/mp3.htm">Phòng kế hoạch - tài chánh</a></li>
+                      href="./phong-tai-chinh">Phòng kế hoạch - tài chánh</a></li>
                     <li><a class="dropdown-item hvr-sweep-to-right"
-                      href="https://www.hepc.edu.vn/phong/ctphong/mp4.htm">Phòng QLKH - QHQT</a></li>
+                      href="./phong-qlkh">Phòng QLKH - QHQT</a></li>
                     <li><a class="dropdown-item hvr-sweep-to-right"
-                      href="https://www.hepc.edu.vn/phong/ctphong/mp5.htm">Phòng quản lý HSSV</a></li>
+                      href="./phong-qlhssv">Phòng quản lý HSSV</a></li>
                     <li><a class="dropdown-item hvr-sweep-to-right"
-                      href="https://www.hepc.edu.vn/phong/ctphong/mp6.htm">Phòng quản trị</a></li>
+                      href="./phong-quan-tri">Phòng quản trị</a></li>
                     <li><a class="dropdown-item hvr-sweep-to-right"
-                      href="https://www.hepc.edu.vn/phong/ctphong/mp7.htm">Trung tâm Công nghệ Năng lượng</a></li>
+                      href="./phong-tt-nangluong">Trung tâm Công nghệ Năng lượng</a></li>
                     <li><a class="dropdown-item hvr-sweep-to-right"
-                      href="https://www.hepc.edu.vn/phong/ctphong/mp8.htm">Trung tâm Ngoại ngữ Tin học</a></li>
+                      href="./phong-nn-tt">Trung tâm Ngoại ngữ Tin học</a></li>
                   </ul>
                 </li>
                 <li class="nav-item dropdown hvr-sweep-to-right">

@@ -110,7 +110,7 @@
             <?php foreach($Anouncements as $anounce):?>
             <div class="col-12 col-md-3" style="margin-bottom: 10px;">
                 <div class="card text-center">
-                    <img class="object-fit-cover" src="<?= $anounce['img']!=''? $anounce['img']:'assets/images/thongbao.png'?>" class="card-img-top" alt="">
+                    <img class="object-fit-cover" src="assets/images/thongbao.png" class="card-img-top" alt="">
                     <div class="card-body">
                         <a href="./thong-bao/<?= $anounce['link_description']?>">
                             <h5 class="card-title"><?= $anounce['heading']?></h5>
@@ -139,11 +139,11 @@
                 <div class="card border-light mb-3">
                     <div class="row g-0">
                         <div class="col-md-6">
-                            <img class="object-fit-cover" src="<?= $a['img']!=''? $a['img']:'assets/images/thongbao.png'?>" class="img-fluid rounded-start" alt="...">
+                            <img class="object-fit-cover" src="assets/img/tuyensinh.png" class="img-fluid rounded-start" alt="...">
                         </div>
                         <div class="col-md-6">
                             <div class="card-body">
-                                <a href="./tuyen-sinh/<?=$a['link_description']?>">
+                                <a href="#">
                                     <h5 class="card-title"><?= $a['heading']?>
                                     </h5>
                                 </a>
@@ -165,7 +165,7 @@
                 <div class='card'>
                     <div class='card-body'>
                     <i class="fa-solid fa-calendar"></i> <small><?=$r['d_poss']?></small> 
-                    <h4> <a href="./tuyen-dung/<?=$r['link_description']?>"><?= $r['heading']?></a> </h4>
+                    <h4> <a href="http://"><?= $r['heading']?></a> </h4>
                     </div>
                 </div>
                 <hr/>

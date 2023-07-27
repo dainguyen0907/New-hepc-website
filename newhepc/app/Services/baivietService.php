@@ -47,7 +47,7 @@ class baivietService extends BaseService
 
     public function getNewsforOfficePage($id_cmpb)
     {
-        return $this->baivietModel->where(['id_cmpb' => $id_cmpb, 'status!=' => '0', 'censor!=' => '0'])->orderBy('id_bv', 'desc')->findAll(8, 0);
+        return $this->baivietModel->where(['id_cmpb' => $id_cmpb, 'status!=' => '0', 'censor!=' => '0'])->orderBy('id_bv', 'desc')->findAll(4, 0);
     }
     //    ****
 //     **Function for homePage

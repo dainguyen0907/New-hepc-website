@@ -3,27 +3,49 @@ in SYSTEMPATH\CodeIgniter.php on line 226.
  1 SYSTEMPATH\CodeIgniter.php(226): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
  2 SYSTEMPATH\CodeIgniter.php(190): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
  3 FCPATH\index.php(55): CodeIgniter\CodeIgniter->initialize()
-CRITICAL - 2023-07-26 11:55:20 --> Undefined variable $Pager
-in APPPATH\Views\subMasterPage.php on line 10.
- 1 APPPATH\Views\subMasterPage.php(10): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $Pager', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\subMasterPage.php', 10)
- 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\subMasterPage.php')
- 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
- 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('subMasterPage', [], true)
- 5 APPPATH\Controllers\BaseController.php(62): view('subMasterPage', [...])
- 6 APPPATH\Controllers\UnionController.php(25): App\Controllers\BaseController->loadLayout([...], 'Công đoàn', 'subMasterPage', [...], [], [])
- 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\UnionController->index()
- 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UnionController))
- 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
-10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
-CRITICAL - 2023-07-26 11:55:52 --> Undefined variable $title
-in APPPATH\Views\masterPage.php on line 10.
- 1 APPPATH\Views\masterPage.php(10): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\masterPage.php', 10)
- 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\masterPage.php')
- 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
- 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('masterPage', [], true)
- 5 APPPATH\Controllers\BaseController.php(62): view('masterPage', [...])
- 6 APPPATH\Controllers\UnionController.php(25): App\Controllers\BaseController->loadLayout([...], 'Công đoàn', 'masterPage', [...], [], [])
- 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\UnionController->index()
- 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UnionController))
+ERROR - 2023-07-26 08:40:14 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'new_hepc' in C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php:173
+Stack trace:
+#0 C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php(173): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'new_hepc', 3306, '', 0)
+#1 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\newhepc\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\newhepc\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\newhepc\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\newhepc\app\Services\bannerService.php(16): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\newhepc\app\Controllers\HomeController.php(25): App\Services\bannerService->getBannersForHomePage()
+#8 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(932): App\Controllers\HomeController->index()
+#9 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+#10 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\newhepc\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'new_hepc' in C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php:218
+Stack trace:
+#0 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\newhepc\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\newhepc\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\newhepc\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\xampp\htdocs\newhepc\app\Services\bannerService.php(16): CodeIgniter\BaseModel->findAll()
+#6 C:\xampp\htdocs\newhepc\app\Controllers\HomeController.php(25): App\Services\bannerService->getBannersForHomePage()
+#7 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(932): App\Controllers\HomeController->index()
+#8 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+#9 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\newhepc\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-07-26 08:40:14 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'new_hepc'
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `banner`
+WHERE `Status` != :Status:
+AND `censor` != :censor:', [...], false)
+ 3 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Services\bannerService.php(16): CodeIgniter\BaseModel->findAll()
+ 6 APPPATH\Controllers\HomeController.php(25): App\Services\bannerService->getBannersForHomePage()
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\HomeController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
  9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
 10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
