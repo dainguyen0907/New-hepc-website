@@ -72,12 +72,12 @@
             <?php endforeach; ?>
         </div>
     </div>
-    <div class="more mb-3">
+    <div class="more pb-3">
         <a href="./cong-doan/<?= $s_link ?>" type="button" class="btn btn-info hvr-radial-out">Xem thêm</a>
     </div>
 </section>
 
-<section id="image-catalogue">
+<section id="image-catalogue" class="pb-3">
     <div class="banner">
         <h2>
             Hình ảnh
