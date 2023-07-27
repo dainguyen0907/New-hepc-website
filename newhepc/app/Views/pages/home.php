@@ -143,7 +143,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="card-body">
-                                <a href="#">
+                                <a href="./tuyen-sinh/<?=$a['link_description']?>">
                                     <h5 class="card-title"><?= $a['heading']?>
                                     </h5>
                                 </a>
@@ -165,7 +165,7 @@
                 <div class='card'>
                     <div class='card-body'>
                     <i class="fa-solid fa-calendar"></i> <small><?=$r['d_poss']?></small> 
-                    <h4> <a href="http://"><?= $r['heading']?></a> </h4>
+                    <h4> <a href="./tuyen-dung/<?=$r['link_description']?>"><?= $r['heading']?></a> </h4>
                     </div>
                 </div>
                 <hr/>
