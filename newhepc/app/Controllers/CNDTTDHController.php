@@ -30,7 +30,7 @@ class CNDTTDHController extends BaseController
         $dataLayout['f_news'] = $this->baivietService->getNewsforOfficePage('31');
         $dataLayout['s_news'] = $this->baivietService->getNewsforOfficePage('34');
         $dataLayout['image'] = null;
-        $dataLayout['link'] = "khoa-cndt-tdh";
+        $dataLayout['link'] = "khoa-cndt-tdh/";
         $UnionPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
         return view('masterPage', $UnionPage);
     }

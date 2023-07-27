@@ -30,7 +30,7 @@ class TCHCController extends BaseController
         $dataLayout['f_news'] = $this->baivietService->getNewsforOfficePage('54');
         $dataLayout['s_news'] = $this->baivietService->getNewsforOfficePage('51');
         $dataLayout['image'] = null;
-        $dataLayout['link'] = "phong-to-chuc";
+        $dataLayout['link'] = "phong-to-chuc/";
         $UnionPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
         return view('masterPage', $UnionPage);
     }

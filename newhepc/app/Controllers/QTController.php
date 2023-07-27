@@ -30,7 +30,7 @@ class QTController extends BaseController
         $dataLayout['f_news'] = $this->baivietService->getNewsforOfficePage('78');
         $dataLayout['s_news'] = $this->baivietService->getNewsforOfficePage('79');
         $dataLayout['image'] = null;
-        $dataLayout['link'] = "phong-quan-tri";
+        $dataLayout['link'] = "phong-quan-tri/";
         $UnionPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
         return view('masterPage', $UnionPage);
     }

@@ -30,7 +30,7 @@ class HTDController extends BaseController
         $dataLayout['f_news'] = $this->baivietService->getNewsforOfficePage('2');
         $dataLayout['s_news'] = $this->baivietService->getNewsforOfficePage('5');
         $dataLayout['image'] = null;
-        $dataLayout['link'] = "khoa-htd";
+        $dataLayout['link'] = "khoa-htd/";
         $UnionPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
         return view('masterPage', $UnionPage);
     }

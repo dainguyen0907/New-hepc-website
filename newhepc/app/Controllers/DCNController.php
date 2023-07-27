@@ -30,7 +30,7 @@ class DCNController extends BaseController
         $dataLayout['f_news'] = $this->baivietService->getNewsforOfficePage('16');
         $dataLayout['s_news'] = $this->baivietService->getNewsforOfficePage('19');
         $dataLayout['image'] = null;
-        $dataLayout['link'] = "khoa-dcn";
+        $dataLayout['link'] = "khoa-dcn/";
         $UnionPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
         return view('masterPage', $UnionPage);
     }

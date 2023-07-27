@@ -30,7 +30,7 @@ class NNTTController extends BaseController
         $dataLayout['f_news'] = $this->baivietService->getNewsforOfficePage('90');
         $dataLayout['s_news'] = $this->baivietService->getNewsforOfficePage('87');
         $dataLayout['image'] = null;
-        $dataLayout['link'] = "phong-nn-tt";
+        $dataLayout['link'] = "phong-nn-tt/";
         $UnionPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
         return view('masterPage', $UnionPage);
     }

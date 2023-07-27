@@ -30,7 +30,7 @@ class DTController extends BaseController
         $dataLayout['f_news'] = $this->baivietService->getNewsforOfficePage('48');
         $dataLayout['s_news'] = $this->baivietService->getNewsforOfficePage('45');
         $dataLayout['image'] = null;
-        $dataLayout['link'] = "phong-dao-tao";
+        $dataLayout['link'] = "phong-dao-tao/";
         $UnionPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
         return view('masterPage', $UnionPage);
     }

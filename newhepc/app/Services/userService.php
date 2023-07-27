@@ -37,6 +37,14 @@ class userService extends BaseService
                     'message'=>["err"=>"Mật khẩu không đúng"]
                 ];
             }
+            if($res['status']==0)
+            {
+                return [
+                    'status'=>ResultUtils::STATUS_CODE_ERR,
+                    'messageCode'=>ResultUtils::MESSAGE_CODE_ERR,
+                    'message'=>["err"=>"Tài khoản đã bị khóa! Vui lòng liên hệ quản trị viên."]
+                ];
+            }
             if(!session('userLogin'))
             {
                 session()->set('userLogin',$res);

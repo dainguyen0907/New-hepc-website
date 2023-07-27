@@ -30,7 +30,7 @@ class KHCBKTController extends BaseController
         $dataLayout['f_news'] = $this->baivietService->getNewsforOfficePage('23');
         $dataLayout['s_news'] = $this->baivietService->getNewsforOfficePage('27');
         $dataLayout['image'] = null;
-        $dataLayout['link'] = "khoa-khcb-kt";
+        $dataLayout['link'] = "khoa-khcb-kt/";
         $UnionPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
         return view('masterPage', $UnionPage);
     }

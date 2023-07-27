@@ -30,7 +30,7 @@ class KTCSController extends BaseController
         $dataLayout['f_news'] = $this->baivietService->getNewsforOfficePage('9');
         $dataLayout['s_news'] = $this->baivietService->getNewsforOfficePage('12');
         $dataLayout['image'] = null;
-        $dataLayout['link'] = "khoa-ktcs";
+        $dataLayout['link'] = "khoa-ktcs/";
         $UnionPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
         return view('masterPage', $UnionPage);
     }

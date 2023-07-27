@@ -30,7 +30,7 @@ class TTCNNLController extends BaseController
         $dataLayout['f_news'] = $this->baivietService->getNewsforOfficePage('80');
         $dataLayout['s_news'] = $this->baivietService->getNewsforOfficePage('84');
         $dataLayout['image'] = null;
-        $dataLayout['link'] = "phong-tt-nangluong";
+        $dataLayout['link'] = "phong-tt-nangluong/";
         $UnionPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
         return view('masterPage', $UnionPage);
     }

@@ -30,7 +30,7 @@ class DTNCController extends BaseController
         $dataLayout['f_news'] = $this->baivietService->getNewsforOfficePage('41');
         $dataLayout['s_news'] = $this->baivietService->getNewsforOfficePage('38');
         $dataLayout['image'] = null;
-        $dataLayout['link'] = "khoa-dtnc";
+        $dataLayout['link'] = "khoa-dtnc/";
         $UnionPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
         return view('masterPage', $UnionPage);
     }

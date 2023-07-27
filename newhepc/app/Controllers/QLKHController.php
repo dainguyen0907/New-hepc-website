@@ -30,7 +30,7 @@ class QLKHController extends BaseController
         $dataLayout['f_news'] = $this->baivietService->getNewsforOfficePage('66');
         $dataLayout['s_news'] = $this->baivietService->getNewsforOfficePage('63');
         $dataLayout['image'] = null;
-        $dataLayout['link'] = "phong-qlkh";
+        $dataLayout['link'] = "phong-qlkh/";
         $UnionPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
         return view('masterPage', $UnionPage);
     }

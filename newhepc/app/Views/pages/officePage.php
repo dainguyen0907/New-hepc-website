@@ -38,7 +38,7 @@
         </div>
     </div>
     <div class="more mb-3">
-        <a href="./<?= $link ?>/<?= $f_link ?>" type="button" class="btn btn-info hvr-radial-out">Xem thêm</a>
+        <a href="./<?= $link.$f_link ?>" type="button" class="btn btn-info hvr-radial-out">Xem thêm</a>
     </div>
 </section>
 <section id="second-office-news">
@@ -75,7 +75,7 @@
         </div>
     </div>
     <div class="more pb-3">
-        <a href="./<?= $link ?>/<?= $s_link ?>" type="button" class="btn btn-info hvr-radial-out">Xem thêm</a>
+        <a href="./<?= $link. $s_link ?>" type="button" class="btn btn-info hvr-radial-out">Xem thêm</a>
     </div>
 </section>
 

@@ -30,7 +30,7 @@ class TCKTController extends BaseController
         $dataLayout['f_news'] = $this->baivietService->getNewsforOfficePage('60');
         $dataLayout['s_news'] = $this->baivietService->getNewsforOfficePage('61');
         $dataLayout['image'] = null;
-        $dataLayout['link'] = "phong-tai-chinh";
+        $dataLayout['link'] = "phong-tai-chinh/";
         $UnionPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
         return view('masterPage', $UnionPage);
     }

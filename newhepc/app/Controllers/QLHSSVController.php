@@ -30,7 +30,7 @@ class QLHSSVController extends BaseController
         $dataLayout['f_news'] = $this->baivietService->getNewsforOfficePage('72');
         $dataLayout['s_news'] = $this->baivietService->getNewsforOfficePage('69');
         $dataLayout['image'] = null;
-        $dataLayout['link'] = "phong-qlhssv";
+        $dataLayout['link'] = "phong-qlhssv/";
         $UnionPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
         return view('masterPage', $UnionPage);
     }
