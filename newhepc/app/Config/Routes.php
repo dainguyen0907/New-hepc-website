@@ -51,12 +51,10 @@ $routes->get('/cong-doan', 'UnionController::index');
 $routes->get('/cong-doan/(:any)', 'UnionController::getNewsOfCatalogueUnion/$1');
 $routes->get('/hoat-dong-doan', 'GroupController::index');
 $routes->get('/hoat-dong-doan/(:any)', 'GroupController::getNewsOfCatalogueGroup/$1');
-<<<<<<< Updated upstream
 //Login
 $routes->get('/dang-nhap', 'LoginController::index');
 $routes->get('/thoat', 'LoginController::logout');
 $routes->post('/dang-nhap', 'LoginController::login');
-=======
 $routes->get('/phong-to-chuc', 'TCHCController::index');
 $routes->get('/phong-to-chuc/(:any)', 'TCHCController::getNewsOfCatalogueTCHC/$1');
 $routes->get('/phong-tai-chinh', 'TCKTController::index');
@@ -85,7 +83,6 @@ $routes->get('/khoa-cndt-tdh', 'CNDTTDHController::index');
 $routes->get('/khoa-cndt-tdh/(:any)', 'CNDTTDHController::getNewsOfCatalogueCNDTTDH/$1');
 $routes->get('/khoa-dtnc', 'DTNCController::index');
 $routes->get('/khoa-dtnc/(:any)', 'DTNCController::getNewsOfCatalogueDTNC/$1');
->>>>>>> Stashed changes
 /*
 /*
  * --------------------------------------------------------------------

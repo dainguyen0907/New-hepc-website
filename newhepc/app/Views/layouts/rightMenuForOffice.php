@@ -45,6 +45,6 @@
                 </a>
         <?php endforeach; ?>
 
-        <a href="./anounce" class="list-group-item list-group-item-border text-black text-end"><i
+        <a href="./thong-bao" class="list-group-item list-group-item-border text-black text-end"><i
                         class="fa-solid fa-angles-right"></i> Xem thêm</a>
 </div>
