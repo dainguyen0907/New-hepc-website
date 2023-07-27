@@ -51,6 +51,10 @@ $routes->get('/cong-doan', 'UnionController::index');
 $routes->get('/cong-doan/(:any)', 'UnionController::getNewsOfCatalogueUnion/$1');
 $routes->get('/hoat-dong-doan', 'GroupController::index');
 $routes->get('/hoat-dong-doan/(:any)', 'GroupController::getNewsOfCatalogueGroup/$1');
+//Login
+$routes->get('/dang-nhap', 'LoginController::index');
+$routes->get('/thoat', 'LoginController::logout');
+$routes->post('/dang-nhap', 'LoginController::login');
 /*
 /*
  * --------------------------------------------------------------------

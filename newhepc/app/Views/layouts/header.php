@@ -4,8 +4,13 @@
         <div class="top-header-element">
           <a href="https://doffice.evnspc.vn/"><i class="fa-solid fa-person-chalkboard"></i> Giáo viên</a>
           <a href="https://daotao.hepc.edu.vn/"><i class="fa-solid fa-chalkboard-user"></i> Sinh viên</a>
-          <a href="#"><i class="fa-solid fa-lock"></i> Đăng nhập</a>
           <a href="https://mail.evnspc.vn/"><i class="fa-solid fa-envelope"></i> Email</a>
+          <?php if(session('userLogin')):?>
+            <a href="./quan-tri"><i class="fa-solid fa-gear"></i> Quản trị</a>
+            <a href="./thoat"><i class="fa-solid fa-arrow-right-from-bracket"></i> Thoát</a>
+          <?php else:?>
+            <a href="./dang-nhap"><i class="fa-solid fa-lock"></i> Đăng nhập</a>
+          <?php endif?>
         </div>
       </div>
       <div class="company-name row">
