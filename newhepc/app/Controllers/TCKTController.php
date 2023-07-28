@@ -21,7 +21,7 @@ class TCKTController extends BaseController
         $gioithieu = $this->cmpbService->getCatalogueByID('60');
         $masterPage = [];
         $title = "Phòng tài chính";
-        $page = 'pages/officePage';
+        $page = 'publicPage/pages/officePage';
         $dataLayout['Banner'] = "Phòng tài chính";
         $dataLayout['f_name_catalogue'] = $gioithieu['name'];
         $dataLayout['s_name_catalogue'] = $tintuc['name'];
@@ -32,7 +32,7 @@ class TCKTController extends BaseController
         $dataLayout['image'] = null;
         $dataLayout['link'] = "phong-tai-chinh/";
         $UnionPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
-        return view('masterPage', $UnionPage);
+        return view('publicPage/masterPage', $UnionPage);
     }
 
     public function getNewsOfCatalogueTCKT($link)
@@ -44,19 +44,19 @@ class TCKTController extends BaseController
         } elseif ($catalogue != null) {
             $masterPage = [];
             $title = $catalogue['name'];
-            $page = 'subMasterPage';
+            $page = 'publicPage/subMasterPage';
             $dataLayout['Banner'] = "Phòng tài chính kế toán";
-            $dataLayout['content'] = view('pages/newsPage', ['News' => $this->baivietService->getNewForCatalogue($catalogue['id_cmpb']), 'link' => "phong-tai-chinh"]);
+            $dataLayout['content'] = view('publicPage/pages/newsPage', ['News' => $this->baivietService->getNewForCatalogue($catalogue['id_cmpb']), 'link' => "phong-tai-chinh"]);
             $dataLayout['Pager'] = $this->baivietService->getPager();
-            $dataLayout['rightBanner'] = view('layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(9), 'link' => "phong-tai-chinh/"]);
+            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(9), 'link' => "phong-tai-chinh/"]);
             $TCKTPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
-            return view('masterPage', $TCKTPage);
+            return view('publicPage/masterPage', $TCKTPage);
         } else {
             $page = 'subMasterPage';
             $dataLayout['Banner'] = "Phòng tài chính kế toán";
-            $dataLayout['content'] = view('pages/newDetail', ['New' => $newdetail, 'More' => $this->baivietService->getMoreNew('57', $link), 'link' => "phong-tai-chinh"]);
+            $dataLayout['content'] = view('publicPage/pages/newDetail', ['New' => $newdetail, 'More' => $this->baivietService->getMoreNew('57', $link), 'link' => "phong-tai-chinh"]);
             $dataLayout['Pager'] = null;
-            $dataLayout['rightBanner'] = view('layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(9), 'link' => "phong-tai-chinh/"]);
+            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(9), 'link' => "phong-tai-chinh/"]);
             return $this->checkPageExits($newdetail, $page, $dataLayout);
         }
 

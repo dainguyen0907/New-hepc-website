@@ -15,23 +15,23 @@ class AnouncementController extends BaseController
     {
         $masterPage=[];
         $title="Thông báo";
-        $page='subMasterPage';
+        $page='publicPage/subMasterPage';
         $dataLayout['Banner']="Thông báo";
-        $dataLayout['content']=view('pages/newsPage',['News'=>$this->baivietService->getAnouncementForAnouncementPage(),'link'=>'thong-bao']);
+        $dataLayout['content']=view('publicPage/pages/newsPage',['News'=>$this->baivietService->getAnouncementForAnouncementPage(),'link'=>'thong-bao']);
         $dataLayout['Pager']=$this->baivietService->getPager();
-        $dataLayout['rightBanner']=view('layouts/rightMenuForNew',['Newest'=>$this->baivietService->getAnouncementForRightMenu()]);
+        $dataLayout['rightBanner']=view('publicPage/layouts/rightMenuForNew',['Newest'=>$this->baivietService->getAnouncementForRightMenu()]);
         $AnouncementPage=$this->loadLayout($masterPage,$title,$page,$dataLayout,[],[]);
-        return view('masterPage',$AnouncementPage);
+        return view('publicPage/masterPage',$AnouncementPage);
     }
 
     public function getAnouncementDetail($link)
     {
         $newdetail=$this->baivietService->getAnouncementDetail($link);
-        $page='subMasterPage';
+        $page='publicPage/subMasterPage';
         $dataLayout['Banner']="Thông báo";
-        $dataLayout['content']=view('pages/newDetail',['New'=>$newdetail, 'More'=>$this->baivietService->getMoreAnouncement($link),'link'=>"thong-bao"]);
+        $dataLayout['content']=view('publicPage/pages/newDetail',['New'=>$newdetail, 'More'=>$this->baivietService->getMoreAnouncement($link),'link'=>"thong-bao"]);
         $dataLayout['Pager']=null;
-        $dataLayout['rightBanner']=view('layouts/rightMenuForNew',['Newest'=>$this->baivietService->getAnouncementForRightMenu()]);
+        $dataLayout['rightBanner']=view('publicPage/layouts/rightMenuForNew',['Newest'=>$this->baivietService->getAnouncementForRightMenu()]);
         return $this->checkPageExits($newdetail,$page,$dataLayout);
     }
 }

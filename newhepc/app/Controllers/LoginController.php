@@ -19,13 +19,13 @@ class LoginController extends BaseController
     {
         $masterPage=[];
         $title="HEPC";
-        $page='subMasterPage';
+        $page='publicPage/subMasterPage';
         $dataLayout['Banner']="Đăng nhập";
-        $dataLayout['content']=view('pages/login');
+        $dataLayout['content']=view('publicPage/pages/login');
         $dataLayout['Pager']=null;
-        $dataLayout['rightBanner']=view('layouts/rightMenuForNew',['Newest'=>$this->baivietService->getAnouncementForRightMenu()]);
+        $dataLayout['rightBanner']=view('publicPage/layouts/rightMenuForNew',['Newest'=>$this->baivietService->getAnouncementForRightMenu()]);
         $NewPaperPage=$this->loadLayout($masterPage,$title,$page,$dataLayout,[],[]);
-        return view('masterPage',$NewPaperPage);
+        return view('publicPage/masterPage',$NewPaperPage);
     }
 
     public function login()

@@ -21,7 +21,7 @@ class HomeController extends BaseController
     {
         $masterPage=[];
         $title="HEPC";
-        $page='pages/home';
+        $page='publicPage/pages/home';
         $dataLayout['Banners']=$this->bannerService->getBannersForHomePage();
         $dataLayout['News']=$this->baivietService->getNewsForHomePage();
         $dataLayout['Anouncements']=$this->baivietService->getAnouncementsForHomePage();
@@ -29,6 +29,6 @@ class HomeController extends BaseController
         $dataLayout['Recruitments']=$this->baivietService->getRecruitmentForHomePage();
         $dataLayout['Videos']=$this->videoService->getVideosForHomePage();
         $homePage=$this->loadLayout($masterPage,$title,$page,$dataLayout,[],[]);
-        return view('masterPage',$homePage);
+        return view('publicPage/masterPage',$homePage);
     }
 }

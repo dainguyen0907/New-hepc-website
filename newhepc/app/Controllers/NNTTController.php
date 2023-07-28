@@ -21,7 +21,7 @@ class NNTTController extends BaseController
         $gioithieu = $this->cmpbService->getCatalogueByID('90');
         $masterPage = [];
         $title = "Trung tâm ngoại ngữ tin học";
-        $page = 'pages/officePage';
+        $page = 'publicPage/pages/officePage';
         $dataLayout['Banner'] = "Trung tâm ngoại ngữ tin học";
         $dataLayout['f_name_catalogue'] = $gioithieu['name'];
         $dataLayout['s_name_catalogue'] = $tintuc['name'];
@@ -32,7 +32,7 @@ class NNTTController extends BaseController
         $dataLayout['image'] = null;
         $dataLayout['link'] = "phong-nn-tt/";
         $UnionPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
-        return view('masterPage', $UnionPage);
+        return view('publicPage/masterPage', $UnionPage);
     }
 
     public function getNewsOfCatalogueNNTT($link)
@@ -44,19 +44,19 @@ class NNTTController extends BaseController
         } elseif ($catalogue != null) {
             $masterPage = [];
             $title = $catalogue['name'];
-            $page = 'subMasterPage';
+            $page = 'publicPage/subMasterPage';
             $dataLayout['Banner'] = "Trung tâm ngoại ngữ tin học";
-            $dataLayout['content'] = view('pages/newsPage', ['News' => $this->baivietService->getNewForCatalogue($catalogue['id_cmpb']), 'link' => "phong-nn-tt"]);
+            $dataLayout['content'] = view('publicPage/pages/newsPage', ['News' => $this->baivietService->getNewForCatalogue($catalogue['id_cmpb']), 'link' => "phong-nn-tt"]);
             $dataLayout['Pager'] = $this->baivietService->getPager();
-            $dataLayout['rightBanner'] = view('layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(14), 'link' => "phong-nn-tt/"]);
+            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(14), 'link' => "phong-nn-tt/"]);
             $NNTTPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
-            return view('masterPage', $NNTTPage);
+            return view('publicPage/masterPage', $NNTTPage);
         } else {
             $page = 'subMasterPage';
             $dataLayout['Banner'] = "Trung tâm ngoại ngữ tin học";
-            $dataLayout['content'] = view('pages/newDetail', ['New' => $newdetail, 'More' => $this->baivietService->getMoreNew('87', $link), 'link' => "phong-nn-tt"]);
+            $dataLayout['content'] = view('publicPage/pages/newDetail', ['New' => $newdetail, 'More' => $this->baivietService->getMoreNew('87', $link), 'link' => "phong-nn-tt"]);
             $dataLayout['Pager'] = null;
-            $dataLayout['rightBanner'] = view('layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(14), 'link' => "phong-nn-tt/"]);
+            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(14), 'link' => "phong-nn-tt/"]);
             return $this->checkPageExits($newdetail, $page, $dataLayout);
         }
 

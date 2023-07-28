@@ -21,7 +21,7 @@ class TTCNNLController extends BaseController
         $gioithieu = $this->cmpbService->getCatalogueByID('80');
         $masterPage = [];
         $title = "Trung tâm công nghệ năng lượng";
-        $page = 'pages/officePage';
+        $page = 'publicPage/pages/officePage';
         $dataLayout['Banner'] = "Trung tâm công nghệ năng lượng";
         $dataLayout['f_name_catalogue'] = $gioithieu['name'];
         $dataLayout['s_name_catalogue'] = $tintuc['name'];
@@ -32,7 +32,7 @@ class TTCNNLController extends BaseController
         $dataLayout['image'] = null;
         $dataLayout['link'] = "phong-tt-nangluong/";
         $UnionPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
-        return view('masterPage', $UnionPage);
+        return view('publicPage/masterPage', $UnionPage);
     }
 
     public function getNewsOfCatalogueTTCNNL($link)
@@ -44,19 +44,19 @@ class TTCNNLController extends BaseController
         } elseif ($catalogue != null) {
             $masterPage = [];
             $title = $catalogue['name'];
-            $page = 'subMasterPage';
+            $page = 'publicPage/subMasterPage';
             $dataLayout['Banner'] = "Trung tâm công nghệ năng lượng";
-            $dataLayout['content'] = view('pages/newsPage', ['News' => $this->baivietService->getNewForCatalogue($catalogue['id_cmpb']), 'link' => "phong-tt-nangluong"]);
+            $dataLayout['content'] = view('publicPage/pages/newsPage', ['News' => $this->baivietService->getNewForCatalogue($catalogue['id_cmpb']), 'link' => "phong-tt-nangluong"]);
             $dataLayout['Pager'] = $this->baivietService->getPager();
-            $dataLayout['rightBanner'] = view('layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(13), 'link' => "phong-tt-nangluong/"]);
+            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(13), 'link' => "phong-tt-nangluong/"]);
             $TTCNNLPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
-            return view('masterPage', $TTCNNLPage);
+            return view('publicPage/masterPage', $TTCNNLPage);
         } else {
             $page = 'subMasterPage';
             $dataLayout['Banner'] = "Trung tâm công nghệ năng lượng";
-            $dataLayout['content'] = view('pages/newDetail', ['New' => $newdetail, 'More' => $this->baivietService->getMoreNew('81', $link), 'link' => "phong-tt-nangluong"]);
+            $dataLayout['content'] = view('publicPage/pages/newDetail', ['New' => $newdetail, 'More' => $this->baivietService->getMoreNew('81', $link), 'link' => "phong-tt-nangluong"]);
             $dataLayout['Pager'] = null;
-            $dataLayout['rightBanner'] = view('layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(13), 'link' => "phong-tt-nangluong/"]);
+            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(13), 'link' => "phong-tt-nangluong/"]);
             return $this->checkPageExits($newdetail, $page, $dataLayout);
         }
 

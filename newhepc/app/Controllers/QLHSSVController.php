@@ -21,7 +21,7 @@ class QLHSSVController extends BaseController
         $gioithieu = $this->cmpbService->getCatalogueByID('72');
         $masterPage = [];
         $title = "Phòng quản lý học sinh sinh viên";
-        $page = 'pages/officePage';
+        $page = 'publicPage/pages/officePage';
         $dataLayout['Banner'] = "Phòng quản lý học sinh sinh viên";
         $dataLayout['f_name_catalogue'] = $gioithieu['name'];
         $dataLayout['s_name_catalogue'] = $tintuc['name'];
@@ -32,7 +32,7 @@ class QLHSSVController extends BaseController
         $dataLayout['image'] = null;
         $dataLayout['link'] = "phong-qlhssv/";
         $UnionPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
-        return view('masterPage', $UnionPage);
+        return view('publicPage/masterPage', $UnionPage);
     }
 
     public function getNewsOfCatalogueQLHSSV($link)
@@ -44,19 +44,19 @@ class QLHSSVController extends BaseController
         } elseif ($catalogue != null) {
             $masterPage = [];
             $title = $catalogue['name'];
-            $page = 'subMasterPage';
+            $page = 'publicPage/subMasterPage';
             $dataLayout['Banner'] = "Phòng quản lý học sinh sinh viên";
-            $dataLayout['content'] = view('pages/newsPage', ['News' => $this->baivietService->getNewForCatalogue($catalogue['id_cmpb']), 'link' => "phong-qlhssv"]);
+            $dataLayout['content'] = view('publicPage/pages/newsPage', ['News' => $this->baivietService->getNewForCatalogue($catalogue['id_cmpb']), 'link' => "phong-qlhssv"]);
             $dataLayout['Pager'] = $this->baivietService->getPager();
-            $dataLayout['rightBanner'] = view('layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(11), 'link' => "phong-qlhssv/"]);
+            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(11), 'link' => "phong-qlhssv/"]);
             $QLHSSVPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
-            return view('masterPage', $QLHSSVPage);
+            return view('publicPage/masterPage', $QLHSSVPage);
         } else {
             $page = 'subMasterPage';
             $dataLayout['Banner'] = "Phòng quản lý học sinh sinh viên";
-            $dataLayout['content'] = view('pages/newDetail', ['New' => $newdetail, 'More' => $this->baivietService->getMoreNew('69', $link), 'link' => "phong-qlhssv"]);
+            $dataLayout['content'] = view('publicPage/pages/newDetail', ['New' => $newdetail, 'More' => $this->baivietService->getMoreNew('69', $link), 'link' => "phong-qlhssv"]);
             $dataLayout['Pager'] = null;
-            $dataLayout['rightBanner'] = view('layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(11), 'link' => "phong-qlhssv/"]);
+            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(11), 'link' => "phong-qlhssv/"]);
             return $this->checkPageExits($newdetail, $page, $dataLayout);
         }
 

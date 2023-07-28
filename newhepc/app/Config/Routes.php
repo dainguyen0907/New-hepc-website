@@ -14,7 +14,14 @@ $routes->setDefaultNamespace('App\Controllers');
 $routes->setDefaultController('HomeController');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
-$routes->set404Override();
+// $routes->set404Override(
+//     static function(){
+//     $masterPage['title'] ='HEPC';
+//     $masterPage['header'] = view('publicPage/layouts/header');
+//     $masterPage['page'] = view('publicPage/pages/404');
+//     $masterPage['footer'] = view('publicPage/layouts/footer');
+//     echo view('publicPage/masterPage',$masterPage);
+// });
 // The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
 // where controller filters or CSRF protection are bypassed.
 // If you don't want to define all routes, please use the Auto Routing (Improved).
@@ -52,7 +59,7 @@ $routes->get('/cong-doan/(:any)', 'UnionController::getNewsOfCatalogueUnion/$1')
 $routes->get('/hoat-dong-doan', 'GroupController::index');
 $routes->get('/hoat-dong-doan/(:any)', 'GroupController::getNewsOfCatalogueGroup/$1');
 //Login
-$routes->get('/dang-nhap', 'LoginController::index');
+$routes->get('/dang-nhap', 'LoginController::index',['filter'=>'loginFilter']);
 $routes->get('/thoat', 'LoginController::logout');
 $routes->post('/dang-nhap', 'LoginController::login');
 $routes->get('/phong-to-chuc', 'TCHCController::index');
@@ -83,6 +90,9 @@ $routes->get('/khoa-cndt-tdh', 'CNDTTDHController::index');
 $routes->get('/khoa-cndt-tdh/(:any)', 'CNDTTDHController::getNewsOfCatalogueCNDTTDH/$1');
 $routes->get('/khoa-dtnc', 'DTNCController::index');
 $routes->get('/khoa-dtnc/(:any)', 'DTNCController::getNewsOfCatalogueDTNC/$1');
+$routes->group('admin',['filter'=>'authenicatorFilter'],function($routes){
+    $routes->get('/', 'Admin_HomeController::index');
+});
 /*
 /*
  * --------------------------------------------------------------------

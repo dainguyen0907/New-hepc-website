@@ -15,13 +15,13 @@ class CommitmentController extends BaseController
     {
         $masterPage=[];
         $title="Ba công khai";
-        $page='subMasterPage';
+        $page='publicPage/subMasterPage';
         $dataLayout['Banner']="Ba công khai";
-        $dataLayout['content']=view('pages/newsPage',['News'=>$this->baivietService->getCommitmentForCommitmentPage(),'link'=>"ba-cong-khai"]);
+        $dataLayout['content']=view('publicPage/pages/newsPage',['News'=>$this->baivietService->getCommitmentForCommitmentPage(),'link'=>"ba-cong-khai"]);
         $dataLayout['Pager']=$this->baivietService->getPager();
-        $dataLayout['rightBanner']=view('layouts/rightMenuForNew',['Newest'=>$this->baivietService->getAnouncementForRightMenu()]);
+        $dataLayout['rightBanner']=view('publicPage/layouts/rightMenuForNew',['Newest'=>$this->baivietService->getAnouncementForRightMenu()]);
         $commitmentPage=$this->loadLayout($masterPage,$title,$page,$dataLayout,[],[]);
-        return view('masterPage',$commitmentPage);
+        return view('publicPage/masterPage',$commitmentPage);
     }
 
     public function getCommitmentDetail($link)

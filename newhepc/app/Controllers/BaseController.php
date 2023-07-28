@@ -58,9 +58,9 @@ abstract class BaseController extends Controller
     public function loadLayout($masterPage, $title, $page, $dataLayout, $css, $js)
     {
         $masterPage['title'] = $title;
-        $masterPage['header'] = view('layouts/header');
+        $masterPage['header'] = view('publicPage/layouts/header');
         $masterPage['page'] = view($page, $dataLayout);
-        $masterPage['footer'] = view('layouts/footer');
+        $masterPage['footer'] = view('publicPage/layouts/footer');
         $masterPage['css'] = $css;
         $masterPage['js'] = $js;
         return $masterPage;
@@ -74,15 +74,26 @@ abstract class BaseController extends Controller
         }
         $title = $res['heading'];
         $dataPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
-        return view('masterPage', $dataPage);
+        return view('publicPage/masterPage', $dataPage);
     }
     public function load404page()
     {
         $masterPage = [];
         $title = "HEPC";
-        $page = 'pages/404';
+        $page = 'publicPage/pages/404';
         $dataPage = $this->loadLayout($masterPage, $title, $page, [], [], []);
-        return view('masterPage', $dataPage);
+        return view('publicPage/masterPage', $dataPage);
+    }
+
+    public function loadAdminLayout($masterPage, $title, $page, $dataLayout, $css, $js)
+    {
+        $masterPage['title'] = $title;
+        $masterPage['leftMenu'] = view('adminPage/layouts/leftMenu');
+        $masterPage['header'] = view('adminPage/layouts/header');
+        $masterPage['content'] = $page;
+        $masterPage['cssLib'] = $css;
+        $masterPage['jsLib'] = $js;
+        return $masterPage;
     }
 
 

@@ -15,13 +15,13 @@ class TimeTableController extends BaseController
     {
         $masterPage=[];
         $title="Thời khóa biểu";
-        $page='subMasterPage';
+        $page='publicPage/subMasterPage';
         $dataLayout['Banner']="Thời khóa biểu";
-        $dataLayout['content']=view('pages/newsPage',['News'=>$this->baivietService->getTimeTableForTBPage(),'link'=>"thoi-khoa-bieu"]);
+        $dataLayout['content']=view('publicPage/pages/newsPage',['News'=>$this->baivietService->getTimeTableForTBPage(),'link'=>"thoi-khoa-bieu"]);
         $dataLayout['Pager']=$this->baivietService->getPager();
-        $dataLayout['rightBanner']=view('layouts/rightMenuForNew',['Newest'=>$this->baivietService->getAnouncementForRightMenu()]);
+        $dataLayout['rightBanner']=view('publicPage/layouts/rightMenuForNew',['Newest'=>$this->baivietService->getAnouncementForRightMenu()]);
         $timeTablePage=$this->loadLayout($masterPage,$title,$page,$dataLayout,[],[]);
-        return view('masterPage',$timeTablePage);
+        return view('publicPage/masterPage',$timeTablePage);
     }
 
     public function getTimeTableDetail($link)
@@ -29,9 +29,9 @@ class TimeTableController extends BaseController
         $newdetail=$this->baivietService->getTimeTableDetail($link);
         $page='subMasterPage';
         $dataLayout['Banner']="Thời khóa biểu";
-        $dataLayout['content']=view('pages/newDetail',['New'=>$newdetail, 'More'=>$this->baivietService->getMoreTimeTable($link),'link'=>"thoi-khoa-bieu"]);
+        $dataLayout['content']=view('publicPage/pages/newDetail',['New'=>$newdetail, 'More'=>$this->baivietService->getMoreTimeTable($link),'link'=>"thoi-khoa-bieu"]);
         $dataLayout['Pager']=null;
-        $dataLayout['rightBanner']=view('layouts/rightMenuForNew',['Newest'=>$this->baivietService->getAnouncementForRightMenu()]);
+        $dataLayout['rightBanner']=view('publicPage/layouts/rightMenuForNew',['Newest'=>$this->baivietService->getAnouncementForRightMenu()]);
         return $this->checkPageExits($newdetail,$page,$dataLayout);
     }
 }

@@ -16,23 +16,23 @@ class AdmissionController extends BaseController
     {
         $masterPage = [];
         $title = "Tuyển sinh";
-        $page = 'subMasterPage';
+        $page = 'publicPage/subMasterPage';
         $dataLayout['Banner'] = "Tuyển sinh";
-        $dataLayout['content'] = view('pages/newsPage', ['News' => $this->baivietService->getNewForPage('133'), 'link' => 'tuyen-sinh']);
+        $dataLayout['content'] = view('publicPage/pages/newsPage', ['News' => $this->baivietService->getNewForPage('133'), 'link' => 'tuyen-sinh']);
         $dataLayout['Pager'] = $this->baivietService->getPager();
-        $dataLayout['rightBanner'] = view('layouts/rightMenuForNew', ['Newest' => $this->baivietService->getAnouncementForRightMenu()]);
+        $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForNew', ['Newest' => $this->baivietService->getAnouncementForRightMenu()]);
         $AdmissionPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
-        return view('masterPage', $AdmissionPage);
+        return view('publicPage/masterPage', $AdmissionPage);
     }
 
     public function getAdmissionDetail($link)
     {
         $newdetail = $this->baivietService->getNewDetail('133', $link);
-        $page = 'subMasterPage';
+        $page = 'publicPage/subMasterPage';
         $dataLayout['Banner'] = "Tuyển sinh";
-        $dataLayout['content'] = view('pages/newDetail', ['New' => $newdetail, 'More' => $this->baivietService->getMoreNew('133', $link), 'link' => "tuyen-sinh"]);
+        $dataLayout['content'] = view('publicPage/pages/newDetail', ['New' => $newdetail, 'More' => $this->baivietService->getMoreNew('133', $link), 'link' => "tuyen-sinh"]);
         $dataLayout['Pager'] = null;
-        $dataLayout['rightBanner'] = view('layouts/rightMenuForNew', ['Newest' => $this->baivietService->getAnouncementForRightMenu()]);
+        $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForNew', ['Newest' => $this->baivietService->getAnouncementForRightMenu()]);
         return $this->checkPageExits($newdetail, $page, $dataLayout);
     }
 }

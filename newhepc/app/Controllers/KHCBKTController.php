@@ -21,7 +21,7 @@ class KHCBKTController extends BaseController
         $gioithieu = $this->cmpbService->getCatalogueByID('23');
         $masterPage = [];
         $title = "Khoa học cơ bản - kinh tế";
-        $page = 'pages/officePage';
+        $page = 'publicPage/pages/officePage';
         $dataLayout['Banner'] = "Khoa học cơ bản - kinh tế";
         $dataLayout['f_name_catalogue'] = $gioithieu['name'];
         $dataLayout['s_name_catalogue'] = $tintuc['name'];
@@ -32,7 +32,7 @@ class KHCBKTController extends BaseController
         $dataLayout['image'] = null;
         $dataLayout['link'] = "khoa-khcb-kt/";
         $UnionPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
-        return view('masterPage', $UnionPage);
+        return view('publicPage/masterPage', $UnionPage);
     }
 
     public function getNewsOfCatalogueKHCBKT($link)
@@ -44,19 +44,19 @@ class KHCBKTController extends BaseController
         } elseif ($catalogue != null) {
             $masterPage = [];
             $title = $catalogue['name'];
-            $page = 'subMasterPage';
+            $page = 'publicPage/subMasterPage';
             $dataLayout['Banner'] = "Khoa học cơ bản - kinh tế";
-            $dataLayout['content'] = view('pages/newsPage', ['News' => $this->baivietService->getNewForCatalogue($catalogue['id_cmpb']), 'link' => "khoa-khcb-kt"]);
+            $dataLayout['content'] = view('publicPage/pages/newsPage', ['News' => $this->baivietService->getNewForCatalogue($catalogue['id_cmpb']), 'link' => "khoa-khcb-kt"]);
             $dataLayout['Pager'] = $this->baivietService->getPager();
-            $dataLayout['rightBanner'] = view('layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(4), 'link' => "khoa-khcb-kt/"]);
+            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(4), 'link' => "khoa-khcb-kt/"]);
             $KHCBKTPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
-            return view('masterPage', $KHCBKTPage);
+            return view('publicPage/masterPage', $KHCBKTPage);
         } else {
             $page = 'subMasterPage';
             $dataLayout['Banner'] = "Khoa học cơ bản - kinh tế";
-            $dataLayout['content'] = view('pages/newDetail', ['New' => $newdetail, 'More' => $this->baivietService->getMoreNew('23', $link), 'link' => "khoa-khcb-kt"]);
+            $dataLayout['content'] = view('publicPage/pages/newDetail', ['New' => $newdetail, 'More' => $this->baivietService->getMoreNew('23', $link), 'link' => "khoa-khcb-kt"]);
             $dataLayout['Pager'] = null;
-            $dataLayout['rightBanner'] = view('layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(4), 'link' => "khoa-khcb-kt/"]);
+            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(4), 'link' => "khoa-khcb-kt/"]);
             return $this->checkPageExits($newdetail, $page, $dataLayout);
         }
 

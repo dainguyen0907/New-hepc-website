@@ -17,7 +17,7 @@ class IntroduceController extends BaseController
     {
         $detail=$this->baivietService->getIntroduceDetail($link);
         $masterPage=[];
-        $page='pages/introducePage';
+        $page='publicPage/pages/introducePage';
         $dataLayout['Banner']="Giới thiệu";
         $dataLayout['detail']=$detail;
         $dataLayout['introduces']=$this->baivietService->getAllIntroduce();

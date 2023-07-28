@@ -15,23 +15,23 @@ class RecruitmentController extends BaseController
     {
         $masterPage=[];
         $title="Tuyển dụng";
-        $page='subMasterPage';
+        $page='publicPage/subMasterPage';
         $dataLayout['Banner']="Tuyển dụng";
-        $dataLayout['content']=view('pages/newsPage',['News'=>$this->baivietService->getRecruitmentForRecruitmentPage(),'link'=>'tuyen-dung']);
+        $dataLayout['content']=view('publicPage/pages/newsPage',['News'=>$this->baivietService->getRecruitmentForRecruitmentPage(),'link'=>'tuyen-dung']);
         $dataLayout['Pager']=$this->baivietService->getPager();
-        $dataLayout['rightBanner']=view('layouts/rightMenuForNew',['Newest'=>$this->baivietService->getAnouncementForRightMenu()]);
+        $dataLayout['rightBanner']=view('publicPage/layouts/rightMenuForNew',['Newest'=>$this->baivietService->getAnouncementForRightMenu()]);
         $RecruitmentPage=$this->loadLayout($masterPage,$title,$page,$dataLayout,[],[]);
-        return view('masterPage',$RecruitmentPage);
+        return view('publicPage/masterPage',$RecruitmentPage);
     }
 
     public function getRecruitmentDetail($link)
     {
         $newdetail=$this->baivietService->getRecruitmentDetail($link);
-        $page='subMasterPage';
+        $page='publicPage/subMasterPage';
         $dataLayout['Banner']="Tuyển dụng";
-        $dataLayout['content']=view('pages/newDetail',['New'=>$newdetail, 'More'=>$this->baivietService->getMoreRecruitment($link),'link'=>"tuyen-dung"]);
+        $dataLayout['content']=view('publicPage/pages/newDetail',['New'=>$newdetail, 'More'=>$this->baivietService->getMoreRecruitment($link),'link'=>"tuyen-dung"]);
         $dataLayout['Pager']=null;
-        $dataLayout['rightBanner']=view('layouts/rightMenuForNew',['Newest'=>$this->baivietService->getAnouncementForRightMenu()]);
+        $dataLayout['rightBanner']=view('publicPage/layouts/rightMenuForNew',['Newest'=>$this->baivietService->getAnouncementForRightMenu()]);
         return $this->checkPageExits($newdetail,$page,$dataLayout);
     }
 }

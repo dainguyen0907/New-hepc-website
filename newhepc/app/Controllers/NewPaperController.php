@@ -15,13 +15,13 @@ class NewPaperController extends BaseController
     {
         $masterPage=[];
         $title="Tin tức";
-        $page='subMasterPage';
+        $page='publicPage/subMasterPage';
         $dataLayout['Banner']="Tin tức";
-        $dataLayout['content']=view('pages/newsPage',['News'=>$this->baivietService->getNewsForNewPaperPage(),'link'=>'tin-tuc']);
+        $dataLayout['content']=view('publicPage/pages/newsPage',['News'=>$this->baivietService->getNewsForNewPaperPage(),'link'=>'tin-tuc']);
         $dataLayout['Pager']=$this->baivietService->getPager();
-        $dataLayout['rightBanner']=view('layouts/rightMenuForNew',['Newest'=>$this->baivietService->getAnouncementForRightMenu()]);
+        $dataLayout['rightBanner']=view('publicPage/layouts/rightMenuForNew',['Newest'=>$this->baivietService->getAnouncementForRightMenu()]);
         $NewPaperPage=$this->loadLayout($masterPage,$title,$page,$dataLayout,[],[]);
-        return view('masterPage',$NewPaperPage);
+        return view('publicPage/masterPage',$NewPaperPage);
     }
 
     public function getNewPaperDetail($link)
@@ -29,9 +29,9 @@ class NewPaperController extends BaseController
         $newdetail=$this->baivietService->getNewPaperDetail($link);
         $page='subMasterPage';
         $dataLayout['Banner']="Tin tức";
-        $dataLayout['content']=view('pages/newDetail',['New'=>$newdetail, 'More'=>$this->baivietService->getMoreNewPaper($link),'link'=>"tin-tuc"]);
+        $dataLayout['content']=view('publicPage/pages/newDetail',['New'=>$newdetail, 'More'=>$this->baivietService->getMoreNewPaper($link),'link'=>"tin-tuc"]);
         $dataLayout['Pager']=null;
-        $dataLayout['rightBanner']=view('layouts/rightMenuForNew',['Newest'=>$this->baivietService->getAnouncementForRightMenu()]);
+        $dataLayout['rightBanner']=view('publicPage/layouts/rightMenuForNew',['Newest'=>$this->baivietService->getAnouncementForRightMenu()]);
         return $this->checkPageExits($newdetail,$page,$dataLayout);
     }
 }
