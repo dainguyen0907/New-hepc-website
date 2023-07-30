@@ -92,6 +92,10 @@ $routes->get('/khoa-dtnc', 'DTNCController::index');
 $routes->get('/khoa-dtnc/(:any)', 'DTNCController::getNewsOfCatalogueDTNC/$1');
 $routes->group('admin',['filter'=>'authenicatorFilter'],function($routes){
     $routes->get('/', 'Admin_HomeController::index');
+    $routes->group('management',['filter'=>'managementFilter'],function($routes){
+        $routes->get('user', 'Admin_UserController::index');
+    });
+    
 });
 /*
 /*

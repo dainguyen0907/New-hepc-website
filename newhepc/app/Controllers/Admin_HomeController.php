@@ -5,8 +5,6 @@ namespace App\Controllers;
 
 class Admin_HomeController extends BaseController
 {
-
-
     public function __construct()
     {
     }
@@ -14,7 +12,7 @@ class Admin_HomeController extends BaseController
     {
         $masterPage = [];
         $title = "Trang chủ";
-        $page = null;
+        $page = 'adminPage/Pages/homePage';
         $AdmissionPage = $this->loadAdminLayout($masterPage, $title, $page, [], [], []);
         return view('adminPage/masterPage', $AdmissionPage);
     }

@@ -12,15 +12,12 @@
     <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/fontawesome/css/all.css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600|Open+Sans:400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600|Open+Sans:400,600,700" rel="stylesheet"> 
     <link rel="stylesheet" href="assets/css/easion.min.css">
     <link rel="stylesheet" href="assets/css/myStyle.css">
     <?php foreach ($cssLib as $cssLink): ?>
         <link rel="stylesheet" href="<?php echo $cssLink ?>">
     <?php endforeach ?>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
-    <script src="assets/js/chart-js-config.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment-with-locales.min.js"></script>
 </head>
 
 <body>
@@ -43,6 +40,7 @@
         <script src="<?php echo $jsLink ?>"></script>
     <?php endforeach ?>
     <script src="assets/js/easion.js"></script>
+    <script src="assets/js/dataTable.js"></script>
 </body>
 
 </html>

@@ -18,7 +18,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
                 <a class="dropdown-item" data-toggle="modal" data-target="#changePasswordModal">Đổi mật khẩu</a>
-                <a class="dropdown-item" href="logout">Đăng xuất</a>
+                <a class="dropdown-item" href="thoat">Đăng xuất</a>
             </div>
         </div>
     </div>

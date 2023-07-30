@@ -23,6 +23,7 @@ class Filters extends BaseConfig
         'secureheaders' => SecureHeaders::class,
         'loginFilter'   => \App\Filters\loginFilter::class,
         'authenicatorFilter'   => \App\Filters\authenicatorFilter::class,
+        'managementFilter'   => \App\Filters\managemnetFilter::class,
     ];
 
     /**
