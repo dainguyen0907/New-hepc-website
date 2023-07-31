@@ -40,6 +40,7 @@
         <script src="<?php echo $jsLink ?>"></script>
     <?php endforeach ?>
     <script src="assets/js/easion.js"></script>
+    <script src="assets/js/modal.js"></script>
     <script src="assets/js/dataTable.js"></script>
 </body>
 

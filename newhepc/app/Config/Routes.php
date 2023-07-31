@@ -94,6 +94,10 @@ $routes->group('admin',['filter'=>'authenicatorFilter'],function($routes){
     $routes->get('/', 'Admin_HomeController::index');
     $routes->group('management',['filter'=>'managementFilter'],function($routes){
         $routes->get('user', 'Admin_UserController::index');
+        $routes->get('user/add', 'Admin_UserController::addPage');
+        $routes->post('user/add', 'Admin_UserController::createUser');
+        $routes->get('user/(:num)', 'Admin_UserController::changePage/$1');
+        $routes->post('user/resetPassword', 'Admin_UserController::resetPassword');
     });
     
 });
