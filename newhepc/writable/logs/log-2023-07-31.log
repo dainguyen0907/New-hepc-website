@@ -463,3 +463,70 @@ in SYSTEMPATH\HTTP\RedirectResponse.php on line 60.
  5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_UserController))
  6 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-31 12:07:02 --> mysqli_sql_exception: Unknown column 'Status_banner' in 'where clause' in C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\newhepc\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\newhepc\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\newhepc\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\newhepc\app\Services\bannerService.php(16): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\newhepc\app\Controllers\HomeController.php(25): App\Services\bannerService->getBannersForHomePage()
+#8 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(932): App\Controllers\HomeController->index()
+#9 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+#10 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\newhepc\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-07-31 12:07:02 --> Unknown column 'Status_banner' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `banner`
+WHERE `Status_banner` != \'0\'
+AND `censor_banner` != \'0\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `banner`
+WHERE `Status_banner` != \'0\'
+AND `censor_banner` != \'0\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `banner`
+WHERE `Status_banner` != \'0\'
+AND `censor_banner` != \'0\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `banner`
+WHERE `Status_banner` != :Status_banner:
+AND `censor_banner` != :censor_banner:', [...], false)
+ 5 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Services\bannerService.php(16): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\HomeController.php(25): App\Services\bannerService->getBannersForHomePage()
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\HomeController->index()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 13:04:03 --> Unsupported operand types: string + string
+in APPPATH\Services\BaseService.php on line 19.
+ 1 APPPATH\Services\admin_userService.php(38): App\Services\BaseService->writeHistory('reset', 'Người dùng', '2', '1')
+ 2 APPPATH\Controllers\Admin_UserController.php(71): App\Services\admin_userService->resetPassword(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_UserController->resetPassword()
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_UserController))
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 13:36:07 --> date() expects at least 1 argument, 0 given
+in APPPATH\Services\BaseService.php on line 19.
+ 1 APPPATH\Services\BaseService.php(19): date()
+ 2 APPPATH\Services\admin_userService.php(38): App\Services\BaseService->writeHistory('reset', 'Người dùng', '3', '1')
+ 3 APPPATH\Controllers\Admin_UserController.php(71): App\Services\admin_userService->resetPassword(Object(CodeIgniter\HTTP\IncomingRequest))
+ 4 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_UserController->resetPassword()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_UserController))
+ 6 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 13:37:02 --> date_format(): Argument #1 ($object) must be of type DateTimeInterface, bool given
+in APPPATH\Services\BaseService.php on line 31.
+ 1 APPPATH\Services\BaseService.php(31): date_format(false, 'd/m/Y H:i:s')
+ 2 APPPATH\Services\admin_userService.php(38): App\Services\BaseService->writeHistory('reset', 'Người dùng', '3', '1')
+ 3 APPPATH\Controllers\Admin_UserController.php(71): App\Services\admin_userService->resetPassword(Object(CodeIgniter\HTTP\IncomingRequest))
+ 4 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_UserController->resetPassword()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_UserController))
+ 6 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

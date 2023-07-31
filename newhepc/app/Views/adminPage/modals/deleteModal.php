@@ -5,9 +5,9 @@
                 <h5 class="modal-title">Rest password</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="post" action="admin/management/user/resetPassword">
+            <form method="post" action="<?=$action?>">
                 <div class="modal-body">
-                    <input type="hidden" id="id" name="id_user">
+                    <input type="hidden" id="id" name="id">
                     <p>Bạn có muốn xóa <?= $name?> với id là <strong id="id-delete-message"></strong> không?</p>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Không</button>

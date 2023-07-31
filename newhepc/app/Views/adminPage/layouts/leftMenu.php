@@ -19,7 +19,7 @@
                 <a href="<?= base_url() . "" ?>" class="dash-nav-dropdown-item">Bài viết</a>
                 <a href="<?= base_url() . "" ?>" class="dash-nav-dropdown-item">Banner Quảng cáo</a>
                 <a href="<?= base_url() . "" ?>" class="dash-nav-dropdown-item">Video clip</a>
-                <a href="<?= base_url() . "" ?>" class="dash-nav-dropdown-item">Nhật ký</a>
+                <a href="./admin/management/history" class="dash-nav-dropdown-item">Nhật ký</a>
                 <a href="<?= base_url() . "" ?>" class="dash-nav-dropdown-item">Ảnh hoạt động</a>
             </div>
         </div>

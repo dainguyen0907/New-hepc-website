@@ -81,5 +81,20 @@ class Admin_UserController extends BaseController
         }
         return redirect()->back()->withInput()->with($res['messageCode'],$res['message']);
     }
+    public function updateUser()
+    {
+        $res=$this->userService->updateUser($this->request);
+        if($res['status']===ResultUtils::STATUS_CODE_OK)
+        {
+            return redirect()->to('admin/management/user')->withInput()->with($res['messageCode'],$res['message']);
+        }
+        return redirect()->back()->withInput()->with($res['messageCode'],$res['message']);
+    }
+
+    public function deleteUser()
+    {
+        $res=$this->userService->deleteUser($this->request);
+        return redirect()->back()->withInput()->with($res['messageCode'],$res['message']);
+    }
 
 }

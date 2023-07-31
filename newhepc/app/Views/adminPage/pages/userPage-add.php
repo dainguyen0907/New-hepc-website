@@ -16,7 +16,7 @@
                     <div class="p-3">
                         <form action="<?= $action ?>" method="post" >
                             <?php if($mode=="change"):?>
-                                <input type="hidden" id="id_user" name="id_user">
+                                <input type="hidden" id="id_user" name="id_user" value="<?=$user['id_user']?>">
                             <?php endif;?>
                             <div class="form-row">
                                 <?php if($mode=="add"):?>
@@ -104,7 +104,7 @@
                                 </div>
                                 
                             </div>
-                            <button type="submit" class="btn btn-success">Tạo mới</button>
+                            <button type="submit" class="btn btn-success"><?php if($mode=="add") echo 'Tạo mới'; echo 'Cập nhật';?></button>
                             <button type="reset" class="btn btn-secondary">Nhập lại</button>
                         </form>
                     </div>
