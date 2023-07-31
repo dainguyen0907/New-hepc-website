@@ -23,8 +23,8 @@ class TTCNNLController extends BaseController
         $title = "Trung tâm công nghệ năng lượng";
         $page = 'publicPage/pages/officePage';
         $dataLayout['Banner'] = "Trung tâm công nghệ năng lượng";
-        $dataLayout['f_name_catalogue'] = $gioithieu['name'];
-        $dataLayout['s_name_catalogue'] = $tintuc['name'];
+        $dataLayout['f_name_catalogue'] = $gioithieu['cmphongban'];
+        $dataLayout['s_name_catalogue'] = $tintuc['cmphongban'];
         $dataLayout['f_link'] = $gioithieu['link'];
         $dataLayout['s_link'] = $tintuc['link'];
         $dataLayout['f_news'] = $this->baivietService->getNewsforOfficePage('80');
@@ -43,7 +43,7 @@ class TTCNNLController extends BaseController
             return $this->load404page();
         } elseif ($catalogue != null) {
             $masterPage = [];
-            $title = $catalogue['name'];
+            $title = $catalogue['cmphongban'];
             $page = 'publicPage/subMasterPage';
             $dataLayout['Banner'] = "Trung tâm công nghệ năng lượng";
             $dataLayout['content'] = view('publicPage/pages/newsPage', ['News' => $this->baivietService->getNewForCatalogue($catalogue['id_cmpb']), 'link' => "phong-tt-nangluong"]);
@@ -52,7 +52,7 @@ class TTCNNLController extends BaseController
             $TTCNNLPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
             return view('publicPage/masterPage', $TTCNNLPage);
         } else {
-            $page = 'subMasterPage';
+            $page = 'publicPage/subMasterPage';
             $dataLayout['Banner'] = "Trung tâm công nghệ năng lượng";
             $dataLayout['content'] = view('publicPage/pages/newDetail', ['New' => $newdetail, 'More' => $this->baivietService->getMoreNew('81', $link), 'link' => "phong-tt-nangluong"]);
             $dataLayout['Pager'] = null;

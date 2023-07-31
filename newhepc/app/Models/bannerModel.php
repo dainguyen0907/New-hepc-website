@@ -8,5 +8,5 @@ class bannerModel extends Model
 {
     protected $table="banner";
 
-    protected $primaryKey="ID_Banner";
+    protected $primaryKey="id_banner";
 }

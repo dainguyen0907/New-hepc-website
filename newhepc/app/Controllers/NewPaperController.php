@@ -27,7 +27,7 @@ class NewPaperController extends BaseController
     public function getNewPaperDetail($link)
     {
         $newdetail=$this->baivietService->getNewPaperDetail($link);
-        $page='subMasterPage';
+        $page='publicPage/subMasterPage';
         $dataLayout['Banner']="Tin tức";
         $dataLayout['content']=view('publicPage/pages/newDetail',['New'=>$newdetail, 'More'=>$this->baivietService->getMoreNewPaper($link),'link'=>"tin-tuc"]);
         $dataLayout['Pager']=null;

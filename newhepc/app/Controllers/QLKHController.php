@@ -23,8 +23,8 @@ class QLKHController extends BaseController
         $title = "Phòng QLKH-QHQT";
         $page = 'publicPage/pages/officePage';
         $dataLayout['Banner'] = "Phòng QLKH-QHQT";
-        $dataLayout['f_name_catalogue'] = $gioithieu['name'];
-        $dataLayout['s_name_catalogue'] = $tintuc['name'];
+        $dataLayout['f_name_catalogue'] = $gioithieu['cmphongban'];
+        $dataLayout['s_name_catalogue'] = $tintuc['cmphongban'];
         $dataLayout['f_link'] = $gioithieu['link'];
         $dataLayout['s_link'] = $tintuc['link'];
         $dataLayout['f_news'] = $this->baivietService->getNewsforOfficePage('66');
@@ -43,7 +43,7 @@ class QLKHController extends BaseController
             return $this->load404page();
         } elseif ($catalogue != null) {
             $masterPage = [];
-            $title = $catalogue['name'];
+            $title = $catalogue['cmphongban'];
             $page = 'publicPage/subMasterPage';
             $dataLayout['Banner'] = "Phòng QLKH";
             $dataLayout['content'] = view('publicPage/pages/newsPage', ['News' => $this->baivietService->getNewForCatalogue($catalogue['id_cmpb']), 'link' => "phong-qlkh"]);
@@ -52,7 +52,7 @@ class QLKHController extends BaseController
             $QLKHPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
             return view('publicPage/masterPage', $QLKHPage);
         } else {
-            $page = 'subMasterPage';
+            $page = 'publicPage/subMasterPage';
             $dataLayout['Banner'] = "Phòng QLKH";
             $dataLayout['content'] = view('publicPage/pages/newDetail', ['New' => $newdetail, 'More' => $this->baivietService->getMoreNew('63', $link), 'link' => "phong-qlkh"]);
             $dataLayout['Pager'] = null;

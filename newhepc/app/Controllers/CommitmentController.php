@@ -27,7 +27,7 @@ class CommitmentController extends BaseController
     public function getCommitmentDetail($link)
     {
         $newdetail=$this->baivietService->getCommitmentDetail($link);
-        $page='subMasterPage';
+        $page='publicPage/subMasterPage';
         $dataLayout['Banner']="Ba công khai";
         $dataLayout['content']=view('pages/newDetail',['New'=>$newdetail, 'More'=>$this->baivietService->getMoreCommitment($link),'link'=>"ba-cong-khai"]);
         $dataLayout['Pager']=null;

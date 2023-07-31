@@ -11,7 +11,7 @@
         <input type="text" class="searchbox-input" placeholder="Nhập thông tin tìm kiếm">
     </form>
     <div class="tools">
-        <div class='fs-5 text-center'> Xin chào ,<?= session('userLogin')?session('userLogin')['name']:''?></div>
+        <div class='fs-5 text-center'> Xin chào ,<?= session('userLogin')?session('userLogin')['user']:''?></div>
         <div class="dropdown tools-item">
             <a href="#" class="" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-user"></i>

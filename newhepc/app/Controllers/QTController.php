@@ -23,8 +23,8 @@ class QTController extends BaseController
         $title = "Phòng quản trị";
         $page = 'publicPage/pages/officePage';
         $dataLayout['Banner'] = "Phòng quản trị";
-        $dataLayout['f_name_catalogue'] = $gioithieu['name'];
-        $dataLayout['s_name_catalogue'] = $tintuc['name'];
+        $dataLayout['f_name_catalogue'] = $gioithieu['cmphongban'];
+        $dataLayout['s_name_catalogue'] = $tintuc['cmphongban'];
         $dataLayout['f_link'] = $gioithieu['link'];
         $dataLayout['s_link'] = $tintuc['link'];
         $dataLayout['f_news'] = $this->baivietService->getNewsforOfficePage('78');
@@ -43,7 +43,7 @@ class QTController extends BaseController
             return $this->load404page();
         } elseif ($catalogue != null) {
             $masterPage = [];
-            $title = $catalogue['name'];
+            $title = $catalogue['cmphongban'];
             $page = 'publicPage/subMasterPage';
             $dataLayout['Banner'] = "Phòng QT";
             $dataLayout['content'] = view('publicPage/pages/newsPage', ['News' => $this->baivietService->getNewForCatalogue($catalogue['id_cmpb']), 'link' => "phong-quan-tri"]);

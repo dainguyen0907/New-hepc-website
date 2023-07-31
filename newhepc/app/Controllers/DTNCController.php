@@ -23,8 +23,8 @@ class DTNCController extends BaseController
         $title = "Khoa đào tạo nâng cao";
         $page = 'publicPage/pages/officePage';
         $dataLayout['Banner'] = "Khoa đào tạo nâng cao";
-        $dataLayout['f_name_catalogue'] = $gioithieu['name'];
-        $dataLayout['s_name_catalogue'] = $tintuc['name'];
+        $dataLayout['f_name_catalogue'] = $gioithieu['cmphongban'];
+        $dataLayout['s_name_catalogue'] = $tintuc['cmphongban'];
         $dataLayout['f_link'] = $gioithieu['link'];
         $dataLayout['s_link'] = $tintuc['link'];
         $dataLayout['f_news'] = $this->baivietService->getNewsforOfficePage('41');
@@ -43,7 +43,7 @@ class DTNCController extends BaseController
             return $this->load404page();
         } elseif ($catalogue != null) {
             $masterPage = [];
-            $title = $catalogue['name'];
+            $title = $catalogue['cmphongban'];
             $page = 'publicPage/subMasterPage';
             $dataLayout['Banner'] = "Khoa đào tạo nâng cao";
             $dataLayout['content'] = view('publicPage/pages/newsPage', ['News' => $this->baivietService->getNewForCatalogue($catalogue['id_cmpb']), 'link' => "khoa-dtnc"]);

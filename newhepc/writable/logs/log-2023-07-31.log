@@ -1,0 +1,204 @@
+CRITICAL - 2023-07-31 01:29:35 --> Undefined array key "name"
+in APPPATH\Controllers\HTDController.php on line 26.
+ 1 APPPATH\Controllers\HTDController.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "name"', 'C:\\xampp\\htdocs\\newhepc\\app\\Controllers\\HTDController.php', 26)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\HTDController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HTDController))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 01:30:12 --> Undefined array key "name"
+in APPPATH\Controllers\HTDController.php on line 26.
+ 1 APPPATH\Controllers\HTDController.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "name"', 'C:\\xampp\\htdocs\\newhepc\\app\\Controllers\\HTDController.php', 26)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\HTDController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HTDController))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 01:31:06 --> Undefined array key "link"
+in APPPATH\Controllers\CNDTTDHController.php on line 28.
+ 1 APPPATH\Controllers\CNDTTDHController.php(28): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "link"', 'C:\\xampp\\htdocs\\newhepc\\app\\Controllers\\CNDTTDHController.php', 28)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\CNDTTDHController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CNDTTDHController))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 01:33:29 --> Undefined array key "name"
+in APPPATH\Views\publicPage\layouts\rightMenuForOffice.php on line 16.
+ 1 APPPATH\Views\publicPage\layouts\rightMenuForOffice.php(16): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "name"', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\publicPage\\layouts\\rightMenuForOffice.php', 16)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\publicPage\\layouts\\rightMenuForOffice.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('publicPage/layouts/rightMenuForOffice', [], true)
+ 5 APPPATH\Controllers\CNDTTDHController.php(59): view('publicPage/layouts/rightMenuForOffice', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\CNDTTDHController->getNewsOfCatalogueCNDTTDH('Khoa-Cong-nghe-Dien-Tu---Tu-dong-hoa-to-chuc-bao-cao-chuyen-de-ve-Tu-dong-hoa')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CNDTTDHController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 01:36:26 --> Undefined array key "name"
+in APPPATH\Views\publicPage\layouts\rightMenuForOffice.php on line 16.
+ 1 APPPATH\Views\publicPage\layouts\rightMenuForOffice.php(16): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "name"', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\publicPage\\layouts\\rightMenuForOffice.php', 16)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\publicPage\\layouts\\rightMenuForOffice.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('publicPage/layouts/rightMenuForOffice', [], true)
+ 5 APPPATH\Controllers\CNDTTDHController.php(59): view('publicPage/layouts/rightMenuForOffice', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\CNDTTDHController->getNewsOfCatalogueCNDTTDH('Khoa-Cong-nghe-Dien-Tu---Tu-dong-hoa-to-chuc-bao-cao-chuyen-de-ve-Tu-dong-hoa')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CNDTTDHController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 01:45:27 --> Invalid file: "subMasterPage.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('subMasterPage.php')
+ 2 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('subMasterPage', [], true)
+ 3 APPPATH\Controllers\BaseController.php(62): view('subMasterPage', [...])
+ 4 APPPATH\Controllers\BaseController.php(76): App\Controllers\BaseController->loadLayout([...], 'Công nhận chuyển điểm sinh viên Đào Văn Trí (22TQ1A_33)', 'subMasterPage', [...], [], [])
+ 5 APPPATH\Controllers\DTController.php(60): App\Controllers\BaseController->checkPageExits([...], 'subMasterPage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\DTController->getNewsOfCatalogueDT('Cong-nhan-chuyen-diem-sinh-vien-Dao-Van-Tri--22TQ1A-33-')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DTController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 01:46:16 --> Undefined array key "name"
+in APPPATH\Controllers\KTCSController.php on line 26.
+ 1 APPPATH\Controllers\KTCSController.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "name"', 'C:\\xampp\\htdocs\\newhepc\\app\\Controllers\\KTCSController.php', 26)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\KTCSController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KTCSController))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 01:46:25 --> Invalid file: "subMasterPage.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('subMasterPage.php')
+ 2 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('subMasterPage', [], true)
+ 3 APPPATH\Controllers\BaseController.php(62): view('subMasterPage', [...])
+ 4 APPPATH\Controllers\BaseController.php(76): App\Controllers\BaseController->loadLayout([...], '   Buổi gặp gỡ và tư vấn tuyển dụng tại trường của Tổng công ty Điện lực TP.HCM  ', 'subMasterPage', [...], [], [])
+ 5 APPPATH\Controllers\DTController.php(60): App\Controllers\BaseController->checkPageExits([...], 'subMasterPage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\DTController->getNewsOfCatalogueDT('---Buoi-gap-go-va-tu-van-tuyen-dung-tai-truong-cua-Tong-cong-ty-Dien-luc-TP-HCM')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DTController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 01:46:34 --> Invalid file: "subMasterPage.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('subMasterPage.php')
+ 2 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('subMasterPage', [], true)
+ 3 APPPATH\Controllers\BaseController.php(62): view('subMasterPage', [...])
+ 4 APPPATH\Controllers\BaseController.php(76): App\Controllers\BaseController->loadLayout([...], 'Công nhận chuyển điểm sinh viên Đào Văn Trí (22TQ1A_33)', 'subMasterPage', [...], [], [])
+ 5 APPPATH\Controllers\DTController.php(60): App\Controllers\BaseController->checkPageExits([...], 'subMasterPage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\DTController->getNewsOfCatalogueDT('Cong-nhan-chuyen-diem-sinh-vien-Dao-Van-Tri--22TQ1A-33-')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DTController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 01:46:51 --> Invalid file: "subMasterPage.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('subMasterPage.php')
+ 2 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('subMasterPage', [], true)
+ 3 APPPATH\Controllers\BaseController.php(62): view('subMasterPage', [...])
+ 4 APPPATH\Controllers\BaseController.php(76): App\Controllers\BaseController->loadLayout([...], 'Công nhận chuyển điểm sinh viên Đào Văn Trí (22TQ1A_33)', 'subMasterPage', [...], [], [])
+ 5 APPPATH\Controllers\DTController.php(60): App\Controllers\BaseController->checkPageExits([...], 'subMasterPage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\DTController->getNewsOfCatalogueDT('Cong-nhan-chuyen-diem-sinh-vien-Dao-Van-Tri--22TQ1A-33-')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DTController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 01:48:43 --> Undefined array key "name"
+in APPPATH\Controllers\HTDController.php on line 26.
+ 1 APPPATH\Controllers\HTDController.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "name"', 'C:\\xampp\\htdocs\\newhepc\\app\\Controllers\\HTDController.php', 26)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\HTDController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HTDController))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 01:49:01 --> Undefined array key "name"
+in APPPATH\Controllers\HTDController.php on line 26.
+ 1 APPPATH\Controllers\HTDController.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "name"', 'C:\\xampp\\htdocs\\newhepc\\app\\Controllers\\HTDController.php', 26)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\HTDController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HTDController))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 01:50:30 --> Invalid file: "subMasterPage.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('subMasterPage.php')
+ 2 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('subMasterPage', [], true)
+ 3 APPPATH\Controllers\BaseController.php(62): view('subMasterPage', [...])
+ 4 APPPATH\Controllers\BaseController.php(76): App\Controllers\BaseController->loadLayout([...], 'LÃNH ĐẠO TỔNG CÔNG TY ĐIỆN LỰC MIỀN NAM ĐẾN THĂM VÀ CHÚC TẾT TRƯỜNG CAO ĐẲNG ĐIỆN LỰC THÀNH PHỐ HỒ CHÍ MINH', 'subMasterPage', [...], [], [])
+ 5 APPPATH\Controllers\NewPaperController.php(35): App\Controllers\BaseController->checkPageExits([...], 'subMasterPage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\NewPaperController->getNewPaperDetail('LANH-DAO-TONG-CONG-TY-DIEN-LUC-MIEN-NAM-DEN-THAM-VA-CHUC-TET-TRUONG-CAO-DANG-DIEN-LUC-THANH-PHO-HO-C')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\NewPaperController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 01:50:35 --> Invalid file: "subMasterPage.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('subMasterPage.php')
+ 2 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('subMasterPage', [], true)
+ 3 APPPATH\Controllers\BaseController.php(62): view('subMasterPage', [...])
+ 4 APPPATH\Controllers\BaseController.php(76): App\Controllers\BaseController->loadLayout([...], 'LÃNH ĐẠO TỔNG CÔNG TY ĐIỆN LỰC MIỀN NAM ĐẾN THĂM VÀ CHÚC TẾT TRƯỜNG CAO ĐẲNG ĐIỆN LỰC THÀNH PHỐ HỒ CHÍ MINH', 'subMasterPage', [...], [], [])
+ 5 APPPATH\Controllers\NewPaperController.php(35): App\Controllers\BaseController->checkPageExits([...], 'subMasterPage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\NewPaperController->getNewPaperDetail('LANH-DAO-TONG-CONG-TY-DIEN-LUC-MIEN-NAM-DEN-THAM-VA-CHUC-TET-TRUONG-CAO-DANG-DIEN-LUC-THANH-PHO-HO-C')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\NewPaperController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 02:01:10 --> Undefined array key "phongban"
+in APPPATH\Controllers\TCHCController.php on line 27.
+ 1 APPPATH\Controllers\TCHCController.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "phongban"', 'C:\\xampp\\htdocs\\newhepc\\app\\Controllers\\TCHCController.php', 27)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\TCHCController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TCHCController))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 02:12:05 --> Undefined array key "status"
+in APPPATH\Services\userService.php on line 40.
+ 1 APPPATH\Services\userService.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "status"', 'C:\\xampp\\htdocs\\newhepc\\app\\Services\\userService.php', 40)
+ 2 APPPATH\Controllers\LoginController.php(33): App\Services\userService->login(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\LoginController->login()
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 02:12:41 --> Undefined array key "status"
+in APPPATH\Services\userService.php on line 40.
+ 1 APPPATH\Services\userService.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "status"', 'C:\\xampp\\htdocs\\newhepc\\app\\Services\\userService.php', 40)
+ 2 APPPATH\Controllers\LoginController.php(33): App\Services\userService->login(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\LoginController->login()
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 02:12:54 --> Undefined array key "status"
+in APPPATH\Services\userService.php on line 40.
+ 1 APPPATH\Services\userService.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "status"', 'C:\\xampp\\htdocs\\newhepc\\app\\Services\\userService.php', 40)
+ 2 APPPATH\Controllers\LoginController.php(33): App\Services\userService->login(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\LoginController->login()
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 02:14:55 --> Undefined array key "status"
+in APPPATH\Controllers\LoginController.php on line 34.
+ 1 APPPATH\Controllers\LoginController.php(34): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "status"', 'C:\\xampp\\htdocs\\newhepc\\app\\Controllers\\LoginController.php', 34)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\LoginController->login()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 02:17:11 --> Undefined array key "name"
+in APPPATH\Views\adminPage\layouts\header.php on line 14.
+ 1 APPPATH\Views\adminPage\layouts\header.php(14): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "name"', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\adminPage\\layouts\\header.php', 14)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\adminPage\\layouts\\header.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('adminPage/layouts/header', [], true)
+ 5 APPPATH\Controllers\BaseController.php(92): view('adminPage/layouts/header')
+ 6 APPPATH\Controllers\Admin_HomeController.php(16): App\Controllers\BaseController->loadAdminLayout([...], 'Trang chủ', 'adminPage/Pages/homePage', [], [], [])
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_HomeController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_HomeController))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 02:18:34 --> Undefined array key "name"
+in APPPATH\Views\adminPage\layouts\header.php on line 14.
+ 1 APPPATH\Views\adminPage\layouts\header.php(14): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "name"', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\adminPage\\layouts\\header.php', 14)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\adminPage\\layouts\\header.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('adminPage/layouts/header', [], true)
+ 5 APPPATH\Controllers\BaseController.php(92): view('adminPage/layouts/header')
+ 6 APPPATH\Controllers\Admin_HomeController.php(16): App\Controllers\BaseController->loadAdminLayout([...], 'Trang chủ', 'adminPage/Pages/homePage', [], [], [])
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_HomeController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_HomeController))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-31 02:18:39 --> Undefined array key "name"
+in APPPATH\Views\adminPage\layouts\header.php on line 14.
+ 1 APPPATH\Views\adminPage\layouts\header.php(14): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "name"', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\adminPage\\layouts\\header.php', 14)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\adminPage\\layouts\\header.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('adminPage/layouts/header', [], true)
+ 5 APPPATH\Controllers\BaseController.php(92): view('adminPage/layouts/header')
+ 6 APPPATH\Controllers\Admin_HomeController.php(16): App\Controllers\BaseController->loadAdminLayout([...], 'Trang chủ', 'adminPage/Pages/homePage', [], [], [])
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_HomeController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_HomeController))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

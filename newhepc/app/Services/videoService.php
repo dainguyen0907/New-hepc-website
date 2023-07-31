@@ -12,6 +12,6 @@ class videoService extends BaseService{
 
     public function getVideosForHomePage()
     {
-        return $this->videoModel->where(['Status!='=>'0', 'censor'=>'0'])->findAll(6,0);
+        return $this->videoModel->where(['Status_vd!='=>'0', 'censor_vd'=>'0'])->findAll(6,0);
     }
 }

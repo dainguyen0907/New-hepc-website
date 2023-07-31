@@ -73,7 +73,7 @@ $routes->get('/phong-qlkh/(:any)', 'QLKHController::getNewsOfCatalogueQLKH/$1');
 $routes->get('/phong-qlhssv', 'QLHSSVController::index');
 $routes->get('/phong-qlhssv/(:any)', 'QLHSSVController::getNewsOfCatalogueQLHSSV/$1');
 $routes->get('/phong-quan-tri', 'QTController::index');
-$routes->get('/phong-quan-tri/(:any)', 'QTController::getNewsOfCataloguepQT/$1');
+$routes->get('/phong-quan-tri/(:any)', 'QTController::getNewsOfCatalogueQT/$1');
 $routes->get('/phong-tt-nangluong', 'TTCNNLController::index');
 $routes->get('/phong-tt-nangluong/(:any)', 'TTCNNLController::getNewsOfCatalogueTTCNNL/$1');
 $routes->get('/phong-nn-tt', 'NNTTController::index');

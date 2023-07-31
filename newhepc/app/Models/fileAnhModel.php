@@ -8,5 +8,5 @@ class fileAnhModel extends Model
 {
     protected $table="fileanh";
 
-    protected $primaryKey="ID_Anh";
+    protected $primaryKey="id_anh";
 }

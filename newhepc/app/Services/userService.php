@@ -20,7 +20,7 @@ class userService extends BaseService
         if($validation->getErrors())
         {
             return [
-                'status'=>ResultUtils::STATUS_CODE_ERR,
+                'status_user_user'=>ResultUtils::STATUS_CODE_ERR,
                 'messageCode'=>ResultUtils::MESSAGE_CODE_ERR,
                 'message'=>$validation->getErrors()
             ];
@@ -32,15 +32,15 @@ class userService extends BaseService
             if(!password_verify($param['password'],$res['password']))
             {
                 return [
-                    'status'=>ResultUtils::STATUS_CODE_ERR,
+                    'status_user_user'=>ResultUtils::STATUS_CODE_ERR,
                     'messageCode'=>ResultUtils::MESSAGE_CODE_ERR,
                     'message'=>["err"=>"Mật khẩu không đúng"]
                 ];
             }
-            if($res['status']==0)
+            if($res['status_user']==0)
             {
                 return [
-                    'status'=>ResultUtils::STATUS_CODE_ERR,
+                    'status_user'=>ResultUtils::STATUS_CODE_ERR,
                     'messageCode'=>ResultUtils::MESSAGE_CODE_ERR,
                     'message'=>["err"=>"Tài khoản đã bị khóa! Vui lòng liên hệ quản trị viên."]
                 ];
@@ -51,13 +51,13 @@ class userService extends BaseService
             }
             
             return [
-                'status' => ResultUtils::STATUS_CODE_OK,
+                'status_user' => ResultUtils::STATUS_CODE_OK,
                 'messageCode' => ResultUtils::MESSAGE_CODE_OK,
                 'message' => ['success' => 'Đăng nhập thành công']
             ];
         }else{
             return [
-                'status'=>ResultUtils::STATUS_CODE_ERR,
+                'status_user'=>ResultUtils::STATUS_CODE_ERR,
                 'messageCode'=>ResultUtils::MESSAGE_CODE_ERR,
                 'message'=>["err"=>"Tài khoản không tồn tại"]
             ];

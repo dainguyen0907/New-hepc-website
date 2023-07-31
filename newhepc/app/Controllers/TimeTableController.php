@@ -27,7 +27,7 @@ class TimeTableController extends BaseController
     public function getTimeTableDetail($link)
     {
         $newdetail=$this->baivietService->getTimeTableDetail($link);
-        $page='subMasterPage';
+        $page='publicPage/subMasterPage';
         $dataLayout['Banner']="Thời khóa biểu";
         $dataLayout['content']=view('publicPage/pages/newDetail',['New'=>$newdetail, 'More'=>$this->baivietService->getMoreTimeTable($link),'link'=>"thoi-khoa-bieu"]);
         $dataLayout['Pager']=null;

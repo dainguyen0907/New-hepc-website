@@ -6,5 +6,5 @@ use CodeIgniter\Model;
 class videoModel extends Model{
     protected $table="video";
 
-    protected $primaryKey="ID_VD";
+    protected $primaryKey="id_vd";
 }

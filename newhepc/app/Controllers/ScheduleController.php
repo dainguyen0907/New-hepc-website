@@ -27,7 +27,7 @@ class ScheduleController extends BaseController
     public function getScheduleDetail($link)
     {
         $newdetail=$this->baivietService->getScheduleDetail($link);
-        $page='subMasterPage';
+        $page='publicPage/subMasterPage';
         $dataLayout['Banner']="Lịch thi";
         $dataLayout['content']=view('publicPage/pages/newDetail',['New'=>$newdetail, 'More'=>$this->baivietService->getMoreSchedule($link),'link'=>"lich-thi"]);
         $dataLayout['Pager']=null;
