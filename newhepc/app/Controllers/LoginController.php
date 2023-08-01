@@ -31,7 +31,7 @@ class LoginController extends BaseController
     public function login()
     {
         $res=$this->userService->login($this->request);
-        if($res['status_user']===ResultUtils::STATUS_CODE_OK)
+        if($res['status']===ResultUtils::STATUS_CODE_OK)
         {
             return redirect('/');
         }

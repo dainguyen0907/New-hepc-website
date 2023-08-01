@@ -34,4 +34,6 @@ class BaseService{
         ];
         return $this->nhatkyModel->insert($data,false);
     }
+
+    
 }

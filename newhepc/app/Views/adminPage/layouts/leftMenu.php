@@ -14,7 +14,7 @@
                 <i class="fa-solid fa-gear"></i> Quản trị </a>
             <div class="dash-nav-dropdown-menu">
                 <a href="./admin/management/user" class="dash-nav-dropdown-item">Tài khoản</a>
-                <a href="<?= base_url() . "" ?>" class="dash-nav-dropdown-item">Phòng ban</a>
+                <a href="./admin/management/group" class="dash-nav-dropdown-item">Phòng ban</a>
                 <a href="<?= base_url() . "" ?>" class="dash-nav-dropdown-item">Chuyên mục</a>
                 <a href="<?= base_url() . "" ?>" class="dash-nav-dropdown-item">Bài viết</a>
                 <a href="<?= base_url() . "" ?>" class="dash-nav-dropdown-item">Banner Quảng cáo</a>

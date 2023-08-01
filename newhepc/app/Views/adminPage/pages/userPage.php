@@ -1,6 +1,6 @@
 <div class="user-manager-page p-5">
     <a href="admin/management/user/add" class="btn btn-success mb-3"> Thêm tài khoản</a>
-    <?=view('alerts/alert')?>
+    <?= view('alerts/alert') ?>
     <div class="table-info">
         <div class="card easion-card">
             <div class="card-header">
@@ -23,40 +23,54 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach($Users as $n):?>
-                        <tr>
-                            <td>
-                                <?= $n['id_user']?>
-                            </td>
-                            <td>
-                            <?= $n['email']?>
-                            </td>
-                            <td>
-                            <?= $n['user']?>
-                            </td>
-                            <td>
-                            <?= $n['quyen']?>
-                            </td>
-                            <td>
-                            <?= $n['d_regis']?>
-                            </td>
-                            <td>
-                            <?= $n['status_user']=='1'?'Đang sử dụng':'Vô hiệu hóa'?>
-                            </td>
-                            <td class="text-center">
-                                <a href="#" class="btn btn-success" title="Reset mật khẩu" data-bs-toggle="modal" data-bs-target="#resetPassModal" data-idUser="<?=$n['id_user']?>"><i class="fa-solid fa-key"></i></a>
-                                <a href="admin/management/user/<?=$n['id_user']?>" class="btn btn-primary" title="Cập nhật thông tin"><i class="fas fa-edit"></i></a>
-                                <?php if($n['id_user']!=1&&$n['id_user']!=session('userLogin')['id_user']):?>
-                                <a class="btn btn-danger btn-del-confirm" title="Xóa tài khoản" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="<?=$n['id_user']?>"><i class="far fa-trash-alt" ></i></a>
-                                <?php endif;?>
-                            </td>
-                        </tr>
-                        <?php endforeach;?>
+                        <?php foreach ($Users as $n): ?>
+                            <tr>
+                                <td>
+                                    <?= $n['id_user'] ?>
+                                </td>
+                                <td>
+                                    <?= $n['email'] ?>
+                                </td>
+                                <td>
+                                    <?= $n['user'] ?>
+                                </td>
+                                <td>
+                                    <?= $n['quyen'] ?>
+                                </td>
+                                <td>
+                                    <?= $n['d_regis'] ?>
+                                </td>
+                                <td>
+                                    <?= $n['status_user'] == '1' ? 'Đang sử dụng' : 'Vô hiệu hóa' ?>
+                                </td>
+                                <td class="text-center">
+                                    <a href="#" class="btn btn-success" title="Reset mật khẩu" data-bs-toggle="modal"
+                                        data-bs-target="#resetPassModal" data-idUser="<?= $n['id_user'] ?>"><i
+                                            class="fa-solid fa-key"></i></a>
+                                    <a href="admin/management/user/<?= $n['id_user'] ?>" class="btn btn-primary"
+                                        title="Cập nhật thông tin"><i class="fas fa-edit"></i></a>
+                                    <?php if ($n['id_user'] != 1 && $n['id_user'] != session('userLogin')['id_user']): ?>
+                                        <a class="btn btn-danger btn-del-confirm" title="Xóa tài khoản" data-bs-toggle="modal"
+                                            data-bs-target="#deleteModal" data-id="<?= $n['id_user'] ?>"><i
+                                                class="far fa-trash-alt"></i></a>
+                                    <?php endif; ?>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
-<?= view('adminPage/modals/user_resetPassModal')?>
-<?= view('adminPage/modals/deleteModal',['name'=>'tài khoản','action'=>'admin/management/user/delete'])?>
+<?= view('adminPage/modals/user_resetPassModal') ?>
+<?= view('adminPage/modals/deleteModal', ['name' => 'tài khoản', 'action' => 'admin/management/user/delete']) ?>
+<script>
+    var resetPasswordModal = document.getElementById('resetPassModal')
+    resetPasswordModal.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget
+        var id = button.getAttribute('data-idUser')
+        var modalID = resetPasswordModal.querySelector('#id_user')
+        modalID.value = id
+    })
+</script>

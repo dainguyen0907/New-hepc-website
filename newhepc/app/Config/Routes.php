@@ -97,10 +97,16 @@ $routes->group('admin',['filter'=>'authenicatorFilter'],function($routes){
         $routes->get('user/add', 'Admin_UserController::addPage');
         $routes->post('user/add', 'Admin_UserController::createUser');
         $routes->post('user/delete', 'Admin_UserController::deleteUser');
+        $routes->post('user/change', 'Admin_UserController::updateUser');
         $routes->get('user/(:num)', 'Admin_UserController::changePage/$1');
         $routes->post('user/resetPassword', 'Admin_UserController::resetPassword');
 
         $routes->get('history', 'Admin_HistoryController::index');
+
+        $routes->get('group','Admin_GroupController::index');
+        $routes->get('group/change/(:num)','Admin_GroupController::change_status/$1');
+        $routes->post('group/delete','Admin_GroupController::deleteGroup');
+        $routes->post('group/add','Admin_GroupController::addGroup');
     });
     
 });
