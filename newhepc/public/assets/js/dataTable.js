@@ -14,7 +14,9 @@ $(document).ready(function () {
             },
         },
         "columnDefs": [
-            { "width": "20%", "targets": [1,2] },
+            { "width": "20%", "targets": [1,2,3],
+            "render": function ( data, type, row ) {
+                return data.substr( 0, 100 ); }},
             { "width": "2%", "targets": [0] }
           ]
     });

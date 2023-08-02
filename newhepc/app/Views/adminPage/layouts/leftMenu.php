@@ -17,8 +17,8 @@
                 <a href="./admin/management/group" class="dash-nav-dropdown-item">Phòng ban</a>
                 <a href="./admin/management/catalogue" class="dash-nav-dropdown-item">Chuyên mục</a>
                 <a href="<?= base_url() . "" ?>" class="dash-nav-dropdown-item">Bài viết</a>
-                <a href="<?= base_url() . "" ?>" class="dash-nav-dropdown-item">Banner Quảng cáo</a>
-                <a href="<?= base_url() . "" ?>" class="dash-nav-dropdown-item">Video clip</a>
+                <a href="./admin/management/banner" class="dash-nav-dropdown-item">Banner Quảng cáo</a>
+                <a href="./admin/management/video" class="dash-nav-dropdown-item">Video clip</a>
                 <a href="./admin/management/history" class="dash-nav-dropdown-item">Nhật ký</a>
                 <a href="<?= base_url() . "" ?>" class="dash-nav-dropdown-item">Ảnh hoạt động</a>
             </div>

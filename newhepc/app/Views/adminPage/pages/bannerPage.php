@@ -32,7 +32,7 @@
                                     <?= $n['user'] ?>
                                 </td>
                                 <td>
-                                    <?= $n['file'] ?>
+                                    </span><?= $n['file'] ?>
                                 </td>
                                 <td>
                                     <img src="<?= $n['file'] ?>" width="80%">

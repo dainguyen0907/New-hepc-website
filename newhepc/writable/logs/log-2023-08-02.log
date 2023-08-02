@@ -62,3 +62,129 @@ in APPPATH\Views\publicPage\pages\home.php on line 7.
  8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
  9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
 10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-02 09:45:50 --> Undefined array key "file"
+in APPPATH\Views\adminPage\pages\videoPage.php on line 37.
+ 1 APPPATH\Views\adminPage\pages\videoPage.php(37): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "file"', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\adminPage\\pages\\videoPage.php', 37)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\adminPage\\pages\\videoPage.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('adminPage/pages/videoPage', [], true)
+ 5 APPPATH\Controllers\BaseController.php(93): view('adminPage/pages/videoPage', [...])
+ 6 APPPATH\Controllers\Admin_VideoController.php(24): App\Controllers\BaseController->loadAdminLayout([...], 'Video', 'adminPage/pages/videoPage', [...], [...], [...])
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_VideoController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_VideoController))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-02 09:46:24 --> Undefined array key "status_banner"
+in APPPATH\Views\adminPage\pages\videoPage.php on line 39.
+ 1 APPPATH\Views\adminPage\pages\videoPage.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "status_banner"', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\adminPage\\pages\\videoPage.php', 39)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\adminPage\\pages\\videoPage.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('adminPage/pages/videoPage', [], true)
+ 5 APPPATH\Controllers\BaseController.php(93): view('adminPage/pages/videoPage', [...])
+ 6 APPPATH\Controllers\Admin_VideoController.php(24): App\Controllers\BaseController->loadAdminLayout([...], 'Video', 'adminPage/pages/videoPage', [...], [...], [...])
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_VideoController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_VideoController))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-08-02 09:49:26 --> mysqli_sql_exception: Unknown column 'censor_vd' in 'where clause' in C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\newhepc\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\newhepc\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\newhepc\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(6, 0)
+#6 C:\xampp\htdocs\newhepc\app\Services\videoService.php(15): CodeIgniter\BaseModel->findAll(6, 0)
+#7 C:\xampp\htdocs\newhepc\app\Controllers\HomeController.php(30): App\Services\videoService->getVideosForHomePage()
+#8 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(932): App\Controllers\HomeController->index()
+#9 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+#10 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\newhepc\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-08-02 09:49:26 --> Unknown column 'censor_vd' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `video`
+WHERE `Status_vd` != \'0\'
+AND `censor_vd` = \'0\'
+ LIMIT 6', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `video`
+WHERE `Status_vd` != \'0\'
+AND `censor_vd` = \'0\'
+ LIMIT 6')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `video`
+WHERE `Status_vd` != \'0\'
+AND `censor_vd` = \'0\'
+ LIMIT 6')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `video`
+WHERE `Status_vd` != :Status_vd:
+AND `censor_vd` = :censor_vd:
+ LIMIT 6', [...], false)
+ 5 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(6, 0)
+ 7 APPPATH\Services\videoService.php(15): CodeIgniter\BaseModel->findAll(6, 0)
+ 8 APPPATH\Controllers\HomeController.php(30): App\Services\videoService->getVideosForHomePage()
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\HomeController->index()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-08-02 09:49:27 --> mysqli_sql_exception: Unknown column 'censor_vd' in 'where clause' in C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\newhepc\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\newhepc\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\newhepc\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(6, 0)
+#6 C:\xampp\htdocs\newhepc\app\Services\videoService.php(15): CodeIgniter\BaseModel->findAll(6, 0)
+#7 C:\xampp\htdocs\newhepc\app\Controllers\HomeController.php(30): App\Services\videoService->getVideosForHomePage()
+#8 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(932): App\Controllers\HomeController->index()
+#9 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+#10 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\newhepc\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-08-02 09:49:27 --> Unknown column 'censor_vd' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `video`
+WHERE `Status_vd` != \'0\'
+AND `censor_vd` = \'0\'
+ LIMIT 6', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `video`
+WHERE `Status_vd` != \'0\'
+AND `censor_vd` = \'0\'
+ LIMIT 6')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `video`
+WHERE `Status_vd` != \'0\'
+AND `censor_vd` = \'0\'
+ LIMIT 6')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `video`
+WHERE `Status_vd` != :Status_vd:
+AND `censor_vd` = :censor_vd:
+ LIMIT 6', [...], false)
+ 5 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(6, 0)
+ 7 APPPATH\Services\videoService.php(15): CodeIgniter\BaseModel->findAll(6, 0)
+ 8 APPPATH\Controllers\HomeController.php(30): App\Services\videoService->getVideosForHomePage()
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\HomeController->index()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-02 09:49:47 --> Undefined array key "file"
+in APPPATH\Views\publicPage\pages\home.php on line 208.
+ 1 APPPATH\Views\publicPage\pages\home.php(208): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "file"', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\publicPage\\pages\\home.php', 208)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\publicPage\\pages\\home.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('publicPage/pages/home', [], true)
+ 5 APPPATH\Controllers\BaseController.php(62): view('publicPage/pages/home', [...])
+ 6 APPPATH\Controllers\HomeController.php(31): App\Controllers\BaseController->loadLayout([...], 'HEPC', 'publicPage/pages/home', [...], [], [])
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\HomeController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
