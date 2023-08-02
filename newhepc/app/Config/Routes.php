@@ -107,6 +107,11 @@ $routes->group('admin',['filter'=>'authenicatorFilter'],function($routes){
         $routes->get('group/change/(:num)','Admin_GroupController::change_status/$1');
         $routes->post('group/delete','Admin_GroupController::deleteGroup');
         $routes->post('group/add','Admin_GroupController::addGroup');
+
+        $routes->get('catalogue','Admin_CatalogueController::index');
+        $routes->post('catalogue/add','Admin_CatalogueController::addCatalogue');
+        $routes->post('catalogue/delete','Admin_CatalogueController::deleteCatalogue');
+        $routes->post('catalogue/update','Admin_CatalogueController::updateCatalogue');
     });
     
 });

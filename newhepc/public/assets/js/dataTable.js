@@ -12,6 +12,10 @@ $(document).ready(function () {
                 previous: '‹',
                 next: '›'
             },
-        }
+        },
+        "columnDefs": [
+            { "width": "20%", "targets": [1,2] },
+            { "width": "2%", "targets": [0] }
+          ]
     });
 });

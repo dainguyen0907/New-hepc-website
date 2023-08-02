@@ -1,0 +1,40 @@
+CRITICAL - 2023-08-02 01:37:53 --> Undefined variable $groups
+in APPPATH\Views\adminPage\pages\groupPage.php on line 23.
+ 1 APPPATH\Views\adminPage\pages\groupPage.php(23): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $groups', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\adminPage\\pages\\groupPage.php', 23)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\adminPage\\pages\\groupPage.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('adminPage/pages/groupPage', [], true)
+ 5 APPPATH\Controllers\BaseController.php(93): view('adminPage/pages/groupPage', [...])
+ 6 APPPATH\Controllers\Admin_CatalogueController.php(25): App\Controllers\BaseController->loadAdminLayout([...], 'Chuyên mục', 'adminPage/pages/groupPage', [...], [...], [...])
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_CatalogueController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_CatalogueController))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-02 01:38:29 --> Undefined variable $groups
+in APPPATH\Views\adminPage\pages\groupPage.php on line 23.
+ 1 APPPATH\Views\adminPage\pages\groupPage.php(23): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $groups', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\adminPage\\pages\\groupPage.php', 23)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\adminPage\\pages\\groupPage.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('adminPage/pages/groupPage', [], true)
+ 5 APPPATH\Controllers\BaseController.php(93): view('adminPage/pages/groupPage', [...])
+ 6 APPPATH\Controllers\Admin_CatalogueController.php(25): App\Controllers\BaseController->loadAdminLayout([...], 'Chuyên mục', 'adminPage/pages/groupPage', [...], [...], [...])
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_CatalogueController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_CatalogueController))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-02 03:56:24 --> Undefined array key "id_cmpb"
+in APPPATH\Services\admin_cmphongbanService.php on line 157.
+ 1 APPPATH\Services\admin_cmphongbanService.php(157): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_cmpb"', 'C:\\xampp\\htdocs\\newhepc\\app\\Services\\admin_cmphongbanService.php', 157)
+ 2 APPPATH\Controllers\Admin_CatalogueController.php(45): App\Services\admin_cmphongbanService->updateCatalogue(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_CatalogueController->updateCatalogue()
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_CatalogueController))
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-02 03:57:09 --> Undefined array key "id"
+in APPPATH\Services\admin_cmphongbanService.php on line 158.
+ 1 APPPATH\Services\admin_cmphongbanService.php(158): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id"', 'C:\\xampp\\htdocs\\newhepc\\app\\Services\\admin_cmphongbanService.php', 158)
+ 2 APPPATH\Controllers\Admin_CatalogueController.php(45): App\Services\admin_cmphongbanService->updateCatalogue(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_CatalogueController->updateCatalogue()
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_CatalogueController))
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

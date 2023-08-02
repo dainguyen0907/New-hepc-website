@@ -9,7 +9,7 @@
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Tên phòng:</label>
-                        <input type="text" class="form-control" name="groupname">
+                        <input type="text" class="form-control" name="groupname" required>
                     </div>
                 </div>
                 <div class="modal-footer">

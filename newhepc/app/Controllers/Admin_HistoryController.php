@@ -15,7 +15,7 @@ class Admin_HistoryController extends BaseController
     public function index()
     {
         $masterPage = [];
-        $title = "Tài khoản";
+        $title = "Nhật ký";
         $cssLib = [libary::cssDatatables];
         $jsLib = [libary::jsDataTables];
         $page = 'adminPage/pages/historyPage';

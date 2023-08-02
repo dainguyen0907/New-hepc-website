@@ -3,43 +3,46 @@
 namespace App\Controllers;
 use App\Common\libary;
 use App\Common\ResultUtils;
+use App\Services\admin_cmphongbanService;
 use App\Services\admin_phongbanService;
 
 
-class Admin_GroupController extends BaseController
+
+class Admin_CatalogueController extends BaseController
 {
+    private $cmphongbanService;
     private $phongbanService;
     public function __construct()
     {
-        $this->phongbanService= new admin_phongbanService();
+        $this->cmphongbanService= new admin_cmphongbanService();
+        $this->phongbanService=new admin_phongbanService();
     }
     public function index()
     {
         $masterPage = [];
-        $title = "Phòng ban";
+        $title = "Chuyên mục";
         $cssLib = [libary::cssDatatables];
         $jsLib = [libary::jsDataTables];
-        $page = 'adminPage/pages/groupPage';
-        $dataLayout['groups']=$this->phongbanService->getAllPhongBan();
+        $page = 'adminPage/pages/cataloguePage';
+        $dataLayout['Catalogues']=$this->cmphongbanService->getAllCatalogue();
+        $dataLayout['Groups']=$this->phongbanService->getAllPhongBan();
         $AdmissionPage = $this->loadAdminLayout($masterPage, $title, $page, $dataLayout, $cssLib, $jsLib);
         return view('adminPage/masterPage', $AdmissionPage);
     }
-
-    public function change_status($id)
+    public function addCatalogue()
     {
-        $res=$this->phongbanService->updateStatusByID($id);
+        $res=$this->cmphongbanService->addCatalogue($this->request);
         return redirect()->back()->withInput()->with($res['messageCode'],$res['message']);
     }
-    public function deleteGroup()
+    public function deleteCatalogue()
     {
-        $res=$this->phongbanService->deletePhongBan($this->request);
-        return redirect()->back()->withInput()->with($res['messageCode'],$res['message']);
-    }
-
-    public function addGroup()
-    {
-        $res=$this->phongbanService->addGroup($this->request);
+        $res=$this->cmphongbanService->deleteCatalogue($this->request);
         return redirect()->back()->withInput()->with($res['messageCode'],$res['message']);
     }
 
+    public function updateCatalogue()
+    {
+        $res=$this->cmphongbanService->updateCatalogue($this->request);
+        return redirect()->back()->withInput()->with($res['messageCode'],$res['message']);
+    }
 }
