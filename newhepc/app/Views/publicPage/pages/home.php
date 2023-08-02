@@ -4,7 +4,7 @@
         <div class="carousel-inner">
             <?php foreach ($Banners as $b):?>
             <div class="carousel-item active" data-bs-interval="10000">
-                <img src="<?= $b['File']?>" class="d-block w-100" alt="...">
+                <img src="<?= $b['file']?>" class="d-block w-100" alt="...">
             </div>
             <?php endforeach;?>
         </div>

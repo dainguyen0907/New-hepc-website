@@ -112,6 +112,11 @@ $routes->group('admin',['filter'=>'authenicatorFilter'],function($routes){
         $routes->post('catalogue/add','Admin_CatalogueController::addCatalogue');
         $routes->post('catalogue/delete','Admin_CatalogueController::deleteCatalogue');
         $routes->post('catalogue/update','Admin_CatalogueController::updateCatalogue');
+
+        $routes->get('banner','Admin_BannerController::index');
+        $routes->post('banner/add','Admin_BannerController::addBanner');
+        $routes->post('banner/update','Admin_BannerController::updateBanner');
+        $routes->post('banner/delete','Admin_BannerController::deleteBanner');
     });
     
 });

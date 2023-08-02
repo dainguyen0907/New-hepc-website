@@ -13,6 +13,6 @@ class bannerService extends BaseService{
 
     public function getBannersForHomePage()
     {
-        return $this->bannerModel->where(['Status_banner!='=>'0','censor_banner!='=>'0'])->findAll();
+        return $this->bannerModel->where(['Status_banner!='=>'0'])->findAll();
     }
 }

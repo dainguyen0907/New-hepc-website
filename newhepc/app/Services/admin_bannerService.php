@@ -1,0 +1,122 @@
+<?php
+namespace App\Services;
+
+use App\Common\ResultUtils;
+use App\Models\bannerModel;
+
+
+class admin_bannerService extends BaseService
+{
+    private $bannerModel;
+    public function __construct()
+    {
+        parent::__construct();
+        $this->bannerModel = new bannerModel();
+        $this->bannerModel->protect(false);
+    }
+
+    public function getAllBanner()
+    {
+        return $this->bannerModel->join('user','banner.id_user=user.id_user')->findAll();
+    }
+    public function addBanner($req)
+    {
+        $validateRes=$this->validateAddBanner($req);
+        if($validateRes->getErrors())
+        {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => $validateRes->getErrors()
+            ];
+        }
+        $param=$req->getPost();
+        $data=[
+            "file"=>$param['bannerlink'],
+            "id_user"=>session('userLogin')['id_user'],
+            "status_banner"=>'0'
+        ];
+        $res=$this->bannerModel->insert($data);
+        if($res)
+        {
+            $this->writeHistory('add','Banner',session('userLogin')['id_user'],$res);
+            return [
+                'status' => ResultUtils::STATUS_CODE_OK,
+                'messageCode' => ResultUtils::MESSAGE_CODE_OK,
+                'message' => ['success'=>"Thêm banner thành công"]
+            ];
+        }
+        return [
+            'status' => ResultUtils::STATUS_CODE_ERR,
+            'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
+            'message' => ['err'=>"Đã xảy ra lỗi hệ thống! Vui lòng thử lại sau."]
+        ];
+        
+    }
+
+    private function validateAddBanner($req)
+    {
+        $rules=["bannerlink"=>"required"];
+        $message=[
+            "bannerlink"=>[
+                "required"=>"Đường dẫn không được để trống",
+            ]
+        ];
+        $this->validation->setRules($rules,$message);
+        $this->validation->withRequest($req)->run();
+        return $this->validation;
+    }
+
+    public function updateBanner($req)
+    {
+        $validateRes=$this->validateAddBanner($req);
+        if($validateRes->getErrors())
+        {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => $validateRes->getErrors()
+            ];
+        }
+        $param=$req->getPost();
+        $data=[
+            "file"=>$param['bannerlink'],
+            "status_banner"=>$param['status_banner']
+        ];
+        $res=$this->bannerModel->update($param['bannerid'],$data);
+        if($res)
+        {
+            $this->writeHistory('update','Banner',session('userLogin')['id_user'],$res);
+            return [
+                'status' => ResultUtils::STATUS_CODE_OK,
+                'messageCode' => ResultUtils::MESSAGE_CODE_OK,
+                'message' => ['success'=>"Cập nhật banner thành công"]
+            ];
+        }
+        return [
+            'status' => ResultUtils::STATUS_CODE_ERR,
+            'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
+            'message' => ['err'=>"Đã xảy ra lỗi hệ thống! Vui lòng thử lại sau."]
+        ];
+        
+    }
+    public function deleteBanner($req)
+    {
+        $param=$req->getPost();
+        if($this->bannerModel->delete($param['id']))
+        {
+            $this->writeHistory('update','Banner',session('userLogin')['id_user'],$param['id']);
+            return [
+                'status' => ResultUtils::STATUS_CODE_OK,
+                'messageCode' => ResultUtils::MESSAGE_CODE_OK,
+                'message' => ['success'=>"Xóa banner thành công"]
+            ];
+        }
+        return [
+            'status' => ResultUtils::STATUS_CODE_ERR,
+            'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
+            'message' => ['err'=>"Đã xảy ra lỗi hệ thống! Vui lòng thử lại sau."]
+        ];
+        
+    }
+}

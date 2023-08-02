@@ -38,3 +38,27 @@ in APPPATH\Services\admin_cmphongbanService.php on line 158.
  4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_CatalogueController))
  5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-02 06:21:12 --> Undefined variable $Catalogues
+in APPPATH\Views\adminPage\pages\cataloguePage.php on line 26.
+ 1 APPPATH\Views\adminPage\pages\cataloguePage.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $Catalogues', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\adminPage\\pages\\cataloguePage.php', 26)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\adminPage\\pages\\cataloguePage.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('adminPage/pages/cataloguePage', [], true)
+ 5 APPPATH\Controllers\BaseController.php(93): view('adminPage/pages/cataloguePage', [...])
+ 6 APPPATH\Controllers\Admin_BannerController.php(24): App\Controllers\BaseController->loadAdminLayout([...], 'Banner Quảng cáo', 'adminPage/pages/cataloguePage', [...], [...], [...])
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_BannerController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_BannerController))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-02 07:24:50 --> Undefined array key "File"
+in APPPATH\Views\publicPage\pages\home.php on line 7.
+ 1 APPPATH\Views\publicPage\pages\home.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "File"', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\publicPage\\pages\\home.php', 7)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\publicPage\\pages\\home.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('publicPage/pages/home', [], true)
+ 5 APPPATH\Controllers\BaseController.php(62): view('publicPage/pages/home', [...])
+ 6 APPPATH\Controllers\HomeController.php(31): App\Controllers\BaseController->loadLayout([...], 'HEPC', 'publicPage/pages/home', [...], [], [])
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\HomeController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
