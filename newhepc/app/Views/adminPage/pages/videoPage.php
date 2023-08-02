@@ -1,5 +1,5 @@
 <div class="user-manager-page p-5">
-    <a href="" class="btn btn-success mb-3"> Thêm video</a>
+    <a href="" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#addVideoModal"> Thêm video</a>
     <?= view('alerts/alert') ?>
     <div class="table-info">
         <div class="card easion-card">
@@ -16,7 +16,6 @@
                             <th scope="col">ID</th>
                             <th scope="col">Người đăng</th>
                             <th scope="col">Tên video</th>
-                            <th scope="col">Đường dẫn</th>
                             <th scope="col">Trạng thái</th>
                             <th scope="col">Chức năng</th>
                         </tr>
@@ -33,16 +32,13 @@
                                 <td>
                                     <?= $n['video'] ?>
                                 </td>
-                                <td>
-                                    <?=$n['file_vd']?>
-                                </td>
                                 <td class="<?= $n['status_vd'] == 1 ? 'text-success' : 'text-danger' ?>">
                                     <?= $n['status_vd'] == 1 ? 'Hoạt động' : 'Vô hiệu hóa' ?>
                                 </td>
                                 <td class="text-center">
-                                    <a href="" class="btn btn-primary mb-3" title="Cập nhật thông tin" >
-                                        <i class="fas fa-edit"></i></a>
-                                    <a class="btn btn-danger btn-del-confirm mb-3" title="Xóa video">
+                                    <a href="./admin/management/video/<?= $n['id_vd'] ?>" class="btn btn-primary mb-3" title="Cập nhật thông tin"><i class="fas fa-edit"></i></a></a>
+                                    <a class="btn btn-danger btn-del-confirm mb-3" title="Xóa video" data-bs-toggle="modal"
+                                        data-bs-target="#deleteModal" data-id="<?= $n['id_vd'] ?>">
                                         <i class="far fa-trash-alt"></i></a>
 
                                 </td>
@@ -54,3 +50,7 @@
         </div>
     </div>
 </div>
+
+<?= view('adminPage/modals/video_addModal') ?>
+<?= view('adminPage/modals/deleteModal', ['name' => 'Video', 'action' => 'admin/management/video/delete']) ?>
+

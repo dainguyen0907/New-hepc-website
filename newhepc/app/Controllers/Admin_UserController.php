@@ -64,6 +64,7 @@ class Admin_UserController extends BaseController
             $AdmissionPage = $this->loadAdminLayout($masterPage, $title, $page, $dataLayout, $cssLib, $jsLib);
             return view('adminPage/masterPage', $AdmissionPage);
         }
+        return $this->load404page();
         
     }
     public function resetPassword()

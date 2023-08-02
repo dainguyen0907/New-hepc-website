@@ -119,6 +119,10 @@ $routes->group('admin',['filter'=>'authenicatorFilter'],function($routes){
         $routes->post('banner/delete','Admin_BannerController::deleteBanner');
 
         $routes->get('video','Admin_VideoController::index');
+        $routes->post('video/add','Admin_VideoController::addVideo');
+        $routes->get('video/(:num)','Admin_VideoController::updateVideoPage/$1');
+        $routes->post('video/delete','Admin_VideoController::deleteVideo');
+        $routes->post('video/update','Admin_VideoController::updateVideo');
     });
     
 });
