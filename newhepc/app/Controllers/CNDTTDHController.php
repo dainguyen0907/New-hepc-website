@@ -4,16 +4,19 @@ namespace App\Controllers;
 
 use App\Services\cmphongbanService;
 use App\Services\baivietService;
+use App\Services\fileAnhService;
 
 class CNDTTDHController extends BaseController
 {
     private $baivietService;
     private $cmpbService;
+    private $anhService;
 
     public function __construct()
     {
         $this->baivietService = new baivietService();
         $this->cmpbService = new cmphongbanService();
+        $this->anhService=new fileAnhService();
     }
     public function index()
     {
@@ -30,6 +33,7 @@ class CNDTTDHController extends BaseController
         $dataLayout['f_news'] = $this->baivietService->getNewsforOfficePage('31');
         $dataLayout['s_news'] = $this->baivietService->getNewsforOfficePage('34');
         $dataLayout['image'] = null;
+        $dataLayout['album']=$this->anhService->getPicturesById_PB('5');
         $dataLayout['link'] = "khoa-cndt-tdh/";
         $UnionPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
         return view('publicPage/masterPage', $UnionPage);

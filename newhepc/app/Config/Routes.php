@@ -123,6 +123,10 @@ $routes->group('admin',['filter'=>'authenicatorFilter'],function($routes){
         $routes->get('video/(:num)','Admin_VideoController::updateVideoPage/$1');
         $routes->post('video/delete','Admin_VideoController::deleteVideo');
         $routes->post('video/update','Admin_VideoController::updateVideo');
+
+        $routes->get('picture','Admin_PictureController::index');
+        $routes->post('picture/delete','Admin_PictureController::deletePicture');
+        $routes->post('picture/update','Admin_PictureController::updatePicture');
     });
     
 });

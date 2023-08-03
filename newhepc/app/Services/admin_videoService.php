@@ -62,13 +62,13 @@ class admin_videoService extends BaseService
         if($method=="add")
         {
             $rules=[
-                "videoname"=>"required|max_length[50]|is_unique[video.video]",
+                "videoname"=>"required|max_length[100]|is_unique[video.video]",
                 "videolink"=>"required"
             ];
             $message=[
                 "videoname"=>[
                     "required"=>"Tên video không được để trống",
-                    "max_length"=>"Tên video tối đa 50 ký tự",
+                    "max_length"=>"Tên video tối đa 100 ký tự",
                     "is_unique"=>"Tên video đã tồn tại"
                 ],
                 "videolink"=>[
@@ -78,13 +78,13 @@ class admin_videoService extends BaseService
         }
         else{
             $rules=[
-                "videoname"=>"required|max_length[50]",
+                "videoname"=>"required|max_length[100]",
                 "videolink"=>"required"
             ];
             $message=[
                 "videoname"=>[
                     "required"=>"Tên video không được để trống",
-                    "max_length"=>"Tên video tối đa 50 ký tự"
+                    "max_length"=>"Tên video tối đa 100 ký tự"
                 ],
                 "videolink"=>[
                     "required"=>"Đường dẫn video không được để trống"
@@ -154,7 +154,7 @@ class admin_videoService extends BaseService
             return [
                 'status' => ResultUtils::STATUS_CODE_OK,
                 'messageCode' => ResultUtils::MESSAGE_CODE_OK,
-                'message' => ['success'=>"Thêm video thành công"]
+                'message' => ['success'=>"Cập nhật video thành công"]
             ];
         }
         return [

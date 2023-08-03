@@ -38,7 +38,7 @@
         </div>
     </div>
     <div class="more mb-3">
-        <a href="./<?= $link.$f_link ?>" type="button" class="btn btn-info hvr-radial-out">Xem thêm</a>
+        <a href="./<?= $link . $f_link ?>" type="button" class="btn btn-info hvr-radial-out">Xem thêm</a>
     </div>
 </section>
 <section id="second-office-news">
@@ -75,7 +75,7 @@
         </div>
     </div>
     <div class="more pb-3">
-        <a href="./<?= $link. $s_link ?>" type="button" class="btn btn-info hvr-radial-out">Xem thêm</a>
+        <a href="./<?= $link . $s_link ?>" type="button" class="btn btn-info hvr-radial-out">Xem thêm</a>
     </div>
 </section>
 
@@ -87,72 +87,25 @@
     </div>
     <div id="carouselExampleIndicators" class="carousel slide">
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class=row>
-                    <div class="card col-4 border-0 p-2">
-                        <a href="" data-bs-toggle="modal" data-bs-target="#imageModal"
-                            data-bs-whatever="https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg"><img
-                                src="https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg"
-                                class="d-block w-100" alt="..."></a>
-                    </div>
-                    <div class="card col-4 border-0 p-2">
-                        <a href="" data-bs-toggle="modal" data-bs-target="#imageModal"
-                            data-bs-whatever="https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg"><img
-                                src="https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg"
-                                class="d-block w-100" alt="..."></a>
-                    </div>
-                    <div class="card col-4 border-0 p-2">
-                        <a href="" data-bs-toggle="modal" data-bs-target="#imageModal"
-                            data-bs-whatever="https://imgv3.fotor.com/images/blog-cover-image/part-blurry-image.jpg"><img
-                                src="https://imgv3.fotor.com/images/blog-cover-image/part-blurry-image.jpg"
-                                class="d-block w-100" alt="..."></a>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class=row>
-                    <div class="card col-4 border-0 p-2">
-                        <a href="" data-bs-toggle="modal" data-bs-target="#imageModal"
-                            data-bs-whatever="https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg"><img
-                                src="https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg"
-                                class="d-block w-100" alt="..."></a>
-                    </div>
-                    <div class="card col-4 border-0 p-2">
-                        <a href="" data-bs-toggle="modal" data-bs-target="#imageModal"
-                            data-bs-whatever="https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg"><img
-                                src="https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg"
-                                class="d-block w-100" alt="..."></a>
-                    </div>
-                    <div class="card col-4 border-0 p-2">
-                        <a href="" data-bs-toggle="modal" data-bs-target="#imageModal"
-                            data-bs-whatever="https://imgv3.fotor.com/images/blog-cover-image/part-blurry-image.jpg"><img
-                                src="https://imgv3.fotor.com/images/blog-cover-image/part-blurry-image.jpg"
-                                class="d-block w-100" alt="..."></a>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class=row>
-                    <div class="card col-4 border-0 p-2">
-                        <a href="" data-bs-toggle="modal" data-bs-target="#imageModal"
-                            data-bs-whatever="https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg"><img
-                                src="https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg"
-                                class="d-block w-100" alt="..."></a>
-                    </div>
-                    <div class="card col-4 border-0 p-2">
-                        <a href="" data-bs-toggle="modal" data-bs-target="#imageModal"
-                            data-bs-whatever="https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg"><img
-                                src="https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg"
-                                class="d-block w-100" alt="..."></a>
-                    </div>
-                    <div class="card col-4 border-0 p-2">
-                        <a href="" data-bs-toggle="modal" data-bs-target="#imageModal"
-                            data-bs-whatever="https://imgv3.fotor.com/images/blog-cover-image/part-blurry-image.jpg"><img
-                                src="https://imgv3.fotor.com/images/blog-cover-image/part-blurry-image.jpg"
-                                class="d-block w-100" alt="..."></a>
-                    </div>
-                </div>
-            </div>
+            <?php if (isset($album)): ?>
+                <?php $i=0;
+                    foreach ($album as $key => $n): ?>
+                    <?php if ($key/3==$i): 
+                        $i++;?>
+                        <div class="carousel-item <?= $key == 0 ? 'active' : '' ?>">
+                            <div class=row>
+                            <?php endif; ?>
+                            <div class="card col-4 border-0 p-2">
+                                <a href="" data-bs-toggle="modal" data-bs-target="#imageModal"
+                                    data-bs-whatever="<?= $n['anh'] ?>">
+                                    <img src="<?= $n['anh'] ?>" class="d-block w-100" alt="..."></a>
+                            </div>
+                            <?php if ($key % 3 == 2||$key===array_key_last($album)): ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
             data-bs-slide="prev">
