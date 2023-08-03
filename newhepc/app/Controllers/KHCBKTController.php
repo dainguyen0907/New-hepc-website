@@ -4,16 +4,19 @@ namespace App\Controllers;
 
 use App\Services\cmphongbanService;
 use App\Services\baivietService;
+use App\Services\fileAnhService;
 
 class KHCBKTController extends BaseController
 {
     private $baivietService;
     private $cmpbService;
+    private $anhService;
 
     public function __construct()
     {
         $this->baivietService = new baivietService();
         $this->cmpbService = new cmphongbanService();
+        $this->anhService=new fileAnhService();
     }
     public function index()
     {
@@ -30,6 +33,7 @@ class KHCBKTController extends BaseController
         $dataLayout['f_news'] = $this->baivietService->getNewsforOfficePage('23');
         $dataLayout['s_news'] = $this->baivietService->getNewsforOfficePage('27');
         $dataLayout['image'] = null;
+        $dataLayout['album']=$this->anhService->getPicturesById_PB('4');
         $dataLayout['link'] = "khoa-khcb-kt/";
         $UnionPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
         return view('publicPage/masterPage', $UnionPage);
