@@ -1,6 +1,7 @@
 <?php
 
 namespace Config;
+use App\Filters\controlFilter;
 
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
@@ -125,7 +126,16 @@ $routes->group('admin',['filter'=>'authenicatorFilter'],function($routes){
         $routes->post('video/update','Admin_VideoController::updateVideo');
 
         $routes->get('picture','Admin_PictureController::index');
-        $routes->post('picture/delete','Admin_PictureController::deletePicture');
+        
+    });
+
+    $routes->get('Mypicture', 'Admin_PictureController::loadMyPicturePage');
+    $routes->post('picture/delete','Admin_PictureController::deletePicture');
+    $routes->post('picture/add','Admin_PictureController::addPicture');
+
+    $routes->group('control',['filter'=>'controlFilter'],function($routes){
+        $routes->get('Grouppicture', 'Admin_PictureController::loadGroupPicturePage');
+        $routes->get('Censorpicture', 'Admin_PictureController::loadCensorPicturePage');
         $routes->post('picture/update','Admin_PictureController::updatePicture');
     });
     

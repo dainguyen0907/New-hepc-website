@@ -1,4 +1,7 @@
 <div class="user-manager-page p-5">
+    <?php if($role=='user'): ?>
+        <a href="" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#addPictureModal"> Thêm ảnh mới</a>
+    <?php endif?>
     <?= view('alerts/alert') ?>
     <div class="table-info">
         <div class="card easion-card">
@@ -44,10 +47,13 @@
                                     <?= $n['censor_anh'] == 1 ? 'Đã duyệt' : 'Chưa duyệt' ?>
                                 </td>
                                 <td class="text-center">
+                                    <?php if($role=='admin'||$role=='leader'): ?>
                                     <a href="" class="btn btn-primary mb-3" title="Cập nhật thông tin" data-bs-toggle="modal"
                                     data-bs-target="#updatePictureModal" data-id="<?=$n['id_anh'] ?>" data-link="<?= $n['anh'] ?>"
                                     data-status="<?= $n['status_anh'] ?>" data-censor="<?= $n['censor_anh'] ?>" data-group="<?= $n['id_p'] ?>"
                                     ><i class="fas fa-edit"></i></a></a>
+                                    <?php endif;?>
+
                                     <a class="btn btn-danger btn-del-confirm mb-3" title="Xóa ảnh" data-bs-toggle="modal"
                                         data-bs-target="#deleteModal" data-id="<?= $n['id_anh'] ?>">
                                         <i class="far fa-trash-alt"></i></a>
@@ -61,10 +67,14 @@
         </div>
     </div>
 </div>
-
-<?= view('adminPage/modals/picture_updateModal')?>
-<?= view('adminPage/modals/deleteModal', ['name' => 'Ảnh', 'action' => 'admin/management/picture/delete']) ?>
-
+<?php if($role=='user'): ?>
+    <?= view('adminPage/modals/picture_addModal')?>
+<?php endif?>
+<?php if($role=='admin'||$role=='leader'): ?>
+    <?= view('adminPage/modals/picture_updateModal')?>
+<?php endif;?>
+    <?= view('adminPage/modals/deleteModal', ['name' => 'Ảnh', 'action' => 'admin/picture/delete']) ?>
+<?php if($role=='admin'||$role=='leader'): ?>
 <script>
     var updatePictureModal = document.getElementById('updatePictureModal')
     updatePictureModal.addEventListener('show.bs.modal', function (event) {
@@ -100,4 +110,4 @@
         }
     })
 </script>
-
+<?php endif;?>

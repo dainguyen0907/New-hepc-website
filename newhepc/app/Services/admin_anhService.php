@@ -80,12 +80,63 @@ class admin_anhService extends BaseService
             "picturelink"=>"required"
         ];
         $message=[
-            "videoname"=>[
+            "picturelink"=>[
                 "required"=>"Đường dẫn ảnh không được để trống",
             ]
         ];
         $this->validation->setRules($rules,$message);
         $this->validation->withRequest($req)->run();
         return $this->validation;
+    }
+
+    public function addPicture($req)
+    {
+        $validateRes=$this->validatePicture($req);
+        if($validateRes->getErrors())
+        {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => $validateRes->getErrors()
+            ];
+        }
+        $param=$req->getPost();
+        $data=[
+            "anh"=>$param['picturelink'],
+            "id_p"=>session('userLogin')['id_pb'],
+            "id_user"=>session('userLogin')['id_user'],
+            "status_anh"=>0,
+            "censor_anh"=>0
+        ];
+        $res=$this->anhModel->insert($data);
+        if($res)
+        {
+            $this->writeHistory('add','Ảnh hoạt động',session('userLogin')['id_user'],$res);
+            return [
+                'status' => ResultUtils::STATUS_CODE_OK,
+                'messageCode' => ResultUtils::MESSAGE_CODE_OK,
+                'message' => ['success'=>"Thêm ảnh thành công"]
+            ];
+        }
+        return [
+            'status' => ResultUtils::STATUS_CODE_ERR,
+            'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
+            'message' => ['err'=>"Đã xảy ra lỗi hệ thống! Vui lòng thử lại sau."]
+        ];
+        
+    }
+
+    public function getPictureById_user($id_user)
+    {
+        return $this->anhModel->join('user','fileanh.id_user=user.id_user','left')->join('phongban','fileanh.id_p=phongban.id_pb')->where('fileanh.id_user',$id_user)->findAll();
+    }
+    public function getPictureById_pb($id_pb)
+    {
+        return $this->anhModel->join('user','fileanh.id_user=user.id_user','left')->join('phongban','fileanh.id_p=phongban.id_pb')->where('fileanh.id_p',$id_pb)->findAll();
+    }
+
+    public function getCountCensorPicture($id_pb)
+    {
+        return $this->anhModel->join('user','fileanh.id_user=user.id_user','left')->join('phongban','fileanh.id_p=phongban.id_pb')->where(["id_p"=>$id_pb,"censor_anh"=>0])->findAll();
     }
 }

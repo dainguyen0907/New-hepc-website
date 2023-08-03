@@ -2,10 +2,10 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Thêm video</h5>
+                <h5 class="modal-title">Cập nhật video</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="post" action="admin/management/picture/update">
+            <form method="post" action="admin/control/picture/update">
                 <input type="hidden" name="pictureid" id="id_picture">
                 <div class="modal-body">
                     <div class="mb-3">

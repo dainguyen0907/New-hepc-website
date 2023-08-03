@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Services\admin_anhService;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
@@ -27,6 +28,7 @@ abstract class BaseController extends Controller
      * @var CLIRequest|IncomingRequest
      */
     protected $request;
+    private $pictureService;
 
     /**
      * An array of helpers to be loaded automatically upon
@@ -52,7 +54,8 @@ abstract class BaseController extends Controller
         parent::initController($request, $response, $logger);
 
         // Preload any models, libraries, etc, here.
-
+        
+        $this->pictureService=new admin_anhService();
         // E.g.: $this->session = \Config\Services::session();
     }
     public function loadLayout($masterPage, $title, $page, $dataLayout, $css, $js)
@@ -88,7 +91,7 @@ abstract class BaseController extends Controller
     public function loadAdminLayout($masterPage, $title, $page, $dataLayout, $css, $js)
     {
         $masterPage['title'] = $title;
-        $masterPage['leftMenu'] = view('adminPage/layouts/leftMenu');
+        $masterPage['leftMenu'] = view('adminPage/layouts/leftMenu',['cencor_pic'=>$this->pictureService->getCountCensorPicture(session('userLogin')['id_pb'])]);
         $masterPage['header'] = view('adminPage/layouts/header');
         $masterPage['content'] = view($page,$dataLayout);
         $masterPage['cssLib'] = $css;

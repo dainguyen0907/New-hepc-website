@@ -24,6 +24,7 @@ class Filters extends BaseConfig
         'loginFilter'   => \App\Filters\loginFilter::class,
         'authenicatorFilter'   => \App\Filters\authenicatorFilter::class,
         'managementFilter'   => \App\Filters\managemnetFilter::class,
+        'controlFilter'   => \App\Filters\controlFilter::class,
     ];
 
     /**
