@@ -126,8 +126,13 @@ $routes->group('admin',['filter'=>'authenicatorFilter'],function($routes){
         $routes->post('video/update','Admin_VideoController::updateVideo');
 
         $routes->get('picture','Admin_PictureController::index');
+
+        $routes->get('new/update','Admin_NewController::loadEditPageAdmin');
+        $routes->get('new','Admin_NewController::index');
         
     });
+
+    $routes->post('ajax/getnew', 'Admin_NewController::loadDataTableById_pb');
 
     $routes->get('Mypicture', 'Admin_PictureController::loadMyPicturePage');
     $routes->post('picture/delete','Admin_PictureController::deletePicture');
@@ -138,6 +143,8 @@ $routes->group('admin',['filter'=>'authenicatorFilter'],function($routes){
         $routes->get('Censorpicture', 'Admin_PictureController::loadCensorPicturePage');
         $routes->post('picture/update','Admin_PictureController::updatePicture');
     });
+
+    
     
 });
 /*

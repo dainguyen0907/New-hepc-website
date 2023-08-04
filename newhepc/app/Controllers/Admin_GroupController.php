@@ -18,7 +18,7 @@ class Admin_GroupController extends BaseController
         $masterPage = [];
         $title = "Phòng ban";
         $cssLib = [libary::cssDatatables];
-        $jsLib = [libary::jsDataTables];
+        $jsLib = [libary::jsDataTables,"assets/js/modal.js"];
         $page = 'adminPage/pages/groupPage';
         $dataLayout['groups']=$this->phongbanService->getAllPhongBan();
         $AdmissionPage = $this->loadAdminLayout($masterPage, $title, $page, $dataLayout, $cssLib, $jsLib);

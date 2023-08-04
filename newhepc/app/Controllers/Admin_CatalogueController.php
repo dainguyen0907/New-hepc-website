@@ -22,7 +22,7 @@ class Admin_CatalogueController extends BaseController
         $masterPage = [];
         $title = "Chuyên mục";
         $cssLib = [libary::cssDatatables];
-        $jsLib = [libary::jsDataTables];
+        $jsLib = [libary::jsDataTables,"assets/js/modal.js"];
         $page = 'adminPage/pages/cataloguePage';
         $dataLayout['Catalogues']=$this->cmphongbanService->getAllCatalogue();
         $dataLayout['Groups']=$this->phongbanService->getAllPhongBan();

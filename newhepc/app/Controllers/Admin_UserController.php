@@ -24,7 +24,7 @@ class Admin_UserController extends BaseController
         $masterPage = [];
         $title = "Tài khoản";
         $cssLib = [libary::cssDatatables];
-        $jsLib = [libary::jsDataTables];
+        $jsLib = [libary::jsDataTables,"assets/js/modal.js"];
         $page = 'adminPage/pages/userPage';
         $dataLayout['Users']=$this->userService->getAllUser();
         $AdmissionPage = $this->loadAdminLayout($masterPage, $title, $page, $dataLayout, $cssLib, $jsLib);

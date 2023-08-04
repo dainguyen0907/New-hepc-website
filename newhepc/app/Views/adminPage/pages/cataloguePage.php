@@ -44,8 +44,10 @@
                                     <a href="" class="btn btn-primary" title="Cập nhật thông tin" data-bs-toggle="modal" data-bs-target="#updateCatalogueModal" 
                                     data-id="<?=$n['id_cmpb']?>"  data-name="<?=$n['cmphongban']?>" data-group="<?=$n['id_pb']?>"  data-status="<?=$n['status_cmpb'] ?>">
                                         <i class="fas fa-edit"></i></a>
+                                    <?php if ($n['id_pb'] > 138): ?>
                                     <a class="btn btn-danger btn-del-confirm" title="Xóa chuyên mục" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="<?=$n['id_cmpb']?>">
                                         <i class="far fa-trash-alt"></i></a>
+                                    <?php endif;?>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

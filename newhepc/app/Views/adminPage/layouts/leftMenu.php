@@ -3,7 +3,7 @@
         <a href="javascript::void()" class="menu-toggle">
             <i class="fas fa-bars"></i>
         </a>
-        <a href="<?= base_url() . "admin" ?>" class="easion-logo"> Quản trị</span></a>
+        <a href="#" class="easion-logo"> Trang chủ</span></a>
     </header>
     <nav class="dash-nav-list">
         <a href="<?= base_url() . "admin" ?>" class="dash-nav-item">

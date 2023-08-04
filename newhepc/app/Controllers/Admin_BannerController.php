@@ -18,7 +18,7 @@ class Admin_BannerController extends BaseController
         $masterPage = [];
         $title = "Banner Quảng cáo";
         $cssLib = [libary::cssDatatables];
-        $jsLib = [libary::jsDataTables];
+        $jsLib = [libary::jsDataTables,"assets/js/modal.js"];
         $page = 'adminPage/pages/bannerPage';
         $dataLayout['banners']=$this->bannerService->getAllBanner();
         $AdmissionPage = $this->loadAdminLayout($masterPage, $title, $page, $dataLayout, $cssLib, $jsLib);

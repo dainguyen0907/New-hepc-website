@@ -22,7 +22,7 @@ class Admin_PictureController extends BaseController
         $masterPage = [];
         $title = "Ảnh hoạt động";
         $cssLib = [libary::cssDatatables];
-        $jsLib = [libary::jsDataTables];
+        $jsLib = [libary::jsDataTables,"assets/js/modal.js"];
         $page = 'adminPage/pages/picturePage';
         $dataLayout['pictures']=$this->pictureService->getAllPicture();
         $dataLayout['Groups']=$this->groupService->getAllPhongBan();
@@ -53,7 +53,7 @@ class Admin_PictureController extends BaseController
         $masterPage = [];
         $title = "Ảnh cá nhân";
         $cssLib = [libary::cssDatatables];
-        $jsLib = [libary::jsDataTables];
+        $jsLib = [libary::jsDataTables,"assets/js/modal.js"];
         $page = 'adminPage/pages/picturePage';
         $dataLayout['pictures']=$this->pictureService->getPictureById_user(session('userLogin')['id_user']);
         $dataLayout['Groups']=$this->groupService->getAllPhongBan();
@@ -66,7 +66,7 @@ class Admin_PictureController extends BaseController
         $masterPage = [];
         $title = "Ảnh phòng ban";
         $cssLib = [libary::cssDatatables];
-        $jsLib = [libary::jsDataTables];
+        $jsLib = [libary::jsDataTables,"assets/js/modal.js"];
         $page = 'adminPage/pages/picturePage';
         $dataLayout['role']='leader';
         $dataLayout['pictures']=$this->pictureService->getPictureById_pb(session('userLogin')['id_pb']);
@@ -79,7 +79,7 @@ class Admin_PictureController extends BaseController
         $masterPage = [];
         $title = "Ảnh phòng ban";
         $cssLib = [libary::cssDatatables];
-        $jsLib = [libary::jsDataTables];
+        $jsLib = [libary::jsDataTables,"assets/js/modal.js"];
         $page = 'adminPage/pages/picturePage';
         $dataLayout['role']='leader';
         $dataLayout['pictures']=$this->pictureService->getCountCensorPicture(session('userLogin')['id_pb']);

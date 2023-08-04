@@ -44,7 +44,7 @@ class Admin_VideoController extends BaseController
         $masterPage = [];
         $title = "Video";
         $cssLib = [libary::cssDatatables];
-        $jsLib = [libary::jsDataTables];
+        $jsLib = [libary::jsDataTables,"assets/js/modal.js"];
         $page = 'adminPage/pages/videoPage-update';
         $dataLayout['title']="Cập nhật video";
         $dataLayout['video']=$data;

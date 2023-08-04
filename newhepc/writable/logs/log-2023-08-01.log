@@ -1,0 +1,170 @@
+CRITICAL - 2023-08-01 01:48:32 --> Undefined array key "status_user"
+in APPPATH\Views\adminPage\pages\groupPage.php on line 35.
+ 1 APPPATH\Views\adminPage\pages\groupPage.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "status_user"', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\adminPage\\pages\\groupPage.php', 35)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\adminPage\\pages\\groupPage.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('adminPage/pages/groupPage', [], true)
+ 5 APPPATH\Controllers\BaseController.php(93): view('adminPage/pages/groupPage', [...])
+ 6 APPPATH\Controllers\Admin_GroupController.php(24): App\Controllers\BaseController->loadAdminLayout([...], 'Tài khoản', 'adminPage/pages/groupPage', [...], [...], [...])
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_GroupController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_GroupController))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-01 01:48:45 --> Undefined array key "id_user"
+in APPPATH\Views\adminPage\pages\groupPage.php on line 37.
+ 1 APPPATH\Views\adminPage\pages\groupPage.php(37): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_user"', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\adminPage\\pages\\groupPage.php', 37)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\adminPage\\pages\\groupPage.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('adminPage/pages/groupPage', [], true)
+ 5 APPPATH\Controllers\BaseController.php(93): view('adminPage/pages/groupPage', [...])
+ 6 APPPATH\Controllers\Admin_GroupController.php(24): App\Controllers\BaseController->loadAdminLayout([...], 'Tài khoản', 'adminPage/pages/groupPage', [...], [...], [...])
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_GroupController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_GroupController))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-01 02:41:18 --> Undefined array key "status"
+in APPPATH\Services\admin_phongbanService.php on line 33.
+ 1 APPPATH\Services\admin_phongbanService.php(33): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "status"', 'C:\\xampp\\htdocs\\newhepc\\app\\Services\\admin_phongbanService.php', 33)
+ 2 APPPATH\Controllers\Admin_GroupController.php(30): App\Services\admin_phongbanService->updateStatusByID('1')
+ 3 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_GroupController->change_status('1')
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_GroupController))
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-08-01 07:32:53 --> mysqli_sql_exception: Unknown column 'status_cmpb' in 'field list' in C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `phongba...', 0)
+#1 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `phongba...')
+#2 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `phongba...')
+#3 C:\xampp\htdocs\newhepc\system\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `phongba...', Array, false)
+#4 C:\xampp\htdocs\newhepc\system\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\newhepc\system\BaseModel.php(943): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xampp\htdocs\newhepc\system\Model.php(756): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xampp\htdocs\newhepc\app\Services\admin_phongbanService.php(35): CodeIgniter\Model->update('1', Array)
+#8 C:\xampp\htdocs\newhepc\app\Controllers\Admin_GroupController.php(30): App\Services\admin_phongbanService->updateStatusByID('1')
+#9 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(932): App\Controllers\Admin_GroupController->change_status('1')
+#10 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_GroupController))
+#11 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\newhepc\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2023-08-01 07:32:53 --> Unknown column 'status_cmpb' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `phongban` SET `status_pb` = \'1\', `status_cmpb` = \'1\'
+WHERE `phongban`.`id_pb` IN (\'1\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `phongban` SET `status_pb` = \'1\', `status_cmpb` = \'1\'
+WHERE `phongban`.`id_pb` IN (\'1\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `phongban` SET `status_pb` = \'1\', `status_cmpb` = \'1\'
+WHERE `phongban`.`id_pb` IN (\'1\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `phongban` SET `status_pb` = :status_pb:, `status_cmpb` = :status_cmpb:
+WHERE `phongban`.`id_pb` IN :phongban.id_pb:', [...], false)
+ 5 SYSTEMPATH\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(943): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Services\admin_phongbanService.php(35): CodeIgniter\Model->update('1', [...])
+ 9 APPPATH\Controllers\Admin_GroupController.php(30): App\Services\admin_phongbanService->updateStatusByID('1')
+10 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_GroupController->change_status('1')
+11 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_GroupController))
+12 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-01 07:37:04 --> Allowed fields must be specified for model: "App\Models\cmPhongBanModel"
+in SYSTEMPATH\BaseModel.php on line 1242.
+ 1 SYSTEMPATH\BaseModel.php(1242): CodeIgniter\Database\Exceptions\DataException::forInvalidAllowedFields('App\\Models\\cmPhongBanModel')
+ 2 SYSTEMPATH\BaseModel.php(919): CodeIgniter\BaseModel->doProtectFields([...])
+ 3 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update(null, [...])
+ 4 APPPATH\Services\admin_phongbanService.php(39): CodeIgniter\Model->update()
+ 5 APPPATH\Controllers\Admin_GroupController.php(30): App\Services\admin_phongbanService->updateStatusByID('1')
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_GroupController->change_status('1')
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_GroupController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-08-01 07:37:24 --> mysqli_sql_exception: Unknown column 'status_cmpbpb' in 'field list' in C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `cmphong...', 0)
+#1 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `cmphong...')
+#2 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `cmphong...')
+#3 C:\xampp\htdocs\newhepc\system\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `cmphong...', Array, false)
+#4 C:\xampp\htdocs\newhepc\system\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\newhepc\system\BaseModel.php(943): CodeIgniter\Model->doUpdate(NULL, Array)
+#6 C:\xampp\htdocs\newhepc\system\Model.php(756): CodeIgniter\BaseModel->update(NULL, Array)
+#7 C:\xampp\htdocs\newhepc\app\Services\admin_phongbanService.php(44): CodeIgniter\Model->update()
+#8 C:\xampp\htdocs\newhepc\app\Controllers\Admin_GroupController.php(30): App\Services\admin_phongbanService->updateStatusByID('1')
+#9 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(932): App\Controllers\Admin_GroupController->change_status('1')
+#10 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_GroupController))
+#11 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\newhepc\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2023-08-01 07:37:24 --> Unknown column 'status_cmpbpb' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `cmphongban` SET `status_cmpbpb` = \'0\'
+WHERE `id_pb` IN (\'1\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `cmphongban` SET `status_cmpbpb` = \'0\'
+WHERE `id_pb` IN (\'1\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `cmphongban` SET `status_cmpbpb` = \'0\'
+WHERE `id_pb` IN (\'1\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `cmphongban` SET `status_cmpbpb` = :status_cmpbpb:
+WHERE `id_pb` IN :id_pb:', [...], false)
+ 5 SYSTEMPATH\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(943): CodeIgniter\Model->doUpdate(null, [...])
+ 7 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update(null, [...])
+ 8 APPPATH\Services\admin_phongbanService.php(44): CodeIgniter\Model->update()
+ 9 APPPATH\Controllers\Admin_GroupController.php(30): App\Services\admin_phongbanService->updateStatusByID('1')
+10 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_GroupController->change_status('1')
+11 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_GroupController))
+12 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-08-01 07:44:50 --> mysqli_sql_exception: Unknown column 'status_cmpb' in 'field list' in C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `phongba...', 0)
+#1 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `phongba...')
+#2 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `phongba...')
+#3 C:\xampp\htdocs\newhepc\system\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `phongba...', Array, false)
+#4 C:\xampp\htdocs\newhepc\system\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\newhepc\system\BaseModel.php(943): CodeIgniter\Model->doUpdate(NULL, Array)
+#6 C:\xampp\htdocs\newhepc\system\Model.php(756): CodeIgniter\BaseModel->update(NULL, Array)
+#7 C:\xampp\htdocs\newhepc\app\Services\admin_phongbanService.php(43): CodeIgniter\Model->update()
+#8 C:\xampp\htdocs\newhepc\app\Controllers\Admin_GroupController.php(30): App\Services\admin_phongbanService->updateStatusByID('1')
+#9 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(932): App\Controllers\Admin_GroupController->change_status('1')
+#10 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_GroupController))
+#11 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\newhepc\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2023-08-01 07:44:51 --> Unknown column 'status_cmpb' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('UPDATE `phongban` SET `status_cmpb` = \'0\', `status_pb` = \'0\'
+WHERE `id_pb` IN (\'1\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `phongban` SET `status_cmpb` = \'0\', `status_pb` = \'0\'
+WHERE `id_pb` IN (\'1\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `phongban` SET `status_cmpb` = \'0\', `status_pb` = \'0\'
+WHERE `id_pb` IN (\'1\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `phongban` SET `status_cmpb` = :status_cmpb:, `status_pb` = :status_pb:
+WHERE `id_pb` IN :id_pb:', [...], false)
+ 5 SYSTEMPATH\Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(943): CodeIgniter\Model->doUpdate(null, [...])
+ 7 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update(null, [...])
+ 8 APPPATH\Services\admin_phongbanService.php(43): CodeIgniter\Model->update()
+ 9 APPPATH\Controllers\Admin_GroupController.php(30): App\Services\admin_phongbanService->updateStatusByID('1')
+10 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_GroupController->change_status('1')
+11 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_GroupController))
+12 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-01 09:01:32 --> Invalid file: "adminPage/modals/addGroupModal.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('adminPage/modals/addGroupModal.php')
+ 2 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('adminPage/modals/addGroupModal', [], true)
+ 3 APPPATH\Views\adminPage\pages\groupPage.php(59): view('adminPage/modals/addGroupModal')
+ 4 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\adminPage\\pages\\groupPage.php')
+ 5 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('adminPage/pages/groupPage', [], true)
+ 7 APPPATH\Controllers\BaseController.php(93): view('adminPage/pages/groupPage', [...])
+ 8 APPPATH\Controllers\Admin_GroupController.php(24): App\Controllers\BaseController->loadAdminLayout([...], 'Tài khoản', 'adminPage/pages/groupPage', [...], [...], [...])
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_GroupController->index()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_GroupController))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-01 09:25:20 --> Undefined array key "id"
+in APPPATH\Services\admin_phongbanService.php on line 68.
+ 1 APPPATH\Services\admin_phongbanService.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id"', 'C:\\xampp\\htdocs\\newhepc\\app\\Services\\admin_phongbanService.php', 68)
+ 2 APPPATH\Controllers\Admin_GroupController.php(35): App\Services\admin_phongbanService->deletePhongBan(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_GroupController->deleteGroup()
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_GroupController))
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

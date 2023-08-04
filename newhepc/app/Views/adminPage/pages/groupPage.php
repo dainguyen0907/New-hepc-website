@@ -34,12 +34,10 @@
                                 <td class="text-center">
                                     <?php if ($n['status_pb'] == 1): ?>
                                         <a href="admin/management/group/change/<?=$n['id_pb']?>" class="btn btn-warning" title="Vô hiệu hóa">
-                                            <i class="fa-solid fa-x"></i>
-                                        </a>
+                                            <i class="fa-solid fa-x"></i></a>
                                     <?php else: ?>
                                         <a href="admin/management/group/change/<?=$n['id_pb']?>" class="btn btn-success" title="Kích hoạt">
-                                            <i class="fa-solid fa-check"></i>
-                                        </a>
+                                            <i class="fa-solid fa-check"></i></a>
                                     <?php endif; ?>
 
                                     <?php if ($n['id_pb'] > 17): ?>

@@ -1,0 +1,546 @@
+ERROR - 2023-08-03 01:16:23 --> mysqli_sql_exception: Unknown column 'fileanh.id_pb' in 'on clause' in C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\newhepc\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\newhepc\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\newhepc\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\newhepc\app\Services\admin_anhService.php(19): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\newhepc\app\Controllers\Admin_PictureController.php(24): App\Services\admin_anhService->getAllPicture()
+#8 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(932): App\Controllers\Admin_PictureController->index()
+#9 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_PictureController))
+#10 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\newhepc\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-08-03 01:16:23 --> Unknown column 'fileanh.id_pb' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `fileanh`
+JOIN `user` ON `fileanh`.`id_user`=`user`.`id_user`
+JOIN `phongban` ON `fileanh`.`id_pb`=`phongban`.`id_pb`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `fileanh`
+JOIN `user` ON `fileanh`.`id_user`=`user`.`id_user`
+JOIN `phongban` ON `fileanh`.`id_pb`=`phongban`.`id_pb`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `fileanh`
+JOIN `user` ON `fileanh`.`id_user`=`user`.`id_user`
+JOIN `phongban` ON `fileanh`.`id_pb`=`phongban`.`id_pb`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `fileanh`
+JOIN `user` ON `fileanh`.`id_user`=`user`.`id_user`
+JOIN `phongban` ON `fileanh`.`id_pb`=`phongban`.`id_pb`', [], false)
+ 5 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Services\admin_anhService.php(19): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Admin_PictureController.php(24): App\Services\admin_anhService->getAllPicture()
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_PictureController->index()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_PictureController))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 01:20:22 --> Undefined array key "id_vd"
+in APPPATH\Views\adminPage\pages\picturePage.php on line 49.
+ 1 APPPATH\Views\adminPage\pages\picturePage.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_vd"', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\adminPage\\pages\\picturePage.php', 49)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\adminPage\\pages\\picturePage.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('adminPage/pages/picturePage', [], true)
+ 5 APPPATH\Controllers\BaseController.php(93): view('adminPage/pages/picturePage', [...])
+ 6 APPPATH\Controllers\Admin_PictureController.php(25): App\Controllers\BaseController->loadAdminLayout([...], 'Ảnh hoạt động', 'adminPage/pages/picturePage', [...], [...], [...])
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_PictureController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_PictureController))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 02:20:14 --> Undefined array key "group_picture"
+in APPPATH\Services\admin_anhService.php on line 55.
+ 1 APPPATH\Services\admin_anhService.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "group_picture"', 'C:\\xampp\\htdocs\\newhepc\\app\\Services\\admin_anhService.php', 55)
+ 2 APPPATH\Controllers\Admin_PictureController.php(41): App\Services\admin_anhService->updatePicture(Object(CodeIgniter\HTTP\IncomingRequest))
+ 3 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_PictureController->updatePicture()
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_PictureController))
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 02:22:09 --> Allowed fields must be specified for model: "App\Models\fileAnhModel"
+in SYSTEMPATH\BaseModel.php on line 1242.
+ 1 SYSTEMPATH\BaseModel.php(1242): CodeIgniter\Database\Exceptions\DataException::forInvalidAllowedFields('App\\Models\\fileAnhModel')
+ 2 SYSTEMPATH\BaseModel.php(919): CodeIgniter\BaseModel->doProtectFields([...])
+ 3 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [...])
+ 4 APPPATH\Services\admin_anhService.php(59): CodeIgniter\Model->update('4', [...])
+ 5 APPPATH\Controllers\Admin_PictureController.php(41): App\Services\admin_anhService->updatePicture(Object(CodeIgniter\HTTP\IncomingRequest))
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_PictureController->updatePicture()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_PictureController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 02:22:56 --> Allowed fields must be specified for model: "App\Models\fileAnhModel"
+in SYSTEMPATH\BaseModel.php on line 1242.
+ 1 SYSTEMPATH\BaseModel.php(1242): CodeIgniter\Database\Exceptions\DataException::forInvalidAllowedFields('App\\Models\\fileAnhModel')
+ 2 SYSTEMPATH\BaseModel.php(919): CodeIgniter\BaseModel->doProtectFields([...])
+ 3 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [...])
+ 4 APPPATH\Services\admin_anhService.php(59): CodeIgniter\Model->update('4', [...])
+ 5 APPPATH\Controllers\Admin_PictureController.php(41): App\Services\admin_anhService->updatePicture(Object(CodeIgniter\HTTP\IncomingRequest))
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_PictureController->updatePicture()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_PictureController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 02:23:52 --> Allowed fields must be specified for model: "App\Models\fileAnhModel"
+in SYSTEMPATH\BaseModel.php on line 1242.
+ 1 SYSTEMPATH\BaseModel.php(1242): CodeIgniter\Database\Exceptions\DataException::forInvalidAllowedFields('App\\Models\\fileAnhModel')
+ 2 SYSTEMPATH\BaseModel.php(919): CodeIgniter\BaseModel->doProtectFields([...])
+ 3 SYSTEMPATH\Model.php(756): CodeIgniter\BaseModel->update([...], [...])
+ 4 APPPATH\Services\admin_anhService.php(59): CodeIgniter\Model->update('4', [...])
+ 5 APPPATH\Controllers\Admin_PictureController.php(41): App\Services\admin_anhService->updatePicture(Object(CodeIgniter\HTTP\IncomingRequest))
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_PictureController->updatePicture()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_PictureController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 02:47:24 --> Undefined variable $ablum
+in APPPATH\Views\publicPage\pages\officePage.php on line 97.
+ 1 APPPATH\Views\publicPage\pages\officePage.php(97): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $ablum', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\publicPage\\pages\\officePage.php', 97)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\publicPage\\pages\\officePage.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('publicPage/pages/officePage', [], true)
+ 5 APPPATH\Controllers\BaseController.php(62): view('publicPage/pages/officePage', [...])
+ 6 APPPATH\Controllers\CNDTTDHController.php(38): App\Controllers\BaseController->loadLayout([...], 'Khoa công nghệ điện tử - tự động hoá', 'publicPage/pages/officePage', [...], [], [])
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\CNDTTDHController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CNDTTDHController))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 02:47:41 --> Array to string conversion
+in APPPATH\Views\publicPage\pages\officePage.php on line 97.
+ 1 APPPATH\Views\publicPage\pages\officePage.php(97): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\publicPage\\pages\\officePage.php', 97)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\publicPage\\pages\\officePage.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('publicPage/pages/officePage', [], true)
+ 5 APPPATH\Controllers\BaseController.php(62): view('publicPage/pages/officePage', [...])
+ 6 APPPATH\Controllers\CNDTTDHController.php(38): App\Controllers\BaseController->loadLayout([...], 'Khoa công nghệ điện tử - tự động hoá', 'publicPage/pages/officePage', [...], [], [])
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\CNDTTDHController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CNDTTDHController))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 02:48:02 --> Array to string conversion
+in APPPATH\Views\publicPage\pages\officePage.php on line 97.
+ 1 APPPATH\Views\publicPage\pages\officePage.php(97): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\publicPage\\pages\\officePage.php', 97)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\publicPage\\pages\\officePage.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('publicPage/pages/officePage', [], true)
+ 5 APPPATH\Controllers\BaseController.php(62): view('publicPage/pages/officePage', [...])
+ 6 APPPATH\Controllers\CNDTTDHController.php(38): App\Controllers\BaseController->loadLayout([...], 'Khoa công nghệ điện tử - tự động hoá', 'publicPage/pages/officePage', [...], [], [])
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\CNDTTDHController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CNDTTDHController))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 02:48:36 --> Undefined array key 1
+in APPPATH\Views\publicPage\pages\officePage.php on line 97.
+ 1 APPPATH\Views\publicPage\pages\officePage.php(97): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 1', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\publicPage\\pages\\officePage.php', 97)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\publicPage\\pages\\officePage.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('publicPage/pages/officePage', [], true)
+ 5 APPPATH\Controllers\BaseController.php(62): view('publicPage/pages/officePage', [...])
+ 6 APPPATH\Controllers\CNDTTDHController.php(38): App\Controllers\BaseController->loadLayout([...], 'Khoa công nghệ điện tử - tự động hoá', 'publicPage/pages/officePage', [...], [], [])
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\CNDTTDHController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CNDTTDHController))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 02:50:15 --> Undefined array key 1
+in APPPATH\Views\publicPage\pages\officePage.php on line 97.
+ 1 APPPATH\Views\publicPage\pages\officePage.php(97): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 1', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\publicPage\\pages\\officePage.php', 97)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\publicPage\\pages\\officePage.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('publicPage/pages/officePage', [], true)
+ 5 APPPATH\Controllers\BaseController.php(62): view('publicPage/pages/officePage', [...])
+ 6 APPPATH\Controllers\CNDTTDHController.php(38): App\Controllers\BaseController->loadLayout([...], 'Khoa công nghệ điện tử - tự động hoá', 'publicPage/pages/officePage', [...], [], [])
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\CNDTTDHController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CNDTTDHController))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 02:54:35 --> Undefined array key 2
+in APPPATH\Views\publicPage\pages\officePage.php on line 97.
+ 1 APPPATH\Views\publicPage\pages\officePage.php(97): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 2', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\publicPage\\pages\\officePage.php', 97)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\publicPage\\pages\\officePage.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('publicPage/pages/officePage', [], true)
+ 5 APPPATH\Controllers\BaseController.php(62): view('publicPage/pages/officePage', [...])
+ 6 APPPATH\Controllers\CNDTTDHController.php(38): App\Controllers\BaseController->loadLayout([...], 'Khoa công nghệ điện tử - tự động hoá', 'publicPage/pages/officePage', [...], [], [])
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\CNDTTDHController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CNDTTDHController))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 03:09:12 --> Undefined array key 1
+in APPPATH\Views\publicPage\pages\officePage.php on line 97.
+ 1 APPPATH\Views\publicPage\pages\officePage.php(97): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 1', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\publicPage\\pages\\officePage.php', 97)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\publicPage\\pages\\officePage.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('publicPage/pages/officePage', [], true)
+ 5 APPPATH\Controllers\BaseController.php(62): view('publicPage/pages/officePage', [...])
+ 6 APPPATH\Controllers\CNDTTDHController.php(38): App\Controllers\BaseController->loadLayout([...], 'Khoa công nghệ điện tử - tự động hoá', 'publicPage/pages/officePage', [...], [], [])
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\CNDTTDHController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CNDTTDHController))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 03:18:11 --> Undefined variable $i
+in APPPATH\Views\publicPage\pages\officePage.php on line 93.
+ 1 APPPATH\Views\publicPage\pages\officePage.php(93): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $i', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\publicPage\\pages\\officePage.php', 93)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\publicPage\\pages\\officePage.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('publicPage/pages/officePage', [], true)
+ 5 APPPATH\Controllers\BaseController.php(62): view('publicPage/pages/officePage', [...])
+ 6 APPPATH\Controllers\CNDTTDHController.php(38): App\Controllers\BaseController->loadLayout([...], 'Khoa công nghệ điện tử - tự động hoá', 'publicPage/pages/officePage', [...], [], [])
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\CNDTTDHController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CNDTTDHController))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-08-03 07:50:37 --> mysqli_sql_exception: Column 'id_user' in where clause is ambiguous in C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\newhepc\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\newhepc\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\newhepc\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\newhepc\app\Services\admin_anhService.php(95): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\newhepc\app\Controllers\Admin_PictureController.php(51): App\Services\admin_anhService->getPictureById_user('8')
+#8 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(932): App\Controllers\Admin_PictureController->loadMyPicturePage()
+#9 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_PictureController))
+#10 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\newhepc\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-08-03 07:50:37 --> Column 'id_user' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `fileanh`
+JOIN `user` ON `fileanh`.`id_user`=`user`.`id_user`
+JOIN `phongban` ON `fileanh`.`id_p`=`phongban`.`id_pb`
+WHERE `id_user` = \'8\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `fileanh`
+JOIN `user` ON `fileanh`.`id_user`=`user`.`id_user`
+JOIN `phongban` ON `fileanh`.`id_p`=`phongban`.`id_pb`
+WHERE `id_user` = \'8\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `fileanh`
+JOIN `user` ON `fileanh`.`id_user`=`user`.`id_user`
+JOIN `phongban` ON `fileanh`.`id_p`=`phongban`.`id_pb`
+WHERE `id_user` = \'8\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `fileanh`
+JOIN `user` ON `fileanh`.`id_user`=`user`.`id_user`
+JOIN `phongban` ON `fileanh`.`id_p`=`phongban`.`id_pb`
+WHERE `id_user` = :id_user:', [...], false)
+ 5 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Services\admin_anhService.php(95): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Admin_PictureController.php(51): App\Services\admin_anhService->getPictureById_user('8')
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_PictureController->loadMyPicturePage()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_PictureController))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-08-03 07:51:00 --> mysqli_sql_exception: Unknown column 'file_anh.id_user' in 'where clause' in C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\newhepc\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\newhepc\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\newhepc\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\newhepc\app\Services\admin_anhService.php(95): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\newhepc\app\Controllers\Admin_PictureController.php(51): App\Services\admin_anhService->getPictureById_user('8')
+#8 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(932): App\Controllers\Admin_PictureController->loadMyPicturePage()
+#9 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_PictureController))
+#10 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\newhepc\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-08-03 07:51:00 --> Unknown column 'file_anh.id_user' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `fileanh`
+JOIN `user` ON `fileanh`.`id_user`=`user`.`id_user`
+JOIN `phongban` ON `fileanh`.`id_p`=`phongban`.`id_pb`
+WHERE `file_anh`.`id_user` = \'8\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `fileanh`
+JOIN `user` ON `fileanh`.`id_user`=`user`.`id_user`
+JOIN `phongban` ON `fileanh`.`id_p`=`phongban`.`id_pb`
+WHERE `file_anh`.`id_user` = \'8\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `fileanh`
+JOIN `user` ON `fileanh`.`id_user`=`user`.`id_user`
+JOIN `phongban` ON `fileanh`.`id_p`=`phongban`.`id_pb`
+WHERE `file_anh`.`id_user` = \'8\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `fileanh`
+JOIN `user` ON `fileanh`.`id_user`=`user`.`id_user`
+JOIN `phongban` ON `fileanh`.`id_p`=`phongban`.`id_pb`
+WHERE `file_anh`.`id_user` = :file_anh.id_user:', [...], false)
+ 5 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Services\admin_anhService.php(95): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Admin_PictureController.php(51): App\Services\admin_anhService->getPictureById_user('8')
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_PictureController->loadMyPicturePage()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_PictureController))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-08-03 07:51:20 --> mysqli_sql_exception: Column 'id_user' in where clause is ambiguous in C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\newhepc\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\newhepc\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\newhepc\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\newhepc\app\Services\admin_anhService.php(95): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\newhepc\app\Controllers\Admin_PictureController.php(51): App\Services\admin_anhService->getPictureById_user('8')
+#8 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(932): App\Controllers\Admin_PictureController->loadMyPicturePage()
+#9 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_PictureController))
+#10 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\newhepc\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-08-03 07:51:20 --> Column 'id_user' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `fileanh`
+JOIN `user` ON `fileanh`.`id_user`=`user`.`id_user`
+JOIN `phongban` ON `fileanh`.`id_p`=`phongban`.`id_pb`
+WHERE `id_user` = \'8\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `fileanh`
+JOIN `user` ON `fileanh`.`id_user`=`user`.`id_user`
+JOIN `phongban` ON `fileanh`.`id_p`=`phongban`.`id_pb`
+WHERE `id_user` = \'8\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `fileanh`
+JOIN `user` ON `fileanh`.`id_user`=`user`.`id_user`
+JOIN `phongban` ON `fileanh`.`id_p`=`phongban`.`id_pb`
+WHERE `id_user` = \'8\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `fileanh`
+JOIN `user` ON `fileanh`.`id_user`=`user`.`id_user`
+JOIN `phongban` ON `fileanh`.`id_p`=`phongban`.`id_pb`
+WHERE `id_user` = :id_user:', [...], false)
+ 5 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Services\admin_anhService.php(95): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Admin_PictureController.php(51): App\Services\admin_anhService->getPictureById_user('8')
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_PictureController->loadMyPicturePage()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_PictureController))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-08-03 07:53:22 --> mysqli_sql_exception: Unknown column 'file_anh.id_user' in 'where clause' in C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\newhepc\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\newhepc\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\newhepc\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\newhepc\app\Services\admin_anhService.php(95): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\newhepc\app\Controllers\Admin_PictureController.php(51): App\Services\admin_anhService->getPictureById_user('8')
+#8 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(932): App\Controllers\Admin_PictureController->loadMyPicturePage()
+#9 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_PictureController))
+#10 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\newhepc\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-08-03 07:53:22 --> Unknown column 'file_anh.id_user' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `fileanh`
+LEFT JOIN `user` ON `fileanh`.`id_user`=`user`.`id_user`
+JOIN `phongban` ON `fileanh`.`id_p`=`phongban`.`id_pb`
+WHERE `file_anh`.`id_user` = \'8\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `fileanh`
+LEFT JOIN `user` ON `fileanh`.`id_user`=`user`.`id_user`
+JOIN `phongban` ON `fileanh`.`id_p`=`phongban`.`id_pb`
+WHERE `file_anh`.`id_user` = \'8\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `fileanh`
+LEFT JOIN `user` ON `fileanh`.`id_user`=`user`.`id_user`
+JOIN `phongban` ON `fileanh`.`id_p`=`phongban`.`id_pb`
+WHERE `file_anh`.`id_user` = \'8\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `fileanh`
+LEFT JOIN `user` ON `fileanh`.`id_user`=`user`.`id_user`
+JOIN `phongban` ON `fileanh`.`id_p`=`phongban`.`id_pb`
+WHERE `file_anh`.`id_user` = :file_anh.id_user:', [...], false)
+ 5 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Services\admin_anhService.php(95): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Admin_PictureController.php(51): App\Services\admin_anhService->getPictureById_user('8')
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_PictureController->loadMyPicturePage()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_PictureController))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-08-03 07:53:28 --> mysqli_sql_exception: Column 'id_user' in where clause is ambiguous in C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\newhepc\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\newhepc\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\newhepc\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\newhepc\app\Services\admin_anhService.php(95): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\newhepc\app\Controllers\Admin_PictureController.php(51): App\Services\admin_anhService->getPictureById_user('8')
+#8 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(932): App\Controllers\Admin_PictureController->loadMyPicturePage()
+#9 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_PictureController))
+#10 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\newhepc\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-08-03 07:53:28 --> Column 'id_user' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `fileanh`
+LEFT JOIN `user` ON `fileanh`.`id_user`=`user`.`id_user`
+JOIN `phongban` ON `fileanh`.`id_p`=`phongban`.`id_pb`
+WHERE `id_user` = \'8\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `fileanh`
+LEFT JOIN `user` ON `fileanh`.`id_user`=`user`.`id_user`
+JOIN `phongban` ON `fileanh`.`id_p`=`phongban`.`id_pb`
+WHERE `id_user` = \'8\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `fileanh`
+LEFT JOIN `user` ON `fileanh`.`id_user`=`user`.`id_user`
+JOIN `phongban` ON `fileanh`.`id_p`=`phongban`.`id_pb`
+WHERE `id_user` = \'8\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `fileanh`
+LEFT JOIN `user` ON `fileanh`.`id_user`=`user`.`id_user`
+JOIN `phongban` ON `fileanh`.`id_p`=`phongban`.`id_pb`
+WHERE `id_user` = :id_user:', [...], false)
+ 5 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Services\admin_anhService.php(95): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Admin_PictureController.php(51): App\Services\admin_anhService->getPictureById_user('8')
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_PictureController->loadMyPicturePage()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_PictureController))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-08-03 07:56:54 --> mysqli_sql_exception: Unknown column '$id_user' in 'where clause' in C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\newhepc\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\newhepc\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\newhepc\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\newhepc\app\Services\admin_anhService.php(94): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\newhepc\app\Controllers\Admin_PictureController.php(51): App\Services\admin_anhService->getPictureById_user('8')
+#8 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(932): App\Controllers\Admin_PictureController->loadMyPicturePage()
+#9 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_PictureController))
+#10 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\newhepc\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-08-03 07:56:54 --> Unknown column '$id_user' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `fileanh`
+JOIN `phongban` ON `fileanh`.`id_p`=`phongban`.`id_pb`
+WHERE `$id_user` = \'8\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `fileanh`
+JOIN `phongban` ON `fileanh`.`id_p`=`phongban`.`id_pb`
+WHERE `$id_user` = \'8\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `fileanh`
+JOIN `phongban` ON `fileanh`.`id_p`=`phongban`.`id_pb`
+WHERE `$id_user` = \'8\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `fileanh`
+JOIN `phongban` ON `fileanh`.`id_p`=`phongban`.`id_pb`
+WHERE `$id_user` = :$id_user:', [...], false)
+ 5 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Services\admin_anhService.php(94): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Admin_PictureController.php(51): App\Services\admin_anhService->getPictureById_user('8')
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_PictureController->loadMyPicturePage()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_PictureController))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-08-03 07:57:21 --> mysqli_sql_exception: Column 'id_user' in where clause is ambiguous in C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\newhepc\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\newhepc\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\newhepc\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\newhepc\app\Services\admin_anhService.php(95): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\newhepc\app\Controllers\Admin_PictureController.php(51): App\Services\admin_anhService->getPictureById_user('8')
+#8 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(932): App\Controllers\Admin_PictureController->loadMyPicturePage()
+#9 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_PictureController))
+#10 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\newhepc\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-08-03 07:57:21 --> Column 'id_user' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `fileanh`
+LEFT JOIN `user` ON `fileanh`.`id_user`=`user`.`id_user`
+JOIN `phongban` ON `fileanh`.`id_p`=`phongban`.`id_pb`
+WHERE `id_user` = \'8\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `fileanh`
+LEFT JOIN `user` ON `fileanh`.`id_user`=`user`.`id_user`
+JOIN `phongban` ON `fileanh`.`id_p`=`phongban`.`id_pb`
+WHERE `id_user` = \'8\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `fileanh`
+LEFT JOIN `user` ON `fileanh`.`id_user`=`user`.`id_user`
+JOIN `phongban` ON `fileanh`.`id_p`=`phongban`.`id_pb`
+WHERE `id_user` = \'8\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `fileanh`
+LEFT JOIN `user` ON `fileanh`.`id_user`=`user`.`id_user`
+JOIN `phongban` ON `fileanh`.`id_p`=`phongban`.`id_pb`
+WHERE `id_user` = :id_user:', [...], false)
+ 5 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Services\admin_anhService.php(95): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Admin_PictureController.php(51): App\Services\admin_anhService->getPictureById_user('8')
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_PictureController->loadMyPicturePage()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_PictureController))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-08-03 07:59:16 --> mysqli_sql_exception: Unknown column 'file_anh.id_user' in 'where clause' in C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\newhepc\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\newhepc\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\newhepc\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\newhepc\app\Services\admin_anhService.php(95): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\newhepc\app\Controllers\Admin_PictureController.php(51): App\Services\admin_anhService->getPictureById_user('8')
+#8 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(932): App\Controllers\Admin_PictureController->loadMyPicturePage()
+#9 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_PictureController))
+#10 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\newhepc\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-08-03 07:59:16 --> Unknown column 'file_anh.id_user' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `fileanh`
+LEFT JOIN `user` ON `fileanh`.`id_user`=`user`.`id_user`
+JOIN `phongban` ON `fileanh`.`id_p`=`phongban`.`id_pb`
+WHERE `file_anh`.`id_user` = \'8\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `fileanh`
+LEFT JOIN `user` ON `fileanh`.`id_user`=`user`.`id_user`
+JOIN `phongban` ON `fileanh`.`id_p`=`phongban`.`id_pb`
+WHERE `file_anh`.`id_user` = \'8\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `fileanh`
+LEFT JOIN `user` ON `fileanh`.`id_user`=`user`.`id_user`
+JOIN `phongban` ON `fileanh`.`id_p`=`phongban`.`id_pb`
+WHERE `file_anh`.`id_user` = \'8\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `fileanh`
+LEFT JOIN `user` ON `fileanh`.`id_user`=`user`.`id_user`
+JOIN `phongban` ON `fileanh`.`id_p`=`phongban`.`id_pb`
+WHERE `file_anh`.`id_user` = :file_anh.id_user:', [...], false)
+ 5 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Services\admin_anhService.php(95): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Admin_PictureController.php(51): App\Services\admin_anhService->getPictureById_user('8')
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_PictureController->loadMyPicturePage()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_PictureController))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

@@ -29,9 +29,9 @@ class CommitmentController extends BaseController
         $newdetail=$this->baivietService->getCommitmentDetail($link);
         $page='publicPage/subMasterPage';
         $dataLayout['Banner']="Ba công khai";
-        $dataLayout['content']=view('pages/newDetail',['New'=>$newdetail, 'More'=>$this->baivietService->getMoreCommitment($link),'link'=>"ba-cong-khai"]);
+        $dataLayout['content']=view('publicPage/pages/newDetail',['New'=>$newdetail, 'More'=>$this->baivietService->getMoreCommitment($link),'link'=>"ba-cong-khai"]);
         $dataLayout['Pager']=null;
-        $dataLayout['rightBanner']=view('layouts/rightMenuForNew',['Newest'=>$this->baivietService->getAnouncementForRightMenu()]);
+        $dataLayout['rightBanner']=view('publicPage/layouts/rightMenuForNew',['Newest'=>$this->baivietService->getAnouncementForRightMenu()]);
         return $this->checkPageExits($newdetail,$page,$dataLayout);
     }
 }

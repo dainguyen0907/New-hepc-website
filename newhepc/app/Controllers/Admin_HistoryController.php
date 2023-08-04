@@ -17,7 +17,7 @@ class Admin_HistoryController extends BaseController
         $masterPage = [];
         $title = "Nhật ký";
         $cssLib = [libary::cssDatatables];
-        $jsLib = [libary::jsDataTables];
+        $jsLib = [libary::jsDataTables,"assets/js/modal.js"];
         $page = 'adminPage/pages/historyPage';
         $dataLayout['history']=$this->historyService->getAllHistory();
         $AdmissionPage = $this->loadAdminLayout($masterPage, $title, $page, $dataLayout, $cssLib, $jsLib);
