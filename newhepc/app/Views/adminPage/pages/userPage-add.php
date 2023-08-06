@@ -104,7 +104,7 @@
                                 </div>
                                 
                             </div>
-                            <button type="submit" class="btn btn-success"><?php if($mode=="add") echo 'Tạo mới'; echo 'Cập nhật';?></button>
+                            <button type="submit" class="btn btn-success"><?php if($mode=="add") echo 'Tạo mới'; else echo 'Cập nhật';?></button>
                             <button type="reset" class="btn btn-secondary">Nhập lại</button>
                         </form>
                     </div>

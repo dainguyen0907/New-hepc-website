@@ -1,14 +1,18 @@
 <div class="user-manager-page p-5">
     <?= view('alerts/alert') ?>
-    <div class="mb-3 col-6">
-        <label>Phòng ban</label>
-        <select class="form-select" id="group_select_in_newPage">
-            <option value="-1">Tất cả</option>
-            <?php foreach ($groups as $n): ?>
-                <option value="<?=$n['id_pb']?>"><?=$n['phongban']?></option>
-            <?php endforeach; ?>
-        </select>
-    </div>
+    <?php if ($role == 'admin' || $role == 'leader'): ?>
+        <div class="mb-3 col-6">
+            <label>Phòng ban</label>
+            <select class="form-select" id="group_select_in_newPage">
+                <?php if ($role == 'admin' || session('userLogin')['id_pb'] == 8): ?>
+                    <option value="-1">Tất cả</option>
+                <?php endif; ?>
+                <?php foreach ($groups as $n): ?>
+                    <option value="<?= $n['id_pb'] ?>"><?= $n['phongban'] ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+    <?php endif; ?>
     <div class="table-info">
         <div class="card easion-card">
             <div class="card-header">
@@ -32,7 +36,7 @@
                             <th scope="col">Chức năng</th>
                         </tr>
                     </thead>
-                    <tbody >
+                    <tbody>
                         <?php foreach ($news as $n): ?>
                             <tr>
                                 <td>
@@ -60,12 +64,21 @@
                                     <?= $n['censor_bv'] == 1 ? 'Đã duyệt' : 'Chưa duyệt' ?>
                                 </td>
                                 <td class="text-center">
-                                    <a href="" class="btn btn-primary mb-3" title="Cập nhật thông tin">
+                                <?php if (($role == 'admin' || $role == 'leader')&&$n['censor_bv']==0): ?>
+                                    <a href="./admin/control/pass/<?= $n['id_bv'] ?>" class="btn btn-success mb-3"
+                                        title="Duyệt bài">
+                                        <i class="fa-solid fa-check"></i></a>
+                                    <a href="./admin/control/failed/<?= $n['id_bv'] ?>" class="btn btn-danger mb-3"
+                                        title="Không duyệt">
+                                        <i class="fa-solid fa-x"></i></a>
+                                <?php endif;?>
+                                <a href="./admin/post/<?= $n['id_bv'] ?>" class="btn btn-primary mb-3"
+                                        title="Cập nhật thông tin">
                                         <i class="fas fa-edit"></i></a>
-
+                                <?php if ($role != 'leader'): ?>
                                     <a class="btn btn-danger btn-del-confirm mb-3" title="Xóa bài viết">
                                         <i class="far fa-trash-alt"></i></a>
-
+                                <?php endif;?>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

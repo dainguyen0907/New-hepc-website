@@ -1,0 +1,191 @@
+CRITICAL - 2023-08-05 11:44:17 --> Undefined variable $view
+in APPPATH\Views\adminPage\pages\homePage.php on line 16.
+ 1 APPPATH\Views\adminPage\pages\homePage.php(16): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $view', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\adminPage\\pages\\homePage.php', 16)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\adminPage\\pages\\homePage.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('adminPage/Pages/homePage', [], true)
+ 5 APPPATH\Controllers\BaseController.php(96): view('adminPage/Pages/homePage', [])
+ 6 APPPATH\Controllers\Admin_HomeController.php(16): App\Controllers\BaseController->loadAdminLayout([...], 'Trang chủ', 'adminPage/Pages/homePage', [], [], [])
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_HomeController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_HomeController))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-05 12:29:43 --> Undefined variable $cencor_post
+in APPPATH\Views\adminPage\layouts\leftMenu.php on line 65.
+ 1 APPPATH\Views\adminPage\layouts\leftMenu.php(65): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $cencor_post', 'C:\\xampp\\htdocs\\newhepc\\app\\Views\\adminPage\\layouts\\leftMenu.php', 65)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\newhepc\\app\\Views\\adminPage\\layouts\\leftMenu.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('adminPage/layouts/leftMenu', [], true)
+ 5 APPPATH\Controllers\BaseController.php(96): view('adminPage/layouts/leftMenu', [...])
+ 6 APPPATH\Controllers\Admin_NewController.php(55): App\Controllers\BaseController->loadAdminLayout([...], 'Trang chủ', 'adminPage/Pages/newpaperPage', [...], [...], [...])
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_NewController->loadMyPostPage()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_NewController))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-05 12:39:55 --> Cannot access offset of type string on string
+in APPPATH\Views\adminPage\pages\newpaperPage.php on line 9.
+ 1 SYSTEMPATH\View\View.php(224): include()
+ 2 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('adminPage/Pages/newpaperPage', [], true)
+ 4 APPPATH\Controllers\BaseController.php(100): view('adminPage/Pages/newpaperPage', [...])
+ 5 APPPATH\Controllers\Admin_NewController.php(82): App\Controllers\BaseController->loadAdminLayout([...], 'Trang chủ', 'adminPage/Pages/newpaperPage', [...], [...], [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_NewController->loadCensorPostPage()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_NewController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-08-05 12:54:43 --> mysqli_sql_exception: Illegal parameter data types int and row for operation '=' in C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\newhepc\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\newhepc\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\newhepc\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\newhepc\app\Services\admin_baivietService.php(122): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\newhepc\app\Services\admin_baivietService.php(76): App\Services\admin_baivietService->getCensorPostById_pb('-1')
+#8 C:\xampp\htdocs\newhepc\app\Controllers\Admin_NewController.php(48): App\Services\admin_baivietService->loadHTMLCensorTableById_pb('-1')
+#9 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(932): App\Controllers\Admin_NewController->loadCensorDataTableById_pb()
+#10 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_NewController))
+#11 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\newhepc\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2023-08-05 12:54:43 --> Illegal parameter data types int and row for operation '='
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `baiviet`
+JOIN `user` ON `baiviet`.`id_user`=`user`.`id_user`
+JOIN `cmphongban` ON `baiviet`.`id_cmpb`=`cmphongban`.`id_cmpb`
+WHERE `censor_bv` = \'0\'
+AND `cmphongban`.`id_pb` = (8,15,16,17)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `baiviet`
+JOIN `user` ON `baiviet`.`id_user`=`user`.`id_user`
+JOIN `cmphongban` ON `baiviet`.`id_cmpb`=`cmphongban`.`id_cmpb`
+WHERE `censor_bv` = \'0\'
+AND `cmphongban`.`id_pb` = (8,15,16,17)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `baiviet`
+JOIN `user` ON `baiviet`.`id_user`=`user`.`id_user`
+JOIN `cmphongban` ON `baiviet`.`id_cmpb`=`cmphongban`.`id_cmpb`
+WHERE `censor_bv` = \'0\'
+AND `cmphongban`.`id_pb` = (8,15,16,17)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `baiviet`
+JOIN `user` ON `baiviet`.`id_user`=`user`.`id_user`
+JOIN `cmphongban` ON `baiviet`.`id_cmpb`=`cmphongban`.`id_cmpb`
+WHERE `censor_bv` = :censor_bv:
+AND `cmphongban`.`id_pb` = :cmphongban.id_pb:', [...], false)
+ 5 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Services\admin_baivietService.php(122): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Services\admin_baivietService.php(76): App\Services\admin_baivietService->getCensorPostById_pb('-1')
+ 9 APPPATH\Controllers\Admin_NewController.php(48): App\Services\admin_baivietService->loadHTMLCensorTableById_pb('-1')
+10 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_NewController->loadCensorDataTableById_pb()
+11 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_NewController))
+12 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-05 12:56:34 --> Cannot access offset of type string on string
+in APPPATH\Views\adminPage\pages\newpaperPage.php on line 7.
+ 1 SYSTEMPATH\View\View.php(224): include()
+ 2 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1180): CodeIgniter\View\View->render('adminPage/Pages/newpaperPage', [], true)
+ 4 APPPATH\Controllers\BaseController.php(100): view('adminPage/Pages/newpaperPage', [...])
+ 5 APPPATH\Controllers\Admin_NewController.php(87): App\Controllers\BaseController->loadAdminLayout([...], 'Trang chủ', 'adminPage/Pages/newpaperPage', [...], [...], [...])
+ 6 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_NewController->loadCensorPostPage()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_NewController))
+ 8 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-08-05 12:57:23 --> mysqli_sql_exception: Illegal parameter data types int and row for operation '=' in C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\newhepc\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\newhepc\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\newhepc\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\newhepc\app\Services\admin_baivietService.php(112): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\newhepc\app\Controllers\BaseController.php(98): App\Services\admin_baivietService->getCountCensorPost('8')
+#8 C:\xampp\htdocs\newhepc\app\Controllers\Admin_HomeController.php(16): App\Controllers\BaseController->loadAdminLayout(Array, 'Trang ch\xE1\xBB\xA7', 'adminPage/Pages...', Array, Array, Array)
+#9 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(932): App\Controllers\Admin_HomeController->index()
+#10 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_HomeController))
+#11 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\newhepc\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2023-08-05 12:57:23 --> Illegal parameter data types int and row for operation '='
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `baiviet`
+JOIN `user` ON `baiviet`.`id_user`=`user`.`id_user`
+JOIN `cmphongban` ON `baiviet`.`id_cmpb`=`cmphongban`.`id_cmpb`
+WHERE `censor_bv` = \'0\'
+AND `cmphongban`.`id_pb` = (8,15,16,17)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `baiviet`
+JOIN `user` ON `baiviet`.`id_user`=`user`.`id_user`
+JOIN `cmphongban` ON `baiviet`.`id_cmpb`=`cmphongban`.`id_cmpb`
+WHERE `censor_bv` = \'0\'
+AND `cmphongban`.`id_pb` = (8,15,16,17)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `baiviet`
+JOIN `user` ON `baiviet`.`id_user`=`user`.`id_user`
+JOIN `cmphongban` ON `baiviet`.`id_cmpb`=`cmphongban`.`id_cmpb`
+WHERE `censor_bv` = \'0\'
+AND `cmphongban`.`id_pb` = (8,15,16,17)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `baiviet`
+JOIN `user` ON `baiviet`.`id_user`=`user`.`id_user`
+JOIN `cmphongban` ON `baiviet`.`id_cmpb`=`cmphongban`.`id_cmpb`
+WHERE `censor_bv` = :censor_bv:
+AND `cmphongban`.`id_pb` = :cmphongban.id_pb:', [...], false)
+ 5 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Services\admin_baivietService.php(112): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\BaseController.php(98): App\Services\admin_baivietService->getCountCensorPost('8')
+ 9 APPPATH\Controllers\Admin_HomeController.php(16): App\Controllers\BaseController->loadAdminLayout([...], 'Trang chủ', 'adminPage/Pages/homePage', [], [], [])
+10 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_HomeController->index()
+11 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_HomeController))
+12 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-08-05 13:06:10 --> mysqli_sql_exception: Illegal parameter data types int and row for operation '=' in C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\newhepc\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\newhepc\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\newhepc\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\newhepc\system\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\newhepc\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\newhepc\app\Services\admin_phongbanService.php(141): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\newhepc\app\Controllers\Admin_NewController.php(85): App\Services\admin_phongbanService->getMyGroupForCensorPost('8')
+#8 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(932): App\Controllers\Admin_NewController->loadCensorPostPage()
+#9 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_NewController))
+#10 C:\xampp\htdocs\newhepc\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\newhepc\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-08-05 13:06:10 --> Illegal parameter data types int and row for operation '='
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `phongban`
+WHERE `id_pb` = (8,15,16,17)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `phongban`
+WHERE `id_pb` = (8,15,16,17)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `phongban`
+WHERE `id_pb` = (8,15,16,17)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `phongban`
+WHERE `id_pb` = :id_pb:', [...], false)
+ 5 SYSTEMPATH\Model.php(241): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Services\admin_phongbanService.php(141): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Admin_NewController.php(85): App\Services\admin_phongbanService->getMyGroupForCensorPost('8')
+ 9 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_NewController->loadCensorPostPage()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_NewController))
+11 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-05 13:10:31 --> Call to undefined method App\Services\admin_anhService::getCountCensorPicture()
+in APPPATH\Controllers\Admin_PictureController.php on line 85.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Admin_PictureController->loadCensorPicturePage()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_PictureController))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

@@ -52,6 +52,7 @@ class BaseService{
 		$str = preg_replace("/(Đ)/", 'D', $str);
 		$str = preg_replace("/(\“|\”|\‘|\’|\,|\!|\&|\;|\@|\#|\%|\~|\`|\=|\_|\'|\]|\[|\}|\{|\)|\(|\+|\^)/", '-', $str);
 		$str = preg_replace("/( )/", '-', $str);
+        $str = preg_replace("/(\/)/", '-', $str);
 		return $str;
 	}
 

@@ -134,6 +134,14 @@ class admin_phongbanService extends BaseService
         $this->validation->withRequest($req)->run();
         return $this->validation;
     }
+
+    public function getMyGroupForCensorPost($id_pb)
+    {
+        if($id_pb==8){
+            return $this->phongbanModel->whereIn('id_pb',[8,15,16,17])->findAll();
+        }
+        return $this->phongbanModel->where('id_pb',$id_pb)->findAll();
+    }
     
 
 }

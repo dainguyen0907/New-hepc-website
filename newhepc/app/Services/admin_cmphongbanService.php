@@ -24,6 +24,11 @@ class admin_cmphongbanService extends BaseService
         return $this->cmphongbanModel->join('phongban', 'cmphongban.id_pb=phongban.id_pb')->findAll();
     }
 
+    public function getCatalogueById_pb($id_pb)
+    {
+        return $this->cmphongbanModel->where('id_pb',$id_pb)->findAll();
+    }
+
     public function checkCatalogueLink($id,$name)
     {
         if($id!=null)
@@ -167,6 +172,17 @@ class admin_cmphongbanService extends BaseService
             'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
             'message' => ['err'=>'Đã xảy ra lỗi hệ thống! Vui lòng thử lại sau.']
         ];
+    }
+
+    public function loadAjaxForSelectorCatalogueById_pb($id_pb)
+    {
+        $string="";
+        $datares=$this->getCatalogueById_pb($id_pb);
+        foreach($datares as $n)
+        {
+            $string.='<option value="'.$n['id_cmpb'].'">'.$n['cmphongban'].'</option>';
+        }
+        return $string;
     }
 
 

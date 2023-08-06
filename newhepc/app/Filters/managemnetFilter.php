@@ -10,10 +10,16 @@ class managemnetFilter implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
-        if(session('userLogin')['id_q']!='1')
+        if (session('userLogin')) {
+            if (session('userLogin')['id_q'] != '1') {
+                return redirect('admin');
+            }
+        }else
         {
-            return redirect('admin');
+            return redirect('dang-nhap');
         }
+        
+
     }
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)

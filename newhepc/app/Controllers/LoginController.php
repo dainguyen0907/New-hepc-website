@@ -41,7 +41,7 @@ class LoginController extends BaseController
     {
         if(session('userLogin'))
         {
-            session_destroy();
+            unset($_SESSION['userLogin']);
         }
         return redirect('/');
     }

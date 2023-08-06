@@ -127,12 +127,14 @@ $routes->group('admin',['filter'=>'authenicatorFilter'],function($routes){
 
         $routes->get('picture','Admin_PictureController::index');
 
-        $routes->get('new/update','Admin_NewController::loadEditPageAdmin');
-        $routes->get('new','Admin_NewController::index');
+        $routes->get('post/update','Admin_NewController::loadEditPageAdmin');
+        $routes->get('post','Admin_NewController::index');
         
     });
 
     $routes->post('ajax/getnew', 'Admin_NewController::loadDataTableById_pb');
+    $routes->post('ajax/getcensorpost', 'Admin_NewController::loadCensorDataTableById_pb');
+    $routes->post('ajax/getcatalogueforgroup', 'Admin_NewController::loadCatalogueById_pb');
 
     $routes->get('Mypicture', 'Admin_PictureController::loadMyPicturePage');
     $routes->post('picture/delete','Admin_PictureController::deletePicture');
@@ -142,7 +144,21 @@ $routes->group('admin',['filter'=>'authenicatorFilter'],function($routes){
         $routes->get('Grouppicture', 'Admin_PictureController::loadGroupPicturePage');
         $routes->get('Censorpicture', 'Admin_PictureController::loadCensorPicturePage');
         $routes->post('picture/update','Admin_PictureController::updatePicture');
+        $routes->get('Mygrouppost', 'Admin_NewController::loadMyGroupPostPage');
+        $routes->get('Censorpost', 'Admin_NewController::loadCensorPostPage');
+
+        $routes->get('pass/(:num)', 'Admin_NewController::pass_censor/$1');
+        $routes->get('failed/(:num)', 'Admin_NewController::failed_censor/$1');
+
     });
+
+    $routes->get('mypost', 'Admin_NewController::loadMyPostPage');
+    $routes->get('newpost', 'Admin_NewController::loadCreatePostPage');
+    $routes->get('post/(:num)', 'Admin_NewController::loadUpdatePostPage/$1');
+    $routes->post('post/add', 'Admin_NewController::add_post');
+    $routes->post('post/update', 'Admin_NewController::change_post');
+    
+    
 
     
     

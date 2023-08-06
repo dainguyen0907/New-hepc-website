@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Services\admin_anhService;
+use App\Services\admin_baivietService;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
@@ -29,7 +30,7 @@ abstract class BaseController extends Controller
      */
     protected $request;
     private $pictureService;
-
+    private $postService;
     /**
      * An array of helpers to be loaded automatically upon
      * class instantiation. These helpers will be available
@@ -56,6 +57,7 @@ abstract class BaseController extends Controller
         // Preload any models, libraries, etc, here.
         
         $this->pictureService=new admin_anhService();
+        $this->postService=new admin_baivietService();
         // E.g.: $this->session = \Config\Services::session();
     }
     public function loadLayout($masterPage, $title, $page, $dataLayout, $css, $js)
@@ -91,7 +93,9 @@ abstract class BaseController extends Controller
     public function loadAdminLayout($masterPage, $title, $page, $dataLayout, $css, $js)
     {
         $masterPage['title'] = $title;
-        $masterPage['leftMenu'] = view('adminPage/layouts/leftMenu',['cencor_pic'=>$this->pictureService->getCountCensorPicture(session('userLogin')['id_pb'])]);
+        $masterPage['leftMenu'] = view('adminPage/layouts/leftMenu',[
+            'cencor_pic'=>$this->pictureService->getCensorPicture(session('userLogin')['id_pb']),
+            'censor_post'=>$this->postService->getCountCensorPost(session('userLogin')['id_pb'])]);
         $masterPage['header'] = view('adminPage/layouts/header');
         $masterPage['content'] = view($page,$dataLayout);
         $masterPage['cssLib'] = $css;

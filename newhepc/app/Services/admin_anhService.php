@@ -135,7 +135,7 @@ class admin_anhService extends BaseService
         return $this->anhModel->join('user','fileanh.id_user=user.id_user','left')->join('phongban','fileanh.id_p=phongban.id_pb')->where('fileanh.id_p',$id_pb)->findAll();
     }
 
-    public function getCountCensorPicture($id_pb)
+    public function getCensorPicture($id_pb)
     {
         return $this->anhModel->join('user','fileanh.id_user=user.id_user','left')->join('phongban','fileanh.id_p=phongban.id_pb')->where(["id_p"=>$id_pb,"censor_anh"=>0])->findAll();
     }
