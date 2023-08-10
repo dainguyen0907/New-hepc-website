@@ -103,5 +103,17 @@ abstract class BaseController extends Controller
         return $masterPage;
     }
 
+    public function convertStringToLink($str){
+		$str = preg_replace("/(\“|\”|\‘|\’|\,|\!|\&|\;|\@|\#|\%|\~|\`|\=|\_|\'|\]|\[|\}|\{|\)|\(|\+|\^)/", '-', $str);
+		$str = preg_replace("/( )/", '-', $str);
+        $str = preg_replace("/(\/)/", '-', $str);
+		return $str;
+    }
+
+    public function convertLinkToString($str){
+        $str = preg_replace("/(-)/", ' ', $str);
+		return $str;
+    }
+
 
 }

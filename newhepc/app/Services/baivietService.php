@@ -35,6 +35,15 @@ class baivietService extends BaseService
         return $this->baivietModel->where(['id_cmpb' => $id_cmpb, 'status_bv!=' => '0', 'censor_bv!=' => '0'])->orderBy('id_bv', 'desc')->paginate(9);
     }
 
+    public function getNewDetailByLink($link)
+    {
+        return $this->baivietModel->where(['link_description' => $link, 'status_bv!=' => '0', 'censor_bv!=' => '0'])->first();
+    }
+
+    public function getMoreNewByLink($link)
+    {
+        return $this->baivietModel->where(['link_description!=' => $link, 'status_bv!=' => '0', 'censor_bv!=' => '0'])->orderBy('id_bv', 'desc')->findAll(5, 0);
+    }
     public function getNewDetail($id_cmpb, $link)
     {
         return $this->baivietModel->where(['id_cmpb' => $id_cmpb, 'link_description' => $link, 'status_bv!=' => '0', 'censor_bv!=' => '0'])->first();
@@ -192,9 +201,13 @@ class baivietService extends BaseService
         return $this->baivietModel->where(['id_cmpb' => '137', 'link_description!=' => $link, 'status_bv!=' => '0', 'censor_bv!=' => '0'])->orderBy('id_bv', 'desc')->findAll(5, 0);
     }
     // *************
-    // ***Function for Union Page
+    // ***Function for search page
     // *****
 
+    public function searchNewByKeyWord($key_word)
+    {
+        return $this->baivietModel->like(['censor_bv'=>'1','status_bv'=>'1','content'=>$key_word])->orderBy('id_bv', 'desc')->paginate(9);
+    }
 
 
 

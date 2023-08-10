@@ -91,6 +91,10 @@ $routes->get('/khoa-cndt-tdh', 'CNDTTDHController::index');
 $routes->get('/khoa-cndt-tdh/(:any)', 'CNDTTDHController::getNewsOfCatalogueCNDTTDH/$1');
 $routes->get('/khoa-dtnc', 'DTNCController::index');
 $routes->get('/khoa-dtnc/(:any)', 'DTNCController::getNewsOfCatalogueDTNC/$1');
+
+$routes->get('/tim-kiem', 'SearchController::index');
+$routes->get('/tim-kiem/(:any)', 'SearchController::loadSearchPage/$1');
+$routes->get('/ket-qua/(:any)', 'SearchController::loadDetailSearchPage/$1');
 $routes->group('admin',['filter'=>'authenicatorFilter'],function($routes){
     $routes->get('/', 'Admin_HomeController::index');
     $routes->group('management',['filter'=>'managementFilter'],function($routes){

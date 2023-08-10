@@ -13,9 +13,11 @@
     </div>
 <?php endif; ?>
 <hr />
+<?php if(isset($More)):?>
 <p class="fw-bold">Xem thêm:</p>
 <ul>
     <?php foreach ($More as $n): ?>
         <li> <a href="./<?= $link?>/<?= $n['link_description'] ?>" class='text-black'><?= $n['heading'] ?></a> </li>
     <?php endforeach; ?>
 </ul>
+<?php endif;?>

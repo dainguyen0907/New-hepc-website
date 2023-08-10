@@ -45,7 +45,7 @@
             <div class="offcanvas-body">
               <ul class="navbar-nav me-auto my-2 my-lg-0" style="--bs-scroll-height: 100px;">
                 <li class="nav-item hvr-sweep-to-right">
-                  <a class="nav-link" aria-current="page" href="./">Trang chủ</a>
+                  <a class="nav-link" aria-current="page" href="./"><i class="fa-solid fa-house"></i></a>
                 </li>
                 <li class="nav-item dropdown">
                   <a href="javascript:window.location.reload(true)" class="nav-link dropdown-toggle hvr-sweep-to-right" >
@@ -127,6 +127,9 @@
                 </li>
                 <li class="nav-item hvr-sweep-to-right">
                   <a class="nav-link" href="https://www.hepc.edu.vn/lienhe.htm" target="_blank">Liên hệ</a>
+                </li>
+                <li class="nav-item hvr-sweep-to-right">
+                  <a class="nav-link" href="./tim-kiem"><i class="fa-solid fa-magnifying-glass"></i></a>
                 </li>
               </ul>
             </div>

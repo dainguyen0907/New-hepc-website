@@ -38,7 +38,8 @@ class Admin_NewController extends BaseController
         $masterPage = [];
         $title = "Chỉnh sửa";
         $page = 'adminPage/Pages/editPage';
-        $jsLib = ["assets/js/ckeditor.js", "assets/js/loadckeditor.js"];
+        // $jsLib = ["assets/js/ckeditor.js", "assets/js/loadckeditor.js"];
+        $jsLib = ["assets/tinymce/tinymce.min.js", "assets/js/loadtinymce.js"];
         $AdmissionPage = $this->loadAdminLayout($masterPage, $title, $page, [], [], $jsLib);
         return view('adminPage/masterPage', $AdmissionPage);
     }
@@ -104,12 +105,13 @@ class Admin_NewController extends BaseController
         $title = "Trang chủ";
         $page = 'adminPage/Pages/postPage-add';
         $cssLib = [libary::cssDatatables];
-        $jsLib = [
-            libary::jsDataTables,
-            'assets/js/ckeditor.js',
-            'assets/js/loadckeditor.js',
-            'assets/js/createPostAjax.js'
-        ];
+        // $jsLib = [
+        //     libary::jsDataTables,
+        //     'assets/js/ckeditor.js',
+        //     'assets/js/loadckeditor.js',
+        //     'assets/js/createPostAjax.js'
+        // ];
+        $jsLib = ['assets/js/createPostAjax.js',"assets/tinymce/tinymce.min.js", "assets/js/loadtinymce.js"];
         $dataLayout['mode'] = 'add';
         $dataLayout['catalogue'] = $this->cmphongbanService->getCatalogueById_pb(session('userLogin')['id_pb']);
         $dataLayout['groups'] = $this->phongbanService->getMyGroupForCensorPost(session('userLogin')['id_pb']);
@@ -127,12 +129,13 @@ class Admin_NewController extends BaseController
             $title = "Trang chủ";
             $page = 'adminPage/Pages/postPage-add';
             $cssLib = [libary::cssDatatables];
-            $jsLib = [
-                libary::jsDataTables,
-                'assets/js/ckeditor.js',
-                'assets/js/loadckeditor.js',
-                'assets/js/createPostAjax.js'
-            ];
+            // $jsLib = [
+            //     libary::jsDataTables,
+            //     'assets/js/ckeditor.js',
+            //     'assets/js/loadckeditor.js',
+            //     'assets/js/createPostAjax.js'
+            // ];
+            $jsLib = ['assets/js/createPostAjax.js',"assets/tinymce/tinymce.min.js", "assets/js/loadtinymce.js"];
             $dataLayout['mode'] = 'change';
             $dataLayout['new'] = $post;
             $dataLayout['title'] = "Cập nhật bài viết";

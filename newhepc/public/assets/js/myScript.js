@@ -6,6 +6,15 @@ $(document).ready(function () {
             document.getElementById("menu-bar").classList.remove("fixed-top");
         }
     };
+    $("#btn-search").on("click",function(){
+        var key_word=$('#txt-search').val()
+        key_word=key_word.replace(/(\“|\”|\‘|\’|\,|\!|\&|\;|\@|\#|\%|\~|\`|\=|\_|\'|\]|\[|\}|\{|\)|\(|\+|\^)/,'-')
+        key_word=key_word.replace(/( )/,'-')
+        key_word=key_word.replace(/(\/)/,'-')
+        console.log(key_word)
+        window.location.replace('./tim-kiem/'+key_word)
+        
+    })
 });
 document.addEventListener("DOMContentLoaded", function (event) {
     var exampleModal = document.getElementById('imageModal')
@@ -18,3 +27,5 @@ document.addEventListener("DOMContentLoaded", function (event) {
         })
     }
 });
+
+

@@ -1,1 +1,1 @@
-<div id="editor"></div>
+<textarea id="editor"></textarea>
