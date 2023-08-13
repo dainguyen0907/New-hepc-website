@@ -48,7 +48,7 @@
                 <a href="javascript::void(0)" class="dash-nav-item dash-nav-dropdown-toggle position-relative">
                     <?php if (count($cencor_pic) > 0 || $censor_post > 0): ?>
                         <span
-                            class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger p-2"><span
+                            class="position-absolute top-50 start-100 translate-middle badge border border-light rounded-circle bg-danger p-2"><span
                                 class="visually-hidden">unread messages</span></span>
                     <?php endif; ?>
                     <i class="fa-solid fa-check-to-slot"></i> Kiểm duyệt
@@ -71,7 +71,13 @@
                 </div>
             </div>
         <?php endif; ?>
-
-
+        <a href="./admin/contact" class="dash-nav-item position-relative">
+            <?php if ($unseen_contact > 0): ?>
+                <span
+                    class="position-absolute top-50 start-100 translate-middle badge border border-light rounded-circle bg-danger p-2">
+                    <span class="visually-hidden">unread messages</span></span>
+            <?php endif; ?>
+            <i class="fa-solid fa-envelope"></i> Hộp thư
+        </a>
     </nav>
 </div>

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+use App\Common\encryptLibary;
 use App\Common\libary;
 use App\Common\ResultUtils;
 use App\Services\admin_videoService;
@@ -10,9 +11,11 @@ use App\Services\admin_videoService;
 class Admin_VideoController extends BaseController
 {
     private $videoService;
+    private $encrypt;
     public function __construct()
     {
         $this->videoService= new admin_videoService();
+        $this->encrypt=new encryptLibary();
     }
     public function index()
     {
@@ -22,6 +25,7 @@ class Admin_VideoController extends BaseController
         $jsLib = [libary::jsDataTables];
         $page = 'adminPage/pages/videoPage';
         $dataLayout['videos']=$this->videoService->getAllvideo();
+        $dataLayout['encrypt']=$this->encrypt->getEncryptLibary();
         $AdmissionPage = $this->loadAdminLayout($masterPage, $title, $page, $dataLayout, $cssLib, $jsLib);
         return view('adminPage/masterPage', $AdmissionPage);
     }

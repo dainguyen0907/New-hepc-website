@@ -38,7 +38,7 @@
                                 </td>
                                 </td>
                                 <td>
-                                    <img src="<?= $n['anh'] ?>" width="100%">
+                                    <img src="<?= $n['file_anh'] ?>" width="100%">
                                 </td>
                                 <td class="<?= $n['status_anh'] == 1 ? 'text-success' : 'text-danger' ?>">
                                     <?= $n['status_anh'] == 1 ? 'Hoạt động' : 'Vô hiệu hóa' ?>
@@ -49,13 +49,16 @@
                                 <td class="text-center">
                                     <?php if($role=='admin'||$role=='leader'): ?>
                                     <a href="" class="btn btn-primary mb-3" title="Cập nhật thông tin" data-bs-toggle="modal"
-                                    data-bs-target="#updatePictureModal" data-id="<?=$n['id_anh'] ?>" data-link="<?= $n['anh'] ?>"
+                                    data-bs-target="#updatePictureModal" data-link="<?= $n['file_anh'] ?>"
                                     data-status="<?= $n['status_anh'] ?>" data-censor="<?= $n['censor_anh'] ?>" data-group="<?= $n['id_p'] ?>"
+                                    data-id="<?= openssl_encrypt($n['id_anh'],$encrypt['cipher_algo'],$encrypt['passphrase'],$encrypt['options'],$encrypt['iv'] )?>"
                                     ><i class="fas fa-edit"></i></a></a>
                                     <?php endif;?>
 
                                     <a class="btn btn-danger btn-del-confirm mb-3" title="Xóa ảnh" data-bs-toggle="modal"
-                                        data-bs-target="#deleteModal" data-id="<?= $n['id_anh'] ?>">
+                                        data-bs-target="#deleteModal" 
+                                        data-txtid="<?=$n['id_anh']?>"
+                                        data-id="<?= openssl_encrypt($n['id_anh'],$encrypt['cipher_algo'],$encrypt['passphrase'],$encrypt['options'],$encrypt['iv'] )?>">
                                         <i class="far fa-trash-alt"></i></a>
 
                                 </td>

@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Services\admin_anhService;
 use App\Services\admin_baivietService;
+use App\Services\admin_lienheService;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
@@ -31,6 +32,7 @@ abstract class BaseController extends Controller
     protected $request;
     private $pictureService;
     private $postService;
+    private $contactService;
     /**
      * An array of helpers to be loaded automatically upon
      * class instantiation. These helpers will be available
@@ -58,6 +60,7 @@ abstract class BaseController extends Controller
         
         $this->pictureService=new admin_anhService();
         $this->postService=new admin_baivietService();
+        $this->contactService=new admin_lienheService();
         // E.g.: $this->session = \Config\Services::session();
     }
     public function loadLayout($masterPage, $title, $page, $dataLayout, $css, $js)
@@ -95,7 +98,8 @@ abstract class BaseController extends Controller
         $masterPage['title'] = $title;
         $masterPage['leftMenu'] = view('adminPage/layouts/leftMenu',[
             'cencor_pic'=>$this->pictureService->getCensorPicture(session('userLogin')['id_pb']),
-            'censor_post'=>$this->postService->getCountCensorPost(session('userLogin')['id_pb'])]);
+            'censor_post'=>$this->postService->getCountCensorPost(session('userLogin')['id_pb']),
+            'unseen_contact'=>$this->contactService->getCountContactUnseen(session('userLogin')['id_pb'])]);
         $masterPage['header'] = view('adminPage/layouts/header');
         $masterPage['content'] = view($page,$dataLayout);
         $masterPage['cssLib'] = $css;

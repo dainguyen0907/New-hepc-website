@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Common\encryptLibary;
 use App\Common\libary;
 use App\Common\ResultUtils;
 use App\Services\admin_baivietService;
@@ -14,11 +15,13 @@ class Admin_NewController extends BaseController
     private $baivietService;
     private $phongbanService;
     private $cmphongbanService;
+    private $encrypt;
     public function __construct()
     {
         $this->baivietService = new admin_baivietService();
         $this->phongbanService = new admin_phongbanService();
         $this->cmphongbanService = new admin_cmphongbanService();
+        $this->encrypt=new encryptLibary();
     }
     public function index()
     {
@@ -30,6 +33,7 @@ class Admin_NewController extends BaseController
         $dataLayout['news'] = $this->baivietService->getAllNews();
         $dataLayout['groups'] = $this->phongbanService->getAllPhongBan();
         $dataLayout['role'] = "admin";
+        $dataLayout['encrypt']=$this->encrypt->getEncryptLibary();
         $AdmissionPage = $this->loadAdminLayout($masterPage, $title, $page, $dataLayout, $cssLib, $jsLib);
         return view('adminPage/masterPage', $AdmissionPage);
     }
@@ -68,6 +72,7 @@ class Admin_NewController extends BaseController
         $jsLib = [libary::jsDataTables, 'assets/js/ajax.js'];
         $dataLayout['news'] = $this->baivietService->getNewsById_user(session('userLogin')['id_user']);
         $dataLayout['role'] = "user";
+        $dataLayout['encrypt']=$this->encrypt->getEncryptLibary();
         $AdmissionPage = $this->loadAdminLayout($masterPage, $title, $page, $dataLayout, $cssLib, $jsLib);
         return view('adminPage/masterPage', $AdmissionPage);
     }
@@ -81,6 +86,7 @@ class Admin_NewController extends BaseController
         $jsLib = [libary::jsDataTables, 'assets/js/ajax.js'];
         $dataLayout['news'] = $this->baivietService->getNewsById_pb(session('userLogin')['id_pb']);
         $dataLayout['role'] = "user";
+        $dataLayout['encrypt']=$this->encrypt->getEncryptLibary();
         $AdmissionPage = $this->loadAdminLayout($masterPage, $title, $page, $dataLayout, $cssLib, $jsLib);
         return view('adminPage/masterPage', $AdmissionPage);
     }

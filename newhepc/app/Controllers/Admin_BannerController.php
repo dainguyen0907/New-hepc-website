@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+use App\Common\encryptLibary;
 use App\Common\libary;
 use App\Services\admin_bannerService;
 
@@ -9,9 +10,11 @@ use App\Services\admin_bannerService;
 class Admin_BannerController extends BaseController
 {
     private $bannerService;
+    private $encrypt;
     public function __construct()
     {
         $this->bannerService= new admin_bannerService();
+        $this->encrypt=new encryptLibary();
     }
     public function index()
     {
@@ -20,6 +23,7 @@ class Admin_BannerController extends BaseController
         $cssLib = [libary::cssDatatables];
         $jsLib = [libary::jsDataTables,"assets/js/modal.js"];
         $page = 'adminPage/pages/bannerPage';
+        $dataLayout['encrypt']=$this->encrypt->getEncryptLibary();
         $dataLayout['banners']=$this->bannerService->getAllBanner();
         $AdmissionPage = $this->loadAdminLayout($masterPage, $title, $page, $dataLayout, $cssLib, $jsLib);
         return view('adminPage/masterPage', $AdmissionPage);

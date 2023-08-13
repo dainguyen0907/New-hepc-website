@@ -1,6 +1,7 @@
 <?php
 namespace App\Services;
 
+use App\Common\encryptLibary;
 use App\Common\ResultUtils;
 use App\Models\fileAnhModel;
 
@@ -8,11 +9,15 @@ use App\Models\fileAnhModel;
 class admin_anhService extends BaseService
 {
     private $anhModel;
+    private $encrypt;
+    private $encryptLib;
     public function __construct()
     {
         parent::__construct();
         $this->anhModel = new fileAnhModel();
         $this->anhModel->protect(false);
+        $this->encrypt=new encryptLibary();
+        $this->encryptLib=$this->encrypt->getEncryptLibary();
     }
 
     public function getAllPicture()
@@ -22,9 +27,10 @@ class admin_anhService extends BaseService
     public function deletePicture($req)
     {
         $param=$req->getPost();
-        if($this->anhModel->delete($param['id']))
+        $decryptid=openssl_decrypt($param['id'],$this->encryptLib['cipher_algo'],$this->encryptLib["passphrase"],$this->encryptLib['options'],$this->encryptLib['iv']);
+        if($this->anhModel->delete($decryptid))
         {
-            $this->writeHistory('delete','Ảnh hoạt động',session('userLogin')['id_user'],$param['id']);
+            $this->writeHistory('delete','Ảnh hoạt động',session('userLogin')['id_user'],$decryptid);
             return [
                 'status' => ResultUtils::STATUS_CODE_OK,
                 'messageCode' => ResultUtils::MESSAGE_CODE_OK,
@@ -52,14 +58,15 @@ class admin_anhService extends BaseService
         }
         $param=$req->getPost();
         $data=[
-            "anh"=>$param['picturelink'],
+            "file_anh"=>$param['picturelink'],
             "id_p"=>$param['picturegroup'],
             "status_anh"=>$param['status_picture'],
             "censor_anh"=>$param['censor_picture']
         ];
-        if($this->anhModel->update($param['pictureid'],$data))
+        $decryptid=openssl_decrypt($param['pictureid'],$this->encryptLib['cipher_algo'],$this->encryptLib["passphrase"],$this->encryptLib['options'],$this->encryptLib['iv']);
+        if($this->anhModel->update($decryptid,$data))
         {
-            $this->writeHistory('update','Ảnh hoạt động',session('userLogin')['id_user'],$param['pictureid']);
+            $this->writeHistory('update','Ảnh hoạt động',session('userLogin')['id_user'],$decryptid);
             return [
                 'status' => ResultUtils::STATUS_CODE_OK,
                 'messageCode' => ResultUtils::MESSAGE_CODE_OK,
@@ -102,7 +109,7 @@ class admin_anhService extends BaseService
         }
         $param=$req->getPost();
         $data=[
-            "anh"=>$param['picturelink'],
+            "file_anh"=>$param['picturelink'],
             "id_p"=>session('userLogin')['id_pb'],
             "id_user"=>session('userLogin')['id_user'],
             "status_anh"=>0,

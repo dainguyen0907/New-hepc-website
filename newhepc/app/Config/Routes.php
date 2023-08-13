@@ -92,6 +92,9 @@ $routes->get('/khoa-cndt-tdh/(:any)', 'CNDTTDHController::getNewsOfCatalogueCNDT
 $routes->get('/khoa-dtnc', 'DTNCController::index');
 $routes->get('/khoa-dtnc/(:any)', 'DTNCController::getNewsOfCatalogueDTNC/$1');
 
+$routes->get('/lien-he', 'ContactController::index');
+$routes->post('/lien-he/add', 'ContactController::addContact');
+
 $routes->get('/tim-kiem', 'SearchController::index');
 $routes->get('/tim-kiem/(:any)', 'SearchController::loadSearchPage/$1');
 $routes->get('/ket-qua/(:any)', 'SearchController::loadDetailSearchPage/$1');
@@ -161,7 +164,11 @@ $routes->group('admin',['filter'=>'authenicatorFilter'],function($routes){
     $routes->get('post/(:num)', 'Admin_NewController::loadUpdatePostPage/$1');
     $routes->post('post/add', 'Admin_NewController::add_post');
     $routes->post('post/update', 'Admin_NewController::change_post');
-    
+
+    $routes->get('contact', 'Admin_ContactController::index');
+    $routes->get('contact/(:num)', 'Admin_ContactController::loadContactDetailPage/$1');
+    $routes->get('contact/change/(:num)', 'Admin_ContactController::changeStatusContact/$1');
+    $routes->post('contact/delete', 'Admin_ContactController::deleteContact');
     
 
     

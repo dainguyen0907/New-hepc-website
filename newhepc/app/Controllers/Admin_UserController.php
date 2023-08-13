@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+use App\Common\encryptLibary;
 use App\Common\libary;
 use App\Common\ResultUtils;
 use App\Services\admin_phanquyenService;
@@ -13,11 +14,13 @@ class Admin_UserController extends BaseController
     private $userService;
     private $phongbanService;
     private $phanquyenService;
+    private $encrypt;
     public function __construct()
     {
         $this->userService=new admin_userService();
         $this->phongbanService= new admin_phongbanService();
         $this->phanquyenService=new admin_phanquyenService();
+        $this->encrypt=new encryptLibary();
     }
     public function index()
     {
@@ -27,6 +30,7 @@ class Admin_UserController extends BaseController
         $jsLib = [libary::jsDataTables,"assets/js/modal.js"];
         $page = 'adminPage/pages/userPage';
         $dataLayout['Users']=$this->userService->getAllUser();
+        $dataLayout['encrypt']=$this->encrypt->getEncryptLibary();
         $AdmissionPage = $this->loadAdminLayout($masterPage, $title, $page, $dataLayout, $cssLib, $jsLib);
         return view('adminPage/masterPage', $AdmissionPage);
     }
