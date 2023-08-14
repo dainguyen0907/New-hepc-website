@@ -164,7 +164,11 @@ $routes->group('admin',['filter'=>'authenicatorFilter'],function($routes){
     $routes->get('post/(:num)', 'Admin_NewController::loadUpdatePostPage/$1');
     $routes->post('post/add', 'Admin_NewController::add_post');
     $routes->post('post/update', 'Admin_NewController::change_post');
-    
+
+    $routes->get('contact', 'Admin_ContactController::index');
+    $routes->get('contact/(:num)', 'Admin_ContactController::loadContactDetailPage/$1');
+    $routes->get('contact/change/(:num)', 'Admin_ContactController::changeStatusContact/$1');
+    $routes->post('contact/delete', 'Admin_ContactController::deleteContact');
     
 
     

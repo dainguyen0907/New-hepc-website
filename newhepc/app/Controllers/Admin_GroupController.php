@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+use App\Common\encryptLibary;
 use App\Common\libary;
 use App\Common\ResultUtils;
 use App\Services\admin_phongbanService;
@@ -9,9 +10,11 @@ use App\Services\admin_phongbanService;
 class Admin_GroupController extends BaseController
 {
     private $phongbanService;
+    private $encrypt;
     public function __construct()
     {
         $this->phongbanService= new admin_phongbanService();
+        $this->encrypt=new encryptLibary();
     }
     public function index()
     {
@@ -21,6 +24,7 @@ class Admin_GroupController extends BaseController
         $jsLib = [libary::jsDataTables,"assets/js/modal.js"];
         $page = 'adminPage/pages/groupPage';
         $dataLayout['groups']=$this->phongbanService->getAllPhongBan();
+        $dataLayout['encrypt']=$this->encrypt->getEncryptLibary();
         $AdmissionPage = $this->loadAdminLayout($masterPage, $title, $page, $dataLayout, $cssLib, $jsLib);
         return view('adminPage/masterPage', $AdmissionPage);
     }

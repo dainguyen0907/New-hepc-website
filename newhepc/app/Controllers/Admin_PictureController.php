@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+use App\Common\encryptLibary;
 use App\Common\libary;
 use App\Common\ResultUtils;
 use App\Services\admin_anhService;
@@ -12,10 +13,12 @@ class Admin_PictureController extends BaseController
 {
     private $pictureService;
     private $groupService;
+    private $encrypt;
     public function __construct()
     {
         $this->pictureService= new admin_anhService();
         $this->groupService=new admin_phongbanService();
+        $this->encrypt=new encryptLibary();
     }
     public function index()
     {
@@ -26,6 +29,7 @@ class Admin_PictureController extends BaseController
         $page = 'adminPage/pages/picturePage';
         $dataLayout['pictures']=$this->pictureService->getAllPicture();
         $dataLayout['Groups']=$this->groupService->getAllPhongBan();
+        $dataLayout['encrypt']=$this->encrypt->getEncryptLibary();
         $dataLayout['role']='admin';
         $AdmissionPage = $this->loadAdminLayout($masterPage, $title, $page, $dataLayout, $cssLib, $jsLib);
         return view('adminPage/masterPage', $AdmissionPage);
@@ -58,6 +62,7 @@ class Admin_PictureController extends BaseController
         $dataLayout['pictures']=$this->pictureService->getPictureById_user(session('userLogin')['id_user']);
         $dataLayout['Groups']=$this->groupService->getAllPhongBan();
         $dataLayout['role']='user';
+        $dataLayout['encrypt']=$this->encrypt->getEncryptLibary();
         $AdmissionPage = $this->loadAdminLayout($masterPage, $title, $page, $dataLayout, $cssLib, $jsLib);
         return view('adminPage/masterPage', $AdmissionPage);
     }
@@ -71,6 +76,7 @@ class Admin_PictureController extends BaseController
         $dataLayout['role']='leader';
         $dataLayout['pictures']=$this->pictureService->getPictureById_pb(session('userLogin')['id_pb']);
         $dataLayout['Groups']=$this->groupService->getAllPhongBan();
+        $dataLayout['encrypt']=$this->encrypt->getEncryptLibary();
         $AdmissionPage = $this->loadAdminLayout($masterPage, $title, $page, $dataLayout, $cssLib, $jsLib);
         return view('adminPage/masterPage', $AdmissionPage);
     }

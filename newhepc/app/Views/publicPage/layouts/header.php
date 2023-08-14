@@ -126,7 +126,7 @@
                   <a class="nav-link" href="https://vanbang.gdnn.gov.vn/" target="_blank">Tra cứu văn bằng</a>
                 </li>
                 <li class="nav-item hvr-sweep-to-right">
-                  <a class="nav-link" href="https://www.hepc.edu.vn/lienhe.htm" target="_blank">Liên hệ</a>
+                  <a class="nav-link" href="./lien-he">Liên hệ</a>
                 </li>
                 <li class="nav-item hvr-sweep-to-right">
                   <a class="nav-link" href="./tim-kiem"><i class="fa-solid fa-magnifying-glass"></i></a>
