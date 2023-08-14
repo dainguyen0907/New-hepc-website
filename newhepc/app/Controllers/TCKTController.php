@@ -50,7 +50,7 @@ class TCKTController extends BaseController
             $title = $catalogue['cmphongban'];
             $page = 'publicPage/subMasterPage';
             $dataLayout['Banner'] = "Phòng tài chính kế toán";
-            $dataLayout['content'] = view('publicPage/pages/newsPage', ['News' => $this->baivietService->getNewForCatalogue($catalogue['id_cmpb']), 'link' => "phong-tai-chinh"]);
+            $dataLayout['content'] = view('publicPage/pages/newsPage', ['News' => $this->baivietService->getNewForPage($catalogue['id_cmpb']), 'link' => "phong-tai-chinh"]);
             $dataLayout['Pager'] = $this->baivietService->getPager();
             $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(9), 'link' => "phong-tai-chinh/"]);
             $TCKTPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);

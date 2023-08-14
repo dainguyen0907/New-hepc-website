@@ -14,7 +14,8 @@ class admin_phanquyenService extends BaseService
         $this->phanquyenModel = new phanquyenModel();
         $this->phanquyenModel->protect(false);
     }
-
+//CHức năng: Lấy tất cả phân quyền
+//Vị trí: 
     public function getAllphanquyen()
     {
         return $this->phanquyenModel->findAll();

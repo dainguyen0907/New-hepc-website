@@ -14,11 +14,14 @@ class admin_anhService extends BaseService
         $this->anhModel = new fileAnhModel();
         $this->anhModel->protect(false);
     }
-
+//CHức năng: Lấy tất cả hình ảnh
+//Vị trí: Trang Admin->quản trị->Hình ảnh
     public function getAllPicture()
     {
         return $this->anhModel->join('user','fileanh.id_user=user.id_user')->join('phongban','fileanh.id_p=phongban.id_pb')->findAll();
     }
+    //CHức năng: Xóa hình ảnh bằng id
+//Vị trí: Trang Admin->quản trị->Hình ảnh
     public function deletePicture($req)
     {
         $param=$req->getPost();
@@ -38,7 +41,8 @@ class admin_anhService extends BaseService
         ];
         
     }
-
+//CHức năng: Cập nhật thông tin hình ảnh
+//Vị trí: Trang Admin->quản trị->Hình ảnh
     public function updatePicture($req)
     {
         $validateRes=$this->validatePicture($req);
@@ -73,7 +77,8 @@ class admin_anhService extends BaseService
         ];
         
     }
-
+//CHức năng: Kiểm tra thông tin nhập của hình ảnh
+//Vị trí: Trang Admin->quản trị->Hình ảnh
     public function validatePicture($req)
     {
         $rules=[
@@ -88,7 +93,8 @@ class admin_anhService extends BaseService
         $this->validation->withRequest($req)->run();
         return $this->validation;
     }
-
+//CHức năng: Thêm hình ảnh mới
+//Vị trí: Trang Admin->quản trị->Hình ảnh
     public function addPicture($req)
     {
         $validateRes=$this->validatePicture($req);
@@ -125,16 +131,20 @@ class admin_anhService extends BaseService
         ];
         
     }
-
+//CHức năng: Lấy hình ảnh của cá nhân bằng id_user
+//Vị trí: Trang Admin->quản trị->Hình ảnh
     public function getPictureById_user($id_user)
     {
         return $this->anhModel->join('user','fileanh.id_user=user.id_user','left')->join('phongban','fileanh.id_p=phongban.id_pb')->where('fileanh.id_user',$id_user)->findAll();
     }
+    //CHức năng: Lấy tất cả hình ảnh của phòng ban bằng id_pb
+//Vị trí: Trang Admin->quản trị->Hình ảnh
     public function getPictureById_pb($id_pb)
     {
         return $this->anhModel->join('user','fileanh.id_user=user.id_user','left')->join('phongban','fileanh.id_p=phongban.id_pb')->where('fileanh.id_p',$id_pb)->findAll();
     }
-
+//CHức năng: Lấy tất cả hình ảnh chưa kiểm duyệt
+//Vị trí: Trang Admin->quản trị->Hình ảnh
     public function getCensorPicture($id_pb)
     {
         return $this->anhModel->join('user','fileanh.id_user=user.id_user','left')->join('phongban','fileanh.id_p=phongban.id_pb')->where(["id_p"=>$id_pb,"censor_anh"=>0])->findAll();

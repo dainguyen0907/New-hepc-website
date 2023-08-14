@@ -18,17 +18,20 @@ class admin_cmphongbanService extends BaseService
         $this->cmphongbanModel->protect(false);
         $this->baivietModel->protect(false);
     }
-
+//CHức năng: Lấy tất cả chuyên mục
+//Vị trí: Trang Admin->quản trị->chuyên mục
     public function getAllCatalogue()
     {
         return $this->cmphongbanModel->join('phongban', 'cmphongban.id_pb=phongban.id_pb')->findAll();
     }
-
+//CHức năng: Lấy tất cả chuyên mục thuộc phòng ban
+//Vị trí: Trang Admin->quản trị->chuyên mục
     public function getCatalogueById_pb($id_pb)
     {
         return $this->cmphongbanModel->where('id_pb',$id_pb)->findAll();
     }
-
+//CHức năng: Kiểm tra link của chuyên mục có tồn tại không?
+//Vị trí:
     public function checkCatalogueLink($id,$name)
     {
         if($id!=null)
@@ -44,6 +47,8 @@ class admin_cmphongbanService extends BaseService
         }
         return false;
     }
+    //CHức năng: Thêm chuyên mục mới
+//Vị trí: Trang Admin->quản trị->chuyên mục
     public function addCatalogue($req)
     {
         $validationRes=$this->validateCatalogue('add',$req);
@@ -87,7 +92,8 @@ class admin_cmphongbanService extends BaseService
         ];
         
     }
-
+//CHức năng: Kiểm tra thông tin nhập của chuyên mục, sử dụng khi thêm/sửa chuyên mục
+ //Vị trí: Trang Admin->quản trị->chuyên mục
     private function validateCatalogue($method,$req)
     {
         $rules = ['cataloguename' => 'required|max_length[50]'];
@@ -113,7 +119,8 @@ class admin_cmphongbanService extends BaseService
 
         return $this->validation;
     }
-
+//CHức năng: Xóa các chuyên mục 
+//Vị trí: Trang Admin->quản trị->chuyên mục
     public function deleteCatalogue($req)
     {
         $param = $req->getPost();
@@ -132,7 +139,8 @@ class admin_cmphongbanService extends BaseService
             'message' => ['err' => 'Xảy ra lỗi hệ thống. Vui lòng thử lại sau']
         ];
     }
-
+//CHức năng: Cập nhật thông tin chuyên mục
+//Vị trí: Trang Admin->quản trị->chuyên mục
     public function updateCatalogue($req){
         $validationRes=$this->validateCatalogue('update',$req);
         if($validationRes->getErrors()){
@@ -173,7 +181,8 @@ class admin_cmphongbanService extends BaseService
             'message' => ['err'=>'Đã xảy ra lỗi hệ thống! Vui lòng thử lại sau.']
         ];
     }
-
+//CHức năng: Lấy thông tin ajax cho select box chuyên mục
+//Vị trí: Trang Admin->quản trị->chuyên mục
     public function loadAjaxForSelectorCatalogueById_pb($id_pb)
     {
         $string="";

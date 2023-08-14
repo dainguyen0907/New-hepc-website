@@ -14,11 +14,14 @@ class admin_bannerService extends BaseService
         $this->bannerModel = new bannerModel();
         $this->bannerModel->protect(false);
     }
-
+//CHức năng: Lấy tất cả banner quảng cáo
+//Vị trí: Trang Admin->quản trị->banner quảng cáo
     public function getAllBanner()
     {
         return $this->bannerModel->join('user','banner.id_user=user.id_user')->findAll();
     }
+    //CHức năng: Thêm banner quảng cáo mới
+//Vị trí: Trang Admin->quản trị->banner quảng cáo
     public function addBanner($req)
     {
         $validateRes=$this->validateAddBanner($req);
@@ -53,7 +56,8 @@ class admin_bannerService extends BaseService
         ];
         
     }
-
+//CHức năng: Kiểm tra thông tin nhập của banner quảng cáo
+//Vị trí: Trang Admin->quản trị->banner quảng cáo
     private function validateAddBanner($req)
     {
         $rules=["bannerlink"=>"required"];
@@ -66,7 +70,8 @@ class admin_bannerService extends BaseService
         $this->validation->withRequest($req)->run();
         return $this->validation;
     }
-
+//CHức năng: Cập nhật banner quảng cáo
+//Vị trí: Trang Admin->quản trị->banner quảng cáo
     public function updateBanner($req)
     {
         $validateRes=$this->validateAddBanner($req);
@@ -100,6 +105,8 @@ class admin_bannerService extends BaseService
         ];
         
     }
+    //CHức năng: Xóa banner quảng cáo
+//Vị trí: Trang Admin->quản trị->banner quảng cáo
     public function deleteBanner($req)
     {
         $param=$req->getPost();

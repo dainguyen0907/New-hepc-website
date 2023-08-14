@@ -14,11 +14,14 @@ class admin_userService extends BaseService
         $this->userModel = new userModel();
         $this->userModel->protect(false);
     }
+    //CHức năng: Lấy tất cả user
+//Vị trí: Trang Admin->quản trị->user
     public function getAllUser()
     {
         return $this->userModel->join('phanquyen', 'phanquyen.id_q=user.id_q', 'left')->findAll();
     }
-
+//CHức năng: Reset password cho user bất kỳ
+//Vị trí: Trang Admin->quản trị->user
     public function resetPassword($req)
     {
         $param = $req->getPost();
@@ -49,7 +52,8 @@ class admin_userService extends BaseService
         ];
 
     }
-
+//CHức năng: Kiểm tra thông tin password đã nhập, dùng cho reset password
+//Vị trí: 
     private function validatePassword($req)
     {
         $rules = [
@@ -74,12 +78,14 @@ class admin_userService extends BaseService
         return $this->validation;
 
     }
-
+//CHức năng: Lấy thông tin user bằng id_user
+//Vị trí: Trang Admin->quản trị->user
     public function getUserInfo($id)
     {
         return $this->userModel->where('id_user', $id)->first();
     }
-
+//CHức năng: Tạo user mới
+//Vị trí: Trang Admin->quản trị->user
     public function createUser($req)
     {
         $validationRes = $this->validateUser('add', $req);
@@ -119,7 +125,8 @@ class admin_userService extends BaseService
         ];
 
     }
-
+//CHức năng: Kiểm tra thông tin user đã nhập, dùng cho thêm/sửa user
+//Vị trí:
     private function validateUser($method, $req)
     {
         $rules = [
@@ -160,7 +167,8 @@ class admin_userService extends BaseService
 
         return $this->validation;
     }
-
+//CHức năng: Cập nhật thông tin user
+//Vị trí: Trang Admin->quản trị->user
     public function updateUser($req)
     {
         $validationRes = $this->validateUser('update', $req);
@@ -197,6 +205,8 @@ class admin_userService extends BaseService
         ];
 
     }
+    //CHức năng: Xóa user
+//Vị trí: Trang Admin->quản trị->user
     public function deleteUser($req)
     {
         $param = $req->getPost();

@@ -23,10 +23,10 @@ class HomeController extends BaseController
         $title="HEPC";
         $page='publicPage/pages/home';
         $dataLayout['Banners']=$this->bannerService->getBannersForHomePage();
-        $dataLayout['News']=$this->baivietService->getNewsForHomePage();
-        $dataLayout['Anouncements']=$this->baivietService->getAnouncementsForHomePage();
+        $dataLayout['News']=$this->baivietService->getNewsforOfficePage(131);
+        $dataLayout['Anouncements']=$this->baivietService->getNewsforOfficePage(96);
         $dataLayout['Admissions']=$this->baivietService->getAdmissionsForHomePage();
-        $dataLayout['Recruitments']=$this->baivietService->getRecruitmentForHomePage();
+        $dataLayout['Recruitments']=$this->baivietService->getNewsforOfficePage(137);
         $dataLayout['Videos']=$this->videoService->getVideosForHomePage();
         $homePage=$this->loadLayout($masterPage,$title,$page,$dataLayout,[],[]);
         return view('publicPage/masterPage',$homePage);

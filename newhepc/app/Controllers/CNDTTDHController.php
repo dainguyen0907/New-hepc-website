@@ -50,7 +50,7 @@ class CNDTTDHController extends BaseController
             $title = $catalogue['cmphongban'];
             $page = 'publicPage/subMasterPage';
             $dataLayout['Banner'] = "Khoa công nghệ điện tử - tự động hoá";
-            $dataLayout['content'] = view('publicPage/pages/newsPage', ['News' => $this->baivietService->getNewForCatalogue($catalogue['id_cmpb']), 'link' => "khoa-cndt-tdh"]);
+            $dataLayout['content'] = view('publicPage/pages/newsPage', ['News' => $this->baivietService->getNewForPage($catalogue['id_cmpb']), 'link' => "khoa-cndt-tdh"]);
             $dataLayout['Pager'] = $this->baivietService->getPager();
             $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(5), 'link' => "khoa-cndt-tdh/"]);
             $CNDTTDHPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);

@@ -11,6 +11,7 @@
             <iframe src="https://hepc.edu.vn/<?=$New['file']?>" width="100%" height="1080px"></iframe>
         <?php endif;?>
     </div>
+    <div class="mb-3 text-end">Lượt xem:<?=$New['view']?></div>
 <?php endif; ?>
 <hr />
 <?php if(isset($More)):?>

@@ -13,7 +13,8 @@ class BaseService{
         $this->nhatkyModel=new nhatkyModel();
         $this->nhatkyModel->protect(false);
     }
-
+//CHức năng: Cập nhật lịch sử chỉnh sửa các bảng trong database
+//Vị trí: Trang Admin
     public function writeHistory($method,$table,$id_user,$id_row)
     {
         date_default_timezone_set('Asia/Ho_Chi_Minh');
@@ -34,7 +35,8 @@ class BaseService{
         ];
         return $this->nhatkyModel->insert($data,false);
     }
-
+//CHức năng: Chuyển đổi chữ và ký tự đặc biệt thành mẫu chuẩn
+//Vị trí: Trang Admin- thêm/cập nhật chuyên mục, bài viết,....
     public function convert_name($str) {
 		$str = preg_replace("/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/", 'a', $str);
 		$str = preg_replace("/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/", 'e', $str);

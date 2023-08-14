@@ -50,7 +50,7 @@ class KTCSController extends BaseController
             $title = $catalogue['cmphongban'];
             $page = 'publicPage/subMasterPage';
             $dataLayout['Banner'] = "Khoa Kỹ thuật cơ sở";
-            $dataLayout['content'] = view('publicPage/pages/newsPage', ['News' => $this->baivietService->getNewForCatalogue($catalogue['id_cmpb']), 'link' => "khoa-ktcs"]);
+            $dataLayout['content'] = view('publicPage/pages/newsPage', ['News' => $this->baivietService->getNewForPage($catalogue['id_cmpb']), 'link' => "khoa-ktcs"]);
             $dataLayout['Pager'] = $this->baivietService->getPager();
             $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(2), 'link' => "khoa-ktcs/"]);
             $KTCSPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);

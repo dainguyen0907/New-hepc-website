@@ -12,6 +12,7 @@
                         </p>
                         <?= $detail['content'] ?>
                     </div>
+                    <div class="mb-3 text-end">Lượt xem:<?=$detail['view']?></div>
                 <?php endif; ?>
 
             </div>

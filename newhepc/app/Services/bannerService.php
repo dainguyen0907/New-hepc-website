@@ -10,7 +10,8 @@ class bannerService extends BaseService{
         parent::__construct();
         $this->bannerModel=new bannerModel();
     }
-
+    //CHức năng: Lấy tất cả banner cho trang chủ
+//Vị trí: Trang chủ
     public function getBannersForHomePage()
     {
         return $this->bannerModel->where(['Status_banner!='=>'0'])->findAll();

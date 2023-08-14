@@ -50,7 +50,7 @@ class TCHCController extends BaseController
             $title = $catalogue['cmphongban'];
             $page = 'publicPage/subMasterPage';
             $dataLayout['Banner'] = "Phòng tổ chức";
-            $dataLayout['content'] = view('publicPage/pages/newsPage', ['News' => $this->baivietService->getNewForCatalogue($catalogue['id_cmpb']), 'link' => "phong-to-chuc"]);
+            $dataLayout['content'] = view('publicPage/pages/newsPage', ['News' => $this->baivietService->getNewForPage($catalogue['id_cmpb']), 'link' => "phong-to-chuc"]);
             $dataLayout['Pager'] = $this->baivietService->getPager();
             $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(8), 'link' => "phong-to-chuc/"]);
             $TCHCPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);

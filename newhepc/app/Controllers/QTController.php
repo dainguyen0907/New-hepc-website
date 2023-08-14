@@ -50,7 +50,7 @@ class QTController extends BaseController
             $title = $catalogue['cmphongban'];
             $page = 'publicPage/subMasterPage';
             $dataLayout['Banner'] = "Phòng QT";
-            $dataLayout['content'] = view('publicPage/pages/newsPage', ['News' => $this->baivietService->getNewForCatalogue($catalogue['id_cmpb']), 'link' => "phong-quan-tri"]);
+            $dataLayout['content'] = view('publicPage/pages/newsPage', ['News' => $this->baivietService->getNewForPage($catalogue['id_cmpb']), 'link' => "phong-quan-tri"]);
             $dataLayout['Pager'] = $this->baivietService->getPager();
             $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(12), 'link' => "phong-quan-tri/"]);
             $QTPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);

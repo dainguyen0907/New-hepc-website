@@ -17,7 +17,7 @@ class SearchController extends BaseController
         $title="Tìm kiếm";
         $page='publicPage/subMasterPage';
         $dataLayout['Banner']="Tìm kiếm";
-        $dataLayout['content']=view('publicPage/pages/searchPage',['News'=>$this->baivietService->getNewForCatalogue(131),'link'=>"ket-qua"]);
+        $dataLayout['content']=view('publicPage/pages/searchPage',['News'=>$this->baivietService->getNewForPage(131),'link'=>"ket-qua"]);
         $dataLayout['Pager']=$this->baivietService->getPager();
         $dataLayout['rightBanner']=view('publicPage/layouts/rightMenuForNew',['Newest'=>$this->baivietService->getAnouncementForRightMenu()]);
         $schedulePage=$this->loadLayout($masterPage,$title,$page,$dataLayout,[],[]);

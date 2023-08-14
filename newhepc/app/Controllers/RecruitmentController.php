@@ -17,7 +17,7 @@ class RecruitmentController extends BaseController
         $title="Tuyển dụng";
         $page='publicPage/subMasterPage';
         $dataLayout['Banner']="Tuyển dụng";
-        $dataLayout['content']=view('publicPage/pages/newsPage',['News'=>$this->baivietService->getRecruitmentForRecruitmentPage(),'link'=>'tuyen-dung']);
+        $dataLayout['content']=view('publicPage/pages/newsPage',['News'=>$this->baivietService->getNewForPage(137),'link'=>'tuyen-dung']);
         $dataLayout['Pager']=$this->baivietService->getPager();
         $dataLayout['rightBanner']=view('publicPage/layouts/rightMenuForNew',['Newest'=>$this->baivietService->getAnouncementForRightMenu()]);
         $RecruitmentPage=$this->loadLayout($masterPage,$title,$page,$dataLayout,[],[]);
@@ -26,10 +26,10 @@ class RecruitmentController extends BaseController
 
     public function getRecruitmentDetail($link)
     {
-        $newdetail=$this->baivietService->getRecruitmentDetail($link);
+        $newdetail=$this->baivietService->getNewDetail(137,$link);
         $page='publicPage/subMasterPage';
         $dataLayout['Banner']="Tuyển dụng";
-        $dataLayout['content']=view('publicPage/pages/newDetail',['New'=>$newdetail, 'More'=>$this->baivietService->getMoreRecruitment($link),'link'=>"tuyen-dung"]);
+        $dataLayout['content']=view('publicPage/pages/newDetail',['New'=>$newdetail, 'More'=>$this->baivietService->getMoreNew(137,$link),'link'=>"tuyen-dung"]);
         $dataLayout['Pager']=null;
         $dataLayout['rightBanner']=view('publicPage/layouts/rightMenuForNew',['Newest'=>$this->baivietService->getAnouncementForRightMenu()]);
         return $this->checkPageExits($newdetail,$page,$dataLayout);

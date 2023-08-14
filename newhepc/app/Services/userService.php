@@ -14,6 +14,8 @@ class userService extends BaseService
         $this->userModel = new userModel();
     }
 
+    //CHức năng: Đăng nhập bằng form ->method=post
+//Vị trí: Trang đăng nhập
     public function login($req)
     {
         $validation=$this->validateUserLogin($req);
@@ -63,7 +65,8 @@ class userService extends BaseService
             ];
         }
     }
-
+    //CHức năng: Kiểm tra lỗi nhập liệu
+//Vị trí: 
     function validateUserLogin($req)
     {
         $rule = [

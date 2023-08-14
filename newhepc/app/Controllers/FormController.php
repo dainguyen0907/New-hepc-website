@@ -17,7 +17,7 @@ class FormController extends BaseController
         $title="Biểu mẫu";
         $page='publicPage/subMasterPage';
         $dataLayout['Banner']="Biểu mẫu";
-        $dataLayout['content']=view('publicPage/pages/newsPage',['News'=>$this->baivietService->getFormForFormPage(),'link'=>"bieu-mau"]);
+        $dataLayout['content']=view('publicPage/pages/newsPage',['News'=>$this->baivietService->getNewForPage(138),'link'=>"bieu-mau"]);
         $dataLayout['Pager']=$this->baivietService->getPager();
         $dataLayout['rightBanner']=view('publicPage/layouts/rightMenuForNew',['Newest'=>$this->baivietService->getAnouncementForRightMenu()]);
         $formPage=$this->loadLayout($masterPage,$title,$page,$dataLayout,[],[]);
@@ -26,10 +26,10 @@ class FormController extends BaseController
 
     public function getFormDetail($link)
     {
-        $newdetail=$this->baivietService->getFormDetail($link);
+        $newdetail=$this->baivietService->getNewDetail(138,$link);
         $page='publicPage/subMasterPage';
         $dataLayout['Banner']="Biểu mẫu";
-        $dataLayout['content']=view('publicPage/pages/newDetail',['New'=>$newdetail, 'More'=>$this->baivietService->getMoreForm($link),'link'=>"bieu-mau"]);
+        $dataLayout['content']=view('publicPage/pages/newDetail',['New'=>$newdetail, 'More'=>$this->baivietService->getMoreNew(138,$link),'link'=>"bieu-mau"]);
         $dataLayout['Pager']=null;
         $dataLayout['rightBanner']=view('publicPage/layouts/rightMenuForNew',['Newest'=>$this->baivietService->getAnouncementForRightMenu()]);
         return $this->checkPageExits($newdetail,$page,$dataLayout);

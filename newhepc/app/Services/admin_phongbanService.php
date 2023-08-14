@@ -22,12 +22,14 @@ class admin_phongbanService extends BaseService
         $this->cmpbModel->protect(false);
         $this->baivietModel->protect(false);
     }
-
+//CHức năng: Lấy tất cả phòng ban
+//Vị trí: Trang Admin->quản trị->phòng ban
     public function getAllPhongBan()
     {
         return $this->phongbanModel->findAll();
     }
-
+//CHức năng: Cập nhật trạng thái phòng ban
+//Vị trí: Trang Admin->quản trị->phòng ban
     public function updateStatusByID($id){
         $data=$this->phongbanModel->where('id_pb',$id)->first();
         if($data==null)
@@ -61,7 +63,8 @@ class admin_phongbanService extends BaseService
         ];
         
     }
-
+//CHức năng: Xóa phòng ban
+//Vị trí: Trang Admin->quản trị->phòng ban
     public function deletePhongBan($req)
     {
         $param = $req->getPost();
@@ -88,7 +91,8 @@ class admin_phongbanService extends BaseService
             'message' => ['err' => 'Xảy ra lỗi hệ thống. Vui lòng thử lại sau']
         ];
     }
-
+    //CHức năng: Thêm Phòng ban mới
+//Vị trí: Trang Admin->quản trị->phòng ban
     public function addGroup($req)
     {
         $validateRes=$this->validateAddGroup($req);
@@ -119,7 +123,8 @@ class admin_phongbanService extends BaseService
         ];
 
     }
-
+//CHức năng: Kiểm tra thông tin phòng ban, dùng cho thêm phòng ban
+//Vị trí: Trang Admin->quản trị->phòng ban
     public function validateAddGroup($req)
     {
         $rules=["groupname"=>"required|max_length[50]|is_unique[phongban.phongban]"];
@@ -134,7 +139,8 @@ class admin_phongbanService extends BaseService
         $this->validation->withRequest($req)->run();
         return $this->validation;
     }
-
+//CHức năng: Lấy thông tin phòng ban cho select box
+//Vị trí: Trang Admin->quản trị->phòng ban
     public function getMyGroupForCensorPost($id_pb)
     {
         if($id_pb==8){

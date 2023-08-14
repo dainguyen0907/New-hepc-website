@@ -2,9 +2,9 @@
     <div class="container">
       <div class="top-header">
         <div class="top-header-element">
-          <a href="https://doffice.evnspc.vn/"><i class="fa-solid fa-person-chalkboard"></i> Giáo viên</a>
-          <a href="https://daotao.hepc.edu.vn/"><i class="fa-solid fa-chalkboard-user"></i> Sinh viên</a>
-          <a href="https://mail.evnspc.vn/"><i class="fa-solid fa-envelope"></i> Email</a>
+          <a href="https://smartevn.evn.com.vn/" target="_blank"><i class="fa-solid fa-person-chalkboard"></i> Giáo viên</a>
+          <a href="https://daotao.hepc.edu.vn/" target="_blank"><i class="fa-solid fa-chalkboard-user"></i> Sinh viên</a>
+          <a href="https://mail.evnspc.vn/" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
           <?php if(session('userLogin')):?>
             <a href="./admin"><i class="fa-solid fa-gear"></i> Quản trị</a>
             <a href="./thoat"><i class="fa-solid fa-arrow-right-from-bracket"></i> Thoát</a>
@@ -114,7 +114,7 @@
                   </ul>
                 </li>
                 <li class="nav-item dropdown hvr-sweep-to-right">
-                  <a class="nav-link " href="https://daotao.hepc.edu.vn/">
+                  <a class="nav-link " href="https://daotao.hepc.edu.vn/" target="_blank">
                     Đào tạo
                   </a>
                 </li>

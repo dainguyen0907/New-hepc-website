@@ -17,23 +17,28 @@ class admin_baivietService extends BaseService
         $this->cmphongbanModel=new cmPhongBanModel();
         $this->baivietModel->protect(false);
     }
-
+//CHức năng: Lấy tất cả bản tin
+//Vị trí: Trang Admin->quản trị->bài viết
     public function getAllNews()
     {
         return $this->baivietModel->join('user','baiviet.id_user=user.id_user')->join('cmphongban','baiviet.id_cmpb=cmphongban.id_cmpb')->findAll();
     }
-
+//CHức năng: Lấy tất cả bản tin của cá nhân
+//Vị trí: Trang Admin->quản trị->bài viết
     public function getNewsById_user($id_user)
     {
         return $this->baivietModel->join('user','baiviet.id_user=user.id_user')->join('cmphongban','baiviet.id_cmpb=cmphongban.id_cmpb')->
         where('baiviet.id_user',$id_user)->findAll();
     }
+    //CHức năng: Lấy tất cả bản tin của phòng ban
+//Vị trí: Trang Admin->quản trị->bài viết
     public function getNewsById_pb($id_pb)
     {
         return $this->baivietModel->join('user','baiviet.id_user=user.id_user')->join('cmphongban','baiviet.id_cmpb=cmphongban.id_cmpb')
         ->where('cmphongban.id_pb',$id_pb)->findAll();
     }
-
+//CHức năng: Lấy thông tin ajax cho bảng Bài viết của phòng ban bằng id_pB
+//Vị trí: Trang Admin->quản trị->bài viết
     public function loadHTMLTableById_pb($id_pb)
     {
         $array=[];
@@ -73,7 +78,8 @@ class admin_baivietService extends BaseService
         }
         return $stringHTML;
     }
-
+//CHức năng: Lấy thông tin ajax cho bảng kiểm duyệt Bài viết của phòng ban bằng id_pB
+//Vị trí: Trang Admin->quản trị->bài viết
     public function loadHTMLCensorTableById_pb($id_pb)
     {
         $array=$this->getCensorPostById_pb($id_pb);
@@ -107,7 +113,8 @@ class admin_baivietService extends BaseService
         }
         return $stringHTML;
     }
-
+//CHức năng: Đếm số lượng bài viết chưa keiemr duyệt
+//Vị trí: Trang Admin->quản trị->left menu
     public function getCountCensorPost($id_pb)
     {
         if($id_pb==8)
@@ -118,6 +125,8 @@ class admin_baivietService extends BaseService
         return count($this->baivietModel->join('user','baiviet.id_user=user.id_user')->join('cmphongban','baiviet.id_cmpb=cmphongban.id_cmpb')
             ->where(['censor_bv'=>'0','cmphongban.id_pb'=>$id_pb])->findAll());
     }
+//CHức năng: Lấy tất cả bài viết chưa kiểm duyệt của phòng ban
+//Vị trí: Trang Admin->quản trị->bài viết/ left-menu
     public function getCensorPostById_pb($id_pb)
     {
         if($id_pb==-1)
@@ -128,7 +137,8 @@ class admin_baivietService extends BaseService
         return $this->baivietModel->join('user','baiviet.id_user=user.id_user')->join('cmphongban','baiviet.id_cmpb=cmphongban.id_cmpb')
             ->where(['censor_bv'=>'0','cmphongban.id_pb'=>$id_pb])->findAll();
     }
-
+//CHức năng: Lấy thông tin bài viết bằng id_bv, kiểm tra quyền truy cập bằng id_q
+//Vị trí: Trang Admin->quản trị->bài viết
     public function getPostDetail($id_bv,$id_q)
     {
         if($id_q==1)
@@ -144,7 +154,8 @@ class admin_baivietService extends BaseService
         return $this->baivietModel->join('user','baiviet.id_user=user.id_user')->join('cmphongban','baiviet.id_cmpb=cmphongban.id_cmpb')
         ->where(['id_bv'=>$id_bv,'id_user'=>session('userLogin')['id_user']])->first();
     }
-
+//CHức năng: Thêm bài viết mới
+//Vị trí: Trang Admin->quản trị->bài viết
     public function addPost($req)
     {
         $validateRes=$this->validatePost($req);
@@ -197,6 +208,8 @@ class admin_baivietService extends BaseService
         ];
 
     }
+    //CHức năng: Cập nhật bài viết mới
+//Vị trí: Trang Admin->quản trị->bài viết
     public function updatePost($req)
     {
         $validateRes=$this->validatePost($req);
@@ -244,7 +257,8 @@ class admin_baivietService extends BaseService
         ];
 
     }
-
+//CHức năng: Kiểm tra link bài viết đã tồn tại chưa? sử dụng khi thêm bài viết mới.
+//Vị trí:
     private function is_exits_post($heading){
         $link_description=$this->convert_name($heading);
         $post=$this->baivietModel->where('link_description',$link_description)->first();
@@ -255,7 +269,8 @@ class admin_baivietService extends BaseService
         }
         return false;
     }
-
+//CHức năng: Kiểm tra link bài viết đã tồn tại chưa? sử dụng khi cập nhật bài viết
+//Vị trí: 
     private function is_exits_updatepost($id_bv,$heading){
         $link_description=$this->convert_name($heading);
         $post=$this->baivietModel->where(['link_description'=>$link_description,"id_bv!="=>$id_bv])->first();
@@ -266,7 +281,8 @@ class admin_baivietService extends BaseService
         }
         return false;
     }
-
+//CHức năng: Kiểm tra thông tin nhập khi tạo/cập nhật bài viết
+//Vị trí: Trang Admin->quản trị->bài viết
     private function validatePost($req)
     {
         $rules=["heading_post"=>"required|max_length[200]"];
@@ -280,7 +296,8 @@ class admin_baivietService extends BaseService
         $this->validation->withRequest($req)->run();
         return $this->validation;
     }
-
+//CHức năng: Kiểm duyệt bài viết
+//Vị trí: Trang Admin->quản trị->bài viết
     public function censor_post($id_bv,$censor)
     {
         if($censor=='pass')

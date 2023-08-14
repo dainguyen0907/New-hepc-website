@@ -14,16 +14,21 @@ class admin_videoService extends BaseService
         $this->videoModel = new videoModel();
         $this->videoModel->protect(false);
     }
-
+//CHức năng: Lấy tất cả video clip
+//Vị trí: Trang Admin->quản trị->video clip
     public function getAllvideo()
     {
         return $this->videoModel->join('user','video.id_user=user.id_user')->findAll();
     }
 
+    //CHức năng: Lấy thông tin video bằng id_video
+//Vị trí: Trang Admin->quản trị->video clip
     public function getVideoById($id)
     {
         return $this->videoModel->where('id_vd',$id)->first();
     }
+    //CHức năng: Thêm video mới
+//Vị trí: Trang Admin->quản trị->video clip
     public function addVideo($req){
         $validateRes=$this->validateVideo('add',$req);
         if($validateRes->getErrors())
@@ -57,7 +62,8 @@ class admin_videoService extends BaseService
             'message' => ['err'=>"Đã xảy ra lỗi hệ thống! Vui lòng thử lại sau."]
         ];
     }
-
+    //CHức năng: Kiểm tra thông tin nhập liệu video, dùng cho thêm/sửa video
+//Vị trí: 
     private function validateVideo($method,$req){
         if($method=="add")
         {
@@ -95,7 +101,8 @@ class admin_videoService extends BaseService
         $this->validation->withRequest($req)->run();
         return $this->validation;
     }
-
+//CHức năng: Xóa video
+//Vị trí: Trang Admin->quản trị->video clip
     public function deleteVideo($req){
         $param=$req->getPost();
         if($this->videoModel->delete($param['id']))
@@ -113,8 +120,8 @@ class admin_videoService extends BaseService
             'message' => ['err'=>"Đã xảy ra lỗi hệ thống! Vui lòng thử lại sau."]
         ];
     }
-
-
+//CHức năng: Kiểm tra tên video đã tồn tại không ?
+//Vị trí:
     public function checkVideoName($id,$name)
     {
         $data=$this->videoModel->where(["video"=>$name,"id_vd!="=>$id])->first();
@@ -124,6 +131,8 @@ class admin_videoService extends BaseService
         }
         return false;
     }
+    //CHức năng: Cập nhật thông tin video clip
+//Vị trí: Trang Admin->quản trị->video clip
     public function updateVideo($req){
         $validateRes=$this->validateVideo('update',$req);
         if($validateRes->getErrors())

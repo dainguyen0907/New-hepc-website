@@ -1,6 +1,6 @@
 <div class='login-form text-center p-5'>
     <form action="./dang-nhap" method="post">
-        <img class="mb-3" src="./assets/images/logoEVNSPC.png" alt="" width="100" height="100">
+        <img class="mb-3" src="./assets/images/logoEVNSPC.png" alt="" style="width:100px!important;height:100px">
         <?= view('alerts/alert')?>
         <div class="form-floating mb-3">
             <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
