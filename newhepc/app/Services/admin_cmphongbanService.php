@@ -124,9 +124,10 @@ class admin_cmphongbanService extends BaseService
     public function deleteCatalogue($req)
     {
         $param = $req->getPost();
-        $res=$this->cmphongbanModel->delete($param['id']);
+        $decryptid=$this->decryptString($param['id']);
+        $res=$this->cmphongbanModel->delete($decryptid);
         if ($res) {
-            $this->writeHistory('delete','Chuyên mục',session('userLogin')['id_user'],$param['id']);
+            $this->writeHistory('delete','Chuyên mục',session('userLogin')['id_user'],$decryptid);
             return [
                 'status' => ResultUtils::STATUS_CODE_OK,
                 'messageCode' => ResultUtils::MESSAGE_CODE_OK,
@@ -151,7 +152,8 @@ class admin_cmphongbanService extends BaseService
             ];
         }
         $param=$req->getPost();
-        if($this->checkCatalogueLink($param['catalogueid'],$param['cataloguename']))
+        $decryptid=$this->decryptString($param['catalogueid']);
+        if($this->checkCatalogueLink($decryptid,$param['cataloguename']))
         {
             return [
                 'status' => ResultUtils::STATUS_CODE_ERR,
@@ -165,10 +167,10 @@ class admin_cmphongbanService extends BaseService
             "id_pb"=>$param['cataloguegroup'],
             "status_cmpb"=>$param['status_catalogue']
         ];
-        if($this->cmphongbanModel->update($param['catalogueid'],$data))
+        if($this->cmphongbanModel->update($decryptid,$data))
         {
-            $this->baivietModel->whereIn('id_cmpb',[$param['catalogueid']])->set('status_bv',$data['status_cmpb'])->update();
-            $this->writeHistory('update','Chuyên mục',session('userLogin')['id_user'],$param['catalogueid']);
+            $this->baivietModel->whereIn('id_cmpb',[$decryptid])->set('status_bv',$data['status_cmpb'])->update();
+            $this->writeHistory('update','Chuyên mục',session('userLogin')['id_user'],$decryptid);
             return [
                 'status' => ResultUtils::STATUS_CODE_OK,
                 'messageCode' => ResultUtils::MESSAGE_CODE_OK,

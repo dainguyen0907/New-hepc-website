@@ -45,14 +45,16 @@
                                 </td>
                                 <td class="text-center">
                                     <a href="#" class="btn btn-success" title="Reset mật khẩu" data-bs-toggle="modal"
-                                        data-bs-target="#resetPassModal" data-idUser="<?= $n['id_user'] ?>"><i
-                                            class="fa-solid fa-key"></i></a>
+                                        data-bs-target="#resetPassModal"
+                                        data-idUser="<?= openssl_encrypt($n['id_user'], $encrypt['cipher_algo'], $encrypt['passphrase'], $encrypt['options'], $encrypt['iv']) ?>">
+                                        <i class="fa-solid fa-key"></i></a>
                                     <a href="admin/management/user/<?= $n['id_user'] ?>" class="btn btn-primary"
                                         title="Cập nhật thông tin"><i class="fas fa-edit"></i></a>
                                     <?php if ($n['id_user'] != 1 && $n['id_user'] != session('userLogin')['id_user']): ?>
                                         <a class="btn btn-danger btn-del-confirm" title="Xóa tài khoản" data-bs-toggle="modal"
-                                            data-bs-target="#deleteModal" data-id="<?= $n['id_user'] ?>"><i
-                                                class="far fa-trash-alt"></i></a>
+                                            data-bs-target="#deleteModal" data-txtid="<?= $n['id_user'] ?>"
+                                            data-id="<?= openssl_encrypt($n['id_user'], $encrypt['cipher_algo'], $encrypt['passphrase'], $encrypt['options'], $encrypt['iv']) ?>">
+                                            <i class="far fa-trash-alt"></i></a>
                                     <?php endif; ?>
                                 </td>
                             </tr>

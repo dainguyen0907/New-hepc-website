@@ -20,7 +20,7 @@ class admin_userService extends BaseService
     {
         return $this->userModel->join('phanquyen', 'phanquyen.id_q=user.id_q', 'left')->findAll();
     }
-//CHức năng: Reset password cho user bất kỳ
+    //CHức năng: Reset password cho user bất kỳ
 //Vị trí: Trang Admin->quản trị->user
     public function resetPassword($req)
     {
@@ -36,9 +36,10 @@ class admin_userService extends BaseService
         $updatePass = [
             'password' => password_hash($param['password'], PASSWORD_DEFAULT)
         ];
-        $res = $this->userModel->update($param['id_user'], $updatePass);
+        $decryptid = $this->decryptString($param['id_user']);
+        $res = $this->userModel->update($decryptid, $updatePass);
         if ($res) {
-            $this->writeHistory('reset','Người dùng',session('userLogin')['id_user'],$param['id_user']);
+            $this->writeHistory('reset', 'Người dùng', session('userLogin')['id_user'], $decryptid);
             return [
                 'status' => ResultUtils::STATUS_CODE_OK,
                 'messageCode' => ResultUtils::MESSAGE_CODE_OK,
@@ -52,7 +53,7 @@ class admin_userService extends BaseService
         ];
 
     }
-//CHức năng: Kiểm tra thông tin password đã nhập, dùng cho reset password
+    //CHức năng: Kiểm tra thông tin password đã nhập, dùng cho reset password
 //Vị trí: 
     private function validatePassword($req)
     {
@@ -78,13 +79,13 @@ class admin_userService extends BaseService
         return $this->validation;
 
     }
-//CHức năng: Lấy thông tin user bằng id_user
+    //CHức năng: Lấy thông tin user bằng id_user
 //Vị trí: Trang Admin->quản trị->user
     public function getUserInfo($id)
     {
         return $this->userModel->where('id_user', $id)->first();
     }
-//CHức năng: Tạo user mới
+    //CHức năng: Tạo user mới
 //Vị trí: Trang Admin->quản trị->user
     public function createUser($req)
     {
@@ -111,7 +112,7 @@ class admin_userService extends BaseService
         ];
         $res = $this->userModel->insert($data);
         if ($res) {
-            $this->writeHistory('add','Người dùng',session('userLogin')['id_user'],$res);
+            $this->writeHistory('add', 'Người dùng', session('userLogin')['id_user'], $res);
             return [
                 'status' => ResultUtils::STATUS_CODE_OK,
                 'messageCode' => ResultUtils::MESSAGE_CODE_OK,
@@ -125,7 +126,7 @@ class admin_userService extends BaseService
         ];
 
     }
-//CHức năng: Kiểm tra thông tin user đã nhập, dùng cho thêm/sửa user
+    //CHức năng: Kiểm tra thông tin user đã nhập, dùng cho thêm/sửa user
 //Vị trí:
     private function validateUser($method, $req)
     {
@@ -167,7 +168,7 @@ class admin_userService extends BaseService
 
         return $this->validation;
     }
-//CHức năng: Cập nhật thông tin user
+    //CHức năng: Cập nhật thông tin user
 //Vị trí: Trang Admin->quản trị->user
     public function updateUser($req)
     {
@@ -180,6 +181,7 @@ class admin_userService extends BaseService
             ];
         }
         $param = $req->getPost();
+        $decryptid = $this->decryptString($param['id_user']);
         $data = [
             'id_q' => $param['roles_user'],
             'id_pb' => $param['group_user'],
@@ -189,9 +191,9 @@ class admin_userService extends BaseService
             'address' => $param['address_user'],
             'status_user' => $param['status_user']
         ];
-        $res = $this->userModel->update($param['id_user'], $data);
+        $res = $this->userModel->update($decryptid, $data);
         if ($res) {
-            $this->writeHistory('update','Người dùng',session('userLogin')['id_user'],$param['id_user']);
+            $this->writeHistory('update', 'Người dùng', session('userLogin')['id_user'], $decryptid);
             return [
                 'status' => ResultUtils::STATUS_CODE_OK,
                 'messageCode' => ResultUtils::MESSAGE_CODE_OK,
@@ -210,9 +212,10 @@ class admin_userService extends BaseService
     public function deleteUser($req)
     {
         $param = $req->getPost();
-        $res=$this->userModel->delete($param['id']);
+        $decryptid = $this->decryptString($param['id']);
+        $res = $this->userModel->delete($decryptid);
         if ($res) {
-            $this->writeHistory('delete','Người dùng',session('userLogin')['id_user'],$param['id']);
+            $this->writeHistory('delete', 'Người dùng', session('userLogin')['id_user'], $decryptid);
             return [
                 'status' => ResultUtils::STATUS_CODE_OK,
                 'messageCode' => ResultUtils::MESSAGE_CODE_OK,
@@ -225,6 +228,70 @@ class admin_userService extends BaseService
             'message' => ['err' => 'Xảy ra lỗi hệ thống. Vui lòng thử lại sau']
         ];
 
+    }
+    //CHức năng: Đổi mật khẩu
+//Vị trí: Trang Admin->Đổi mật khẩu
+    public function changePassword($req)
+    {
+        $validateRes=$this->validateChangePassword($req);
+        if($validateRes->getErrors()){
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => $validateRes->getErrors()
+            ];
+        }
+        $param=$req->getPost();
+        if(!password_verify($param['old_password'],session('userLogin')['password'])){
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => ['err'=>'Mật khẩu cũ chưa chính xác.']
+            ];
+        }
+        if($this->userModel->update(session('userLogin')['id_user'],['password'=>password_hash($param['new_password'],PASSWORD_DEFAULT)])){
+            return [
+                'status' => ResultUtils::STATUS_CODE_OK,
+                'messageCode' => ResultUtils::MESSAGE_CODE_OK,
+                'message' => ['success'=>'Cập nhật mật khẩu thành công']
+            ];
+        }
+        else{
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => ['err'=>'Đã xảy ra lỗi hệ thống! Vui lòng thử lại sau.']
+            ];
+        }
+    }
+    private function validateChangePassword($req)
+    {
+        $rules=[
+            "old_password" => 'required|min_length[6]|max_length[20]|alpha_numeric_punct',
+            "new_password"=>'required|min_length[6]|max_length[20]|alpha_numeric_punct',
+            "re_password"=>'matches[new_password]'
+        ];
+        $message = [
+            'old_password' => [
+                'required' => 'Mật khẩu không được để trống',
+                'min_length' => 'Mật khẩu phải lớn hơn 6 ký tự',
+                'max_length' => 'Mật khẩu không vượt quá 20 ký tự',
+                'alpha_numeric_punct' => `Mật khẩu phải chứa ký tự là chữ, là số hoặc các ký tự ~!#$%&'-_+=|:.`
+            ],
+            'new_password' => [
+                'required' => 'Mật khẩu không được để trống',
+                'min_length' => 'Mật khẩu phải lớn hơn 6 ký tự',
+                'max_length' => 'Mật khẩu không vượt quá 20 ký tự',
+                'alpha_numeric_punct' => `Mật khẩu phải chứa ký tự là chữ, là số hoặc các ký tự ~!#$%&'-_+=|:.`
+            ],
+            're_password'=>[
+                'matches'=>'Xác nhận mật khẩu chưa trùng khớp.'
+            ]
+            
+        ];
+        $this->validation->setRules($rules,$message);
+        $this->validation->withRequest($req)->run();
+        return $this->validation;
     }
 
 

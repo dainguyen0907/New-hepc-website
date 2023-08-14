@@ -43,10 +43,11 @@
                                 <td class="text-center">
                                     <a href="" class="btn btn-primary mb-3" title="Cập nhật thông tin" data-bs-toggle="modal"
                                         data-bs-target="#updateBannerModal" data-name="<?=$n['file']?>" data-status="<?=$n['status_banner']?>"
-                                        data-id="<?=$n['id_banner']?>">
+                                        data-id="<?= openssl_encrypt($n['id_banner'], $encrypt['cipher_algo'], $encrypt['passphrase'], $encrypt['options'], $encrypt['iv']) ?>">
                                         <i class="fas fa-edit"></i></a>
                                     <a class="btn btn-danger btn-del-confirm mb-3" title="Xóa banner" data-bs-toggle="modal"
-                                        data-bs-target="#deleteModal" data-id="<?= $n['id_banner'] ?>">
+                                        data-bs-target="#deleteModal" data-txtid="<?=$n['id_banner']?>"
+                                        data-id="<?= openssl_encrypt($n['id_banner'], $encrypt['cipher_algo'], $encrypt['passphrase'], $encrypt['options'], $encrypt['iv']) ?>">
                                         <i class="far fa-trash-alt"></i></a>
 
                                 </td>

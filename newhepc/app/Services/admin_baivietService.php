@@ -74,7 +74,8 @@ class admin_baivietService extends BaseService
                 $stringHTML.='<td class="text-danger">Chưa duyệt</td>';
             }
             $stringHTML.='<td class="text-center"><a href="./admin/post/'.$n['id_bv'].'" class="btn btn-primary mb-3" title="Cập nhật thông tin"><i class="fas fa-edit"></i></a>
-            <a class="btn btn-danger btn-del-confirm mb-3" title="Xóa bài viết"><i class="far fa-trash-alt"></i></a></td></tr>';
+            <a class="btn btn-danger btn-del-confirm mb-3" title="Xóa bài viết" data-bs-toggle="modal" data-bs-target="#deleteModal"  data-txtid="'.$n['id_bv'].'"
+            data-id="'.$this->encryptString($n['id_bv']).'"><i class="far fa-trash-alt"></i></a></td></tr>';
         }
         return $stringHTML;
     }
@@ -109,7 +110,8 @@ class admin_baivietService extends BaseService
             }
             
             $stringHTML.='<td class="text-center"><a href="./admin/post/'.$n['id_bv'].'" class="btn btn-primary mb-3" title="Cập nhật thông tin"><i class="fas fa-edit"></i></a>
-            <a class="btn btn-danger btn-del-confirm mb-3" title="Xóa bài viết"><i class="far fa-trash-alt"></i></a></td></tr>';
+            <a class="btn btn-danger btn-del-confirm mb-3" title="Xóa bài viết" data-bs-toggle="modal" data-bs-target="#deleteModal"  data-txtid="'.$n['id_bv'].'"
+            data-id="'.$this->encryptString($n['id_bv']).'"><i class="far fa-trash-alt"></i></a></td></tr>';
         }
         return $stringHTML;
     }
@@ -222,7 +224,8 @@ class admin_baivietService extends BaseService
             ];
         }
         $param=$req->getPost();
-        if($this->is_exits_updatepost($param['id_bv'],$param['heading_post']))
+        $decryptid=$this->decryptString($param['id_bv']);
+        if($this->is_exits_updatepost($decryptid,$param['heading_post']))
         {
             return [
                 'status' => ResultUtils::STATUS_CODE_ERR,
@@ -241,9 +244,9 @@ class admin_baivietService extends BaseService
             'status_bv'=>'0',
             'censor_bv'=>'0'
         ];
-        if($this->baivietModel->update($param['id_bv'],$data))
+        if($this->baivietModel->update($decryptid,$data))
         {
-            $this->writeHistory('update','Bài viết',session('userLogin')['id_user'],$param['id_bv']);
+            $this->writeHistory('update','Bài viết',session('userLogin')['id_user'],$decryptid);
             return [
                 'status' => ResultUtils::STATUS_CODE_OK,
                 'messageCode' => ResultUtils::MESSAGE_CODE_OK,
@@ -321,6 +324,28 @@ class admin_baivietService extends BaseService
             'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
             'message' => ['err'=>"Đã xảy ra lỗi hệ thống! Vui lòng thử lại sau."]
         ];
+    }
+    //CHức năng: Xóa bài viết.
+//Vị trí:Trang Admin->quản trị->bài viết 
+public function deletePost($req)
+    {
+        $param=$req->getPost();
+        $decryptid=$this->decryptString($param['id']);
+        if($this->baivietModel->delete($decryptid))
+        {
+            $this->writeHistory('delete','Bài viết',session('userLogin')['id_user'],$decryptid);
+            return [
+                'status' => ResultUtils::STATUS_CODE_OK,
+                'messageCode' => ResultUtils::MESSAGE_CODE_OK,
+                'message' => ['success'=>"Xóa bài viết thành công"]
+            ];
+        }
+        return [
+            'status' => ResultUtils::STATUS_CODE_ERR,
+            'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
+            'message' => ['err'=>"Đã xảy ra lỗi hệ thống! Vui lòng thử lại sau."]
+        ];
+        
     }
 
 }

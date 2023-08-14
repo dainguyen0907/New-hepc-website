@@ -42,7 +42,10 @@
 
                                     <?php if ($n['id_pb'] > 17): ?>
                                         <a class="btn btn-danger btn-del-confirm" title="Xóa phòng ban"
-                                            data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="<?=$n['id_pb']?>"><i class="far fa-trash-alt"></i></a>
+                                            data-bs-toggle="modal" data-bs-target="#deleteModal" 
+                                            data-txtid="<?=$n['id_pb']?>"
+                                            data-id="<?= openssl_encrypt($n['id_pb'], $encrypt['cipher_algo'], $encrypt['passphrase'], $encrypt['options'], $encrypt['iv']) ?>">
+                                            <i class="far fa-trash-alt"></i></a>
                                     <?php endif; ?>
                                 </td>
                             </tr>

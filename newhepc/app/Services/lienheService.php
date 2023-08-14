@@ -62,7 +62,8 @@ class lienheService extends BaseService{
         ];
 
     }
-
+//CHức năng: Kiểm tra nhập liệu khi tạo liên hệ mới
+//Vị trí:
     private function validateContact($req)
     {
         $rules=[

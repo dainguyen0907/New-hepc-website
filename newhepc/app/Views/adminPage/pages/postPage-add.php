@@ -16,7 +16,7 @@
                     <div class="p-3">
                         <form action="<?= $action ?>" method="post" >
                             <?php if($mode=="change"):?>
-                                <input type="hidden" id="id_bv" name="id_bv" value="<?=$new['id_bv']?>">
+                                <input type="hidden" id="id_bv" name="id_bv" value="<?= openssl_encrypt($new['id_bv'],$encrypt['cipher_algo'],$encrypt['passphrase'],$encrypt['options'],$encrypt['iv'] )?>">
                             <?php endif;?>
                             <div class="form-row">
                                 <div class="form-group col-12">

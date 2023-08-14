@@ -76,7 +76,9 @@
                                         title="Cập nhật thông tin">
                                         <i class="fas fa-edit"></i></a>
                                 <?php if ($role != 'leader'): ?>
-                                    <a class="btn btn-danger btn-del-confirm mb-3" title="Xóa bài viết">
+                                    <a class="btn btn-danger btn-del-confirm mb-3" title="Xóa bài viết" 
+                                    data-bs-toggle="modal" data-bs-target="#deleteModal"  data-txtid="<?=$n['id_bv']?>"
+                                    data-id="<?= openssl_encrypt($n['id_bv'], $encrypt['cipher_algo'], $encrypt['passphrase'], $encrypt['options'], $encrypt['iv']) ?>">
                                         <i class="far fa-trash-alt"></i></a>
                                 <?php endif;?>
                                 </td>
@@ -88,3 +90,4 @@
         </div>
     </div>
 </div>
+<?= view('adminPage/modals/deleteModal', ['name' => 'Bài viết', 'action' => 'admin/control/post/delete']) ?>

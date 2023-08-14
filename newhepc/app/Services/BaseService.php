@@ -1,17 +1,22 @@
 <?php
 namespace App\Services;
+use App\Common\encryptLibary;
 use App\Models\nhatkyModel;
 
 class BaseService{
 
     public $validation;
     private $nhatkyModel;
+    private $encrypt;
+    private $encryptLib;
 
     function __construct()
     {
         $this->validation=\config\Services::validation();
         $this->nhatkyModel=new nhatkyModel();
         $this->nhatkyModel->protect(false);
+        $this->encrypt=new encryptLibary();
+        $this->encryptLib=$this->encrypt->getEncryptLibary();
     }
 //CHức năng: Cập nhật lịch sử chỉnh sửa các bảng trong database
 //Vị trí: Trang Admin
@@ -57,6 +62,16 @@ class BaseService{
         $str = preg_replace("/(\/)/", '-', $str);
 		return $str;
 	}
+
+    public function decryptString($string_encrypt)
+    {
+        return  $decryptid=openssl_decrypt($string_encrypt,$this->encryptLib['cipher_algo'],$this->encryptLib["passphrase"],$this->encryptLib['options'],$this->encryptLib['iv']);
+    }
+
+    public function encryptString($string_encrypt)
+    {
+        return  $decryptid=openssl_encrypt($string_encrypt,$this->encryptLib['cipher_algo'],$this->encryptLib["passphrase"],$this->encryptLib['options'],$this->encryptLib['iv']);
+    }
 
     
 }

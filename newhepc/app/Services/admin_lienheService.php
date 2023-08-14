@@ -15,23 +15,26 @@ class admin_lienheService extends BaseService
         $this->lienheModel=new lienheModel();
         $this->lienheModel->protect(false);
     }
-
-
+//CHức năng: Dếm số lượng liên hệ chưa xử lý
+//Vị trí: Trang Admin->quản trị->leftmenu
     public function getCountContactUnseen($id_p)
     {
         return count($this->lienheModel->where(['id_p'=>$id_p,'trangthai'=>'0'])->findAll());
     }
-
+//CHức năng: lấy tất cả liên hệ
+//Vị trí: Trang Admin->Hộp thư
     public function getAllContactById_pb($id_p)
     {
         return $this->lienheModel->where(['id_p'=>$id_p])->findAll();
     }
-
+//CHức năng:Lấy thông tin liên hệ bằng id_lh
+//Vị trí: Trang Admin->Hộp thư
     public function getContactDetailById_lh($id_lh)
     {
         return $this->lienheModel->where(['id_lh'=>$id_lh])->first();
     }
-
+//CHức năng: Chyển trạng thái đã xử lý cho liên hệ
+//Vị trí: Trang Admin->Hộp thư
     public function changeToTrueStatusContact($id_lh,$id_pb)
     {
         $data=$this->lienheModel->where(['id_lh'=>$id_lh,'id_p'=>$id_pb])->first();
@@ -59,6 +62,8 @@ class admin_lienheService extends BaseService
             ];
         }
     }
+    //CHức năng: Xóa liên hệ
+//Vị trí: Trang Admin->Hộp thư
     public function deleteContact($req)
     {
         $param=$req->getPost();

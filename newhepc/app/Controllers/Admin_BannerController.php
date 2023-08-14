@@ -5,8 +5,6 @@ use App\Common\encryptLibary;
 use App\Common\libary;
 use App\Services\admin_bannerService;
 
-
-
 class Admin_BannerController extends BaseController
 {
     private $bannerService;

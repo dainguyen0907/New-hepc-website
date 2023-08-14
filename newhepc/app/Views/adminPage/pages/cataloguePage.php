@@ -42,10 +42,14 @@
                                 </td>
                                 <td class="text-center">
                                     <a href="" class="btn btn-primary" title="Cập nhật thông tin" data-bs-toggle="modal" data-bs-target="#updateCatalogueModal" 
-                                    data-id="<?=$n['id_cmpb']?>"  data-name="<?=$n['cmphongban']?>" data-group="<?=$n['id_pb']?>"  data-status="<?=$n['status_cmpb'] ?>">
+                                    data-id="<?= openssl_encrypt($n['id_cmpb'], $encrypt['cipher_algo'], $encrypt['passphrase'], $encrypt['options'], $encrypt['iv']) ?>"  
+                                    data-name="<?=$n['cmphongban']?>" 
+                                    data-group="<?=$n['id_pb']?>"  data-status="<?=$n['status_cmpb'] ?>">
                                         <i class="fas fa-edit"></i></a>
                                     <?php if ($n['id_pb'] > 138): ?>
-                                    <a class="btn btn-danger btn-del-confirm" title="Xóa chuyên mục" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="<?=$n['id_cmpb']?>">
+                                    <a class="btn btn-danger btn-del-confirm" title="Xóa chuyên mục" data-bs-toggle="modal" data-bs-target="#deleteModal" 
+                                    data-txtid="<?=$n['id_pb']?>"
+                                    data-id="<?= openssl_encrypt($n['id_cmpb'], $encrypt['cipher_algo'], $encrypt['passphrase'], $encrypt['options'], $encrypt['iv']) ?>">
                                         <i class="far fa-trash-alt"></i></a>
                                     <?php endif;?>
                                 </td>

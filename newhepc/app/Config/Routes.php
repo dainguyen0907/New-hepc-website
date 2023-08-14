@@ -61,8 +61,13 @@ $routes->get('/hoat-dong-doan', 'GroupController::index');
 $routes->get('/hoat-dong-doan/(:any)', 'GroupController::getNewsOfCatalogueGroup/$1');
 //Login
 $routes->get('/dang-nhap', 'LoginController::index',['filter'=>'loginFilter']);
-$routes->get('/thoat', 'LoginController::logout');
 $routes->post('/dang-nhap', 'LoginController::login');
+
+$routes->get('/quen-mat-khau', 'LoginController::loadForgetPasswordPage',['filter'=>'loginFilter']);
+$routes->post('/quen-mat-khau', 'LoginController::resetPassword');
+
+$routes->get('/thoat', 'LoginController::logout');
+
 $routes->get('/phong-to-chuc', 'TCHCController::index');
 $routes->get('/phong-to-chuc/(:any)', 'TCHCController::getNewsOfCatalogueTCHC/$1');
 $routes->get('/phong-tai-chinh', 'TCKTController::index');
@@ -134,7 +139,7 @@ $routes->group('admin',['filter'=>'authenicatorFilter'],function($routes){
 
         $routes->get('picture','Admin_PictureController::index');
 
-        $routes->get('post/update','Admin_NewController::loadEditPageAdmin');
+        
         $routes->get('post','Admin_NewController::index');
         
     });
@@ -157,6 +162,8 @@ $routes->group('admin',['filter'=>'authenicatorFilter'],function($routes){
         $routes->get('pass/(:num)', 'Admin_NewController::pass_censor/$1');
         $routes->get('failed/(:num)', 'Admin_NewController::failed_censor/$1');
 
+        $routes->post('post/delete', 'Admin_NewController::delete_post');
+
     });
 
     $routes->get('mypost', 'Admin_NewController::loadMyPostPage');
@@ -169,10 +176,9 @@ $routes->group('admin',['filter'=>'authenicatorFilter'],function($routes){
     $routes->get('contact/(:num)', 'Admin_ContactController::loadContactDetailPage/$1');
     $routes->get('contact/change/(:num)', 'Admin_ContactController::changeStatusContact/$1');
     $routes->post('contact/delete', 'Admin_ContactController::deleteContact');
-    
 
-    
-    
+    $routes->get('changepassword', 'Admin_ChangePasswordController::index');
+    $routes->post('changepassword', 'Admin_ChangePasswordController::changePassword');
 });
 /*
 /*

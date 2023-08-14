@@ -84,14 +84,15 @@ class admin_bannerService extends BaseService
             ];
         }
         $param=$req->getPost();
+        $decryptid=$this->decryptString($param['bannerid']);
         $data=[
             "file"=>$param['bannerlink'],
             "status_banner"=>$param['status_banner']
         ];
-        $res=$this->bannerModel->update($param['bannerid'],$data);
+        $res=$this->bannerModel->update($decryptid,$data);
         if($res)
         {
-            $this->writeHistory('update','Banner',session('userLogin')['id_user'],$res);
+            $this->writeHistory('update','Banner',session('userLogin')['id_user'],$decryptid);
             return [
                 'status' => ResultUtils::STATUS_CODE_OK,
                 'messageCode' => ResultUtils::MESSAGE_CODE_OK,
@@ -110,9 +111,10 @@ class admin_bannerService extends BaseService
     public function deleteBanner($req)
     {
         $param=$req->getPost();
-        if($this->bannerModel->delete($param['id']))
+        $decryptid=$this->decryptString($param['id']);
+        if($this->bannerModel->delete($decryptid))
         {
-            $this->writeHistory('update','Banner',session('userLogin')['id_user'],$param['id']);
+            $this->writeHistory('update','Banner',session('userLogin')['id_user'],$decryptid);
             return [
                 'status' => ResultUtils::STATUS_CODE_OK,
                 'messageCode' => ResultUtils::MESSAGE_CODE_OK,

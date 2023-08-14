@@ -1,0 +1,13 @@
+__ci_last_regenerate|i:1691985171;_ci_previous_url|s:58:"http://10.168.3.153/newhepc/public/index.php/quen-mat-khau";_ci_old_input|a:2:{s:3:"get";a:0:{}s:4:"post";a:1:{s:5:"email";s:20:"dainq.hepc@gmail.com";}}__ci_vars|a:2:{s:13:"_ci_old_input";s:3:"old";s:9:"errorsMsg";s:3:"old";}errorsMsg|a:1:{s:3:"err";s:633:"Unable to send email using PHP mail(). Your server might not be configured to send mail using this method.<br><pre>Date: Mon, 14 Aug 2023 03:40:11 +0000
+From: =?UTF-8?Q?C=E1=BA=ADp=20nh=E1=BA=ADt=20m=E1=BA=ADt=20kh=E1=BA=A9u=20m?= =?UTF-8?Q?=E1=BB=9Bi?= &lt;website.hepc@gmail.com&gt;
+Return-Path: &lt;website.hepc@gmail.com&gt;
+Reply-To: &lt;website.hepc@gmail.com&gt;
+User-Agent: Hepc.edu.vn
+X-Sender: website.hepc@gmail.com
+X-Mailer: Hepc.edu.vn
+X-Priority: 3 (Normal)
+Message-ID: &lt;64d9a21bb94ba1.34568722@gmail.com&gt;
+Mime-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+</pre>";}

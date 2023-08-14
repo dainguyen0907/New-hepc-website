@@ -64,6 +64,7 @@ class Admin_UserController extends BaseController
             $dataLayout['title']="Cập nhật tài khoản";
             $dataLayout['mode']="change";
             $dataLayout['action']="admin/management/user/change";
+            $dataLayout['encrypt']=$this->encrypt->getEncryptLibary();
             $dataLayout['user']=$user;
             $AdmissionPage = $this->loadAdminLayout($masterPage, $title, $page, $dataLayout, $cssLib, $jsLib);
             return view('adminPage/masterPage', $AdmissionPage);

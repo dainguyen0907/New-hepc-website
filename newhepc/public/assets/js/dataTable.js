@@ -16,7 +16,7 @@ $(document).ready(function () {
         "columnDefs": [
             { "width": "15%", "targets": [1,2],
             "render": function ( data, type, row ) {
-                return data.substr( 0, 100 ); }},
+                return data.substr( 0, 70 ); }},
             { "width": "2%", "targets": [0] }
           ]
     });

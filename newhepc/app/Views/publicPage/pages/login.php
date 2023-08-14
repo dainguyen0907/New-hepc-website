@@ -13,7 +13,7 @@
         </div>
         
         <div class="my-3 text-start">
-            <a href="#">Quên mật khẩu ?</a>
+            <a href="./quen-mat-khau">Quên mật khẩu ?</a>
         </div>
         <button class="w-100 btn btn-lg btn-primary" type="submit">ĐĂNG NHẬP</button>
     </form>

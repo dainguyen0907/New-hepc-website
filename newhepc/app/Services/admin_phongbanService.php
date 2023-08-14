@@ -68,7 +68,8 @@ class admin_phongbanService extends BaseService
     public function deletePhongBan($req)
     {
         $param = $req->getPost();
-        if($param['id']<17)
+        $decryptid=$this->decryptString($param['id']);
+        if($decryptid<17)
         {
             return [
                 'status' => ResultUtils::STATUS_CODE_ERR,
@@ -76,9 +77,9 @@ class admin_phongbanService extends BaseService
                 'message' => ['error' => 'Không thể xóa phòng ban này.']
             ];
         }
-        $res=$this->phongbanModel->delete($param['id']);
+        $res=$this->phongbanModel->delete($decryptid);
         if ($res) {
-            $this->writeHistory('delete','Phòng ban',session('userLogin')['id_user'],$param['id']);
+            $this->writeHistory('delete','Phòng ban',session('userLogin')['id_user'],$decryptid);
             return [
                 'status' => ResultUtils::STATUS_CODE_OK,
                 'messageCode' => ResultUtils::MESSAGE_CODE_OK,

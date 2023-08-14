@@ -38,7 +38,8 @@
                                 <td class="text-center">
                                     <a href="./admin/management/video/<?= $n['id_vd'] ?>" class="btn btn-primary mb-3" title="Cập nhật thông tin"><i class="fas fa-edit"></i></a></a>
                                     <a class="btn btn-danger btn-del-confirm mb-3" title="Xóa video" data-bs-toggle="modal"
-                                        data-bs-target="#deleteModal" data-id="<?= $n['id_vd'] ?>">
+                                        data-bs-target="#deleteModal" data-txtid="<?=$n['id_vd']?>"
+                                        data-id="<?= openssl_encrypt($n['id_vd'],$encrypt['cipher_algo'],$encrypt['passphrase'],$encrypt['options'],$encrypt['iv'] )?>">
                                         <i class="far fa-trash-alt"></i></a>
 
                                 </td>

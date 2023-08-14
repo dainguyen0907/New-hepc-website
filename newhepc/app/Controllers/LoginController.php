@@ -45,4 +45,22 @@ class LoginController extends BaseController
         }
         return redirect('/');
     }
+
+    public function loadForgetPasswordPage(){
+        $masterPage=[];
+        $title="HEPC";
+        $page='publicPage/subMasterPage';
+        $dataLayout['Banner']="Quên mật khẩu";
+        $dataLayout['content']=view('publicPage/pages/forgetPasswordPage');
+        $dataLayout['Pager']=null;
+        $dataLayout['rightBanner']=view('publicPage/layouts/rightMenuForNew',['Newest'=>$this->baivietService->getAnouncementForRightMenu()]);
+        $NewPaperPage=$this->loadLayout($masterPage,$title,$page,$dataLayout,[],[]);
+        return view('publicPage/masterPage',$NewPaperPage);
+    }
+
+    public function resetPassword()
+    {
+        $res=$this->userService->resetPassword($this->request);
+        return redirect()->back()->withInput()->with($res['messageCode'],$res['message']);
+    }
 }

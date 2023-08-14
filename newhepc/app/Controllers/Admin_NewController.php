@@ -29,22 +29,12 @@ class Admin_NewController extends BaseController
         $title = "Trang chủ";
         $page = 'adminPage/Pages/newpaperPage';
         $cssLib = [libary::cssDatatables];
-        $jsLib = [libary::jsDataTables, 'assets/js/ajax.js'];
+        $jsLib = [libary::jsDataTables, 'assets/js/ajax.js','assets/js/modal.js'];
         $dataLayout['news'] = $this->baivietService->getAllNews();
         $dataLayout['groups'] = $this->phongbanService->getAllPhongBan();
         $dataLayout['role'] = "admin";
         $dataLayout['encrypt']=$this->encrypt->getEncryptLibary();
         $AdmissionPage = $this->loadAdminLayout($masterPage, $title, $page, $dataLayout, $cssLib, $jsLib);
-        return view('adminPage/masterPage', $AdmissionPage);
-    }
-    public function loadEditPageAdmin()
-    {
-        $masterPage = [];
-        $title = "Chỉnh sửa";
-        $page = 'adminPage/Pages/editPage';
-        // $jsLib = ["assets/js/ckeditor.js", "assets/js/loadckeditor.js"];
-        $jsLib = ["assets/tinymce/tinymce.min.js", "assets/js/loadtinymce.js"];
-        $AdmissionPage = $this->loadAdminLayout($masterPage, $title, $page, [], [], $jsLib);
         return view('adminPage/masterPage', $AdmissionPage);
     }
     // Ajax controller
@@ -144,6 +134,7 @@ class Admin_NewController extends BaseController
             $jsLib = ['assets/js/createPostAjax.js',"assets/tinymce/tinymce.min.js", "assets/js/loadtinymce.js"];
             $dataLayout['mode'] = 'change';
             $dataLayout['new'] = $post;
+            $dataLayout['encrypt']=$this->encrypt->getEncryptLibary();
             $dataLayout['title'] = "Cập nhật bài viết";
             $dataLayout['action'] = "admin/post/update";
             $AdmissionPage = $this->loadAdminLayout($masterPage, $title, $page, $dataLayout, $cssLib, $jsLib);
@@ -173,6 +164,11 @@ class Admin_NewController extends BaseController
         return redirect()->back()->withInput()->with($res['messageCode'],$res['message']);
     }
 
+    public function delete_post()
+    {
+        $res=$this->baivietService->deletePost($this->request);
+        return redirect()->back()->withInput()->with($res['messageCode'],$res['message']);
+    }
     public function pass_censor($id_bv)
     {
         $res=$this->baivietService->censor_post($id_bv,'pass');

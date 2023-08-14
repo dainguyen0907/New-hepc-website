@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="user-scalable=no, width=device-width, maximum-scale=1, minimum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="title" content="Trường Cao đẳng Điện lực Thành phố Hồ Chí Minh">
+    <meta name="description" content="Trường Cao đẳng Điện lực Thành phố Hồ Chí Minh đào tạo trình độ trung cấp, cao đẳng các ngành về điện như: Công nghệ Kỹ thuật Điện – Điện tử, Điện công nghiệp, Lắp đặt bảo trì hệ thống năng lượng tái tạo, Công nghệ Kỹ thuật Điều khiển và Tự động hóa,… ">
     <base href="<?= base_url(); ?>">
     <link rel="icon" href="assets/images/LogoEVNSPC.png" type="image/icon type">
     <title>

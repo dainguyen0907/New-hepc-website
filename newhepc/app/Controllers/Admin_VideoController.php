@@ -22,7 +22,7 @@ class Admin_VideoController extends BaseController
         $masterPage = [];
         $title = "Video";
         $cssLib = [libary::cssDatatables];
-        $jsLib = [libary::jsDataTables];
+        $jsLib = [libary::jsDataTables,"assets/js/modal.js"];
         $page = 'adminPage/pages/videoPage';
         $dataLayout['videos']=$this->videoService->getAllvideo();
         $dataLayout['encrypt']=$this->encrypt->getEncryptLibary();
@@ -48,9 +48,10 @@ class Admin_VideoController extends BaseController
         $masterPage = [];
         $title = "Video";
         $cssLib = [libary::cssDatatables];
-        $jsLib = [libary::jsDataTables,"assets/js/modal.js"];
+        $jsLib = [libary::jsDataTables];
         $page = 'adminPage/pages/videoPage-update';
         $dataLayout['title']="Cập nhật video";
+        $dataLayout['encrypt']=$this->encrypt->getEncryptLibary();
         $dataLayout['video']=$data;
         $AdmissionPage = $this->loadAdminLayout($masterPage, $title, $page, $dataLayout, $cssLib, $jsLib);
         return view('adminPage/masterPage', $AdmissionPage);

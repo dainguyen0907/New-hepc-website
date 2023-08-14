@@ -15,7 +15,7 @@
                     </div>
                     <div class="p-3">
                         <form action="./admin/management/video/update" method="post" >
-                            <input type="hidden" name="videoid" value="<?=$video['id_vd']?>">
+                            <input type="hidden" name="videoid" value="<?= openssl_encrypt($video['id_vd'],$encrypt['cipher_algo'],$encrypt['passphrase'],$encrypt['options'],$encrypt['iv'] )?>">
                             <div class="form-row">
                                 <div class="form-group col-12">
                                 <label>Tên video</label>

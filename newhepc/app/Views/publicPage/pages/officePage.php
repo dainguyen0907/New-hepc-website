@@ -88,19 +88,24 @@
     <div id="carouselExampleIndicators" class="carousel slide">
         <div class="carousel-inner">
             <?php if (isset($album)): ?>
-                <?php $i=0;
-                    foreach ($album as $key => $n): ?>
-                    <?php if ($key/3==$i): 
-                        $i++;?>
+                <?php if (count($album) == 0): ?>
+                    <div class='p-5 text-center'>
+                        <strong>Không có ảnh để hiển thị</strong>
+                    </div>
+                <?php endif; ?>
+                <?php $i = 0;
+                foreach ($album as $key => $n): ?>
+                    <?php if ($key / 3 == $i):
+                        $i++; ?>
                         <div class="carousel-item <?= $key == 0 ? 'active' : '' ?>">
                             <div class=row>
                             <?php endif; ?>
                             <div class="card col-4 border-0 p-2">
                                 <a href="" data-bs-toggle="modal" data-bs-target="#imageModal"
-                                    data-bs-whatever="<?= $n['anh'] ?>">
-                                    <img src="<?= $n['anh'] ?>" class="d-block w-100" alt="..."></a>
+                                    data-bs-whatever="<?= $n['file_anh'] ?>">
+                                    <img src="<?= $n['file_anh'] ?>" class="d-block w-100" alt="..."></a>
                             </div>
-                            <?php if ($key % 3 == 2||$key===array_key_last($album)): ?>
+                            <?php if ($key % 3 == 2 || $key === array_key_last($album)): ?>
                             </div>
                         </div>
                     <?php endif; ?>

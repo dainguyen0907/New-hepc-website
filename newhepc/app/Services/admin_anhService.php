@@ -9,15 +9,11 @@ use App\Models\fileAnhModel;
 class admin_anhService extends BaseService
 {
     private $anhModel;
-    private $encrypt;
-    private $encryptLib;
     public function __construct()
     {
         parent::__construct();
         $this->anhModel = new fileAnhModel();
         $this->anhModel->protect(false);
-        $this->encrypt=new encryptLibary();
-        $this->encryptLib=$this->encrypt->getEncryptLibary();
     }
 //CHức năng: Lấy tất cả hình ảnh
 //Vị trí: Trang Admin->quản trị->Hình ảnh
@@ -30,7 +26,7 @@ class admin_anhService extends BaseService
     public function deletePicture($req)
     {
         $param=$req->getPost();
-        $decryptid=openssl_decrypt($param['id'],$this->encryptLib['cipher_algo'],$this->encryptLib["passphrase"],$this->encryptLib['options'],$this->encryptLib['iv']);
+        $decryptid=$decryptid=$this->decryptString($param['pictureid']);
         if($this->anhModel->delete($decryptid))
         {
             $this->writeHistory('delete','Ảnh hoạt động',session('userLogin')['id_user'],$decryptid);
@@ -67,7 +63,7 @@ class admin_anhService extends BaseService
             "status_anh"=>$param['status_picture'],
             "censor_anh"=>$param['censor_picture']
         ];
-        $decryptid=openssl_decrypt($param['pictureid'],$this->encryptLib['cipher_algo'],$this->encryptLib["passphrase"],$this->encryptLib['options'],$this->encryptLib['iv']);
+        $decryptid=$this->decryptString($param['pictureid']);
         if($this->anhModel->update($decryptid,$data))
         {
             $this->writeHistory('update','Ảnh hoạt động',session('userLogin')['id_user'],$decryptid);

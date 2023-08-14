@@ -1,6 +1,7 @@
 <?php
 namespace App\Services;
 
+use App\Common\encryptLibary;
 use App\Common\ResultUtils;
 use App\Models\videoModel;
 
@@ -105,9 +106,10 @@ class admin_videoService extends BaseService
 //Vị trí: Trang Admin->quản trị->video clip
     public function deleteVideo($req){
         $param=$req->getPost();
-        if($this->videoModel->delete($param['id']))
+        $decryptid=$this->decryptString($param['id']);
+        if($this->videoModel->delete($decryptid))
         {
-            $this->writeHistory('delete','Video',session('userLogin')['id_user'],$param['id']);
+            $this->writeHistory('delete','Video',session('userLogin')['id_user'],$decryptid);
             return [
                 'status' => ResultUtils::STATUS_CODE_OK,
                 'messageCode' => ResultUtils::MESSAGE_CODE_OK,
@@ -144,12 +146,13 @@ class admin_videoService extends BaseService
             ];
         }
         $param=$req->getPost();
+        $decryptid=$this->decryptString($param['videoid']);
         $data=[
             "video"=>$param['videoname'],
             "file_vd"=>$param['videolink'],
             "status_vd"=>$param['videostatus']
         ];
-        if($this->checkVideoName($param['videoid'],$data['video']))
+        if($this->checkVideoName($decryptid,$data['video']))
         {
             return [
                 'status' => ResultUtils::STATUS_CODE_ERR,
@@ -157,9 +160,9 @@ class admin_videoService extends BaseService
                 'message' => ['err'=>"Tên video đã có"]
             ];
         }
-        if($this->videoModel->update($param['videoid'],$data))
+        if($this->videoModel->update($decryptid,$data))
         {
-            $this->writeHistory('update','Video',session('userLogin')['id_user'],$param['videoid']);
+            $this->writeHistory('update','Video',session('userLogin')['id_user'],$decryptid);
             return [
                 'status' => ResultUtils::STATUS_CODE_OK,
                 'messageCode' => ResultUtils::MESSAGE_CODE_OK,

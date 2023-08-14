@@ -16,7 +16,7 @@
                     <div class="p-3">
                         <form action="<?= $action ?>" method="post" >
                             <?php if($mode=="change"):?>
-                                <input type="hidden" id="id_user" name="id_user" value="<?=$user['id_user']?>">
+                                <input type="hidden" id="id_user" name="id_user" value="<?= openssl_encrypt($user['id_user'],$encrypt['cipher_algo'],$encrypt['passphrase'],$encrypt['options'],$encrypt['iv'] )?>">
                             <?php endif;?>
                             <div class="form-row">
                                 <?php if($mode=="add"):?>
