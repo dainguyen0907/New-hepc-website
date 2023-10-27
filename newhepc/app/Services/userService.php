@@ -29,8 +29,9 @@ class userService extends BaseService
         }
         $param = $req->getPost();
         $res = $this->userModel->where('email', $param['email'])->first();
-        if ($res != null) {
+        if (!is_null($res)) {
             if (!password_verify($param['password'], $res['password'])) {
+                
                 return [
                     'status' => ResultUtils::STATUS_CODE_ERR,
                     'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
@@ -45,9 +46,14 @@ class userService extends BaseService
                 ];
             }
             if (!session('userLogin')) {
-                session()->set('userLogin', $res);
+                $userSession=[
+                    'id_user'=>$res['id_user'],
+                    'id_q'=>$res['id_q'],
+                    'id_pb'=>$res['id_pb'],
+                    'user'=>$res['user'],
+                ];
+                session()->set('userLogin', $userSession);
             }
-
             return [
                 'status' => ResultUtils::STATUS_CODE_OK,
                 'messageCode' => ResultUtils::MESSAGE_CODE_OK,
@@ -98,11 +104,10 @@ class userService extends BaseService
                 'message' => ['err' => 'Không tìm thấy email. Hãy kiểm tra lại email của bạn.']
             ];
         }
-        $newpass = rand(100000, 999999);
+        $newpass ='Hepc@'.rand(100000, 999999);
         if ($this->userModel->update($data['id_user'], ['password' => password_hash($newpass, PASSWORD_DEFAULT)])) {
-            $message = 
-            'Mật khẩu tạm của bạn là: "' . $newpass . '".
-            Hãy đăng nhập vào hệ thống và đổi mật khẩu mới.';
+            $message ='   Mật khẩu tạm của bạn là: "' . $newpass . '".
+Hãy đăng nhập vào hệ thống và đổi mật khẩu mới.';
             $email = \Config\Services::email();
             $email->clear();
             $email->setFrom('website.hepc@gmail.com', 'Cập nhật mật khẩu mới');
@@ -120,7 +125,7 @@ class userService extends BaseService
                 return [
                     'status' => ResultUtils::STATUS_CODE_ERR,
                     'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
-                    'message' => ['err' => $email->printDebugger(['headers'])]
+                    'message' => ['err' => 'Xảy ra lỗi trong quá trình gửi email! Vui lòng liên hệ quản trị viên.']
                 ];
             }
         } else {

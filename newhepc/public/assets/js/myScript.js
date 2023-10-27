@@ -8,10 +8,9 @@ $(document).ready(function () {
     };
     $("#btn-search").on("click",function(){
         var key_word=$('#txt-search').val()
-        key_word=key_word.replace(/(\“|\”|\‘|\’|\,|\!|\&|\;|\@|\#|\%|\~|\`|\=|\_|\'|\]|\[|\}|\{|\)|\(|\+|\^)/,'-')
-        key_word=key_word.replace(/( )/,'-')
-        key_word=key_word.replace(/(\/)/,'-')
-        console.log(key_word)
+        key_word=key_word.replaceAll(/(\“|\”|\‘|\’|\,|\!|\&|\;|\@|\#|\%|\~|\`|\=|\_|\'|\]|\[|\}|\{|\)|\(|\+|\^)/g,'-')
+        key_word=key_word.replaceAll(/( )/g,'-')
+        key_word=key_word.replaceAll(/(\/)/g,'-')
         window.location.replace('./tim-kiem/'+key_word)
         
     })

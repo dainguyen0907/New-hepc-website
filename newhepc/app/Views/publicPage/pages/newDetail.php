@@ -1,5 +1,5 @@
 <?php if ($New != null): ?>
-    <div class="new-detail">
+    <div class="p-2">
         <h3>
             <?= $New['heading'] ?>
         </h3>
@@ -8,7 +8,7 @@
         </p>
         <?= $New['content'] ?>
         <?php if($New['file']!=null):?>
-            <iframe src="https://hepc.edu.vn/<?=$New['file']?>" width="100%" height="1080px"></iframe>
+            <iframe src="<?=$New['file']?>" width="100%" height="1080px"></iframe>
         <?php endif;?>
     </div>
     <div class="mb-3 text-end">Lượt xem:<?=$New['view']?></div>

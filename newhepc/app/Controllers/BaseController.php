@@ -70,7 +70,7 @@ abstract class BaseController extends Controller
         $masterPage['page'] = view($page, $dataLayout);
         $masterPage['footer'] = view('publicPage/layouts/footer');
         $masterPage['css'] = $css;
-        $masterPage['js'] = $js;
+        $masterPage['jsLib'] = $js;
         return $masterPage;
     }
 

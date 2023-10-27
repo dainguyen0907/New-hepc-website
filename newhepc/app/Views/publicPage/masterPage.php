@@ -5,7 +5,8 @@
     <meta name="viewport" content="user-scalable=no, width=device-width, maximum-scale=1, minimum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="title" content="Trường Cao đẳng Điện lực Thành phố Hồ Chí Minh">
-    <meta name="description" content="Trường Cao đẳng Điện lực Thành phố Hồ Chí Minh đào tạo trình độ trung cấp, cao đẳng các ngành về điện như: Công nghệ Kỹ thuật Điện – Điện tử, Điện công nghiệp, Lắp đặt bảo trì hệ thống năng lượng tái tạo, Công nghệ Kỹ thuật Điều khiển và Tự động hóa,… ">
+    <meta name="description"
+        content="Trường Cao đẳng Điện lực Thành phố Hồ Chí Minh đào tạo trình độ trung cấp, cao đẳng các ngành về điện như: Công nghệ Kỹ thuật Điện – Điện tử, Điện công nghiệp, Lắp đặt bảo trì hệ thống năng lượng tái tạo, Công nghệ Kỹ thuật Điều khiển và Tự động hóa,… ">
     <base href="<?= base_url(); ?>">
     <link rel="icon" href="assets/images/LogoEVNSPC.png" type="image/icon type">
     <title>
@@ -26,8 +27,22 @@
     <?= $header ?>
     <?= $page ?>
     <?= $footer ?>
+    <nav id="float-banner">
+        <div class="w-100 h-100 my-4 ">
+            <a href="https://www.facebook.com/DaoTaoHEPC/" target="blank" title="Trang facebook"><img src="assets/images/facebook.png" alt="Facebook"></a>
+        </div>
+        <div class="w-100 h-100 my-4 ">
+            <a href="#"><img src="assets/images/facebook-messenger.png" alt="Facebook"></a>
+        </div>
+        <div class="w-100 h-100 my-4 ">
+            <a href="https://tuyensinh.hepc.edu.vn" target="blank" title="Tuyển sinh online"><img src="assets/images/write.png" alt="Facebook"></a>
+        </div>
+    </nav>
     <script src="assets/js/jquery-3.7.0.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <?php foreach ($jsLib as $jsLink): ?>
+        <script src="<?php echo $jsLink ?>"></script>
+    <?php endforeach ?>
     <script src="assets/js/myScript.js"></script>
 </body>
 

@@ -56,7 +56,7 @@ class TCKTController extends BaseController
             $TCKTPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
             return view('publicPage/masterPage', $TCKTPage);
         } else {
-            $page = 'subMasterPage';
+            $page = 'publicPage/subMasterPage';
             $dataLayout['Banner'] = "Phòng tài chính kế toán";
             $dataLayout['content'] = view('publicPage/pages/newDetail', ['New' => $newdetail, 'More' => $this->baivietService->getMoreNew('57', $link), 'link' => "phong-tai-chinh"]);
             $dataLayout['Pager'] = null;

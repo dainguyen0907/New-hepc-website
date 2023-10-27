@@ -16,7 +16,13 @@
                         <label for="recipient-name" class="col-form-label">Xác nhận mật khẩu:</label>
                         <input type="password" class="form-control" name="repassword">
                     </div>
-
+                    <div class="mb-3">
+                        <strong>Lưu ý:</strong>
+                        <ul>
+                            <li>Mật khẩu có độ dài tối thiểu 10 ký tự.</li>
+                            <li>Mật khẩu phải chứa ký tự đặc biệt, chữ thường và chữ viết hoa.</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>

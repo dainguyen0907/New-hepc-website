@@ -33,6 +33,13 @@ class admin_userService extends BaseService
                 'message' => $validationRes->getErrors()
             ];
         }
+        if (!$this->checkPasswordStrength($param['password'])) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => ['err' => 'Mật khẩu chưa đủ mạnh.']
+            ];
+        }
         $updatePass = [
             'password' => password_hash($param['password'], PASSWORD_DEFAULT)
         ];
@@ -58,15 +65,14 @@ class admin_userService extends BaseService
     private function validatePassword($req)
     {
         $rules = [
-            "password" => 'required|min_length[6]|max_length[20]|alpha_numeric_punct',
+            "password" => 'required|min_length[8]|max_length[50]',
             "repassword" => 'required|matches[password]'
         ];
         $message = [
             "password" => [
                 'required' => 'Mật khẩu không được để trống',
-                'min_length' => 'Mật khẩu phải lớn hơn 6 ký tự',
-                'max_length' => 'Mật khẩu không vượt quá 20 ký tự',
-                'alpha_numeric_punct' => `Mật khẩu phải chứa ký tự là chữ, là số hoặc các ký tự ~!#$%&'-_+=|:.`,
+                'min_length' => 'Mật khẩu phải lớn hơn 8 ký tự',
+                'max_length' => 'Mật khẩu không vượt quá 50 ký tự',
             ],
             "repassword" => [
                 'required' => 'Xác nhận mật khẩu không được để trống',
@@ -98,6 +104,13 @@ class admin_userService extends BaseService
             ];
         }
         $param = $req->getPost();
+        if (!$this->checkPasswordStrength($param['password'])) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => ['err' => 'Mật khẩu chưa đủ mạnh.']
+            ];
+        }
         $data = [
             'id_q' => $param['roles_user'],
             'id_pb' => $param['group_user'],
@@ -136,7 +149,7 @@ class admin_userService extends BaseService
         ];
         if ($method == 'add') {
             $rules = [
-                "password" => 'required|min_length[6]|max_length[20]|alpha_numeric_punct',
+                "password" => 'required|min_length[8]|max_length[50]',
                 "email_user" => 'required|valid_email|is_unique[user.email]'
             ];
         }
@@ -151,9 +164,8 @@ class admin_userService extends BaseService
             $message = [
                 'password' => [
                     'required' => 'Mật khẩu không được để trống',
-                    'min_length' => 'Mật khẩu phải lớn hơn 6 ký tự',
-                    'max_length' => 'Mật khẩu không vượt quá 20 ký tự',
-                    'alpha_numeric_punct' => `Mật khẩu phải chứa ký tự là chữ, là số hoặc các ký tự ~!#$%&'-_+=|:.`
+                    'min_length' => 'Mật khẩu phải lớn hơn 8 ký tự',
+                    'max_length' => 'Mật khẩu không vượt quá 50 ký tự',
                 ],
                 "email_user" => [
                     'required' => 'Email không được để trống',
@@ -231,70 +243,116 @@ class admin_userService extends BaseService
     }
     //CHức năng: Đổi mật khẩu
 //Vị trí: Trang Admin->Đổi mật khẩu
+
+    public function checkPasswordStrength($password)
+    {
+        $pattern = "/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/";
+        if (preg_match($pattern, $password) == 1) {
+            return true;
+        }
+        return false;
+    }
+    public function checkUserPassword($id, $password)
+    {
+        $user = $this->userModel->where('id_user', $id)->first();
+        if (empty($user)) {
+            return false;
+        }
+        if (password_verify($password, $user['password'])) {
+            return true;
+        }
+        return false;
+    }
     public function changePassword($req)
     {
-        $validateRes=$this->validateChangePassword($req);
-        if($validateRes->getErrors()){
+        $validateRes = $this->validateChangePassword($req);
+        if ($validateRes->getErrors()) {
             return [
                 'status' => ResultUtils::STATUS_CODE_ERR,
                 'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
                 'message' => $validateRes->getErrors()
             ];
         }
-        $param=$req->getPost();
-        if(!password_verify($param['old_password'],session('userLogin')['password'])){
+        $param = $req->getPost();
+        if (!$this->checkUserPassword(session('userLogin')['id_user'], $param['old_password'])) {
             return [
                 'status' => ResultUtils::STATUS_CODE_ERR,
                 'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
-                'message' => ['err'=>'Mật khẩu cũ chưa chính xác.']
+                'message' => ['err' => 'Mật khẩu cũ chưa chính xác.']
             ];
         }
-        if($this->userModel->update(session('userLogin')['id_user'],['password'=>password_hash($param['new_password'],PASSWORD_DEFAULT)])){
+        if (!$this->checkPasswordStrength($param['new_password'])) {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => ['err' => 'Mật khẩu chưa đủ mạnh.']
+            ];
+        }
+        if ($this->userModel->update(session('userLogin')['id_user'], ['password' => password_hash($param['new_password'], PASSWORD_DEFAULT)])) {
             return [
                 'status' => ResultUtils::STATUS_CODE_OK,
                 'messageCode' => ResultUtils::MESSAGE_CODE_OK,
-                'message' => ['success'=>'Cập nhật mật khẩu thành công']
+                'message' => ['success' => 'Cập nhật mật khẩu thành công']
             ];
-        }
-        else{
+        } else {
             return [
                 'status' => ResultUtils::STATUS_CODE_ERR,
                 'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
-                'message' => ['err'=>'Đã xảy ra lỗi hệ thống! Vui lòng thử lại sau.']
+                'message' => ['err' => 'Đã xảy ra lỗi hệ thống! Vui lòng thử lại sau.']
             ];
         }
     }
     private function validateChangePassword($req)
     {
-        $rules=[
-            "old_password" => 'required|min_length[6]|max_length[20]|alpha_numeric_punct',
-            "new_password"=>'required|min_length[6]|max_length[20]|alpha_numeric_punct',
-            "re_password"=>'matches[new_password]'
+        $rules = [
+            "old_password" => 'required|min_length[9]|max_length[50]',
+            "new_password" => 'required|min_length[9]|max_length[50]|differs[old_password]',
+            "re_password" => 'matches[new_password]'
         ];
         $message = [
             'old_password' => [
                 'required' => 'Mật khẩu không được để trống',
-                'min_length' => 'Mật khẩu phải lớn hơn 6 ký tự',
-                'max_length' => 'Mật khẩu không vượt quá 20 ký tự',
-                'alpha_numeric_punct' => `Mật khẩu phải chứa ký tự là chữ, là số hoặc các ký tự ~!#$%&'-_+=|:.`
+                'min_length' => 'Mật khẩu phải lớn hơn 8 ký tự',
+                'max_length' => 'Mật khẩu không vượt quá 50 ký tự',
             ],
             'new_password' => [
                 'required' => 'Mật khẩu không được để trống',
-                'min_length' => 'Mật khẩu phải lớn hơn 6 ký tự',
-                'max_length' => 'Mật khẩu không vượt quá 20 ký tự',
-                'alpha_numeric_punct' => `Mật khẩu phải chứa ký tự là chữ, là số hoặc các ký tự ~!#$%&'-_+=|:.`
+                'min_length' => 'Mật khẩu phải lớn hơn 8 ký tự',
+                'max_length' => 'Mật khẩu không vượt quá 50 ký tự',
+                'differs'=>'Mật khẩu mới không trùng với mật khẩu cũ'
             ],
-            're_password'=>[
-                'matches'=>'Xác nhận mật khẩu chưa trùng khớp.'
+            're_password' => [
+                'matches' => 'Xác nhận mật khẩu chưa trùng khớp.'
             ]
-            
+
         ];
-        $this->validation->setRules($rules,$message);
+        $this->validation->setRules($rules, $message);
         $this->validation->withRequest($req)->run();
         return $this->validation;
     }
 
-
-
-
+    //CHức năng: Kiểm tra tính hợp lệ của tài khoản
+//Vị trí: 
+    public function checkUserStatus($userId)
+    {
+        $user=$this->userModel->find($userId);
+        if(is_null($user)){
+            return false;
+        }
+        if($user['status_user']==1)
+        {
+            return true;
+        }
+        return false;
+    }
+//CHức năng: Lấy phân quyền của tài khoản
+//Vị trí: 
+    public function getUserRole($userId)
+    {
+        $user=$this->userModel->find($userId);
+        if(is_null($user)){
+            return -1;
+        }
+        return $user['id_q'];
+    }
 }

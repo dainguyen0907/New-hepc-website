@@ -17,7 +17,7 @@
 
             </div>
             <div class="hot-news col-12 col-md-4">
-                <div class="introduce-area list-group list-group-flush">
+                <div class="my-2 list-group list-group-flush">
                     <?php foreach ($introduces as $n): ?>
                         <a class="text-black list-group-item" href="gioi-thieu/<?= $n['link_description']?>"><i class="fa-solid fa-angles-right"></i> <?= $n['heading'] ?></a>
                     <?php endforeach; ?>

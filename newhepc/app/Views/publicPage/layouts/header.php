@@ -4,7 +4,7 @@
         <div class="top-header-element">
           <a href="https://smartevn.evn.com.vn/" target="_blank"><i class="fa-solid fa-person-chalkboard"></i> Giáo viên</a>
           <a href="https://daotao.hepc.edu.vn/" target="_blank"><i class="fa-solid fa-chalkboard-user"></i> Sinh viên</a>
-          <a href="https://mail.evnspc.vn/" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
+          <a href="https://login.live.com/" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
           <?php if(session('userLogin')):?>
             <a href="./admin"><i class="fa-solid fa-gear"></i> Quản trị</a>
             <a href="./thoat"><i class="fa-solid fa-arrow-right-from-bracket"></i> Thoát</a>
@@ -14,15 +14,13 @@
         </div>
       </div>
       <div class="company-name row">
-        <div class="col-md-1 col-sm-2 col-xs-12">
-          <div class="logo">
-            <a href="#"><img src="assets/images/logoEVNSPC.png" alt="HEPC"></a>
-          </div>
+        <div class="col-xl-1 col-lg-2 col-3 h-auto">
+          <a href="#"><img src="assets/images/logoEVNSPC.png" alt="HEPC" class="w-100"/></a>
         </div>
-        <div class="col-md-11 col-sm-10 col-xs-12">
-          <div class="name-text">
-            <p>TRƯỜNG CAO ĐẲNG ĐIỆN LỰC THÀNH PHỐ HỒ CHÍ MINH<br />
-              <span>HO CHI MINH ELECTRIC POWER COLLEGE</span>
+        <div class="col-xl-11 col-lg-10 col-9 h-auto d-flex">
+          <div class="text-center m-auto">
+            <p class="text-light fw-bolder text-uppercase fs-6">TRƯỜNG CAO ĐẲNG ĐIỆN LỰC THÀNH PHỐ HỒ CHÍ MINH<br />
+              <span class="text-orange fs-5">HO CHI MINH ELECTRIC POWER COLLEGE</span>
             </p>
           </div>
         </div>
@@ -43,7 +41,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
-              <ul class="navbar-nav me-auto my-2 my-lg-0" style="--bs-scroll-height: 100px;">
+              <ul class="navbar-nav me-auto my-2 my-lg-0" style="--bs-scroll-height: 100px; margin:auto">
                 <li class="nav-item hvr-sweep-to-right">
                   <a class="nav-link" aria-current="page" href="./"><i class="fa-solid fa-house"></i></a>
                 </li>
@@ -83,9 +81,9 @@
                     <li><a class="dropdown-item hvr-sweep-to-right"
                         href="./khoa-dcn">Khoa điện công nghiệp</a></li>
                     <li><a class="dropdown-item hvr-sweep-to-right"
-                        href="./khoa-khcb-kt">Khoa KH Cơ bản - Kinh tế</a></li>
+                        href="./khoa-khcb-kt">Khoa khoa học cơ bản - kinh tế</a></li>
                     <li><a class="dropdown-item hvr-sweep-to-right"
-                        href="./khoa-cndt-tdh">Khoa CN Điện tử - Tự động hóa</a></li>
+                        href="./khoa-cndt-tdh">Khoa công nghệ Điện tử - Tự động hóa</a></li>
                     <li><a class="dropdown-item hvr-sweep-to-right"
                         href="./khoa-dtnc">Khoa đào tạo nâng cao</a></li>
                   </ul>
@@ -96,15 +94,15 @@
                   </a>
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item hvr-sweep-to-right"
-                      href="./phong-dao-tao">Phòng đào tạo</a></li>
+                      href="./phong-dao-tao">Phòng Đào tạo</a></li>
                     <li><a class="dropdown-item hvr-sweep-to-right"
-                      href="./phong-to-chuc">Phòng tổ chức</a></li>
+                      href="./phong-to-chuc">Phòng Tổ chức</a></li>
                     <li><a class="dropdown-item hvr-sweep-to-right"
-                      href="./phong-tai-chinh">Phòng kế hoạch - tài chánh</a></li>
+                      href="./phong-tai-chinh">Phòng Kế hoạch - Tài chánh</a></li>
                     <li><a class="dropdown-item hvr-sweep-to-right"
-                      href="./phong-qlkh">Phòng QLKH - QHQT</a></li>
+                      href="./phong-qlkh">Phòng quản lý Kế hoạch - Quan hệ Quốc tế</a></li>
                     <li><a class="dropdown-item hvr-sweep-to-right"
-                      href="./phong-qlhssv">Phòng quản lý HSSV</a></li>
+                      href="./phong-qlhssv">Phòng quản lý Học sinh - Sinh viên</a></li>
                     <li><a class="dropdown-item hvr-sweep-to-right"
                       href="./phong-quan-tri">Phòng quản trị</a></li>
                     <li><a class="dropdown-item hvr-sweep-to-right"
@@ -112,11 +110,6 @@
                     <li><a class="dropdown-item hvr-sweep-to-right"
                       href="./phong-nn-tt">Trung tâm Ngoại ngữ Tin học</a></li>
                   </ul>
-                </li>
-                <li class="nav-item dropdown hvr-sweep-to-right">
-                  <a class="nav-link " href="https://daotao.hepc.edu.vn/" target="_blank">
-                    Đào tạo
-                  </a>
                 </li>
                 <li class="nav-item hvr-sweep-to-right">
                   <a class="nav-link" href="https://tuyensinh.hepc.edu.vn/" target="_blank">Tuyển sinh</a>
