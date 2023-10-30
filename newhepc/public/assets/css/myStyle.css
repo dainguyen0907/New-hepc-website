@@ -281,6 +281,15 @@ img{
 
 #float-banner{
     position: fixed;
-    right:1%;
+    right:-50%;
     top:30%;
+    transition: all .5s;
+}
+
+.slide_right{
+    right:1% !important;
+}
+
+.list-group img{
+    width: 25px !important;
 }

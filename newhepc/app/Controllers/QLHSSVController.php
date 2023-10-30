@@ -52,7 +52,7 @@ class QLHSSVController extends BaseController
             $dataLayout['Banner'] = "Phòng quản lý học sinh sinh viên";
             $dataLayout['content'] = view('publicPage/pages/newsPage', ['News' => $this->baivietService->getNewForPage($catalogue['id_cmpb']), 'link' => "phong-qlhssv"]);
             $dataLayout['Pager'] = $this->baivietService->getPager();
-            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(11), 'link' => "phong-qlhssv/"]);
+            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForNew', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(11), 'link' => "phong-qlhssv/"]);
             $QLHSSVPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
             return view('publicPage/masterPage', $QLHSSVPage);
         } else {
@@ -60,7 +60,7 @@ class QLHSSVController extends BaseController
             $dataLayout['Banner'] = "Phòng quản lý học sinh sinh viên";
             $dataLayout['content'] = view('publicPage/pages/newDetail', ['New' => $newdetail, 'More' => $this->baivietService->getMoreNew('69', $link), 'link' => "phong-qlhssv"]);
             $dataLayout['Pager'] = null;
-            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(11), 'link' => "phong-qlhssv/"]);
+            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForNew', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(11), 'link' => "phong-qlhssv/"]);
             return $this->checkPageExits($newdetail, $page, $dataLayout);
         }
 

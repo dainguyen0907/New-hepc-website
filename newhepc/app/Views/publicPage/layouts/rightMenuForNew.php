@@ -8,6 +8,16 @@
                 <?= $today->format('l, d/m/y H:i:s') ?> GMT+ 7
         <?php endif; ?>
 </div>
+<?php if (isset($catalogues)): ?>
+        <div class="list-group">
+                <?php foreach ($catalogues as $c): ?>
+                        <a href="./<?= $link . $c['link'] ?>" class="list-group-item list-group-item-secondary text-black"><i
+                                        class="fa-solid fa-angles-right"></i>
+                                <?= $c['cmphongban'] ?>
+                        </a>
+                <?php endforeach; ?>
+        </div>
+<?php endif; ?>
 <div class="list-group list-group-flush">
         <span class="list-group-item list-group-item-border text-center fw-bold fs-4">CHUYÊN MỤC</span>
         <a href="./gioi-thieu/So-do-to-chuc" class="list-group-item list-group-item-border text-black"><i
@@ -29,9 +39,8 @@
 <div class=" list-group  list-group-flush newest-announcement">
         <span class="list-group-item list-group-item-border text-center fw-bold fs-4">THÔNG BÁO MỚI NHẤT</span>
         <?php foreach ($Newest as $n): ?>
-                <a href="./thong-bao/<?= $n['link_description'] ?>" class="list-group-item list-group-item-border text-black"><i
-                                class="fa-brands fa-hotjar text-red"></i>
-                        <?= $n['heading'] ?>
+                <a href="./thong-bao/<?= $n['link_description'] ?>" class="list-group-item list-group-item-border text-black">
+                <img src="assets/images/hot_gif.gif" /><?= $n['heading'] ?>
                 </a>
         <?php endforeach; ?>
 

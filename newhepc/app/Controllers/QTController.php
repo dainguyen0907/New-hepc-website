@@ -52,7 +52,7 @@ class QTController extends BaseController
             $dataLayout['Banner'] = "Phòng QT";
             $dataLayout['content'] = view('publicPage/pages/newsPage', ['News' => $this->baivietService->getNewForPage($catalogue['id_cmpb']), 'link' => "phong-quan-tri"]);
             $dataLayout['Pager'] = $this->baivietService->getPager();
-            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(12), 'link' => "phong-quan-tri/"]);
+            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForNew', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(12), 'link' => "phong-quan-tri/"]);
             $QTPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
             return view('publicPage/masterPage', $QTPage);
         } else {
@@ -60,7 +60,7 @@ class QTController extends BaseController
             $dataLayout['Banner'] = "Phòng QT";
             $dataLayout['content'] = view('publicPage/pages/newDetail', ['New' => $newdetail, 'More' => $this->baivietService->getMoreNew('75', $link), 'link' => "phong-quan-tri"]);
             $dataLayout['Pager'] = null;
-            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(12), 'link' => "phong-quan-tri/"]);
+            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForNew', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(12), 'link' => "phong-quan-tri/"]);
             return $this->checkPageExits($newdetail, $page, $dataLayout);
         }
 

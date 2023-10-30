@@ -52,7 +52,7 @@ class CNDTTDHController extends BaseController
             $dataLayout['Banner'] = "Khoa công nghệ điện tử - tự động hoá";
             $dataLayout['content'] = view('publicPage/pages/newsPage', ['News' => $this->baivietService->getNewForPage($catalogue['id_cmpb']), 'link' => "khoa-cndt-tdh"]);
             $dataLayout['Pager'] = $this->baivietService->getPager();
-            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(5), 'link' => "khoa-cndt-tdh/"]);
+            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForNew', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(5), 'link' => "khoa-cndt-tdh/"]);
             $CNDTTDHPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
             return view('publicPage/masterPage', $CNDTTDHPage);
         } else {
@@ -60,7 +60,7 @@ class CNDTTDHController extends BaseController
             $dataLayout['Banner'] = "Khoa công nghệ điện tử - tự động hoá";
             $dataLayout['content'] = view('publicPage/pages/newDetail', ['New' => $newdetail, 'More' => $this->baivietService->getMoreNew('31', $link), 'link' => "khoa-cndt-tdh"]);
             $dataLayout['Pager'] = null;
-            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(5), 'link' => "khoa-cndt-tdh/"]);
+            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForNew', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(5), 'link' => "khoa-cndt-tdh/"]);
             return $this->checkPageExits($newdetail, $page, $dataLayout);
         }
 

@@ -26,8 +26,8 @@ class LoginController extends BaseController
         $dataLayout['content'] = view('publicPage/pages/login', ['countLogin' => session('countLogin')]);
         $dataLayout['Pager'] = null;
         $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForNew', ['Newest' => $this->baivietService->getAnouncementForRightMenu()]);
-        $js = ['https://www.google.com/recaptcha/api.js'];
-        $NewPaperPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], $js);
+        $jsLib = ['https://www.google.com/recaptcha/api.js'];
+        $NewPaperPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], $jsLib);
         return view('publicPage/masterPage', $NewPaperPage);
     }
 
@@ -47,26 +47,6 @@ class LoginController extends BaseController
         return redirect()->back()->withInput()->with($res['messageCode'], $res['message']);
     }
 
-    private function verifyCaptcha($keySecret)
-    {
-        $captcha_respone = trim($this->request->getPost('g-recaptcha-response'));
-        if ($captcha_respone != '') {
-            $check = array(
-                'secret' => $keySecret,
-                'response' => $this->request->getPost('g-recaptcha-response')
-            );
-            $startProcess = curl_init();
-            curl_setopt($startProcess, CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify");
-            curl_setopt($startProcess, CURLOPT_POST, true);
-            curl_setopt($startProcess, CURLOPT_POSTFIELDS, http_build_query($check));
-            curl_setopt($startProcess, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($startProcess, CURLOPT_RETURNTRANSFER, true);
-            $receiveData = curl_exec($startProcess);
-            $finalResponse = json_decode($receiveData, true);
-            return $finalResponse;
-        }
-        return false;
-    }
     public function login()
     {
         if (session('countLogin') && session('countLogin') > 3) {
@@ -98,8 +78,8 @@ class LoginController extends BaseController
         $dataLayout['content'] = view('publicPage/pages/forgetPasswordPage');
         $dataLayout['Pager'] = null;
         $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForNew', ['Newest' => $this->baivietService->getAnouncementForRightMenu()]);
-        $js = ['https://www.google.com/recaptcha/api.js'];
-        $NewPaperPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], $js);
+        $jsLib = ['https://www.google.com/recaptcha/api.js'];
+        $NewPaperPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], $jsLib);
         return view('publicPage/masterPage', $NewPaperPage);
     }
 

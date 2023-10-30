@@ -50,7 +50,7 @@ class GroupController extends BaseController
             $dataLayout['Banner'] = "Đoàn thanh niên";
             $dataLayout['content'] = view('publicPage/pages/newsPage', ['News' => $this->baivietService->getNewForPage($catalogue['id_cmpb']), 'link' => "hoat-dong-doan"]);
             $dataLayout['Pager'] = $this->baivietService->getPager();
-            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(17), 'link' => "hoat-dong-doan/"]);
+            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForNew', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(17), 'link' => "hoat-dong-doan/"]);
             $GroupPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
             return view('publicPage/masterPage', $GroupPage);
         } else {
@@ -58,7 +58,7 @@ class GroupController extends BaseController
             $dataLayout['Banner'] = "Công đoàn";
             $dataLayout['content'] = view('publicPage/pages/newDetail', ['New' => $newdetail, 'More' => $this->baivietService->getMoreNew('130', $link), 'link' => "hoat-dong-doan"]);
             $dataLayout['Pager'] = null;
-            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(17), 'link' => "hoat-dong-doan/"]);
+            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForNew', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(17), 'link' => "hoat-dong-doan/"]);
             return $this->checkPageExits($newdetail, $page, $dataLayout);
         }
 

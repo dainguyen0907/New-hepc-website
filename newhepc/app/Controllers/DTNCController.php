@@ -52,7 +52,7 @@ class DTNCController extends BaseController
             $dataLayout['Banner'] = "Khoa đào tạo nâng cao";
             $dataLayout['content'] = view('publicPage/pages/newsPage', ['News' => $this->baivietService->getNewForPage($catalogue['id_cmpb']), 'link' => "khoa-dtnc"]);
             $dataLayout['Pager'] = $this->baivietService->getPager();
-            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(6), 'link' => "khoa-dtnc/"]);
+            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForNew', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(6), 'link' => "khoa-dtnc/"]);
             $DTNCPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
             return view('publicPage/masterPage', $DTNCPage);
         } else {
@@ -60,7 +60,7 @@ class DTNCController extends BaseController
             $dataLayout['Banner'] = "Khoa đào tạo nâng cao";
             $dataLayout['content'] = view('publicPage/pages/newDetail', ['New' => $newdetail, 'More' => $this->baivietService->getMoreNew('38', $link), 'link' => "khoa-dtnc"]);
             $dataLayout['Pager'] = null;
-            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(6), 'link' => "khoa-dtnc/"]);
+            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForNew', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(6), 'link' => "khoa-dtnc/"]);
             return $this->checkPageExits($newdetail, $page, $dataLayout);
         }
 

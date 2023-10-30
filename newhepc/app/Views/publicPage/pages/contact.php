@@ -35,7 +35,8 @@
             <textarea name="content_contact" rows="5" class="form-control" required></textarea>
         </div>
         <div class="mb-3 text-end">
-            <button type="submit" class="btn btn-primary">Gửi phản hồi</button>
+            <div class="g-recaptcha" data-sitekey="6LcMld4oAAAAALhV2efu_fPwGbV5jS7F5XOmgVF_"></div>
+            <button type="submit" class="btn btn-primary" data-sitekey="">Gửi phản hồi</button>
         </div>
     </form>
     <hr />

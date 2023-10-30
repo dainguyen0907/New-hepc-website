@@ -181,15 +181,15 @@ class admin_baivietService extends BaseService
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         $data=[
             "id_cmpb"=>$param['group_post'],
-            "heading"=>$param['heading_post'],
+            "heading"=>trim($param['heading_post']),
             "link_description"=>$this->convert_name($param['heading_post']),
-            "summarize"=>$param['summarize_post'],
-            "content"=>$param['content_post'],
+            "summarize"=>trim($param['summarize_post']),
+            "content"=>trim($param['content_post']),
             "d_poss"=>date("d/m/Y H:i:s"),
             "view"=>0,
             "id_user"=>session('userLogin')['id_user'],
-            "file"=>$param['file_post'],
-            'img'=>$param['image_post'],
+            "file"=>trim($param['file_post']),
+            'img'=>trim($param['image_post']),
             'status_bv'=>'0',
             'censor_bv'=>'0'
         ];
@@ -234,10 +234,10 @@ class admin_baivietService extends BaseService
             ];
         }
         $data=[
-            "heading"=>$param['heading_post'],
+            "heading"=>trim($param['heading_post']),
             "link_description"=>$this->convert_name($param['heading_post']),
-            "summarize"=>$param['summarize_post'],
-            "content"=>$param['content_post'],
+            "summarize"=>trim($param['summarize_post']),
+            "content"=>trim($param['content_post']),
             "view"=>$param['view_post'],
             "file"=>$param['file_post'],
             'img'=>$param['image_post'],

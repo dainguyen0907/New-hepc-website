@@ -52,7 +52,7 @@ class KHCBKTController extends BaseController
             $dataLayout['Banner'] = "Khoa học cơ bản - kinh tế";
             $dataLayout['content'] = view('publicPage/pages/newsPage', ['News' => $this->baivietService->getNewForPage($catalogue['id_cmpb']), 'link' => "khoa-khcb-kt"]);
             $dataLayout['Pager'] = $this->baivietService->getPager();
-            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(4), 'link' => "khoa-khcb-kt/"]);
+            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForNew', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(4), 'link' => "khoa-khcb-kt/"]);
             $KHCBKTPage = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
             return view('publicPage/masterPage', $KHCBKTPage);
         } else {
@@ -60,7 +60,7 @@ class KHCBKTController extends BaseController
             $dataLayout['Banner'] = "Khoa học cơ bản - kinh tế";
             $dataLayout['content'] = view('publicPage/pages/newDetail', ['New' => $newdetail, 'More' => $this->baivietService->getMoreNew('23', $link), 'link' => "khoa-khcb-kt"]);
             $dataLayout['Pager'] = null;
-            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForOffice', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(4), 'link' => "khoa-khcb-kt/"]);
+            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForNew', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues(4), 'link' => "khoa-khcb-kt/"]);
             return $this->checkPageExits($newdetail, $page, $dataLayout);
         }
 

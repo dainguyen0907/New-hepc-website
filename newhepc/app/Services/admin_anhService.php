@@ -58,7 +58,7 @@ class admin_anhService extends BaseService
         }
         $param=$req->getPost();
         $data=[
-            "file_anh"=>$param['picturelink'],
+            "file_anh"=>trim($param['picturelink']),
             "id_p"=>$param['picturegroup'],
             "status_anh"=>$param['status_picture'],
             "censor_anh"=>$param['censor_picture']
@@ -111,7 +111,7 @@ class admin_anhService extends BaseService
         }
         $param=$req->getPost();
         $data=[
-            "file_anh"=>$param['picturelink'],
+            "file_anh"=>trim($param['picturelink']),
             "id_p"=>session('userLogin')['id_pb'],
             "id_user"=>session('userLogin')['id_user'],
             "status_anh"=>0,
