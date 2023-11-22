@@ -27,6 +27,14 @@ class admin_anhService extends BaseService
     {
         $param=$req->getPost();
         $decryptid=$decryptid=$this->decryptString($param['pictureid']);
+        if(!$this->checkValidUserRole($decryptid))
+        {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => ['err'=>'Tài khoản không có quyền xoá ảnh này.']
+            ];
+        }
         if($this->anhModel->delete($decryptid))
         {
             $this->writeHistory('delete','Ảnh hoạt động',session('userLogin')['id_user'],$decryptid);
@@ -64,6 +72,14 @@ class admin_anhService extends BaseService
             "censor_anh"=>$param['censor_picture']
         ];
         $decryptid=$this->decryptString($param['pictureid']);
+        if(!$this->checkValidUserRole($decryptid))
+        {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => ['err'=>'Tài khoản không có quyền chỉnh sửa ảnh này.']
+            ];
+        }
         if($this->anhModel->update($decryptid,$data))
         {
             $this->writeHistory('update','Ảnh hoạt động',session('userLogin')['id_user'],$decryptid);
@@ -151,5 +167,32 @@ class admin_anhService extends BaseService
     public function getCensorPicture($id_pb)
     {
         return $this->anhModel->join('user','fileanh.id_user=user.id_user','left')->join('phongban','fileanh.id_p=phongban.id_pb')->where(["id_p"=>$id_pb,"censor_anh"=>0])->findAll();
+    }
+
+    private function checkValidUserRole($id_anh){
+        if(!session("userLogin")){
+            return false;
+        }
+        $id_user=session("userLogin")["id_user"];
+        $user=$this->userModel->find($id_user);
+        $id_pb=$user["id_pb"];
+        if(!isset($user))
+        {
+            return false;
+        }
+        if($user["status_user"]==0)
+        {
+            return false;
+        }
+        if($user["id_q"]==1)
+        {
+            return true;
+        }
+        $post=$this->anhModel->where(['id_p'=>$id_pb,'id_anh'=>$id_anh])->first();
+        if(isset($post))
+        {
+            return true;
+        }
+        return false;
     }
 }

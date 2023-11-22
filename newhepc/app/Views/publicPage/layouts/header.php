@@ -112,7 +112,7 @@
                   </ul>
                 </li>
                 <li class="nav-item hvr-sweep-to-right">
-                  <a class="nav-link" href="https://tuyensinh.hepc.edu.vn/" target="_blank">Tuyển sinh</a>
+                  <a class="nav-link" href="./tuyen-sinh">Tuyển sinh</a>
                 </li>
                 
                 <li class="nav-item hvr-sweep-to-right">

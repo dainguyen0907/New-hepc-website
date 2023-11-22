@@ -28,11 +28,6 @@
                 <li class="page-item">
                     <a class="page-link" href="<?= $pager->getNext() ?>"><?= $pager->getNextPageNumber() ?></a>
                 </li>
-                <?php if ($pager->getCurrentPageNumber() == 1 && $pager->getPageCount() >= 3): ?>
-                    <li class="page-item">
-                        <a class="page-link" href="#">3</a>
-                    </li>
-                <?php endif; ?>
                 <?php if ($pager->getPageCount()>3): ?>
                 <li class="page-item">
                     <span class="page-link" href="#">...</span>

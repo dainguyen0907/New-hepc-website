@@ -41,8 +41,8 @@
                                     <?= $n['status_banner'] == 1 ? 'Hoạt động' : 'Vô hiệu hóa' ?>
                                 </td>
                                 <td class="text-center">
-                                    <a href="" class="btn btn-primary mb-3" title="Cập nhật thông tin" data-bs-toggle="modal"
-                                        data-bs-target="#updateBannerModal" data-name="<?=$n['file']?>" data-status="<?=$n['status_banner']?>"
+                                    <a href="" class="btn btn-primary mb-3" title="Cập nhật thông tin" data-bs-toggle="modal" 
+                                        data-bs-target="#updateBannerModal" data-name="<?=$n['file']?>" data-status="<?=$n['status_banner']?>" data-link="<?=$n['banner_link']?>"
                                         data-id="<?= openssl_encrypt($n['id_banner'], $encrypt['cipher_algo'], $encrypt['passphrase'], $encrypt['options'], $encrypt['iv']) ?>">
                                         <i class="fas fa-edit"></i></a>
                                     <a class="btn btn-danger btn-del-confirm mb-3" title="Xóa banner" data-bs-toggle="modal"
@@ -69,14 +69,17 @@
         var button = event.relatedTarget
         var id = button.getAttribute('data-id')
         var name = button.getAttribute('data-name')
+        var link = button.getAttribute('data-link')
         var status = button.getAttribute('data-status')
 
         var modalID = updateBannerModal.querySelector('#id_banner')
         var modalName = updateBannerModal.querySelector('#link_banner')
+        var modalLink = updateBannerModal.querySelector('#post_link')
         var modalActive = updateBannerModal.querySelector('#active_banner')
         var modalInactive = updateBannerModal.querySelector('#inactive_banner')
 
         modalID.value = id
+        modalLink.value= link
         modalName.value=name
         if(status==1){
             modalActive.setAttribute('checked','checked')

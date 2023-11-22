@@ -8,8 +8,12 @@
             <form method="post" action="admin/management/banner/add">
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">Link:</label>
+                        <label class="col-form-label">Đường dẫn hình ảnh:</label>
                         <input type="text" class="form-control" name="bannerlink" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="col-form-label">Đường dẫn bài viết:</label>
+                        <input type="text" class="form-control" name="postlink">
                     </div>
                 </div>
                 <div class="modal-footer">

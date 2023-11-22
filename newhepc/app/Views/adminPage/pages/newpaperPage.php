@@ -63,7 +63,7 @@
                                 <td class="<?= $n['censor_bv'] == 1 ? 'text-success' : 'text-danger' ?>">
                                     <?= $n['censor_bv'] == 1 ? 'Đã duyệt' : 'Chưa duyệt' ?>
                                 </td>
-                                <td class="text-center">
+                                <td class="text-center text-white">
                                 <?php if (($role == 'admin' || $role == 'leader')&&$n['censor_bv']==0): ?>
                                     <a href="./admin/control/pass/<?= $n['id_bv'] ?>" class="btn btn-success mb-3"
                                         title="Duyệt bài">
@@ -72,7 +72,7 @@
                                         title="Không duyệt">
                                         <i class="fa-solid fa-x"></i></a>
                                 <?php endif;?>
-                                <a href="./admin/post/<?= $n['id_bv'] ?>" class="btn btn-primary mb-3"
+                                <a class="btn btn-primary mb-3" onclick="window.open('./admin/post/<?= $n['id_bv']?>','UpdateMgs','width=700,height=500')"
                                         title="Cập nhật thông tin">
                                         <i class="fas fa-edit"></i></a>
                                 <?php if ($role != 'leader'): ?>

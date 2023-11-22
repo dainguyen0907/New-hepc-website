@@ -27,18 +27,24 @@
     <?= $header ?>
     <?= $page ?>
     <?= $footer ?>
-    <nav id="float-banner">
-        <div class="w-100 h-100 my-4 ">
+    <nav id="float-banner" class="text-center text-primary">
+        <div class="w-100 h-100">
             <a href="https://www.facebook.com/DaoTaoHEPC/" target="blank" title="Trang facebook">
                 <img src="assets/images/facebook.png" alt="Facebook"/></a>
-            
         </div>
-        <div class="w-100 h-100 my-4 ">
+        <small class="fw-bold">Fanpage</small>
+        <div class="w-100 h-100 mt-2">
             <a href="#"><img src="assets/images/facebook-messenger.png" alt="Messenger"/></a>
         </div>
-        <div class="w-100 h-100 my-4 ">
+        <small class="fw-bold">Messenger</small>
+        <div class="w-100 h-100 mt-2">
             <a href="https://tuyensinh.hepc.edu.vn" target="blank" title="Tuyển sinh online"><img src="assets/images/write.png" alt="Tuyển sinh"/></a>
         </div>
+        <small class="fw-bold">Tuyển sinh<br/>online</small>
+        <div class="w-100 h-100 mt-2">
+            <a href="https://vanbang.gdnn.gov.vn/" target="blank" title="Tra cứu văn bằng"><img src="assets/images/tracuu.png" alt="Tra cứu"/></a>
+        </div>
+        <small class="fw-bold">Tra cứu<br/>văn bằng</small>
     </nav>
     <script src="assets/js/jquery-3.7.0.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>

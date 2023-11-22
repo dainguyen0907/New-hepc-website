@@ -4,7 +4,7 @@
             <div class="carousel-inner">
                 <?php foreach ($Banners as $key => $b): ?>
                     <div class="carousel-item <?= $key === array_key_last($Banners) ? 'active' : '' ?>" data-bs-interval="5000">
-                        <img src="<?= $b['file'] ?>" class="d-block w-100" alt="...">
+                       <a href="<?= $b['banner_link']?>" target="_blank"><img src="<?= $b['file'] ?>" class="d-block w-100" alt="..."/></a> 
                     </div>
                 <?php endforeach; ?>
             </div>

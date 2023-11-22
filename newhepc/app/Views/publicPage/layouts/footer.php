@@ -30,7 +30,7 @@
             <div class="col-12 text-center">
                 <hr />
                 <span class="pull-right">© HEPC 2023 - All right reserved</span><br/>
-                Design by Administrator - Devolopment by Mr Dai
+                Design by Administrator - Devoloped by Mr Dai
             </div>
         </div>
 

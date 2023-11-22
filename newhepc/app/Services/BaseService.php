@@ -2,18 +2,21 @@
 namespace App\Services;
 use App\Common\encryptLibary;
 use App\Models\nhatkyModel;
+use App\Models\userModel;
 
 class BaseService{
 
     public $validation;
     private $nhatkyModel;
     private $encrypt;
+    private $userModel;
     private $encryptLib;
 
     function __construct()
     {
         $this->validation=\config\Services::validation();
         $this->nhatkyModel=new nhatkyModel();
+        $this->userModel=new userModel();
         $this->nhatkyModel->protect(false);
         $this->encrypt=new encryptLibary();
         $this->encryptLib=$this->encrypt->getEncryptLibary();
@@ -65,12 +68,12 @@ class BaseService{
 
     public function decryptString($string_encrypt)
     {
-        return  $decryptid=openssl_decrypt($string_encrypt,$this->encryptLib['cipher_algo'],$this->encryptLib["passphrase"],$this->encryptLib['options'],$this->encryptLib['iv']);
+        return openssl_decrypt($string_encrypt,$this->encryptLib['cipher_algo'],$this->encryptLib["passphrase"],$this->encryptLib['options'],$this->encryptLib['iv']);
     }
 
     public function encryptString($string_encrypt)
     {
-        return  $decryptid=openssl_encrypt($string_encrypt,$this->encryptLib['cipher_algo'],$this->encryptLib["passphrase"],$this->encryptLib['options'],$this->encryptLib['iv']);
+        return  openssl_encrypt($string_encrypt,$this->encryptLib['cipher_algo'],$this->encryptLib["passphrase"],$this->encryptLib['options'],$this->encryptLib['iv']);
     }
 
     

@@ -36,6 +36,7 @@ class admin_bannerService extends BaseService
         $param=$req->getPost();
         $data=[
             "file"=>$param['bannerlink'],
+            "banner_link"=>$param['postlink'],
             "id_user"=>session('userLogin')['id_user'],
             "status_banner"=>'0'
         ];
@@ -87,6 +88,7 @@ class admin_bannerService extends BaseService
         $decryptid=$this->decryptString($param['bannerid']);
         $data=[
             "file"=>$param['bannerlink'],
+            "banner_link"=>$param['postlink'],
             "status_banner"=>$param['status_banner']
         ];
         $res=$this->bannerModel->update($decryptid,$data);

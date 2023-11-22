@@ -120,7 +120,7 @@ class Admin_NewController extends BaseController
     public function loadUpdatePostPage($id_bv)
     {
         $post = $this->baivietService->getPostDetail($id_bv, session('userLogin')['id_q']);
-        if ($post != null) {
+        if (isset($post)) {
             $masterPage = [];
             $title = "Trang chủ";
             $page = 'adminPage/Pages/postPage-add';

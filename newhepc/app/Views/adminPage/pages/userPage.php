@@ -43,12 +43,12 @@
                                 <td>
                                     <?= $n['status_user'] == '1' ? 'Đang sử dụng' : 'Vô hiệu hóa' ?>
                                 </td>
-                                <td class="text-center">
+                                <td class="text-center text-white">
                                     <a href="#" class="btn btn-success" title="Reset mật khẩu" data-bs-toggle="modal"
                                         data-bs-target="#resetPassModal"
                                         data-idUser="<?= openssl_encrypt($n['id_user'], $encrypt['cipher_algo'], $encrypt['passphrase'], $encrypt['options'], $encrypt['iv']) ?>">
                                         <i class="fa-solid fa-key"></i></a>
-                                    <a href="admin/management/user/<?= $n['id_user'] ?>" class="btn btn-primary"
+                                    <a class="btn btn-primary" onclick="window.open('admin/management/user/<?= $n['id_user'] ?>','UpdateMgs','width=700,height=500')"
                                         title="Cập nhật thông tin"><i class="fas fa-edit"></i></a>
                                     <?php if ($n['id_user'] != 1 && $n['id_user'] != session('userLogin')['id_user']): ?>
                                         <a class="btn btn-danger btn-del-confirm" title="Xóa tài khoản" data-bs-toggle="modal"

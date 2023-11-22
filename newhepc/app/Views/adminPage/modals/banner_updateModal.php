@@ -9,8 +9,12 @@
                 <input type="hidden" name="bannerid" id="id_banner">
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">Link:</label>
+                        <label for="recipient-name" class="col-form-label">Đường dẫn ảnh:</label>
                         <input type="text" class="form-control" name="bannerlink" id="link_banner" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="col-form-label">Đường dẫn bài viết:</label>
+                        <input type="text" class="form-control" name="postlink" id="post_link">
                     </div>
                     <div class="mb-3">
                         <label> Trạng thái</label>

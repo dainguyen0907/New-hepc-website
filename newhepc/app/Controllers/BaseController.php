@@ -5,6 +5,9 @@ namespace App\Controllers;
 use App\Services\admin_anhService;
 use App\Services\admin_baivietService;
 use App\Services\admin_lienheService;
+use App\Services\baivietService;
+use App\Services\cmphongbanService;
+use App\Services\fileAnhService;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
@@ -33,6 +36,9 @@ abstract class BaseController extends Controller
     private $pictureService;
     private $postService;
     private $contactService;
+    private $cmpbService;
+    private $baivietService;
+    private $anhService;
     /**
      * An array of helpers to be loaded automatically upon
      * class instantiation. These helpers will be available
@@ -57,10 +63,12 @@ abstract class BaseController extends Controller
         parent::initController($request, $response, $logger);
 
         // Preload any models, libraries, etc, here.
-        
+        $this->baivietService = new baivietService();
         $this->pictureService=new admin_anhService();
         $this->postService=new admin_baivietService();
         $this->contactService=new admin_lienheService();
+        $this->cmpbService = new cmphongbanService();
+        $this->anhService=new fileAnhService();
         // E.g.: $this->session = \Config\Services::session();
     }
     public function loadLayout($masterPage, $title, $page, $dataLayout, $css, $js)
@@ -119,7 +127,7 @@ abstract class BaseController extends Controller
 		return $str;
     }
 
-    private function verifyCaptcha($keySecret)
+    protected function verifyCaptcha($keySecret)
     {
         $captcha_respone = trim($this->request->getPost('g-recaptcha-response'));
         if ($captcha_respone != '') {
@@ -140,5 +148,54 @@ abstract class BaseController extends Controller
         return false;
     }
 
+    protected function loadDepartmentPage($id_department,$id_catalouge_1,$id_catalouge_2,$title,$link_department)
+    {
+        $gioithieu = $this->cmpbService->getCatalogueByID($id_catalouge_1);
+        $tintuc = $this->cmpbService->getCatalogueByID($id_catalouge_2);
+        if(!isset($gioithieu)){
+            $gioithieu=["cmphongban"=>"","link"=>"/#"];
+        }
+        if(!isset($tintuc)){
+            $tintuc=["cmphongban"=>"","link"=>"/#"];
+        }
+        $masterPage = [];
+        $page = 'publicPage/pages/officePage';
+        $dataLayout['Banner'] = $title;
+        $dataLayout['f_name_catalogue'] = $gioithieu['cmphongban'];
+        $dataLayout['s_name_catalogue'] = $tintuc['cmphongban'];
+        $dataLayout['f_link'] = $gioithieu['link'];
+        $dataLayout['s_link'] = $tintuc['link'];
+        $dataLayout['f_news'] = $this->baivietService->getNewsforOfficePage($id_catalouge_1);
+        $dataLayout['s_news'] = $this->baivietService->getNewsforOfficePage($id_catalouge_2);
+        $dataLayout['image'] = null;
+        $dataLayout['album']=$this->anhService->getPicturesById_PB($id_department);
+        $dataLayout['link'] = $link_department;
+        $Page = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
+        return view('publicPage/masterPage', $Page);
+    }
 
+    protected function loadNewDetailPage($link,$id_department,$title,$link_department)
+    {
+        $catalogue = $this->cmpbService->getCatalogueByLink($id_department, $link);
+        $newdetail = $this->baivietService->getNewDetailByID_PB($id_department, $link);
+        if ($catalogue == null && $newdetail == null) {
+            return $this->load404page();
+        } elseif (isset($catalogue)) {
+            $masterPage = [];
+            $page = 'publicPage/subMasterPage';
+            $dataLayout['Banner'] = $title ;
+            $dataLayout['content'] = view('publicPage/pages/newsPage', ['News' => $this->baivietService->getNewForPage($catalogue['id_cmpb']), 'link' => $link_department]);
+            $dataLayout['Pager'] = $this->baivietService->getPager();
+            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForNew', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues($id_department), 'link' => $link_department]);
+            $Page = $this->loadLayout($masterPage, $title, $page, $dataLayout, [], []);
+            return view('publicPage/masterPage', $Page);
+        } else {
+            $page = 'publicPage/subMasterPage';
+            $dataLayout['Banner'] = $title;
+            $dataLayout['content'] = view('publicPage/pages/newDetail', ['New' => $newdetail, 'More' => $this->baivietService->getMoreNew($newdetail['id_cmpb'], $link), 'link' => $link_department]);
+            $dataLayout['Pager'] = null;
+            $dataLayout['rightBanner'] = view('publicPage/layouts/rightMenuForNew', ['Newest' => $this->baivietService->getAnouncementForRightMenu(), 'catalogues' => $this->cmpbService->getCatalogues($id_department), 'link' => $link_department]);
+            return $this->checkPageExits($newdetail, $page, $dataLayout);
+        }
+    }
 }

@@ -88,6 +88,7 @@ class Admin_PictureController extends BaseController
         $jsLib = [libary::jsDataTables,"assets/js/modal.js"];
         $page = 'adminPage/pages/picturePage';
         $dataLayout['role']='leader';
+        $dataLayout['encrypt']=$this->encrypt->getEncryptLibary();
         $dataLayout['pictures']=$this->pictureService->getCensorPicture(session('userLogin')['id_pb']);
         $dataLayout['Groups']=$this->groupService->getAllPhongBan();
         $AdmissionPage = $this->loadAdminLayout($masterPage, $title, $page, $dataLayout, $cssLib, $jsLib);

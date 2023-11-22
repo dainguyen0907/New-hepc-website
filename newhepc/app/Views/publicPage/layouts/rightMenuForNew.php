@@ -11,7 +11,7 @@
 <?php if (isset($catalogues)): ?>
         <div class="list-group">
                 <?php foreach ($catalogues as $c): ?>
-                        <a href="./<?= $link . $c['link'] ?>" class="list-group-item list-group-item-secondary text-black"><i
+                        <a href="./<?= $link."/" . $c['link'] ?>" class="list-group-item list-group-item-secondary text-black"><i
                                         class="fa-solid fa-angles-right"></i>
                                 <?= $c['cmphongban'] ?>
                         </a>

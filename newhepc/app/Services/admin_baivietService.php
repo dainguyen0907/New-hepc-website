@@ -4,17 +4,20 @@ namespace App\Services;
 use App\Common\ResultUtils;
 use App\Models\baivietModel;
 use App\Models\cmPhongBanModel;
+use App\Models\userModel;
 
 
 class admin_baivietService extends BaseService
 {
     private $baivietModel;
     private $cmphongbanModel;
+    private $userModel;
     public function __construct()
     {
         parent::__construct();
         $this->baivietModel = new baivietModel();
         $this->cmphongbanModel=new cmPhongBanModel();
+        $this->userModel=new userModel();
         $this->baivietModel->protect(false);
     }
 //CHức năng: Lấy tất cả bản tin
@@ -225,6 +228,14 @@ class admin_baivietService extends BaseService
         }
         $param=$req->getPost();
         $decryptid=$this->decryptString($param['id_bv']);
+        if(!$this->checkValidUserRole($decryptid))
+        {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => ['err'=>'Tài khoản không có quyền chỉnh sửa bài viết này.']
+            ];
+        }
         if($this->is_exits_updatepost($decryptid,$param['heading_post']))
         {
             return [
@@ -303,6 +314,14 @@ class admin_baivietService extends BaseService
 //Vị trí: Trang Admin->quản trị->bài viết
     public function censor_post($id_bv,$censor)
     {
+        if(!$this->checkValidUserRole($id_bv))
+        {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => ['err'=>'Tài khoản không có quyền chỉnh sửa bài viết này.']
+            ];
+        }
         if($censor=='pass')
         {
             $data=['censor_bv'=>'1','status_bv'=>'1'];
@@ -331,6 +350,14 @@ public function deletePost($req)
     {
         $param=$req->getPost();
         $decryptid=$this->decryptString($param['id']);
+        if(!$this->checkValidUserRole($decryptid))
+        {
+            return [
+                'status' => ResultUtils::STATUS_CODE_ERR,
+                'messageCode' => ResultUtils::MESSAGE_CODE_ERR,
+                'message' => ['err'=>'Tài khoản không có quyền chỉnh sửa bài viết này.']
+            ];
+        }
         if($this->baivietModel->delete($decryptid))
         {
             $this->writeHistory('delete','Bài viết',session('userLogin')['id_user'],$decryptid);
@@ -347,5 +374,38 @@ public function deletePost($req)
         ];
         
     }
+//CHức năng: Kiểm tra tính hợp lệ của người chỉnh sửa bài viết.
+//Vị trí:
 
+private function checkValidUserRole($id_bv){
+    if(!session("userLogin")){
+        return false;
+    }
+    $id_user=session("userLogin")["id_user"];
+    $user=$this->userModel->find($id_user);
+    $id_pb=$user["id_pb"];
+    if(!isset($user))
+    {
+        return false;
+    }
+    if($user["status_user"]==0)
+    {
+        return false;
+    }
+    if($user["id_q"]==1)
+    {
+        return true;
+    }
+    $post=$this->baivietModel->join('cmphongban','baiviet.id_cmpb=cmphongban.id_cmpb')->where(['id_pb'=>$id_pb,'id_bv'=>$id_bv])->first();
+    if(isset($post)&&$user["id_q"]==2)
+    {
+        return true;
+    }
+    $userpost=$this->baivietModel->where(['id_user'=>$id_user,'id_bv'=>$id_bv])->first();
+    if(isset($userpost)&&$user["id_q"]==3)
+    {
+        return true;
+    }
+    return false;
+}
 }
