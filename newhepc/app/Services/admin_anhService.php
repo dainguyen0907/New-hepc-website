@@ -4,15 +4,18 @@ namespace App\Services;
 use App\Common\encryptLibary;
 use App\Common\ResultUtils;
 use App\Models\fileAnhModel;
+use App\Models\userModel;
 
 
 class admin_anhService extends BaseService
 {
     private $anhModel;
+    private $userModel;
     public function __construct()
     {
         parent::__construct();
         $this->anhModel = new fileAnhModel();
+        $this->userModel=new userModel();
         $this->anhModel->protect(false);
     }
 //CHức năng: Lấy tất cả hình ảnh
@@ -26,7 +29,7 @@ class admin_anhService extends BaseService
     public function deletePicture($req)
     {
         $param=$req->getPost();
-        $decryptid=$decryptid=$this->decryptString($param['pictureid']);
+        $decryptid=$decryptid=$this->decryptString($param['id']);
         if(!$this->checkValidUserRole($decryptid))
         {
             return [
